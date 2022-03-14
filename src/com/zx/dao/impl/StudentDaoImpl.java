@@ -2,12 +2,19 @@ package com.zx.dao.impl;
 
 import com.zx.beans.Student;
 import com.zx.dao.StudentDao;
+import com.zx.util.JDBCUtil;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.*;
 import com.zx.util.JDBCUtil;
 import java.sql.PreparedStatement;
 
 
 public class StudentDaoImpl implements StudentDao {
+
     @Override
     public void Register(String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, java.util.Date stdate) {
 
@@ -15,6 +22,7 @@ public class StudentDaoImpl implements StudentDao {
         Connection connection = null;
         try {
             connection = JDBCUtil.getConnection();
+
             String sql = "insert into student values (null,null,?,?,?,?,?,?,?,null,0)";
             //获取数据库操作对象
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -37,9 +45,10 @@ public class StudentDaoImpl implements StudentDao {
             e.printStackTrace();
         } finally {
             JDBCUtil.close(connection);
-    }
+        }
 
     }
+
 
 
     @Override
@@ -69,7 +78,7 @@ public class StudentDaoImpl implements StudentDao {
                 Student student=new Student(id,stname,usercode,password,stphone,stschool,stmajor,stsystem,stdate,stresume,ststate);
 
                 System.out.println(student);
-                return student;
+            return student;
 
             }
 
@@ -80,7 +89,4 @@ public class StudentDaoImpl implements StudentDao {
 
         return null;
     }
-
-
-
 }

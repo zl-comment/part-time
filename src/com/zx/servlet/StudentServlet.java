@@ -40,6 +40,10 @@ public class StudentServlet extends BaseServlet {
         studentDao.Register(staccount,stpassword,stphone,stschool,stmajor,Integer.parseInt(stsystem),date);
 
 
+
+        request.getRequestDispatcher("login.jsp").forward(request,response);
+
+
     }
 
 

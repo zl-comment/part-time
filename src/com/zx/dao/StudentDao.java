@@ -5,6 +5,8 @@ import com.zx.beans.Student;
 
 import java.util.Date;
 
+import java.util.Date;
+
 public interface StudentDao {
 
     Student login(String usercode, String password);
