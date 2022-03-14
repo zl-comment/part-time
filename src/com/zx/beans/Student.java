@@ -18,7 +18,145 @@ public class Student {
 
     private List<Occupation> occupations;//学生所报职位集合
 
+    public Student(int id, String stname, String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate, String stresume, int ststate) {
+        this.id = id;
+        this.stname = stname;
+        this.staccount = staccount;
+        this.stpassword = stpassword;
+        this.stphone = stphone;
+        this.stschool = stschool;
+        this.stmajor = stmajor;
+        this.stsystem = stsystem;
+        this.stdate = stdate;
+        this.stresume = stresume;
+        this.ststate = ststate;
+    }
 
+    public Student(String stname, String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate, String stresume, int ststate) {
+        this.stname = stname;
+        this.staccount = staccount;
+        this.stpassword = stpassword;
+        this.stphone = stphone;
+        this.stschool = stschool;
+        this.stmajor = stmajor;
+        this.stsystem = stsystem;
+        this.stdate = stdate;
+        this.stresume = stresume;
+        this.ststate = ststate;
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getStname() {
+        return stname;
+    }
+
+    public void setStname(String stname) {
+        this.stname = stname;
+    }
+
+    public String getStaccount() {
+        return staccount;
+    }
+
+    public void setStaccount(String staccount) {
+        this.staccount = staccount;
+    }
+
+    public String getStpassword() {
+        return stpassword;
+    }
+
+    public void setStpassword(String stpassword) {
+        this.stpassword = stpassword;
+    }
+
+    public String getStphone() {
+        return stphone;
+    }
+
+    public void setStphone(String stphone) {
+        this.stphone = stphone;
+    }
+
+    public String getStschool() {
+        return stschool;
+    }
+
+    public void setStschool(String stschool) {
+        this.stschool = stschool;
+    }
+
+    public String getStmajor() {
+        return stmajor;
+    }
+
+    public void setStmajor(String stmajor) {
+        this.stmajor = stmajor;
+    }
+
+    public int getStsystem() {
+        return stsystem;
+    }
+
+    public void setStsystem(int stsystem) {
+        this.stsystem = stsystem;
+    }
+
+    public Date getStdate() {
+        return stdate;
+    }
+
+    public void setStdate(Date stdate) {
+        this.stdate = stdate;
+    }
+
+    public String getStresume() {
+        return stresume;
+    }
+
+    public void setStresume(String stresume) {
+        this.stresume = stresume;
+    }
+
+    public int getStstate() {
+        return ststate;
+    }
+
+    public void setStstate(int ststate) {
+        this.ststate = ststate;
+    }
+
+    public List<Occupation> getOccupations() {
+        return occupations;
+    }
+
+    public void setOccupations(List<Occupation> occupations) {
+        this.occupations = occupations;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", stname='" + stname + '\'' +
+                ", staccount='" + staccount + '\'' +
+                ", stpassword='" + stpassword + '\'' +
+                ", stphone='" + stphone + '\'' +
+                ", stschool='" + stschool + '\'' +
+                ", stmajor='" + stmajor + '\'' +
+                ", stsystem=" + stsystem +
+                ", stdate=" + stdate +
+                ", stresume='" + stresume + '\'' +
+                ", ststate=" + ststate +
+                ", occupations=" + occupations +
+                '}';
+    }
 
 }
