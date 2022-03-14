@@ -1,0 +1,306 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 王川川
+  Date: 2022/3/13
+  Time: 14:52
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>注册界面</title>
+    <!--basic_css-->
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <style type="text/css">
+        body {
+            background-image: url(img/lg-bg.jpg);
+            background-position: 14px 14px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .layui-input {
+            height: 45px;
+            width: 80%;
+            padding-left: 5px;
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        .layui-input-checkCode {
+            height: 45px;
+            width: 52%;
+            padding-left: 5px;
+            font-size: 16px;
+            border: 1px solid rgba(0, 0, 0, .2);
+        }
+
+        .layui-btn {
+            height: 45px;
+        }
+
+        .captcha-input {
+            height: 45px;
+            padding-left: 5px;
+            font-size: 16px;
+        }
+
+        .layui-form {
+            width: 30%;
+            height: 60%;
+            margin: 0 auto;
+            margin-top: 7%;
+            padding: 15px 28px 0px;
+            background: #fff;
+        }
+
+        .layui-input-block {
+            margin-left: 0;
+
+        }
+
+        .layui-input-block a {
+            color: blue;
+            float: right;
+            line-height: 30px;
+            font-size: 14px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1d598e;
+        }
+
+        input.text {
+            text-align: center;
+            padding: 10px 20px;
+            width: 300px;
+        }
+
+        #canvas {
+            float: right;
+            margin-right: 5%;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .code {
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        .input-val {
+            width: 65%;
+            height: 45px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, .2);
+
+        }
+
+        .decrib {
+            font-size: 16px;
+        }
+
+        .tel-code {
+            display: inline-block;
+            width: 104px;
+            color: #fff;
+            font-size: 12px;
+            border: 1px solid #0697DA;
+            text-align: center;
+            height: 45px;
+            line-height: 45px;
+            background: #50c8b6;
+            cursor: pointer;
+            float: right;
+            margin-right: 5%;
+        }
+
+        form .msgs1 {
+            background: #E6E6E6;
+            color: #818080;
+            border: 1px solid #CCCCCC;
+        }
+    </style>
+</head>
+
+<body>
+<form class="layui-form" action="main.html" id="loginForm">
+    <div class="layui-form-item">
+        <h1>用&nbsp;户&nbsp;注&nbsp;册</h1>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <span class="decrib">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</span>
+            <input type="text" name="usercode" placeholder="请输入账号" autocomplete="off" class="layui-input"
+                   autofocus required>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <span class="decrib">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
+            <input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input"
+                   required>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <span class="decrib">确认密码：</span>
+            <input type="password" name="check-password" placeholder="请再次输入密码" autocomplete="off" class="layui-input"
+                   required>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <span class="decrib">短信验证：</span>
+            <input type="password" name="code-check" placeholder="请输入手机号获取密码" autocomplete="off"
+                   class="layui-input-checkCode" required>
+            <span class="tel-code">点击获取短信验</span>
+        </div>
+    </div>
+    <br>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn layui-btn-bypercent-left btn" id="submit">注 册</button>
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+            <button class="layui-btn layui-btn-bypercent-right" id="reset">取 消</button>
+        </div>
+    </div>
+    <br>
+    <br>
+</form>
+</body>
+
+
+<!--
+作者：offline
+时间：2021-01-18
+描述：验证码部分代码
+-->
+<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script src="layui/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<!--验证码-->
+<script>
+    $(function() {
+        var show_num = [];
+        draw(show_num);
+
+        $("#canvas").on('click', function() {
+            draw(show_num);
+        })
+        $(".btn").on('click', function() {
+            var val = $(".input-val").val().toLowerCase();
+            var num = show_num.join("");
+            if (val == '') {
+                alert('请输入验证码！');
+            } else if (val == num) {
+                alert('提交成功！');
+                $(".input-val").val('');
+                draw(show_num);
+
+            } else {
+                alert('验证码错误！请重新输入！');
+                $(".input-val").val('');
+                draw(show_num);
+            }
+        })
+    })
+
+
+    function draw(show_num) {
+        var canvas_width = $('#canvas').width();
+        var canvas_height = $('#canvas').height();
+        var canvas = document.getElementById("canvas"); //获取到canvas的对象，演员
+        var context = canvas.getContext("2d"); //获取到canvas画图的环境，演员表演的舞台
+        canvas.width = canvas_width;
+        canvas.height = canvas_height;
+        var sCode = "A,B,C,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,W,X,Y,Z,1,2,3,4,5,6,7,8,9,0";
+        var aCode = sCode.split(",");
+        var aLength = aCode.length; //获取到数组的长度
+
+        for (var i = 0; i <= 3; i++) {
+            var j = Math.floor(Math.random() * aLength); //获取到随机的索引值
+            var deg = Math.random() * 30 * Math.PI / 180; //产生0~30之间的随机弧度
+            var txt = aCode[j]; //得到随机的一个内容
+            show_num[i] = txt.toLowerCase();
+            var x = 10 + i * 20; //文字在canvas上的x坐标
+            var y = 20 + Math.random() * 8; //文字在canvas上的y坐标
+            context.font = "bold 23px 微软雅黑";
+
+            context.translate(x, y);
+            context.rotate(deg);
+
+            context.fillStyle = randomColor();
+            context.fillText(txt, 0, 0);
+
+            context.rotate(-deg);
+            context.translate(-x, -y);
+        }
+        for (var i = 0; i <= 5; i++) { //验证码上显示线条
+            context.strokeStyle = randomColor();
+            context.beginPath();
+            context.moveTo(Math.random() * canvas_width, Math.random() * canvas_height);
+            context.lineTo(Math.random() * canvas_width, Math.random() * canvas_height);
+            context.stroke();
+        }
+        for (var i = 0; i <= 30; i++) { //验证码上显示小点
+            context.strokeStyle = randomColor();
+            context.beginPath();
+            var x = Math.random() * canvas_width;
+            var y = Math.random() * canvas_height;
+            context.moveTo(x, y);
+            context.lineTo(x + 1, y + 1);
+            context.stroke();
+        }
+    }
+
+    function randomColor() { //得到随机的颜色值
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return "rgb(" + r + "," + g + "," + b + ")";
+    }
+
+    $(".tel-code").click(function() {}
+
+</script>
+
+<!--短语验证计算时-->
+<script type="text/javascript">
+    $(function() {
+        //获取短信验证码
+        var validCode = true;
+        $(".tel-code").click(function() {
+            var time = 30;
+            var code = $(this);
+            if (validCode) {
+                validCode = false;
+                code.addClass("msgs1");
+                var t = setInterval(function() {
+                    time--;
+                    code.html(time + "秒");
+                    if (time == 0) {
+                        clearInterval(t);
+                        code.html("重新获取");
+                        validCode = true;
+                        code.removeClass("msgs1");
+                    }
+                }, 1000)
+            }
+        })
+    })
+</script>
+</html>
+
