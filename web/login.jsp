@@ -1,12 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
-  User: zhang
+  User: 王川川
   Date: 2022/3/13
-  Time: 14:08
+  Time: 14:50
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,12 +106,8 @@
     </style>
 </head>
 
-
-
-
-
 <body>
-<form class="layui-form" action="LoginServlet?method=login" method="post"  id="loginForm"  >
+<form class="layui-form" action="main.html" id="loginForm">
     <div class="layui-form-item">
         <h1>用&nbsp;户&nbsp;登&nbsp;录</h1>
     </div>
@@ -120,7 +115,7 @@
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">账号：</span>
-            <input type="text"  name="usercode"   placeholder="请输入账号"   autocomplete="off" class="layui-input"
+            <input type="text" name="usercode" placeholder="请输入账号" autocomplete="off" class="layui-input"
                    autofocus required>
         </div>
     </div>
@@ -128,7 +123,7 @@
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">密码：</span>
-            <input type="password"     name="password"   placeholder="请输入密码" autocomplete="off" class="layui-input"
+            <input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input"
                    required>
         </div>
     </div>
@@ -144,8 +139,8 @@
     <br>
     <div class="layui-form-item">
         <div class="layui-input-block">
-          <%--  <button class="layui-btn layui-btn-bypercent-left btn" id="submit">登录</button>--%>
-           <button  type="submit"  class="layui-btn layui-btn-bypercent-left"   id="submit"   >登录</button>
+            <button class="layui-btn layui-btn-bypercent-left btn" id="submit">登 录</button>
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
             <a class="layui-btn layui-btn-bypercent-right" style="color:#fff;line-height:45px;font-size:20px;" href="Register.html" id="register">注 册</a>
         </div>
     </div>
@@ -155,14 +150,9 @@
 </body>
 
 
-<%--表单验证--%>
-
-
-
-
-
-
 <!--
+作者：offline
+时间：2021-01-18
 描述：验证码部分代码
 -->
 <script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
@@ -251,4 +241,3 @@
 </script>
 
 </html>
-
