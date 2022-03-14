@@ -1,8 +1,46 @@
 package com.zx.dao.impl;
 
+import com.zx.beans.Student;
 import com.zx.dao.StudentDao;
+import com.zx.util.JDBCUtil;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class StudentDaoImpl implements StudentDao {
+    @Override
+    public void Register(String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, java.util.Date stdate) {
+
+        //获取连接
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+
+            String sql = "insert into student values (null,null,?,?,?,?,?,?,?,null,0)";
+            //获取数据库操作对象
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            //如果有？ 替换？
+            ps.setString(1,staccount);
+            ps.setString(2,stpassword);
+            ps.setString(3,stphone);
+            ps.setString(4,stschool);
+            ps.setString(5,stmajor);
+            ps.setInt(6,stsystem);
+            java.sql.Date date=new java.sql.Date(stdate.getTime());
+            ps.setDate(7,date);
+
+            //执行
+            ps.execute();
 
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+    }
+
+    }
 }
