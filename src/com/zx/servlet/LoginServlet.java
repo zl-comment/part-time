@@ -42,11 +42,11 @@ public class LoginServlet extends BaseServlet{
         } else if(student!=null){
 
             session.setAttribute("student",student);
-            response.sendRedirect("index.html");
+            response.sendRedirect("Studentmain.jsp");
         }else if(company!=null){
 
             session.setAttribute("company",company);
-            response.sendRedirect("index.html");
+            response.sendRedirect("Cpymain.jsp");
         }else {
 
             request.getRequestDispatcher("login.jsp").forward(request,response);

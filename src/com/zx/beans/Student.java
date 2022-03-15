@@ -18,33 +18,6 @@ public class Student {
 
     private List<Occupation> occupations;//学生所报职位集合
 
-    public Student(int id, String stname, String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate, String stresume, int ststate) {
-        this.id = id;
-        this.stname = stname;
-        this.staccount = staccount;
-        this.stpassword = stpassword;
-        this.stphone = stphone;
-        this.stschool = stschool;
-        this.stmajor = stmajor;
-        this.stsystem = stsystem;
-        this.stdate = stdate;
-        this.stresume = stresume;
-        this.ststate = ststate;
-    }
-
-    public Student(String stname, String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate, String stresume, int ststate) {
-        this.stname = stname;
-        this.staccount = staccount;
-        this.stpassword = stpassword;
-        this.stphone = stphone;
-        this.stschool = stschool;
-        this.stmajor = stmajor;
-        this.stsystem = stsystem;
-        this.stdate = stdate;
-        this.stresume = stresume;
-        this.ststate = ststate;
-    }
-
     public int getId() {
         return id;
     }
@@ -64,6 +37,7 @@ public class Student {
     public String getStaccount() {
         return staccount;
     }
+
 
     public void setStaccount(String staccount) {
         this.staccount = staccount;
@@ -141,6 +115,36 @@ public class Student {
         this.occupations = occupations;
     }
 
+    public Student(int id, String stname, String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate, String stresume, int ststate) {
+        this.id = id;
+        this.stname = stname;
+        this.staccount = staccount;
+        this.stpassword = stpassword;
+        this.stphone = stphone;
+        this.stschool = stschool;
+        this.stmajor = stmajor;
+        this.stsystem = stsystem;
+        this.stdate = stdate;
+        this.stresume = stresume;
+        this.ststate = ststate;
+    }
+
+    public Student(String stname, String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate, String stresume, int ststate) {
+        this.stname = stname;
+        this.staccount = staccount;
+        this.stpassword = stpassword;
+        this.stphone = stphone;
+        this.stschool = stschool;
+        this.stmajor = stmajor;
+        this.stsystem = stsystem;
+        this.stdate = stdate;
+        this.stresume = stresume;
+        this.ststate = ststate;
+    }
+
+    public Student() {
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -158,5 +162,4 @@ public class Student {
                 ", occupations=" + occupations +
                 '}';
     }
-
 }

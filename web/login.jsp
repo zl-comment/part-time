@@ -107,7 +107,7 @@
 </head>
 
 <body>
-<form class="layui-form" action="main.html" id="loginForm">
+<form class="layui-form" action="LoginServlet?method=login" id="loginForm" method="post">
     <div class="layui-form-item">
         <h1>用&nbsp;户&nbsp;登&nbsp;录</h1>
     </div>
@@ -139,7 +139,7 @@
     <br>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn layui-btn-bypercent-left btn" id="submit">登 录</button>
+            <button type="submit" class="layui-btn layui-btn-bypercent-left" lay-submit>登 录</button>
             &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
             <a class="layui-btn layui-btn-bypercent-right" style="color:#fff;line-height:45px;font-size:20px;" href="Register.html" id="register">注 册</a>
         </div>

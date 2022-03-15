@@ -12,18 +12,14 @@ import java.lang.reflect.Method;
 @WebServlet(name = "BaseServlet", urlPatterns = "/BaseServlet")
 public class BaseServlet extends HttpServlet {
 
-    @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        String method_name=request.getParameter("method");
-
+        String method_name = request.getParameter("method");
 
         //设计通用方法
-        Class c=this.getClass();
-
-
+        Class c = this.getClass();
         try {
-            Method method=  c.getMethod(method_name,HttpServletRequest.class,HttpServletResponse.class);
+            Method method = c.getMethod(method_name,HttpServletRequest.class,HttpServletResponse.class);
 
             try {
                 method.invoke(this,request,response);
@@ -34,9 +30,11 @@ public class BaseServlet extends HttpServlet {
                 e.printStackTrace();
             }
 
+
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
 
     }
+
 }
