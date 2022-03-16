@@ -159,7 +159,7 @@ public class Student {
                 ", stdate=" + stdate +
                 ", stresume='" + stresume + '\'' +
                 ", ststate=" + ststate +
-                ", occupations=" + occupations +
                 '}';
     }
+
 }

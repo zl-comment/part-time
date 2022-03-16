@@ -104,6 +104,10 @@
             font-size: 16px;
         }
     </style>
+
+
+
+
 </head>
 
 <body>
@@ -140,8 +144,8 @@
     <div class="layui-form-item">
         <div class="layui-input-block">
             <button type="submit" class="layui-btn layui-btn-bypercent-left" lay-submit>登 录</button>
-            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
             <a class="layui-btn layui-btn-bypercent-right" style="color:#fff;line-height:45px;font-size:20px;" href="Register.html" id="register">注 册</a>
+         <li>${error}</li>
         </div>
     </div>
     <br>
@@ -151,8 +155,6 @@
 
 
 <!--
-作者：offline
-时间：2021-01-18
 描述：验证码部分代码
 -->
 <script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
@@ -183,7 +185,6 @@
             }
         })
     })
-
 
     function draw(show_num) {
         var canvas_width = $('#canvas').width();

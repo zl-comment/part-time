@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 
 @WebServlet(name = "LoginServlet", urlPatterns = "/LoginServlet")
@@ -48,6 +49,8 @@ public class LoginServlet extends BaseServlet{
             response.sendRedirect("Cpymain.jsp");
         }else {
 
+
+            request.setAttribute("error","用户名或密码错误");
             request.getRequestDispatcher("login.jsp").forward(request,response);
         }
 

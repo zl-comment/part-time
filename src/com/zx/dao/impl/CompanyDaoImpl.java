@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class CompanyDaoImpl   implements CompanyDao {
@@ -37,9 +38,7 @@ public class CompanyDaoImpl   implements CompanyDao {
                 System.out.println(company);
             return  company;
 
-
             }
-
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -77,5 +76,39 @@ public class CompanyDaoImpl   implements CompanyDao {
         }
 
 
+    }
+
+
+    @Override
+    public ArrayList<Company> getCompanys() {
+        Connection connection=null;
+ArrayList<Company> companies=new ArrayList<>();
+        try {
+            connection= JDBCUtil.getConnection();
+            String sql="SELECT *from company  ";
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ResultSet resultSet= ps.executeQuery();
+            while (resultSet.next()){
+                int id=resultSet.getInt("id");
+                String  cpyname=resultSet.getString("cpyname");
+                String  cpyaccount=resultSet.getString("cpyaccount");
+                String  cpypassword=resultSet.getString("cpypassword");
+
+                String  cpyphone=resultSet.getString("cpyphone");
+                String  cpyaddress=resultSet.getString("cpyaddress");
+                String  cpyinfo=resultSet.getString("cpyinfo");
+
+                Company company=new Company(id,cpyname,cpyaccount,cpypassword,cpyphone,cpyaddress,cpyinfo);
+
+                companies.add(company);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return companies;
     }
 }

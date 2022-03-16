@@ -5,8 +5,7 @@ import java.util.List;
 public class Occupation {
     private int id;                   //id编号
     private String ocname;           //职位名称
-    private double maxsalary;       //最高工资
-    private double minsalary;      //最低工资
+    private double salary;      //最低工资
     private String requirement;   //招聘要求
     private String workplace;    //工作地点
     private String worktime;    //工作时间

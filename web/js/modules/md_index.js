@@ -8,9 +8,9 @@ layui.define(['layer', 'form','element','tree','upload','table'], function(expor
     addtab:function(url,id,titlename){
       if($("li[lay-id='"+id+"']").length<1){
         element.tabAdd('main_tab', {
-          title: titlename
+          title: 'titlename'
           ,content:  '<iframe style="width: 100%;height: 100%;" onload="setframehieght(this);" data-frameid="' + id + '" scrolling="auto" frameborder="0" src="' + url+ '"></iframe>'
-          ,id: id
+          ,id: "id"
         });
         element.tabChange('main_tab', id);
       }else{
@@ -32,4 +32,4 @@ layui.define(['layer', 'form','element','tree','upload','table'], function(expor
   };
   
   exports('modules_index', myobj); //注意，这里是模块输出的核心，模块名必须和use时的模块名一致
-});    
+});
