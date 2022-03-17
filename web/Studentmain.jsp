@@ -16,6 +16,31 @@
     <script type="text/javascript" src="./layui/layui.js"></script>
     <link type="text/css" rel="stylesheet" href="./css/index.css"/>
     <script type="text/javascript" src="./js/pages/index.js"></script>
+
+    <script type="text/javascript">
+        //实现预览功能
+        function preview() {
+            //获取文件框的第一个文件,因为文件有可能上传多个文件,咱这里是一个文件
+            var file = document.getElementById("img").files[0];
+            var file1 = document.getElementById("image");
+            file1.style.width = "100px";
+            file1.style.height = "100px";
+            //获取img对象
+            var img = document.getElementById("image");
+            //建一条文件流来读取图片
+            var reader = new FileReader();
+            //根据url将文件添加的流中
+            reader.readAsDataURL(file);
+            //实现onload接口
+            reader.onload = function(e) {
+                //获取文件在流中url
+                url = reader.result;
+                //将url赋值给img的src属性
+                img.src = url;
+            };
+        }
+    </script>
+
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -42,28 +67,9 @@
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="nav_left">
-               <%-- <li class="layui-nav-item layui-nav-itemed">
-                    <a href="javascript:;">个人信息</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" data-id="nav_demo" src="demo.html"></a></dd>
-                        <dd><a href="javascript:;"></a></dd>
-                        <dd><a href="javascript:;"></a></dd>
-                        <dd><a href="">跳转项</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">账号信息</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="">移动模块</a></dd>
-                        <dd><a href="">后台模版</a></dd>
-                        <dd><a href="">电商平台</a></dd>
-                    </dl>
-                </li>--%>
-
-                <li class="layui-nav-item"><a href="">个人信息</a></li>
-                <li class="layui-nav-item"><a href="">账号信息</a></li>
-                <li class="layui-nav-item"><a href="">我的简历</a></li>
-                <li class="layui-nav-item"><a href="">我的兼职记录</a></li>
+                <li class="layui-nav-item"><a href="update_student_info.jsp?&&student=${student}" target="ifram">信息</a></li>
+                <li class="layui-nav-item"><a href="" target="ifram">我的简历</a></li>
+                <li class="layui-nav-item"><a href="StudentServlet?method=getOccupations&&studentid=${student.id}" target="ifram">已报名的职业</a></li>
             </ul>
         </div>
     </div>
@@ -90,7 +96,7 @@
                 </ul>--%>
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
-                        <iframe iframe-id="home" frameborder="0" src="home.html"></iframe>
+                        <iframe iframe-id="home"  name="ifram"  frameborder="0" src="home.html"></iframe>
                     </div>
                 </div>
             </div>

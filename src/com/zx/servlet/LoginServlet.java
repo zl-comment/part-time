@@ -21,18 +21,18 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet", urlPatterns = "/LoginServlet")
 public class LoginServlet extends BaseServlet{
 
-    public   void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String usercode=request.getParameter("usercode");
         String password=request.getParameter("password");
 
-     HttpSession session= request.getSession();
+        HttpSession session= request.getSession();
         StudentDao studentDao=new StudentDaoImpl();
         CompanyDao companyDao=new CompanyDaoImpl();
         AdminDao adminDao=new AdminDaoImpl();
 
-       Student  student = studentDao.login(usercode,password);
-       Company company=companyDao.login(usercode,password);
-       Admin admin=adminDao.login(usercode,password);
+        Student  student = studentDao.login(usercode,password);
+        Company company=companyDao.login(usercode,password);
+        Admin admin=adminDao.login(usercode,password);
 
         if(admin!=null){
 

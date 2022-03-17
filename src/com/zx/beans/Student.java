@@ -18,6 +18,9 @@ public class Student {
 
     private List<Occupation> occupations;//学生所报职位集合
 
+    public Student(String staccount, String stpassword, String stphone, String stschool, String stmajor, int parseInt, Date date) {
+    }
+
     public int getId() {
         return id;
     }
@@ -129,6 +132,17 @@ public class Student {
         this.ststate = ststate;
     }
 
+    public Student(String stname, String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate) {
+        this.stname = stname;
+        this.staccount = staccount;
+        this.stpassword = stpassword;
+        this.stphone = stphone;
+        this.stschool = stschool;
+        this.stmajor = stmajor;
+        this.stsystem = stsystem;
+        this.stdate = stdate;
+    }
+
     public Student(String stname, String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate, String stresume, int ststate) {
         this.stname = stname;
         this.staccount = staccount;
@@ -140,6 +154,18 @@ public class Student {
         this.stdate = stdate;
         this.stresume = stresume;
         this.ststate = ststate;
+    }
+
+    public Student(int id, String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate) {
+        this.id = id;
+        this.stname = stname;
+        this.staccount = staccount;
+        this.stpassword = stpassword;
+        this.stphone = stphone;
+        this.stschool = stschool;
+        this.stmajor = stmajor;
+        this.stsystem = stsystem;
+        this.stdate = stdate;
     }
 
     public Student() {

@@ -49,6 +49,35 @@ public class StudentDaoImpl implements StudentDao {
 
     }
 
+    @Override
+    public void updateinfo(Student student) {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "update student set null,null,staccount = ?,stpassword = ?,stschool = ?,stmajor = ?,stsystem= ? ,stdate = ?, null, null where stphone = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1,student.getStaccount());
+            ps.setString(2,student.getStpassword());
+            ps.setString(3,student.getStschool());
+            ps.setString(4,student.getStmajor());
+            ps.setInt(5,student.getStsystem());
+            java.sql.Date date1= new java.sql.Date(student.getStdate().getTime());
+            ps.setDate(6, date1);
+            ps.setString(7,student.getStphone());
+
+            //执行
+            ps.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 
     @Override

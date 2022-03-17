@@ -64,7 +64,7 @@
                         </ul>
                     </li> |
                     <li class='has-sub'><a href='works.html'><span>Works</span></a></li> |
-                    <li class='has-sub'><a href='blog.html'><span>我的信息</span></a></li> |
+                    <li class='has-sub'><a href='StudentServlet?method=my' ><span>我的信息</span></a></li> |
                     <li class='last'><a href='contact.html'><span>Contact Us</span></a></li>
                 </ul>
             </div>
