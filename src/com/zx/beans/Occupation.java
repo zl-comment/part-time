@@ -12,11 +12,12 @@ public class Occupation {
 
     private List<Company> companies;   //有改职位的公司集合
     private List<Student> students;   //公司下职位的学生集合
-
+    private int cpyandocid;     //是cpyandoc中的id字符
+    private int stuandocid;     //是stuandoc中的id字符
 
     public Occupation() {
-    }
 
+    }
     public Occupation(int id, String ocname, double salary, String requirement, String workplace, String worktime) {
         this.id = id;
         this.ocname = ocname;
@@ -25,6 +26,23 @@ public class Occupation {
         this.workplace = workplace;
         this.worktime = worktime;
     }
+
+    public int getCpyandocid() {
+        return cpyandocid;
+    }
+
+    public void setCpyandocid(int cpyandocid) {
+        this.cpyandocid = cpyandocid;
+    }
+
+    public int getStuandocid() {
+        return stuandocid;
+    }
+
+    public void setStuandocid(int stuandocid) {
+        this.stuandocid = stuandocid;
+    }
+
 
     public int getId() {
         return id;
@@ -89,6 +107,9 @@ public class Occupation {
     public void setStudents(List<Student> students) {
         this.students = students;
     }
+
+
+
 
     @Override
     public String toString() {

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +28,7 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="./layui/images/face/0.gif" class="layui-nav-img">
-                    leaf
+                    ${company.cpyaccount}
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">基本资料</a></dd>
@@ -43,16 +44,10 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="nav_left">
 
-                <li class="layui-nav-item layui-nav-itemed">
-                    <a href="javascript:;">招聘管理</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" data-id="nav_demo" src="demo.html">发布招聘</a></dd>
-                        <dd><a href="javascript:;">撤销招聘</a></dd>
-                        <dd><a href="javascript:;">我的招聘</a></dd>
-                        <dd><a href="">修改招聘信息</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item"><a href="">报名管理</a></li>
+                ${company.id}
+                <li class="layui-nav-item"><a href="Jobpublish.jsp?&&companyid=${company.id}" target="ifram">发布招聘</a></li>
+                <li class="layui-nav-item"><a href="OccupationServlet?method=getOccupations&&companyid=${company.id}" target="ifram">招聘管理</a></li>
+                <li class="layui-nav-item"><a href="" target="ifram">报名管理</a></li>
                 <li class="layui-nav-item"><a href="">修改公司信息</a></li>
             </ul>
         </div>
@@ -67,7 +62,7 @@
                 </ul>
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
-                        <iframe iframe-id="home" frameborder="0" src="home.html"></iframe>
+                        <iframe iframe-id="home" name="ifram" frameborder="0" src="home.html"></iframe>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 package com.zx.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Company {
@@ -10,6 +11,8 @@ public class Company {
     private String cpyphone;      //公司电话
     private String cpyaddress;   //公司地址
     private String cpyinfo;     //公司简介
+
+
 
     private List<Occupation>  occupations;   //公司发布的职位集合
 
@@ -55,6 +58,7 @@ public class Company {
         this.cpyinfo = cpyinfo;
         this.occupations = occupations;
     }
+
 
     public int getId() {
         return id;

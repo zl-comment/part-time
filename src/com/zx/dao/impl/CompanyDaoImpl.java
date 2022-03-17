@@ -8,24 +8,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 
 public class CompanyDaoImpl   implements CompanyDao {
-
     @Override
     public Company login(String usercode, String password) {
         Connection connection=null;
-
-
         try {
             connection= JDBCUtil.getConnection();
             String sql="SELECT *from company  where cpyaccount=? and cpypassword=?";
             PreparedStatement ps = connection.prepareStatement(sql);
-
             ps.setString(1,usercode);
             ps.setString(2,password);
-
             ResultSet resultSet= ps.executeQuery();
             while (resultSet.next()){
                 int id=resultSet.getInt("id");
@@ -33,23 +27,15 @@ public class CompanyDaoImpl   implements CompanyDao {
                String  cpyphone=resultSet.getString("cpyphone");
                String  cpyaddress=resultSet.getString("cpyaddress");
                String  cpyinfo=resultSet.getString("cpyinfo");
-
-            Company company=new Company(id,cpyname,usercode,password,cpyphone,cpyaddress,cpyinfo);
+               Company company=new Company(id,cpyname,usercode,password,cpyphone,cpyaddress,cpyinfo);
                 System.out.println(company);
             return  company;
-
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return null;
     }
-
-
-
-
 
     @Override
     public void Register(String cpyaccount, String cpypassword,String cpyname, String cpyphone, String cpyaddress, String cpyinfo) {
@@ -68,15 +54,32 @@ public class CompanyDaoImpl   implements CompanyDao {
             ps.setString(5,cpyaddress);
             ps.setString(6,cpyinfo);
             ps.execute();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
             JDBCUtil.close(connection);
         }
 
-
     }
+    @Override
+    public void addOccupation(int companyid, int occupationid) {
+        System.out.println(companyid);
+        System.out.println(occupationid);
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "insert into cpyandoc values(null,?,?)";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1,companyid);
+            ps.setInt(2,occupationid);
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+        }
+    }
+}
 
 
     @Override

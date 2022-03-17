@@ -9,5 +9,7 @@ public interface CompanyDao {
 
     void Register(String cpyaccount, String cpypassword,String cpyname, String cpyphone, String cpyaddress, String cpyinfo);
 
+    void addOccupation(int companyid, int occupationid);
+
     ArrayList<Company> getCompanys();
 }
