@@ -51,8 +51,6 @@ public class AdminServlet extends BaseServlet {
         request.setAttribute("occupations",company.getOccupations());
         request.getRequestDispatcher("/adminCompanysp.jsp").forward(request,response);
 
-
-
     }
 
 

@@ -5,7 +5,7 @@ import java.util.List;
 public class Occupation {
     private int id;                   //id编号
     private String ocname;           //职位名称
-    private double salary;      //最低工资
+    private String   salary;      //最低工资
     private String requirement;   //招聘要求
     private String workplace;    //工作地点
     private String worktime;    //工作时间
@@ -18,8 +18,16 @@ public class Occupation {
     public Occupation() {
 
     }
-    public Occupation(int id, String ocname, double salary, String requirement, String workplace, String worktime) {
+    public Occupation(int id, String ocname, String salary, String requirement, String workplace, String worktime) {
         this.id = id;
+        this.ocname = ocname;
+        this.salary = salary;
+        this.requirement = requirement;
+        this.workplace = workplace;
+        this.worktime = worktime;
+    }
+
+    public Occupation(String ocname, String salary, String requirement, String workplace, String worktime) {
         this.ocname = ocname;
         this.salary = salary;
         this.requirement = requirement;
@@ -43,6 +51,13 @@ public class Occupation {
         this.stuandocid = stuandocid;
     }
 
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
 
     public int getId() {
         return id;
@@ -58,14 +73,6 @@ public class Occupation {
 
     public void setOcname(String ocname) {
         this.ocname = ocname;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
     }
 
     public String getRequirement() {
@@ -109,7 +116,13 @@ public class Occupation {
     }
 
 
-
+    public Occupation(int id, String ocname, String salary, String workplace,String requirement) {
+        this.id = id;
+        this.ocname = ocname;
+        this.salary = salary;
+        this.requirement = requirement;
+        this.workplace = workplace;
+    }
 
     @Override
     public String toString() {

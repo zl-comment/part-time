@@ -49,6 +49,7 @@ public class OccupationServlet extends BaseServlet {
 
 
       //  request.setAttribute("occupations", occupations);
+        request.setAttribute("companyid",companyid);
         request.setAttribute("company", company);
         request.setAttribute("occupations",company.getOccupations());
         request.getRequestDispatcher("/Jobmanage.jsp").forward(request, response);
@@ -64,14 +65,27 @@ public class OccupationServlet extends BaseServlet {
         request.setAttribute("occupation",occupation);
         request.getRequestDispatcher("/Jobquery.jsp").forward(request,response);
     }
-    public void deleteoccupation(HttpServletRequest request,HttpServletResponse response) throws IOException {
-        String ocid = request.getParameter("ocid");
+    public void deleteoccupation(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
+
+        String cpyandocid=request.getParameter("cpyandocid");
         String companyid=request.getParameter("companyid");
         OccupationDao occupationDao = new OccupationDaoImpl();
 
+        occupationDao.deleteCpyandocById(Integer.parseInt(cpyandocid));
 
-        occupationDao.deleteOccupationById(Integer.parseInt(ocid));
-        response.sendRedirect("/Jobmanage.jsp");
+
+
+
+
+       Company   company = occupationDao.getOccupationsCompany(Integer.parseInt(companyid));
+
+
+        //  request.setAttribute("occupations", occupations);
+        request.setAttribute("companyid",companyid);
+        request.setAttribute("company", company);
+        request.setAttribute("occupations",company.getOccupations());
+        request.getRequestDispatcher("/Jobmanage.jsp").forward(request, response);
+
 
     }
 

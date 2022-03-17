@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import java.util.ArrayList;
+
 
 public class CompanyDaoImpl   implements CompanyDao {
     @Override
@@ -33,6 +35,8 @@ public class CompanyDaoImpl   implements CompanyDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            JDBCUtil.close(connection);
         }
         return null;
     }
@@ -79,13 +83,12 @@ public class CompanyDaoImpl   implements CompanyDao {
             JDBCUtil.close(connection);
         }
     }
-}
 
 
     @Override
     public ArrayList<Company> getCompanys() {
         Connection connection=null;
-ArrayList<Company> companies=new ArrayList<>();
+        ArrayList<Company> companies=new ArrayList<>();
         try {
             connection= JDBCUtil.getConnection();
             String sql="SELECT *from company  ";
@@ -110,8 +113,18 @@ ArrayList<Company> companies=new ArrayList<>();
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            JDBCUtil.close(connection);
         }
 
         return companies;
     }
 }
+
+
+
+
+
+
+
+

@@ -3,7 +3,7 @@ package com.zx.dao.impl;
 import com.mysql.jdbc.PreparedStatement;
 import com.zx.beans.Company;
 import com.zx.beans.Occupation;
-import com.zx.dao.CompanyDao;
+
 import com.zx.dao.OccupationDao;
 import com.zx.util.JDBCUtil;
 
@@ -11,13 +11,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.SortedMap;
-import java.util.zip.ZipOutputStream;
+
 
 public class OccupationDaoImpl implements OccupationDao {
 
-    @Override
+    @Override //company
     public void Jobpublish(String ocname, String workplace, String worktime, String salary, String requirement) {
         Connection connection=null;
         try {
@@ -41,11 +39,10 @@ public class OccupationDaoImpl implements OccupationDao {
         }
 
 
-
     }
 
-    @Override
-    public /*List<Occupation>*/Company      getOccupationsCompany(int companyid) {
+    @Override //company
+    public Company      getOccupationsCompany(int companyid) {
         Connection connection = null;
         ArrayList<Occupation> occupations = new ArrayList<>();
         Company company=new Company();
@@ -81,7 +78,7 @@ public class OccupationDaoImpl implements OccupationDao {
         System.out.println(occupations);
         return company;
     }
-    @Override
+    @Override //company
     public Occupation getOccupationById(int ocid) {
         Connection connection = null;
         try {
@@ -106,27 +103,9 @@ public class OccupationDaoImpl implements OccupationDao {
         return  null;
     }
 
-    @Override
-    public void deleteOccupationById(int ocid) {
-        Connection connection = null;
-        try {
-            connection = JDBCUtil.getConnection();
-            String sql = "delete from cpyandoc where occupationid = ? and companyid = ?";
-            PreparedStatement ps = (PreparedStatement)connection.prepareStatement(sql);
-            ps.setInt(1,ocid);
-        //    ps.setInt(2,);
-            ResultSet resultSet = ps.executeQuery();
-            ps.execute();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            JDBCUtil.close(connection);
-        }
 
-    }
-
-    @Override
+    @Override     //company
     public int jobIdBy(String ocname, String workplace, String worktime, String salary, String requirement) {
         Connection connection = null;
         try {
@@ -143,10 +122,6 @@ public class OccupationDaoImpl implements OccupationDao {
             int id = resultSet.getInt("id");
             return id;
 
-
-
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -156,10 +131,25 @@ public class OccupationDaoImpl implements OccupationDao {
     }
 
 
+    @Override
+    public void deleteCpyandocById(int cpyandocid) {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "delete from cpyandoc where id=?";
+            PreparedStatement ps = (PreparedStatement)connection.prepareStatement(sql);
+            ps.setInt(1,cpyandocid);
+            ps.execute();
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.close(connection);
+        }
+    }
 
     @Override
-    public Company occupationByCompany(int companyid) {
+    public Company occupationByCompany(int companyid) {         //admin
         Connection connection=null;
         ArrayList<Occupation> occupations=new ArrayList<Occupation>();
         Company company=new Company();
@@ -173,24 +163,24 @@ public class OccupationDaoImpl implements OccupationDao {
             ResultSet resultSet= ps.executeQuery();
             while (resultSet.next()){
                 int cpyid=resultSet.getInt("cpyid");
-                company.setId(cpyid);
+                    company.setId(cpyid);
                 String  cpyname=resultSet.getString("cpyname");
-                company.setCpyname(cpyname);
+                   company.setCpyname(cpyname);
                 String  cpyaccount=resultSet.getString("cpyaccount");
-                company.setCpyaccount(cpyaccount);
+                  company.setCpyaccount(cpyaccount);
                 String  cpypassword=resultSet.getString("cpypassword");
-                company.setCpypassword(cpypassword);
+                 company.setCpypassword(cpypassword);
                 String  cpyphone=resultSet.getString("cpyphone");
-                company.setCpyphone(cpyphone);
+                 company.setCpyphone(cpyphone);
                 String  cpyaddress=resultSet.getString("cpyaddress");
                 company.setCpyaddress(cpyaddress);
                 String  cpyinfo=resultSet.getString("cpyinfo");
-                company.setCpyinfo(cpyinfo);
+               company.setCpyinfo(cpyinfo);
 
                 int ocid=resultSet.getInt("ocid");
 
                 String ocname=resultSet.getString("ocname");
-                Double salary=resultSet.getDouble("salary");
+                String salary=resultSet.getString("salary");
                 String requirement=resultSet.getString("requirement");
                 String workplace=resultSet.getString("workplace");
                 String worktime=resultSet.getString("worktime");
