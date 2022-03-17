@@ -6,19 +6,15 @@ import com.zx.dao.CompanyDao;
 import com.zx.dao.OccupationDao;
 import com.zx.dao.impl.CompanyDaoImpl;
 import com.zx.dao.impl.OccupationDaoImpl;
-import org.omg.PortableInterceptor.INACTIVE;
-import sun.plugin2.gluegen.runtime.CPU;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sound.midi.Soundbank;
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.List;
-import java.util.SortedMap;
+
 
 @WebServlet(name = "OccupationServlet", urlPatterns = "/OccupationServlet")
 public class OccupationServlet extends BaseServlet {
