@@ -55,7 +55,7 @@
             <td>${company.cpyinfo}</td>
             <td>
                 <div class="layui-btn-group">
-                    <button type="button" class="layui-btn" >查看</button>
+                 <a href="AdminServlet?method=getCompanyByIdAndOccupation&&companyid=${company.id}" class="layui-btn"  >查看</a>
                 </div>
             </td>
 

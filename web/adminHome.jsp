@@ -54,7 +54,7 @@
             <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="nav_left">
                 <%--为了让页面展示在内页面中，target=“与主题页面的iframe的name相同”--%>
                 <%--src与href有区别--%>
-                <li class="layui-nav-item "><a src="index.html" data-id="nav_home">首页</a></li>
+                <li class="layui-nav-item "><a src="allHome.jsp" data-id="nav_home">首页</a></li>
 
                 <li class="layui-nav-item layui-nav-itemed">
                     <a href="javascript:" >企业用户管理</a>
@@ -99,7 +99,7 @@
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
                         <%--主页登录之后开始显示的页面--%>
-                        <iframe name="iFrm"   frameborder="0" src="index.html"  sandbox ></iframe>
+                        <iframe name="iFrm" frameborder="0" src="allHome.jsp" sandbox ></iframe>
                     </div>
                 </div>
             </div>

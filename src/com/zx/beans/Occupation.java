@@ -14,13 +14,92 @@ public class Occupation {
     private List<Student> students;   //公司下职位的学生集合
 
 
+    public Occupation() {
+    }
 
+    public Occupation(int id, String ocname, double salary, String requirement, String workplace, String worktime) {
+        this.id = id;
+        this.ocname = ocname;
+        this.salary = salary;
+        this.requirement = requirement;
+        this.workplace = workplace;
+        this.worktime = worktime;
+    }
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public String getOcname() {
+        return ocname;
+    }
 
+    public void setOcname(String ocname) {
+        this.ocname = ocname;
+    }
 
+    public double getSalary() {
+        return salary;
+    }
 
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
 
+    public String getRequirement() {
+        return requirement;
+    }
 
+    public void setRequirement(String requirement) {
+        this.requirement = requirement;
+    }
+
+    public String getWorkplace() {
+        return workplace;
+    }
+
+    public void setWorkplace(String workplace) {
+        this.workplace = workplace;
+    }
+
+    public String getWorktime() {
+        return worktime;
+    }
+
+    public void setWorktime(String worktime) {
+        this.worktime = worktime;
+    }
+
+    public List<Company> getCompanies() {
+        return companies;
+    }
+
+    public void setCompanies(List<Company> companies) {
+        this.companies = companies;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
+
+    @Override
+    public String toString() {
+        return "Occupation{" +
+                "id=" + id +
+                ", ocname='" + ocname + '\'' +
+                ", salary=" + salary +
+                ", requirement='" + requirement + '\'' +
+                ", workplace='" + workplace + '\'' +
+                ", worktime='" + worktime + '\'' +
+                '}';
+    }
 }
+

@@ -1,12 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
-  User: 王川川
-  Date: 2022/3/13
-  Time: 17:06
+  User: zhang
+  Date: 2022/3/16
+  Time: 9:14
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -64,8 +64,8 @@
                         </ul>
                     </li> |
                     <li class='has-sub'><a href='works.html'><span>Works</span></a></li> |
-                    <li class='has-sub'><a href='blog.html'><span>我的信息</span></a></li> |
-                    <li class='last'><a href='contact.html'><span>Contact Us</span></a></li>
+                    <li class='has-sub'><a href='blog.html'><span>Blog</span></a></li> |
+                    <li class='last'><a href='contact.html'><span>我的信息</span></a></li>
                 </ul>
             </div>
             <div class="search_box">
@@ -351,5 +351,5 @@
         <div class="clear"></div>
     </div>
 </div>
-</body>
+</body>a
 </html>
