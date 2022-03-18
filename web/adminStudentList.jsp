@@ -21,6 +21,8 @@
 </fieldset>
 
 
+
+
 <table class="layui-table" lay-skin="line">
     <colgroup>
         <col width="150">
@@ -42,6 +44,7 @@
     <tbody>
     <c:forEach items="${students}" var="student">
         <tr>
+            ${student.id}
             <td>${student.stname}</td>
             <td>${student.staccount}</td>
             <td>${student.stphone}</td>
@@ -50,7 +53,7 @@
             <td>${student.stsystem}</td>
             <td>
                 <div class="layui-btn-group">
-                    <button type="button" class="layui-btn" >查看</button>
+                    <a href="AdminServlet?method=toGoAdminStudentSp&&studentid=${student.id}" class="layui-btn"  >查看</a>
                 </div>
             </td>
         </tr>

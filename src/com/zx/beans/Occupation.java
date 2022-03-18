@@ -1,18 +1,27 @@
 package com.zx.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 public class Occupation {
     private int id;                   //id编号
-    private String ocname;           //职位名称
+    private String   ocname;           //职位名称
     private String   salary;      //最低工资
     private String requirement;   //招聘要求
     private String workplace;    //工作地点
     private String worktime;    //工作时间
 
-    private List<Company> companies;   //有改职位的公司集合
+    @JsonIgnore
+    private List<Company> companies;   //有该职位的公司集合
+
+    @JsonIgnore
     private List<Student> students;   //公司下职位的学生集合
+
+    @JsonIgnore
     private int cpyandocid;     //是cpyandoc中的id字符
+
+    @JsonIgnore
     private int stuandocid;     //是stuandoc中的id字符
 
     public Occupation() {

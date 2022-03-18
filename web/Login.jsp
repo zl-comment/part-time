@@ -105,13 +105,40 @@
         }
     </style>
 
+</head><%--
+<script src="js/jquery.min.js"></script>
+
+
+<script>
+            $(function () {
+
+                $("#username").blur(function () {
+                    var username=$("#username").val();
+                    $.ajax({
+                        url:"AdminServlet?method=usernameIsSame",
+                        method:"post",
+                        data:{username:username},
+                        success:function (data) {
+                            if(data=="false"){
+                                $("#msg").html("<font color='green' >√</font>");
+                            }else {
+                                $("#msg").html("<font color='red' >用户名已经存在</font>");
+
+                            }
+                        }
+                    })
+                })
+            })
+</script>
+--%>
 
 
 
-</head>
+
+
 
 <body>
-<form class="layui-form" action="LoginServlet?method=login" id="loginForm" method="post">
+<form class="layui-form" action="LoginServlet?method=login" id="loginForm" method="post" >
     <div class="layui-form-item">
         <h1>用&nbsp;户&nbsp;登&nbsp;录</h1>
     </div>
@@ -119,9 +146,10 @@
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">账号：</span>
-            <input type="text" name="usercode" placeholder="请输入账号" autocomplete="off" class="layui-input"
+            <input type="text" name="usercode"   id="username"  placeholder="请输入账号" autocomplete="off" class="layui-input"
                    autofocus required>
         </div>
+        <span id="msg"></span>
     </div>
 
     <div class="layui-form-item">
@@ -142,9 +170,11 @@
     </div>
     <br>
     <div class="layui-form-item">
-        <div class="layui-input-block">
-            <button type="submit" class="layui-btn layui-btn-bypercent-left" lay-submit>登 录</button>
-            <a class="layui-btn layui-btn-bypercent-right" style="color:#fff;line-height:45px;font-size:20px;" href="Register.html" id="register">注 册</a>
+        <div class="layui-btn-container">
+            <button type="submit" class="layui-btn " lay-submit style="color:#fff;line-height:45px;font-size:20px;">登 录</button>
+            <a class="layui-btn " style="color:#fff;line-height:45px;font-size:20px;" href="StudentRegister.jsp" id="Studentregister">学 生 注 册</a>
+
+            <a class="layui-btn" style="color:#fff;line-height:45px;font-size:20px;" href="CpyRegister.jsp" id="Cpyregister">企 业 注 册</a>
          <li>${error}</li>
         </div>
     </div>

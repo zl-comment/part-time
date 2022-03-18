@@ -1,5 +1,7 @@
 package com.zx.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 import java.util.List;
 
@@ -15,8 +17,10 @@ public class Student {
     private Date   stdate;       //学生的入学日期
     private String stresume;    //学生的简历
     private int    ststate;    //学生录取状态
-
+    @JsonIgnore
     private List<Occupation> occupations;//学生所报职位集合
+
+
 
     public int getId() {
         return id;
@@ -142,8 +146,19 @@ public class Student {
         this.ststate = ststate;
     }
 
+    public Student(int id, String stname, String staccount, String stphone, String stschool, String stmajor, int stsystem) {
+        this.id = id;
+        this.stname = stname;
+        this.staccount = staccount;
+        this.stphone = stphone;
+        this.stschool = stschool;
+        this.stmajor = stmajor;
+        this.stsystem = stsystem;
+    }
+
     public Student() {
     }
+
 
     @Override
     public String toString() {
@@ -161,5 +176,4 @@ public class Student {
                 ", ststate=" + ststate +
                 '}';
     }
-
 }

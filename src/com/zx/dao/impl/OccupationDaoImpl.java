@@ -4,10 +4,12 @@ import com.mysql.jdbc.PreparedStatement;
 import com.zx.beans.Company;
 import com.zx.beans.Occupation;
 
+import com.zx.beans.Student;
 import com.zx.dao.OccupationDao;
 import com.zx.util.JDBCUtil;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -149,7 +151,7 @@ public class OccupationDaoImpl implements OccupationDao {
     }
 
     @Override
-    public Company occupationByCompany(int companyid) {         //admin
+    public Company occupationByCompanyAdmin(int companyid) {         //admin
         Connection connection=null;
         ArrayList<Occupation> occupations=new ArrayList<Occupation>();
         Company company=new Company();
@@ -195,10 +197,85 @@ public class OccupationDaoImpl implements OccupationDao {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            JDBCUtil.close(connection);
         }
 
         return company;
+    }
 
 
+    @Override
+    public Student occupationByStudentAdmin(int studentid) {
+        Connection connection=null;
+        ArrayList<Occupation> occupations=new ArrayList<Occupation>();
+        Student student=new Student();
+        System.out.println(studentid);
+        try {
+            connection= JDBCUtil.getConnection();
+            String sql="SELECT  stu.id stid,stname,staccount,stpassword,stphone,stschool,stmajor ,stsystem,stdate,stresume,ststate,oc.id ocid ,ocname,salary,requirement,workplace,worktime  from student stu,occupation oc,stuandoc sta where stu.id=sta.studentid and oc.id=sta.occupationid and stu.id=?";
+            java.sql.PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setInt(1,studentid);
+            ResultSet resultSet= ps.executeQuery();
+
+            while (resultSet.next()){
+                int stid=resultSet.getInt("stid");
+                student.setId(stid);
+                String stname = resultSet.getString("stname");
+                student.setStname(stname);
+                String staccount = resultSet.getString("staccount");
+                student.setStaccount(staccount);
+                String stpassword = resultSet.getString("stpassword");
+                student.setStpassword(stpassword);
+                String stphone = resultSet.getString("stphone");
+                student.setStphone(stphone);
+                String stschool = resultSet.getString("stschool");
+                student.setStschool(stschool);
+                String stmajor = resultSet.getString("stmajor");
+                student.setStmajor(stmajor);
+                int stsystem = resultSet.getInt("stsystem");
+                student.setStsystem(stsystem);
+                java.sql.Date stdate = resultSet.getDate("stdate");
+                java.util.Date date=new java.util.Date(stdate.getTime());
+                student.setStdate(date);
+                String stresume = resultSet.getString("stresume");
+                student.setStresume(stresume);
+                int ststate=resultSet.getInt("ststate");
+                student.setStstate(ststate);
+
+
+
+
+
+
+
+
+
+
+                int ocid=resultSet.getInt("ocid");
+
+                String ocname=resultSet.getString("ocname");
+                String salary=resultSet.getString("salary");
+                String requirement=resultSet.getString("requirement");
+                String workplace=resultSet.getString("workplace");
+                String worktime=resultSet.getString("worktime");
+
+
+                Occupation occupation=new Occupation(ocid,ocname,salary,requirement,workplace,worktime);
+
+                occupations.add(occupation);
+            }
+
+            student.setOccupations(occupations);
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.close(connection);
+        }
+
+        return student;
     }
 }

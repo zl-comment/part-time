@@ -11,5 +11,7 @@ public interface CompanyDao {
 
     void addOccupation(int companyid, int occupationid);
 
-    ArrayList<Company>   getCompanys();
+    ArrayList<Company>   getCompanysAdmin();
+
+    boolean cpyaccountIsSame(String cpyaccount);
 }

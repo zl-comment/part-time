@@ -1,7 +1,9 @@
 package com.zx.servlet;
 
 import com.zx.beans.Student;
+import com.zx.dao.AdminDao;
 import com.zx.dao.StudentDao;
+import com.zx.dao.impl.AdminDaoImpl;
 import com.zx.dao.impl.StudentDaoImpl;
 
 import javax.servlet.ServletException;
@@ -9,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -34,16 +37,28 @@ public class StudentServlet extends BaseServlet {
             e.printStackTrace();
         }
 
-
         StudentDao studentDao = new StudentDaoImpl();
         studentDao.Register(staccount,stpassword,stphone,stschool,stmajor,Integer.parseInt(stsystem),date);
-
-
-
         request.getRequestDispatcher("login.jsp").forward(request,response);
-
-
     }
+
+
+
+    public void staccountIsSame(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String staccount=request.getParameter("staccount");
+        StudentDao studentDao=new StudentDaoImpl();
+
+        boolean judge=studentDao.staccountIsSame(staccount);
+        System.out.println(judge);
+
+
+
+        PrintWriter writer=response.getWriter();
+        writer.print(judge);
+        writer.close();
+    }
+
+
 
 
 }

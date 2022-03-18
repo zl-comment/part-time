@@ -2,10 +2,11 @@ package com.zx.dao;
 
 import com.zx.beans.Company;
 import com.zx.beans.Occupation;
+import com.zx.beans.Student;
 
 
 public interface OccupationDao {
-    Company occupationByCompany(int companyid);
+    Company occupationByCompanyAdmin(int companyid);
 
     void Jobpublish(String ocname, String workplace, String worktime, String salary, String requirement);
 
@@ -19,4 +20,6 @@ public interface OccupationDao {
     int jobIdBy(String ocname, String workplace, String worktime, String salary, String requirement);
 
     void deleteCpyandocById(int cpyandocid);
+
+    Student occupationByStudentAdmin(int studentid);
 }

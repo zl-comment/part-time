@@ -2,7 +2,9 @@ package com.zx.servlet;
 
 
 import com.zx.dao.CompanyDao;
+import com.zx.dao.StudentDao;
 import com.zx.dao.impl.CompanyDaoImpl;
+import com.zx.dao.impl.StudentDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "CompanyServlet", urlPatterns = "/CompanyServlet")
 public class CompanyServlet extends BaseServlet {
@@ -34,6 +37,23 @@ public class CompanyServlet extends BaseServlet {
         companyDao.Register(cpyaccount, cpypassword, cpyname, cpyphone, cpyaddress, cpyinfo);
 
 
-
     }
+
+
+    public void cpyaccountIsSame(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String cpyaccount=request.getParameter("cpyaccount");
+        CompanyDao companyDao=new CompanyDaoImpl();
+
+        System.out.println(cpyaccount);
+        boolean judge=companyDao.cpyaccountIsSame(cpyaccount);
+        System.out.println(judge);
+
+
+
+        PrintWriter writer=response.getWriter();
+        writer.print(judge);
+        writer.close();
+    }
+
+
 }

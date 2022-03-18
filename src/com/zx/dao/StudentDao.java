@@ -14,5 +14,9 @@ public interface StudentDao {
     void Register(String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate);
 
 
-    List<Student> getStudents();
+    List<Student> getStudentsAdmin();
+
+    boolean staccountIsSame(String staccount);
+
+    Student getStudentByIdAdmin(int studentid);
 }

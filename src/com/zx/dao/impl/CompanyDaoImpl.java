@@ -86,7 +86,7 @@ public class CompanyDaoImpl   implements CompanyDao {
 
 
     @Override
-    public ArrayList<Company> getCompanys() {
+    public ArrayList<Company> getCompanysAdmin() {
         Connection connection=null;
         ArrayList<Company> companies=new ArrayList<>();
         try {
@@ -118,6 +118,28 @@ public class CompanyDaoImpl   implements CompanyDao {
         }
 
         return companies;
+    }
+
+
+    @Override
+    public boolean cpyaccountIsSame(String cpyaccount) {
+        Connection connection=null;
+        try {
+            connection= JDBCUtil.getConnection();
+            String sql="SELECT id   from  company  where cpyaccount=?";
+            PreparedStatement   ps = connection.prepareStatement(sql);
+            ps.setString(1,cpyaccount);
+            ResultSet resultSet= ps.executeQuery();
+            while (resultSet.next()){
+                return true;    //存在
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.close(connection);
+        }
+        return false;     //不存在
     }
 }
 

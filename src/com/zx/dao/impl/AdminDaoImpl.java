@@ -37,9 +37,30 @@ public class AdminDaoImpl  implements AdminDao {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            JDBCUtil.close(connection);
         }
-
         return null;
     }
 
+    @Override
+    public boolean usernameIsSame(String username) {
+        Connection connection=null;
+        try {
+            connection= JDBCUtil.getConnection();
+            String sql="SELECT id   from  admin  where adminname=?";
+            PreparedStatement   ps = connection.prepareStatement(sql);
+            ps.setString(1,username);
+            ResultSet resultSet= ps.executeQuery();
+            while (resultSet.next()){
+               return true;    //存在
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.close(connection);
+        }
+        return false;     //不存在
+    }
 }

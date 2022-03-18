@@ -133,6 +133,34 @@
     </style>
 </head>
 
+<script src="js/jquery.min.js"></script>
+
+
+<script>
+    $(function () {
+
+        $("#staccount").blur(function () {
+            var staccount=$("#staccount").val();
+            $.ajax({
+                url:"StudentServlet?method=staccountIsSame",
+                method:"post",
+                data:{staccount:staccount},
+                success:function (data) {
+                    if(data=="false"){
+                        $("#msg").html("<font color='green' >√</font>");
+                    }else {
+                        $("#msg").html("<font color='red' >用户名已经存在</font>");
+
+                    }
+                }
+            })
+        })
+    })
+
+</script>
+
+
+
 <body>
 <form class="layui-form" action="StudentServlet?method=Register" id="loginForm" method="post">
     <div class="layui-form-item">
@@ -142,9 +170,10 @@
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</span>
-            <input type="text" name="staccount" placeholder="请输入账号" autocomplete="off" class="layui-input"
+            <input type="text" name="staccount"   id="staccount"    placeholder="请输入账号" autocomplete="off" class="layui-input"
                    autofocus required>
         </div>
+        <span id="msg"></span>
     </div>
 
     <div class="layui-form-item">
