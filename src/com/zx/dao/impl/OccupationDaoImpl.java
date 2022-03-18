@@ -45,13 +45,12 @@ public class OccupationDaoImpl implements OccupationDao {
     }
 
     @Override
-    public /*List<Occupation>*/Company      getOccupationsCompany(int companyid) {
+    public Company getOccupationsCompany(int companyid) {
         Connection connection = null;
         ArrayList<Occupation> occupations = new ArrayList<>();
         Company company=new Company();
         try {
             connection = JDBCUtil.getConnection();
-           // System.out.println(connection);
             String sql = "SELECT ocname,salary,workplace,requirement , co.id cpyandocid ,oc.id occupationid from occupation oc,cpyandoc co ,company  cpy where oc.id=co.occupationid and cpy.id=co.companyid and cpy.id=? ";
             PreparedStatement ps = (PreparedStatement) connection.prepareStatement(sql);
             ps.setInt(1,companyid);
@@ -61,12 +60,12 @@ public class OccupationDaoImpl implements OccupationDao {
             String salary= resultSet.getString("salary");
             String workplace= resultSet.getString("workplace");
             String requirement= resultSet.getString("requirement");
+            int cpyandocid=resultSet.getInt("cpyandocid");  //#
+            int occupationid=resultSet.getInt("occupationid");
 
-           int cpyandocid=resultSet.getInt("cpyandocid");  //#
-                int occupationid=resultSet.getInt("occupationid");
 
             Occupation occupation=new Occupation(occupationid,ocname,salary,workplace,requirement);
-                occupation.setCpyandocid(cpyandocid);
+            occupation.setCpyandocid(cpyandocid);
             occupations.add(occupation);
 
             }
@@ -78,7 +77,6 @@ public class OccupationDaoImpl implements OccupationDao {
             JDBCUtil.close(connection);
         }
 
-        System.out.println(occupations);
         return company;
     }
     @Override
@@ -96,7 +94,7 @@ public class OccupationDaoImpl implements OccupationDao {
             String requirement = resultSet.getString("requirement");
             String workplace= resultSet.getString("workplace");
             String worktime= resultSet.getString("worktime");
-            Occupation occupation = new Occupation(ocname,salary,requirement,workplace,worktime);
+            Occupation occupation = new Occupation(ocid,ocname,salary,requirement,workplace,worktime);
             return occupation;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -111,11 +109,56 @@ public class OccupationDaoImpl implements OccupationDao {
         Connection connection = null;
         try {
             connection = JDBCUtil.getConnection();
-            String sql = "delete from cpyandoc where occupationid = ? and companyid = ?";
+            String sql = "delete from occupation where id=?";
             PreparedStatement ps = (PreparedStatement)connection.prepareStatement(sql);
+            System.out.println(ocid);
             ps.setInt(1,ocid);
-        //    ps.setInt(2,);
-            ResultSet resultSet = ps.executeQuery();
+
+            ps.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.close(connection);
+        }
+
+    }
+
+    @Override
+    public void updateOccupationById(Occupation occupation) {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "update occupation set ocname = ?,salary = ?,requirement = ?,workplace = ?,worktime = ?where id=?";
+            PreparedStatement ps = (PreparedStatement)connection.prepareStatement(sql);
+            ps.setString(1,occupation.getOcname());
+            ps.setString(2,occupation.getSalary());
+            ps.setString(3,occupation.getRequirement());
+            ps.setString(4,occupation.getWorkplace());
+            ps.setString(5,occupation.getWorktime());
+            ps.setInt(6,occupation.getId());
+
+
+            ps.execute();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.close(connection);
+        }
+    }
+
+    @Override
+    public void deleteCpyandocById(int cpyandocid) {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "delete from cpyandoc where id=?";
+            PreparedStatement ps = (PreparedStatement)connection.prepareStatement(sql);
+            System.out.println(cpyandocid);
+            ps.setInt(1,cpyandocid);
+
             ps.execute();
 
         } catch (SQLException e) {

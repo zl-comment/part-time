@@ -14,7 +14,8 @@ public interface OccupationDao {
 
 
     Occupation getOccupationById(int ocid);
-    void deleteOccupationById(int ocid);
-
     int jobIdBy(String ocname, String workplace, String worktime, String salary, String requirement);
+    void deleteCpyandocById(int cpyandocid);
+    void deleteOccupationById(int ocid);
+    void updateOccupationById(Occupation occupation);
 }
