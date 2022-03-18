@@ -87,8 +87,7 @@ public class AdminServlet extends BaseServlet {
         response.setCharacterEncoding("utf-8");
 
 
-
-
+        System.out.println(json);
         PrintWriter writer=response.getWriter();
      //   writer.print("["+json+"]");
         writer.print(json);

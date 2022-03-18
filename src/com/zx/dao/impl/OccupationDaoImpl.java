@@ -260,44 +260,13 @@ public class OccupationDaoImpl implements OccupationDao {
         System.out.println(studentid);
         try {
             connection= JDBCUtil.getConnection();
-            String sql="SELECT  stu.id stid,stname,staccount,stpassword,stphone,stschool,stmajor ,stsystem,stdate,stresume,ststate,oc.id ocid ,ocname,salary,requirement,workplace,worktime  from student stu,occupation oc,stuandoc sta where stu.id=sta.studentid and oc.id=sta.occupationid and stu.id=?";
+            String sql="SELECT oc.id ocid ,ocname,salary,requirement,workplace,worktime  from student stu,occupation oc,stuandoc sta where stu.id=sta.studentid and oc.id=sta.occupationid and stu.id=?";
             java.sql.PreparedStatement ps = connection.prepareStatement(sql);
 
             ps.setInt(1,studentid);
             ResultSet resultSet= ps.executeQuery();
 
             while (resultSet.next()){
-                int stid=resultSet.getInt("stid");
-                student.setId(stid);
-                String stname = resultSet.getString("stname");
-                student.setStname(stname);
-                String staccount = resultSet.getString("staccount");
-                student.setStaccount(staccount);
-                String stpassword = resultSet.getString("stpassword");
-                student.setStpassword(stpassword);
-                String stphone = resultSet.getString("stphone");
-                student.setStphone(stphone);
-                String stschool = resultSet.getString("stschool");
-                student.setStschool(stschool);
-                String stmajor = resultSet.getString("stmajor");
-                student.setStmajor(stmajor);
-                int stsystem = resultSet.getInt("stsystem");
-                student.setStsystem(stsystem);
-                java.sql.Date stdate = resultSet.getDate("stdate");
-                java.util.Date date=new java.util.Date(stdate.getTime());
-                student.setStdate(date);
-                String stresume = resultSet.getString("stresume");
-                student.setStresume(stresume);
-                int ststate=resultSet.getInt("ststate");
-                student.setStstate(ststate);
-
-
-
-
-
-
-
-
 
 
                 int ocid=resultSet.getInt("ocid");

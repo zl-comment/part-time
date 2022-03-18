@@ -127,7 +127,7 @@
                         "<td>" + tt[i].stresume+"</td>"+
                         "<td>" + tt[i].ststate+"</td>";
                     }
-                   $("#student").append();
+                   $("#student").append(str1);
 
 
                 },
@@ -139,7 +139,6 @@
         })
 
     })
-
 
 </script>
 
