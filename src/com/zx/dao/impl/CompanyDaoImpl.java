@@ -30,7 +30,7 @@ public class CompanyDaoImpl   implements CompanyDao {
                String  cpyaddress=resultSet.getString("cpyaddress");
                String  cpyinfo=resultSet.getString("cpyinfo");
                Company company=new Company(id,cpyname,usercode,password,cpyphone,cpyaddress,cpyinfo);
-                System.out.println(company);
+
             return  company;
             }
         } catch (SQLException e) {
@@ -143,10 +143,52 @@ public class CompanyDaoImpl   implements CompanyDao {
     }
 }
 
+    @Override
+    public Company getCompanyById(int companyid) {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "select * from company where id = ?";
+            com.mysql.jdbc.PreparedStatement ps = (com.mysql.jdbc.PreparedStatement) connection.prepareStatement(sql);
+            ps.setInt(1, companyid);
+            ResultSet resultSet = ps.executeQuery();
+            resultSet.next();
+            String cpyname = resultSet.getString("cpyname");
+            String cpyaccount = resultSet.getString("cpyaccount");
+            String cpypassword = resultSet.getString("cpypassword");
+            String cpyphone = resultSet.getString("cpyphone");
+            String cpyaddress = resultSet.getString("cpyaddress");
+            String cpyinfo = resultSet.getString("cpyinfo");
+            Company company = new Company(companyid, cpyname,cpyaccount,cpypassword, cpyphone, cpyaddress, cpyinfo);
+            return company;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+        }
+        return null;
+    }
+    public void updateCompanyById(Company company) {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "update company set cpyname = ?,cpyaccount = ?,cpypassword = ?,cpyphone = ?,cpyaddress = ?,cpyinfo = ?where id=?";
+            com.mysql.jdbc.PreparedStatement ps = (com.mysql.jdbc.PreparedStatement)connection.prepareStatement(sql);
+            ps.setString(1,company.getCpyname());
+            ps.setString(2,company.getCpyaccount());
+            ps.setString(3,company.getCpypassword());
+            ps.setString(4,company.getCpyphone());
+            ps.setString(5,company.getCpyaddress());
+            ps.setString(6,company.getCpyinfo());
+            ps.setInt(7,company.getId());
 
+            ps.execute();
 
-
-
-
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.close(connection);
+        }
+    }
 
 

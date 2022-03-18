@@ -48,7 +48,7 @@
                 <li class="layui-nav-item"><a href="Jobpublish.jsp?&&companyid=${company.id}" target="ifram">发布招聘</a></li>
                 <li class="layui-nav-item"><a href="OccupationServlet?method=getOccupations&&companyid=${company.id}" target="ifram">招聘管理</a></li>
                 <li class="layui-nav-item"><a href="" target="ifram">报名管理</a></li>
-                <li class="layui-nav-item"><a href="">修改公司信息</a></li>
+                <li class="layui-nav-item"><a href="CompanyServlet?method=getCompanyById&&companyid=${company.id}" target="ifram">公司信息</a></li>
             </ul>
         </div>
     </div>

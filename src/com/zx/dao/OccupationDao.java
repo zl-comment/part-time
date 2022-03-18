@@ -22,4 +22,7 @@ public interface OccupationDao {
     void deleteCpyandocById(int cpyandocid);
 
     Student occupationByStudentAdmin(int studentid);
+    void deleteCpyandocById(int cpyandocid);
+    void deleteOccupationById(int ocid);
+    void updateOccupationById(Occupation occupation);
 }
