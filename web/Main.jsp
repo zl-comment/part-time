@@ -64,7 +64,7 @@
                         </ul>
                     </li> |
                     <li class='has-sub'><a href='works.html'><span>Works</span></a></li> |
-                    <li class='has-sub'><a href='StudentServlet?method=my' ><span>我的信息</span></a></li> |
+                    <li class='has-sub'><a href='blog.html'><span>我的信息</span></a></li> |
                     <li class='last'><a href='contact.html'><span>Contact Us</span></a></li>
                 </ul>
             </div>
@@ -331,7 +331,7 @@
                 <li><a href="about.html">About</a></li> |
                 <li><a href="index.html">Services</a></li> |
                 <li><a href="works.html">Work</a></li> |
-                <li><a href="blog.html">Blog</a></li> |
+                <li><a href="blog.html">我的信息</a></li> |
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="copy">

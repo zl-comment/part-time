@@ -1,5 +1,6 @@
 package com.zx.dao;
 
+
 import com.zx.beans.Student;
 
 
@@ -13,5 +14,7 @@ public interface StudentDao {
     void Register(String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate);
 
 
-    void updateinfo(Student student);
+    void updateinfoStudent(Student student);
+
+    Student getStudentInfoById(int id);
 }

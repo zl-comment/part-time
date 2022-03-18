@@ -11,15 +11,13 @@ public class Student {
     private String stphone;          //手机号
     private String stschool;        //学校
     private String stmajor;        //学科
-    private int    stsystem;      //学生的学制
-    private Date   stdate;       //学生的入学日期
-    private String stresume;    //学生的简历
-    private int    ststate;    //学生录取状态
-
+    private int stsystem;
+    private Date stdate;
+    private String stresume;
+    private int ststate;
     private List<Occupation> occupations;//学生所报职位集合
 
-    public Student(String staccount, String stpassword, String stphone, String stschool, String stmajor, int parseInt, Date date) {
-    }
+
 
     public int getId() {
         return id;
@@ -158,7 +156,6 @@ public class Student {
 
     public Student(int id, String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate) {
         this.id = id;
-        this.stname = stname;
         this.staccount = staccount;
         this.stpassword = stpassword;
         this.stphone = stphone;

@@ -57,7 +57,7 @@
                     <dd><a href="">基本资料</a></dd>
                     <dd><a href="">安全设置</a></dd>
                 </dl>
-            </li>
+            </li>d
             <li class="layui-nav-item"><a href="javascript:;" data-id="logout">退出</a></li>
         </ul>
     </div>
@@ -67,9 +67,9 @@
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="nav_left">
-                <li class="layui-nav-item"><a href="update_student_info.jsp?&&student=${student}" target="ifram">信息</a></li>
+                <li class="layui-nav-item"><a href="StudentServlet?method=getStudentInfoById&&id=${student.id}" target="ifram">信息</a></li>
                 <li class="layui-nav-item"><a href="" target="ifram">我的简历</a></li>
-                <li class="layui-nav-item"><a href="StudentServlet?method=getOccupations&&studentid=${student.id}" target="ifram">已报名的职业</a></li>
+                <li class="layui-nav-item"><a href="StudentServlet?method=getOccupations&&id=${student.id}" target="ifram">已报名的职业</a></li>
             </ul>
         </div>
     </div>
@@ -105,11 +105,7 @@
 
 
 
-
 <%--    --%>
-
-
-
 
 
     <div class="layui-footer">

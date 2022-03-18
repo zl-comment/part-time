@@ -1,6 +1,7 @@
 package com.zx.servlet;
 
 import com.zx.beans.Occupation;
+import com.zx.beans.Page;
 import com.zx.beans.Student;
 import com.zx.dao.OccupationDao;
 import com.zx.dao.StudentDao;
@@ -43,9 +44,28 @@ public class StudentServlet extends BaseServlet {
         request.getRequestDispatcher("Login.jsp").forward(request,response);
     }
 
-    public void updateinfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
 
+    public void getStudentInfoById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String id = request.getParameter("id");
+        /*String currentPage = request.getParameter("currentPage");
+        if (currentPage == null){
+            currentPage = "1";
+        }*/
+        StudentDao studentDao = new StudentDaoImpl();
+//        Page<Occupation> page = occupationDao.getOccupationsStudentByPage(Integer.parseInt(currentPage),1,Integer.parseInt(studentid));
+        Student student = studentDao.getStudentInfoById(Integer.parseInt(id));
+
+//        request.setAttribute("student",student);
+        request.setAttribute("id",id);
+//        System.out.println(student);
+        request.getRequestDispatcher("update_student_info.jsp").forward(request,response);
+    }
+
+    public void updateinfoStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+//        request.setCharacterEncoding("utf-8");
+        String id = request.getParameter("id");
         String staccount = request.getParameter("staccount");
         String stpassword = request.getParameter("stpassword");
         String stphone = request.getParameter("stphone");
@@ -53,35 +73,39 @@ public class StudentServlet extends BaseServlet {
         String stmajor = request.getParameter("stmajor");
         String stsystem = request.getParameter("stsystem");
         String stdate = request.getParameter("stdate");
-
-        System.out.println(stphone);
-        SimpleDateFormat sf=new SimpleDateFormat("yyyy-MM-dd");
-        Date date=null;
+        System.out.println(stdate);
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = null;
         try {
-            date=sf.parse(stdate);
-            System.out.println(date);
+            date = sf.parse(stdate);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Student student = new Student(staccount,stpassword,stphone,stschool,stmajor,Integer.parseInt(stsystem),date);
-
+        Student student = new Student(Integer.parseInt(id),staccount,stpassword,stphone,stschool,stmajor,Integer.parseInt(stsystem),date);
+        System.out.println(student);
         StudentDao studentDao = new StudentDaoImpl();
-        studentDao.updateinfo(student);
+        studentDao.updateinfoStudent(student);
+
+        request.setAttribute("id",id);
+
         request.getRequestDispatcher("update_student_info.jsp").forward(request,response);
     }
 
 
+
     public void getOccupations(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String studentid=request.getParameter("studentid");
+        String id = request.getParameter("id");
+        /*String currentPage = request.getParameter("currentPage");
+        if (currentPage == null){
+            currentPage = "1";
+        }*/
         OccupationDao occupationDao = new OccupationDaoImpl();
-        Student student = occupationDao.getOccupationsStudent(Integer.parseInt(studentid));
-
-
-//        System.out.println(occupations);
+//        Page<Occupation> page = occupationDao.getOccupationsStudentByPage(Integer.parseInt(currentPage),1,Integer.parseInt(studentid));
+        Student student = occupationDao.getOccupationsStudent(Integer.parseInt(id));
 
         request.setAttribute("occupations",student.getOccupations());
-        request.setAttribute("studentid",studentid);
+        request.setAttribute("studentid",id);
         request.getRequestDispatcher("studentOccupations.jsp").forward(request,response);
     }
 
@@ -95,8 +119,6 @@ public class StudentServlet extends BaseServlet {
         request.setAttribute("occupations",student.getOccupations());
         request.setAttribute("studentid",studentid);
         request.getRequestDispatcher("studentOccupations.jsp").forward(request,response);
-
-
     }
 
 }
