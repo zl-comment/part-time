@@ -1,6 +1,7 @@
 package com.zx.beans;
 
 public class Resume {
+
     private String name;
     private int age;
     private String address;
@@ -82,6 +83,21 @@ public class Resume {
 
     public void setSelfEvaluation(String selfEvaluation) {
         this.selfEvaluation = selfEvaluation;
+    }
+
+    public Resume(String name, int age, String address, String phone, String email, String hobby, String major, String workExperience, String selfEvaluation) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.phone = phone;
+        Email = email;
+        this.hobby = hobby;
+        this.major = major;
+        this.workExperience = workExperience;
+        this.selfEvaluation = selfEvaluation;
+    }
+
+    public Resume() {
     }
 
     @Override

@@ -5,6 +5,13 @@ import com.zx.beans.Occupation;
 import com.zx.beans.Student;
 
 
+import com.zx.beans.Occupation;
+import com.zx.beans.Page;
+import com.zx.beans.Student;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public interface OccupationDao {
     Company occupationByCompanyAdmin(int companyid);
 
@@ -24,4 +31,8 @@ public interface OccupationDao {
     Student occupationByStudentAdmin(int studentid);
     void deleteOccupationById(int ocid);
     void updateOccupationById(Occupation occupation);
+    Student getOccupationsStudent(int studentid);
+
+    void deleteOccupationsByIdStudent(int stuandocid);
+
 }

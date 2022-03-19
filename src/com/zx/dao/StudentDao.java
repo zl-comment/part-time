@@ -1,5 +1,6 @@
 package com.zx.dao;
 
+
 import com.zx.beans.Student;
 
 
@@ -19,4 +20,7 @@ public interface StudentDao {
     boolean staccountIsSame(String staccount);
 
     Student getStudentByIdAdmin(int studentid);
+    void updateinfoStudent(Student student);
+
+    Student getStudentInfoById(int id);
 }
