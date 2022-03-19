@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
 
 @WebServlet(name = "BaseServlet", urlPatterns = "/BaseServlet")
 public class BaseServlet extends HttpServlet {
-
+//doget dopost
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         String method_name = request.getParameter("method");

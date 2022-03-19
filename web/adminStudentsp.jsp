@@ -62,10 +62,7 @@
     })
 
 </script>
-<script>
 
-
-</script>
 
 <table class="layui-table">
     <colgroup>
@@ -87,7 +84,7 @@
         <th>录取状态</th>
     </tr>
     </thead>
-    <tbody    id="student">
+    <tbody   id="student">
 
     </tbody>
 </table>
@@ -100,7 +97,6 @@
 <table id="demo" lay-filter="studenttable" ></table>
 
 <script>
-
     $(function () {
         var studentid=$("#studentid").val();
         $.ajax({
@@ -109,14 +105,11 @@
             dataType:"json",
             data:{studentid:studentid},
             success:function (data) {
-                            alert(data)
-                    var tt = JSON.parse(data);  //第一个data代表json,第二个data代表json里的数组或对象
-
-                    var str1 = "";   //声明str1，防止产生undefined
-
-                    for (var i = 0; i < tt.length; i++) {   //遍历
-                        str1 = str1+ "<td>" + tt[i].id+ "</td>" +
-                        "<td>" + tt[i].stname+ "</td>" +
+                var tt = eval(data);
+                //var tt = JSON.parse(data);  //错误
+                var str1 = "";   //声明str1，防止产生undefined
+                for (var i = 0; i < tt.length; i++) {   //遍历
+                    str1 += "<td>" + tt[i].stname+ "</td>" +
                         "<td>" + tt[i].staccount+ "</td>" +
                         "<td>" + tt[i].stpassword+"</td>"+
                         "<td>" + tt[i].stphone+"</td>"+
@@ -124,25 +117,26 @@
                         "<td>" + tt[i].stmajor+"</td>"+
                         "<td>" + tt[i].stsystem+"</td>"+
                         "<td>" + tt[i].stdate+"</td>"+
-                        "<td>" + tt[i].stresume+"</td>"+
-                        "<td>" + tt[i].ststate+"</td>";
+                        "<td>" + tt[i].stresume+"</td>";
+                    if(tt[i].ststate=="1"){
+                        str1+="<td>录取</td>";
+                    }else{
+                        str1+="<td>未录取</td>";
                     }
-                   $("#student").append(str1);
-
-
-                },
-                error : function (arg1) {
-                    alert("加载数据失败");
-                    console.log(arg1);
                 }
+                $("#student").append(str1);
+
+            },
+            error : function (arg1) {
+                alert("加载数据失败");
+                console.log(arg1);
+            }
 
         })
 
     })
 
 </script>
-
-
 
 
 
