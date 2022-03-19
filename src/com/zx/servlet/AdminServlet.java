@@ -44,7 +44,7 @@ public class AdminServlet extends BaseServlet {
     }
     public void getCompanyByIdAndOccupation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             String companyid=request.getParameter("companyid");
-            System.out.println(companyid);
+
             OccupationDao occupationDao=new OccupationDaoImpl();
             Company company=occupationDao.occupationByCompanyAdmin(Integer.parseInt(companyid));
 
@@ -87,7 +87,7 @@ public class AdminServlet extends BaseServlet {
         response.setCharacterEncoding("utf-8");
 
 
-        System.out.println(json);
+
         PrintWriter writer=response.getWriter();
      //   writer.print("["+json+"]");
         writer.print(json);
@@ -105,11 +105,9 @@ public class AdminServlet extends BaseServlet {
 
 
 
-
         response.setCharacterEncoding("utf-8");
 
 
-        System.out.println("["+json+"]");
         PrintWriter writer=response.getWriter();
 
         writer.print("["+json+"]");
@@ -122,9 +120,8 @@ public class AdminServlet extends BaseServlet {
     public void usernameIsSame(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username=request.getParameter("username");
         AdminDao adminDao=new AdminDaoImpl();
-        System.out.println(username);
         boolean judge=adminDao.usernameIsSame(username);
-        System.out.println(judge);
+
 
 
         PrintWriter writer=response.getWriter();

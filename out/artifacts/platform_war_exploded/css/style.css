@@ -1,4 +1,4 @@
-/*
+﻿/*
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -36,8 +36,8 @@ body{
 	width:80%;
 	margin:0 auto;
 	-moz-transition:all .2s linear;
-	-webkit-transition:all .2s linear; 
-	-o-transition:all .2s linear; 
+	-webkit-transition:all .2s linear;
+	-o-transition:all .2s linear;
 	-ms-transition:all .2s linear;
 }
 .header{
@@ -567,7 +567,7 @@ li.google a span:hover {
 	display: block;
 	float:left;
 	margin:0 0 0 4.6%;
-}	
+}
 .span_2_of_3 {
 	width:66.1%;
 }
@@ -958,7 +958,7 @@ h4.m_2{
 	display: block;
 	float:left;
 	margin:0% 1.6% 0% 0;
-} 	
+}
 .span_2_of_about {
 	width: 66.1%;
 }
@@ -1093,7 +1093,7 @@ ul.about-list li p{
 }
 .contact-form textarea{
 	resize:none;
-	height:120px;		
+	height:120px;
 }
 .contact-form input[type="submit"]{
 	cursor:pointer;
@@ -1435,7 +1435,7 @@ h4.contact-head {
 	}
 	.span_1_of_4 {
 		width: 100%;
-	}		
+	}
 	.span_2_of_3 {
 		width: 100%;
 	}
@@ -1465,7 +1465,7 @@ h4.contact-head {
 	.lsidebar {
 		float:none;
 		margin:0;
-	}	
+	}
 	ul.about-list li {
 		margin: 0 0px 20px 30px;
 	}
@@ -1560,7 +1560,7 @@ h4.contact-head {
 	}
 	.span_1_of_4 {
 		width: 100%;
-	}		
+	}
 	.span_2_of_3 {
 		width: 100%;
 	}
@@ -1590,7 +1590,7 @@ h4.contact-head {
 	.lsidebar {
 		float:none;
 		margin:0;
-	}	
+	}
 	ul.about-list li {
 		margin: 0 0px 20px 30px;
 	}
@@ -1631,7 +1631,7 @@ h4.contact-head {
 	}
 	#cssmenu > ul > li > a {
 		padding:0px 0px;
-		font-size:10px;		
+		font-size:10px;
 	}
 	.btn a {
 		padding: 8px 20px;
@@ -1686,7 +1686,7 @@ h4.contact-head {
 	}
 	.span_1_of_4 {
 		width: 100%;
-	}		
+	}
 	.span_2_of_3 {
 		width: 100%;
 	}
@@ -1716,7 +1716,7 @@ h4.contact-head {
 	.lsidebar {
 		float:none;
 		margin:0;
-	}	
+	}
 	ul.about-list li {
 		margin: 0 0px 20px 30px;
 	}
@@ -1740,5 +1740,5 @@ h4.contact-head {
 	.span_2_of_3 h3, .span_1_of_3 h3, .comment h2, .comments-area h2, h4.contact-head, h4.single-head{
 		font-size: 1.2em;
 	}
-	
+
 }

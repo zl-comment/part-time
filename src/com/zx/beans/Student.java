@@ -156,6 +156,18 @@ public class Student {
         this.stsystem = stsystem;
     }
 
+
+    public Student(int id, String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate) {
+        this.id = id;
+        this.staccount = staccount;
+        this.stpassword = stpassword;
+        this.stphone = stphone;
+        this.stschool = stschool;
+        this.stmajor = stmajor;
+        this.stsystem = stsystem;
+        this.stdate = stdate;
+    }
+
     public Student() {
     }
 

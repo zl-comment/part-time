@@ -1,30 +1,18 @@
 package com.zx.dao.impl;
 
-import com.mysql.jdbc.PreparedStatement;
+
 import com.zx.beans.Company;
 import com.zx.beans.Occupation;
-import com.zx.dao.CompanyDao;
-import com.zx.beans.Student;
-import com.zx.beans.Admin;
-import com.zx.beans.Occupation;
-import com.zx.beans.Page;
+import java.sql.PreparedStatement;
 import com.zx.beans.Student;
 import com.zx.dao.OccupationDao;
 import com.zx.util.JDBCUtil;
-
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.SortedMap;
-import java.util.zip.ZipOutputStream;
-import com.zx.util.JDBCUtil;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class OccupationDaoImpl implements OccupationDao {
 
@@ -165,7 +153,7 @@ public class OccupationDaoImpl implements OccupationDao {
         try {
             connection = JDBCUtil.getConnection();
             String sql = "SELECT id from occupation  where ocname=? and workplace=? and worktime=? and salary=? and requirement=?";
-            PreparedStatement ps = (PreparedStatement) connection.prepareStatement(sql);
+            PreparedStatement ps =  connection.prepareStatement(sql);
             ps.setString(1,ocname);
             ps.setString(2,workplace);
             ps.setString(3,worktime);
@@ -195,7 +183,7 @@ public class OccupationDaoImpl implements OccupationDao {
         try {
             connection = JDBCUtil.getConnection();
             String sql = "delete from cpyandoc where id=?";
-            PreparedStatement ps = (PreparedStatement)connection.prepareStatement(sql);
+            PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1,cpyandocid);
             ps.execute();
 
@@ -312,17 +300,17 @@ public class OccupationDaoImpl implements OccupationDao {
         Connection connection = null;
         try {
             connection = JDBCUtil.getConnection();
-            String sql = "SELECT  s.id sid,staccount, stpassword,stphone,stschool,stmajor,stsystem,stdate,o.id oid,ocname,salary,workplace,worktime,a.id stuandocid from student s,stuandoc  a,occupation o where s.id=a.studentid and o.id=a.occcupationid and s.id=?";
-
+            String sql = "SELECT s.id sid,staccount, stpassword,stphone,stschool,stmajor,stsystem,stdate,o.id oid,ocname,salary,workplace,worktime,a.id stuandocid from student s,stuandoc  a,occupation o where s.id=a.studentid and o.id=a.occupationid and s.id=?";
             //获取数据库操作对象
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1,studentid);
             //执行
             ResultSet resultSet = ps.executeQuery();
+
             while (resultSet.next()){
                 int id = resultSet.getInt("oid");
                 String ocname = resultSet.getString("ocname");
-                Double salary = resultSet.getDouble("salary");
+                String salary = resultSet.getString("salary");
                 String workplace = resultSet.getString("workplace");
                 String worktime = resultSet.getString("worktime");
                 int stuandocid=resultSet.getInt("stuandocid");
@@ -349,7 +337,7 @@ public class OccupationDaoImpl implements OccupationDao {
 
             String sql = "delete from stuandoc where id = ?";
             //获取数据库操作对象
-            PreparedStatement ps = connection.prepareStatement(sql);
+            java.sql.PreparedStatement ps = connection.prepareStatement(sql);
             //如果有？ 替换？
             ps.setInt(1,stuandocid);
             //执行
@@ -364,55 +352,6 @@ public class OccupationDaoImpl implements OccupationDao {
             }
         }
     }
-
-    @Override
-    public Page<Occupation> getOccupationsStudentByPage(int currentPage, int pageSize, int studentid) {
-        Connection connection = null;
-        List<Occupation> books = new ArrayList<>();
-        Page<Occupation> page = new Page<>();
-        try {
-            connection = JDBCUtil.getConnection();
-
-            String sql = "select * from occupation limit ?,?";
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1,(currentPage-1)*pageSize);
-            ps.setInt(2,pageSize);
-            ResultSet resultSet = ps.executeQuery();
-           /* while (resultSet.next()){
-                int id = resultSet.getInt("id");
-                String name = resultSet.getString("name");
-                double price = resultSet.getDouble("price");
-                String press = resultSet.getString("press");
-                Date createtime = resultSet.getDate("createtime");
-                String imageurl = resultSet.getString("imageurl");
-                int state = resultSet.getInt("state");
-                int count = resultSet.getInt("count");
-                String bookinfo = resultSet.getString("bookinfo");
-                int tid = resultSet.getInt("tid");
-                OccupationDao occupationDao = new OccupationDaoImpl();
-                Occupation occupation = OccupationDao.getOccupationsStudentByPage(currentPage,2,studentid);
-                Book book = new Book(id,name,price,press,createtime,imageurl,state,count,bookinfo);
-                book.setBookType(bookType);
-                books.add(book);
-            }
-
-            page.setCurrentPage(currentPage);
-            page.setPageSize(pageSize);
-            int dataCount = getBooksCount();
-            page.setDataCount(dataCount);
-            int pageCount = dataCount%pageSize == 0?(dataCount/pageSize):((dataCount/pageSize)+1);
-            System.out.println(pageCount);
-            page.setPageCount(pageCount);
-            page.setDatas(books);*/
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            JDBCUtil.close(connection);
-        }
-        return page;
-    }
-
-
 
 
 }

@@ -113,15 +113,13 @@ public class StudentDaoImpl implements StudentDao {
     }
 
 
-
-
     @Override
-    public Student login(String usercode, String password) {
+    public String login(String usercode, String password) {
         Connection connection=null;
 
         try {
             connection= JDBCUtil.getConnection();
-            String sql="SELECT *from student  where staccount=? and stpassword=?";
+            String sql="SELECT  id   from student  where staccount=? and stpassword=?";
             PreparedStatement ps = connection.prepareStatement(sql);
 
             ps.setString(1,usercode);
@@ -129,8 +127,36 @@ public class StudentDaoImpl implements StudentDao {
 
             ResultSet resultSet= ps.executeQuery();
             while (resultSet.next()){
+                   return usercode;
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.close(connection);
+        }
+        return null;
+    }
+
+
+    @Override
+    public Student loginHome(String usercode) {
+        Connection connection=null;
+
+        try {
+            connection= JDBCUtil.getConnection();
+            String sql="SELECT *from student  where staccount=? ";
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setString(1,usercode);
+
+
+            ResultSet resultSet= ps.executeQuery();
+            while (resultSet.next()){
                 int id=resultSet.getInt("id");
                 String stname=resultSet.getString("stname");
+                String password=resultSet.getString("stpassword");
                 String stphone=resultSet.getString("stphone");
                 String stschool=resultSet.getString("stschool");
                 String stmajor=resultSet.getString("stmajor");
@@ -142,7 +168,7 @@ public class StudentDaoImpl implements StudentDao {
                 Student student=new Student(id,stname,usercode,password,stphone,stschool,stmajor,stsystem,stdate,stresume,ststate);
 
                 System.out.println(student);
-            return student;
+                return student;
 
             }
 

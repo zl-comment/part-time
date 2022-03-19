@@ -17,9 +17,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
 
 @WebServlet(name = "StudentServlet", urlPatterns = "/StudentServlet")
 public class StudentServlet extends BaseServlet {
@@ -68,17 +67,11 @@ public class StudentServlet extends BaseServlet {
     public void getStudentInfoById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String id = request.getParameter("id");
-        /*String currentPage = request.getParameter("currentPage");
-        if (currentPage == null){
-            currentPage = "1";
-        }*/
+
         StudentDao studentDao = new StudentDaoImpl();
-//        Page<Occupation> page = occupationDao.getOccupationsStudentByPage(Integer.parseInt(currentPage),1,Integer.parseInt(studentid));
         Student student = studentDao.getStudentInfoById(Integer.parseInt(id));
 
-//        request.setAttribute("student",student);
         request.setAttribute("id",id);
-//        System.out.println(student);
         request.getRequestDispatcher("update_student_info.jsp").forward(request,response);
     }
 
@@ -116,14 +109,10 @@ public class StudentServlet extends BaseServlet {
     public void getOccupations(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String id = request.getParameter("id");
-        /*String currentPage = request.getParameter("currentPage");
-        if (currentPage == null){
-            currentPage = "1";
-        }*/
+        System.out.println(id);
         OccupationDao occupationDao = new OccupationDaoImpl();
-//        Page<Occupation> page = occupationDao.getOccupationsStudentByPage(Integer.parseInt(currentPage),1,Integer.parseInt(studentid));
         Student student = occupationDao.getOccupationsStudent(Integer.parseInt(id));
-
+        System.out.println(student.getOccupations());
         request.setAttribute("occupations",student.getOccupations());
         request.setAttribute("studentid",id);
         request.getRequestDispatcher("studentOccupations.jsp").forward(request,response);

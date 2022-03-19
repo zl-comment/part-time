@@ -35,8 +35,6 @@
 
         });
     </script>
-
-
 </head>
 
 
@@ -91,35 +89,9 @@
             </tr>
         </c:forEach>
 
-
-
         </tbody>
     </table>
 
-
-    <div class="pagin">
-        <div class="message">共<i class="blue">${page.dataCount}</i>条记录，共<i class="blue">${page.pageCount}</i>页，当前显示第&nbsp;<i class="blue">${page.currentPage}&nbsp;</i>页</div>
-        <ul class="paginList">
-            <c:if test="${page.currentPage>1}">
-<%--                &name=${name}&state=${state}&booktypeid=${booktypeid}--%>
-                <li class="paginItem"><a href="StudentServlet?method=getOccupations&currentPage=${page.currentPage-1}"><span class="pagepre"></span> </a> </li>
-            </c:if>
-            <c:forEach var="num" begin="1" end="${page.pageCount}">
-                <c:set var="flag" value="false"></c:set>
-                <c:if test="${num == page.currentPage}">
-                    <c:set var="flag" value="true"></c:set>
-                    <li class="paginItem current"><a>${num}</a></li>
-                </c:if>
-                <c:if test="${flag == false}">
-                    <li class="paginItem"><a href="StudentServlet?method=getOccupations&currentPage=${num}">${num}</a></li>
-                </c:if>
-            </c:forEach>
-            <c:if test="${page.currentPage<page.pageCount}">
-<%--                &name=${name}&state=${state}&booktypeid=${booktypeid}--%>
-                <li class="paginItem"><a href="StudentServlet?method=getOccupations&currentPage=${page.currentPage+1}"><span class="pagenxt"></span> </a> </li>
-            </c:if>
-        </ul>
-    </div>
 
 
     <div class="tip">
@@ -132,16 +104,13 @@
                 <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
             </div>
         </div>
-
         <div class="tipbtn">
             <input name="" type="button"  class="sure" value="确定" />&nbsp;
             <input name="" type="button"  class="cancel" value="取消" />
         </div>
 
     </div>
-
 </div>
-
 <script type="text/javascript">
     $('.tablelist tbody tr:odd').addClass('odd');
 </script>

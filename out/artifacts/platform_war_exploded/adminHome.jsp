@@ -10,7 +10,7 @@
     <link type="text/css" rel="stylesheet" href="./layui/css/layui.css"/>
     <script type="text/javascript" src="./layui/layui.js"></script>
     <link type="text/css" rel="stylesheet" href="./css/index.css"/>
-   <script type="text/javascript" src="./js/pages/index.js"></script>
+    <script type="text/javascript" src="./js/pages/index.js"></script>
 </head>
 
 <body class="layui-layout-body">
@@ -65,15 +65,15 @@
                         <dd><a href="">跳转项</a></dd>
                     </dl>
                 </li>
-                    <li class="layui-nav-item layui-nav-itemed">
-                        <a href="javascript:">学生用户管理</a>
-                        <dl class="layui-nav-child">
-                            <dd><a src="AdminServlet?method=getStudents" data-id="nav_demo2" target="iFrm">学生列表</a></dd>
-                            <dd><a href="javascript:">选项二</a></dd>
-                            <dd><a href="javascript:">选项三</a></dd>
-                            <dd><a href="">跳转项</a></dd>
-                        </dl>
-                    </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:">学生用户管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a src="AdminServlet?method=getStudents" data-id="nav_demo2" target="iFrm">学生列表</a></dd>
+                        <dd><a href="javascript:">选项二</a></dd>
+                        <dd><a href="javascript:">选项三</a></dd>
+                        <dd><a href="">跳转项</a></dd>
+                    </dl>
+                </li>
                 <li class="layui-nav-item">
                     <a href="javascript:">解决方案</a>
                     <dl class="layui-nav-child">

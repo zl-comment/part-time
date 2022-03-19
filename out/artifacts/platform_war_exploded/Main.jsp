@@ -331,7 +331,7 @@
                 <li><a href="about.html">About</a></li> |
                 <li><a href="allHome.jsp">Services</a></li> |
                 <li><a href="works.html">Work</a></li> |
-                <li><a href="blog.html">Blog</a></li> |
+                <li><a href="blog.html">我的信息</a></li> |
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="copy">

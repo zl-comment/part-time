@@ -231,7 +231,7 @@
         <div class="layui-input-block">
             <button  type="submit"  class="layui-btn layui-btn-bypercent-left btn" lay-submit id="submit">注 册</button>
             &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-            <button  type="submit"  class="layui-btn layui-btn-bypercent-right"    id="reset">取 消</button>
+            <button  type="submit"  class="layui-btn layui-btn-bypercent-right"  id="reset">取 消</button>
         </div>
     </div>
     <br>

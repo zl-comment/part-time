@@ -36,13 +36,14 @@ public class Occupation {
         this.worktime = worktime;
     }
 
-    public Occupation(String ocname, String salary, String requirement, String workplace, String worktime) {
+    public Occupation(int id,String ocname, String salary, String workplace, String worktime) {
+        this.id=id;
         this.ocname = ocname;
         this.salary = salary;
-        this.requirement = requirement;
         this.workplace = workplace;
         this.worktime = worktime;
     }
+
 
     public int getCpyandocid() {
         return cpyandocid;
@@ -124,6 +125,7 @@ public class Occupation {
         this.students = students;
     }
 
+/*
 
     public Occupation(int id, String ocname, String salary, String workplace,String requirement) {
         this.id = id;
@@ -132,6 +134,7 @@ public class Occupation {
         this.requirement = requirement;
         this.workplace = workplace;
     }
+*/
 
     @Override
     public String toString() {
