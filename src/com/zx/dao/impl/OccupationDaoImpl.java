@@ -294,4 +294,66 @@ public class OccupationDaoImpl implements OccupationDao {
 
         return student;
     }
+
+    @Override
+    public Student getOccupationsStudent(int studentid) {
+        ArrayList<Occupation> occupations = new ArrayList<Occupation>();
+        Student student=new Student();
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "SELECT s.id sid,staccount, stpassword,stphone,stschool,stmajor,stsystem,stdate,o.id oid,ocname,salary,workplace,worktime,a.id stuandocid from student s,stuandoc  a,occupation o where s.id=a.studentid and o.id=a.occupationid and s.id=?";
+            //获取数据库操作对象
+            PreparedStatement ps = (PreparedStatement) connection.prepareStatement(sql);
+            ps.setInt(1,studentid);
+            //执行
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()){
+                int id = resultSet.getInt("oid");
+                String ocname = resultSet.getString("ocname");
+                String salary = resultSet.getString("salary");
+                String workplace = resultSet.getString("workplace");
+                String worktime = resultSet.getString("worktime");
+                int stuandocid=resultSet.getInt("stuandocid");
+
+                Occupation occupation = new Occupation(id,ocname,salary,workplace,worktime);
+                occupation.setStuandocid(stuandocid);
+                occupations.add(occupation);
+            }
+            student.setOccupations(occupations);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+
+        }
+        return student;
+    }
+
+    @Override
+    public void deleteOccupationsByIdStudent(int stuandocid) {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+
+            String sql = "delete from stuandoc where id = ?";
+            //获取数据库操作对象
+            java.sql.PreparedStatement ps = connection.prepareStatement(sql);
+            //如果有？ 替换？
+            ps.setInt(1,stuandocid);
+            //执行
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 }

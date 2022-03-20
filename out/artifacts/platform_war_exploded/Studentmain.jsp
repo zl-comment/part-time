@@ -60,10 +60,9 @@
                     </dl>
                 </li>--%>
 
-                <li class="layui-nav-item"><a href="" data-id="1">个人信息</a></li>
-                <li class="layui-nav-item"><a href="" data-id="2">账号信息</a></li>
+                <li class="layui-nav-item"><a href="StudentServlet?method=getStudentInfoById&&id=${student.id}" data-id="1" target="iFrm">我的信息</a></li>
                 <li class="layui-nav-item"><a href="ResumeServlet?method=getStudentResumeById&&id=${student.stresumeid}" target="iFrm"  data-id="3">我的简历</a></li>
-                <li class="layui-nav-item"><a href="" data-id="4">我的兼职记录</a></li>
+                <li class="layui-nav-item"><a href="StudentServlet?method=getOccupations&&id=${student.id}" target="iFrm" data-id="4">我的兼职记录</a></li>
             </ul>
         </div>
     </div>

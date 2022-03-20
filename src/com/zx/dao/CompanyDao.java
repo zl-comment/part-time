@@ -1,6 +1,7 @@
 package com.zx.dao;
 
 import com.zx.beans.Company;
+import com.zx.beans.Student;
 
 import java.util.ArrayList;
 
@@ -32,4 +33,6 @@ public interface CompanyDao {
 
     Company getCompanyById(int companyid);    //Company的
     void updateCompanyById(Company company);  //Company的
+
+    ArrayList<Student> getAdmissionById(int parseInt);
 }

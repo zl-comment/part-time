@@ -220,4 +220,69 @@ public class StudentDaoImpl implements StudentDao {
 
       return  null;
     }
+
+    @Override
+    public Student getStudentInfoById(int id) {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "select * from student where id = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1,id);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()){
+                String staccount = resultSet.getString("staccount");
+                String stpassword = resultSet.getString("stpassword");
+                String stphone = resultSet.getString("stphone");
+                String stschool = resultSet.getString("stschool");
+                String stmajor = resultSet.getString("stmajor");
+                int stsystem = resultSet.getInt("stsystem");
+                Date stdate = resultSet.getDate("stdate");
+                Student student = new Student(id,staccount,stpassword,stphone,stschool,stmajor,stsystem,stdate);
+                return student;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+        }
+        return null;
+    }
+
+    @Override
+    public void updateinfoStudent(Student student) {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "update student set staccount = ?,stpassword = ?, stphone = ?,stschool = ?,stmajor = ?,stsystem= ? ,stdate = ? where id = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1,student.getStaccount());
+            ps.setString(2,student.getStpassword());
+            ps.setString(3,student.getStphone());
+            ps.setString(4,student.getStschool());
+            ps.setString(5,student.getStmajor());
+            ps.setInt(6,student.getStsystem());
+            java.sql.Date date1= new java.sql.Date(student.getStdate().getTime());
+            ps.setDate(7, date1);
+            ps.setInt(8,student.getId());
+            //执行
+            ps.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
+
+
+
 }

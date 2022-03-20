@@ -2,6 +2,8 @@ package com.zx.dao.impl;
 
 
 import com.zx.beans.Company;
+import com.zx.beans.Occupation;
+import com.zx.beans.Student;
 import com.zx.dao.CompanyDao;
 import com.zx.util.JDBCUtil;
 import java.sql.Connection;
@@ -213,5 +215,54 @@ public class CompanyDaoImpl   implements CompanyDao {
             JDBCUtil.close(connection);
         }
     }
+
+    public ArrayList<Student> getAdmissionById(int companyid) {
+        Connection connection = null;
+
+        ArrayList<Student>    students = new ArrayList<>();
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "SELECT ocname,stname,stschool,stresumeid,salary,workplace,requirement,st.id studentid, co.id cpyandocid,oc.id occupationid from student st,stuandoc sd,occupation oc,cpyandoc co ,company cpy where st.id=sd.studentid and oc.id=sd.occupationid and oc.id=co.occupationid and cpy.id=co.companyid and cpy.id=?";
+            PreparedStatement ps =  connection.prepareStatement(sql);
+            ps.setInt(1,companyid);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                String ocname = resultSet.getString("ocname");
+                String stname = resultSet.getString("stname");
+                System.out.println(stname);
+                String stschool = resultSet.getString("stschool");
+                String salary = resultSet.getString("salary");
+                String workplace = resultSet.getString("workplace");
+                String requirement = resultSet.getString("requirement");
+                int stresumeid = resultSet.getInt("stresumeid");
+                int studentid = resultSet.getInt("studentid");
+                int cpyandocid = resultSet.getInt("cpyandocid");
+                int occupationid = resultSet.getInt("occupationid");
+
+                ArrayList<Occupation> occupations = new ArrayList<>();
+                Occupation occupation=new Occupation(occupationid,ocname,salary,workplace,requirement);
+                occupation.setCpyandocid(cpyandocid);
+                occupations.add(occupation);
+                Student student=new Student();
+
+                student.setStresumeid(stresumeid);
+                student.setId(studentid);
+                student.setStname(stname);
+                student.setStschool(stschool);
+                student.setOccupations(occupations);
+                students.add(student);
+
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+        }
+
+        return students;
+    }
+
 }
 

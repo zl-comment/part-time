@@ -24,4 +24,10 @@ public interface OccupationDao {
     Student occupationByStudentAdmin(int studentid);
     void deleteOccupationById(int ocid);
     void updateOccupationById(Occupation occupation);
+
+    Student getOccupationsStudent(int studentid);
+
+    void deleteOccupationsByIdStudent(int stuandocid);
+
+
 }

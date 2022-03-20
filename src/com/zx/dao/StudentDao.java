@@ -19,4 +19,8 @@ public interface StudentDao {
     boolean staccountIsSame(String staccount);
 
     Student getStudentByIdAdmin(int studentid);
+
+    Student getStudentInfoById(int id);
+
+    void updateinfoStudent(Student student);
 }

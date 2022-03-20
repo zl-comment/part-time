@@ -3,6 +3,7 @@ package com.zx.servlet;
 
 import com.zx.beans.Company;
 import com.zx.beans.Occupation;
+import com.zx.beans.Student;
 import com.zx.dao.CompanyDao;
 import com.zx.dao.OccupationDao;
 import com.zx.dao.impl.CompanyDaoImpl;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.zip.ZipOutputStream;
 import java.io.PrintWriter;
 
@@ -89,7 +91,16 @@ public class CompanyServlet extends BaseServlet {
 
     }
 
+    public void getAdmissionById(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+        String companyid=request.getParameter("companyid");
+        CompanyDao companyDao = new CompanyDaoImpl();
+        ArrayList<Student> students = companyDao.getAdmissionById(Integer.parseInt(companyid));
 
+        System.out.println(students);
+        request.setAttribute("companyid",companyid);
+        request.setAttribute("students",students);
+        request.getRequestDispatcher("/Admission.jsp").forward(request, response);
+    }
 
 
 
