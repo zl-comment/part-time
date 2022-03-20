@@ -60,13 +60,14 @@
                     </dl>
                 </li>--%>
 
-                <li class="layui-nav-item"><a href="">个人信息</a></li>
-                <li class="layui-nav-item"><a href="">账号信息</a></li>
-                <li class="layui-nav-item"><a href="">我的简历</a></li>
-                <li class="layui-nav-item"><a href="">我的兼职记录</a></li>
+                <li class="layui-nav-item"><a href="" data-id="1">个人信息</a></li>
+                <li class="layui-nav-item"><a href="" data-id="2">账号信息</a></li>
+                <li class="layui-nav-item"><a href="ResumeServlet?method=getStudentResumeById&&id=${student.stresumeid}" target="iFrm"  data-id="3">我的简历</a></li>
+                <li class="layui-nav-item"><a href="" data-id="4">我的兼职记录</a></li>
             </ul>
         </div>
     </div>
+<%--
 
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script>
@@ -79,18 +80,19 @@
             });
         });
     </script>
+--%>
 
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div style="padding: 5px;">
-<%--            <iframe id="iframeMain" src="" style="width: 100%"; height="100%";></iframe>--%>
+
             <div class="layui-tab" lay-allowClose="true" lay-filter="main_tab">
-                <%--<ul class="layui-tab-title">
-                    <li class="layui-this" lay-id="nav_home">首页</li>  &lt;%&ndash;    &ndash;%&gt;
-                </ul>--%>
+                <ul class="layui-tab-title">
+                    <li class="layui-this" lay-id="nav_home">首页</li>
+                </ul>
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
-                        <iframe iframe-id="home" frameborder="0" src="home.html"></iframe>
+                        <iframe iframe-id="home"  name="iFrm"   frameborder="0" src="home.html"></iframe>
                     </div>
                 </div>
             </div>

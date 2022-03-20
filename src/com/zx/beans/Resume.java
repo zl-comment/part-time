@@ -7,12 +7,19 @@ public class Resume {
     private String imaurl;
     private String address;
     private String phone;
-    private String Email;
+    private String email;
     private String hobby;
     private String major;
     private String workExperience;
     private String selfEvaluation;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -28,6 +35,14 @@ public class Resume {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getImaurl() {
+        return imaurl;
+    }
+
+    public void setImaurl(String imaurl) {
+        this.imaurl = imaurl;
     }
 
     public String getAddress() {
@@ -47,11 +62,11 @@ public class Resume {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getHobby() {
@@ -86,14 +101,32 @@ public class Resume {
         this.selfEvaluation = selfEvaluation;
     }
 
+    public Resume(String name, int age, String imaurl, String address, String phone, String email, String hobby, String major, String workExperience, String selfEvaluation) {
+        this.name = name;
+        this.age = age;
+        this.imaurl = imaurl;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.hobby = hobby;
+        this.major = major;
+        this.workExperience = workExperience;
+        this.selfEvaluation = selfEvaluation;
+    }
+
+    public Resume() {
+    }
+
     @Override
     public String toString() {
         return "Resume{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", age=" + age +
+                ", imaurl='" + imaurl + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
-                ", Email='" + Email + '\'' +
+                ", Email='" + email + '\'' +
                 ", hobby='" + hobby + '\'' +
                 ", major='" + major + '\'' +
                 ", workExperience='" + workExperience + '\'' +
