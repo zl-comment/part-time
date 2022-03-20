@@ -44,7 +44,6 @@
     <tbody>
     <c:forEach items="${students}" var="student">
         <tr>
-            ${student.id}
             <td>${student.stname}</td>
             <td>${student.staccount}</td>
             <td>${student.stphone}</td>
