@@ -1,8 +1,10 @@
 package com.zx.beans;
 
 public class Resume {
+    private int id;
     private String name;
     private int age;
+    private String imaurl;
     private String address;
     private String phone;
     private String Email;

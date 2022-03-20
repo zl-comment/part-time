@@ -65,7 +65,7 @@
                     </li> |
                     <li class='has-sub'><a href='works.html'><span>Works</span></a></li> |
                     <li class='has-sub'><a href='blog.html'><span>Blog</span></a></li> |
-                    <li class='last'><a href='contact.html'><span>我的信息</span></a></li>
+                    <li class='last'><a href='LoginServlet?method=mainHome&&username=${username}'><span>我的信息</span></a></li>
                 </ul>
             </div>
             <div class="search_box">

@@ -62,7 +62,6 @@
                         <dd><a href="AdminServlet?method=getCompanies"   data-id="nav_demo" target="iFrm">企业列表</a></dd>
                         <dd><a href="javascript:">选项二</a></dd>
                         <dd><a href="javascript:">选项三</a></dd>
-                        <dd><a href="">跳转项</a></dd>
                     </dl>
                 </li>
                     <li class="layui-nav-item layui-nav-itemed">
@@ -71,7 +70,6 @@
                             <dd><a href="AdminServlet?method=getStudents" data-id="nav_demo2" target="iFrm">学生列表</a></dd>
                             <dd><a href="javascript:">选项二</a></dd>
                             <dd><a href="javascript:">选项三</a></dd>
-                            <dd><a href="">跳转项</a></dd>
                         </dl>
                     </li>
                 <li class="layui-nav-item">
@@ -94,7 +92,7 @@
         <div style="padding: 5px;">
             <div class="layui-tab" lay-allowClose="true" lay-filter="main_tab">
                 <ul class="layui-tab-title">
-                    <li class="layui-this" lay-id="nav_home"    >首页</li>
+                    <li class="layui-this" lay-id="nav_home"  >首页</li>
                 </ul>
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
