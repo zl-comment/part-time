@@ -66,6 +66,7 @@ public class StudentServlet extends BaseServlet {
         Student student = studentDao.getStudentInfoById(Integer.parseInt(id));
 
         request.setAttribute("id",id);
+        request.setAttribute("student",student);
         request.getRequestDispatcher("update_student_info.jsp").forward(request,response);
     }
 
@@ -80,7 +81,6 @@ public class StudentServlet extends BaseServlet {
         String stmajor = request.getParameter("stmajor");
         String stsystem = request.getParameter("stsystem");
         String stdate = request.getParameter("stdate");
-        System.out.println(stdate);
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = null;
         try {
@@ -92,8 +92,12 @@ public class StudentServlet extends BaseServlet {
         System.out.println(student);
         StudentDao studentDao = new StudentDaoImpl();
         studentDao.updateinfoStudent(student);
+        Student student1 = studentDao.getStudentInfoById(Integer.parseInt(id));
+
+
 
         request.setAttribute("id",id);
+        request.setAttribute("student",student1);
 
         request.getRequestDispatcher("update_student_info.jsp").forward(request,response);
     }
@@ -103,7 +107,7 @@ public class StudentServlet extends BaseServlet {
         String id = request.getParameter("id");
         OccupationDao occupationDao = new OccupationDaoImpl();
         Student student = occupationDao.getOccupationsStudent(Integer.parseInt(id));
-//        System.out.println(student.getOccupations());
+        System.out.println(student.getOccupations());
         request.setAttribute("occupations",student.getOccupations());
         request.setAttribute("studentid",id);
         request.getRequestDispatcher("studentOccupations.jsp").forward(request,response);

@@ -44,9 +44,6 @@ public class OccupationServlet extends BaseServlet {
         String companyid=request.getParameter("companyid");
         OccupationDao occupationDao = new OccupationDaoImpl();
         Company   company = occupationDao.getOccupationsCompany(Integer.parseInt(companyid));
-
-
-
         request.setAttribute("companyid",companyid);
         request.setAttribute("occupations",company.getOccupations());
         request.getRequestDispatcher("/Jobmanage.jsp").forward(request, response);

@@ -20,8 +20,8 @@
 </head>
 <body>
 <table class="layui-table" lay-skin="line">
-    <colgroup>-
-        <col width="50px">
+    <colgroup>
+        <col width="100px">
         <col width="150px">
         <col width="150px">
         <col width="150px">
@@ -41,6 +41,7 @@
         <th>专业</th>
         <th>工作经理</th>
         <th>自我评价</th>
+        <th>操作</th>
     </tr>
     </thead>
  <%--   <colgroup>
@@ -58,6 +59,7 @@
             <td>${resume.age}</td>
             <td>${resume.imaurl}</td>
             <td>${resume.address}</td>
+            <td>${resume.phone}</td>
             <td>${resume.email}</td>
             <td>${resume.hobby}</td>
             <td>${resume.major}</td>

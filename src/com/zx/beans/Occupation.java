@@ -125,12 +125,12 @@ public class Occupation {
     }
 
 
-    public Occupation(int id, String ocname, String salary, String workplace,String requirement) {
+    public Occupation(int id, String ocname, String salary, String workplace,String worktime) {
         this.id = id;
         this.ocname = ocname;
         this.salary = salary;
-        this.requirement = requirement;
         this.workplace = workplace;
+        this.worktime = worktime;
     }
 
     @Override

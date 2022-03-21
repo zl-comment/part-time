@@ -91,7 +91,7 @@
                 </ul>
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
-                        <iframe iframe-id="home"  name="iFrm"   frameborder="0" src="home.html"></iframe>
+                        <iframe iframe-id="home"  name="iFrm"   frameborder="0" src=""></iframe>
                     </div>
                 </div>
             </div>

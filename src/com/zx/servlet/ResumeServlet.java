@@ -20,7 +20,6 @@ public class ResumeServlet extends BaseServlet{
         }else {
             ResumeDao resumeDao = new ResumeDaoImpl();
            Resume resume= resumeDao.getStudentResume(Integer.parseInt(id));
-            System.out.println(1);
                 request.setAttribute("resume",resume);
             request.getRequestDispatcher("studentResume.jsp").forward(request, response);
         }
