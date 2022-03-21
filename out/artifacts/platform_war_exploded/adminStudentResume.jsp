@@ -17,9 +17,5 @@ ${resume}
 
 
 
-
-
-
-
 </body>
 </html>

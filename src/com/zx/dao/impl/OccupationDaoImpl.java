@@ -304,7 +304,8 @@ public class OccupationDaoImpl implements OccupationDao {
                 String worktime = resultSet.getString("worktime");
                 int stuandocid=resultSet.getInt("stuandocid");
 
-                Occupation occupation = new Occupation(id,ocname,salary,workplace,worktime);
+                Occupation occupation = new Occupation(id,ocname,salary,workplace);
+                occupation.setWorktime(worktime);
                 occupation.setStuandocid(stuandocid);
                 occupations.add(occupation);
             }

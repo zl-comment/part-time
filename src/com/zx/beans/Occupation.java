@@ -36,12 +36,11 @@ public class Occupation {
         this.worktime = worktime;
     }
 
-    public Occupation(String ocname, String salary, String requirement, String workplace, String worktime) {
+    public Occupation(int id, String ocname, String salary, String workplace) {
+        this.id = id;
         this.ocname = ocname;
         this.salary = salary;
-        this.requirement = requirement;
         this.workplace = workplace;
-        this.worktime = worktime;
     }
 
     public int getCpyandocid() {
