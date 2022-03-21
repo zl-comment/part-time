@@ -32,23 +32,43 @@
 
                     layui.use('table', function(){
                         var table = layui.table;
+
                         //第一个实例
                         table.render({
                             elem: '#demo'
-                            ,height: 312
+                            ,height: 300
+                            ,toolbar: '#toolbarDemo'
+                          //  ,width:973
                             /* ,url: 'AdminServlet?method=getStudentByIdAndOccupation' //数据接口*/
                             ,page: true //开启分页
                             //  ,data:[{"id":1,"stname":"薛华杰","staccount":"student","stpassword":"123456","stphone":"13934427526","stschool":"山西大学","stmajor":"软件工程","stsystem":4,"stdate":1647532800000,"stresume":"获得蓝桥杯省赛一等奖，国赛二等奖","ststate":1}]
                             ,data:data
                             ,cols: [[ //表头
                                 {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
-                                ,{field: 'ocname', title: '职位名称', width:100}
-                                ,{field: 'salary', title: '工资', width:80, sort: true}
-                                ,{field: 'requirement', title: '工作要求', width:80, sort: true}
-                                ,{field: 'workplace', title: '工作地点', width:80}
+                                ,{field: 'ocname', title: '职位名称', width:177}
+                                ,{field: 'salary', title: '工资', width:177, sort: true}
+                                ,{field: 'requirement', title: '工作要求', width:177, sort: true}
+                                ,{field: 'workplace', title: '工作地点', width:177}
                                 ,{field: 'worktime', title: '工作时间', width: 177}
                             ]]
                         });
+
+                        table.on('toolbar(studenttable)', function(obj){
+                            var checkStatus = table.checkStatus(obj.config.id);
+                            switch(obj.event){
+                                case 'add':
+                                    layer.msg('添加');
+                                    break;
+                                case 'delete':
+                                    layer.msg('删除');
+                                    break;
+                                case 'update':
+                                    layer.msg('编辑');
+                                    break;
+                            };
+                        });
+
+
 
                     });
                 },
@@ -63,7 +83,9 @@
 
 </script>
 
-
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+    <legend>学生详细信息</legend>
+</fieldset>
 <table class="layui-table">
     <colgroup>
         <col width="150">
@@ -95,7 +117,11 @@
 <input id="studentid" type="hidden"  value="${studentid}">
 
 
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+    <legend>学生所报职位</legend>
+</fieldset>
 <table id="demo" lay-filter="studenttable" ></table>
+
 
 <script>
     $(function () {
@@ -132,7 +158,6 @@
                     }
                 }
                 $("#student").append(str1);
-
             },
             error : function (arg1) {
                 alert("加载数据失败");
@@ -144,8 +169,14 @@
     })
 
 </script>
-
-
+//工具栏
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="add">添加</button>
+        <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+        <button class="layui-btn layui-btn-sm" lay-event="update">编辑</button>
+    </div>
+</script>
 
 </body>
 </html>

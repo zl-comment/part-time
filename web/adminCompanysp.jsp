@@ -83,6 +83,7 @@
     </div>
     <div class="layui-col-xs9">
         <div class="grid-demo">
+                <legend>企业职位列表</legend>
             <%--占右边九份--%>
             <%-----------------------------------------------------%>
             <table class="layui-table" lay-skin="line">
@@ -123,32 +124,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<%--<div id="demo0"></div>
-<script>
-    layui.use(['laypage', 'layer'], function() {
-            var laypage = layui.laypage
-                , layer = layui.layer;
-
-            //总页数低于页码总数
-            laypage.render({
-                elem: 'demo0'
-                , count: 50 //数据总数
-            });
-        }
-    )
-</script>--%>
 </body>
 </html>
 

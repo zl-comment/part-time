@@ -49,6 +49,12 @@
                 </div>
 
                 <div class="layui-form-item">
+                    <label class="layui-form-label">企业密码</label>
+                    <div class="layui-input-inline">
+                        <input type="cpypassword" name="cpypassword" required lay-verify="required"    value="${company.cpypassword}" placeholder="请输入账户" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
                     <label class="layui-form-label">企业电话</label>
                     <div class="layui-input-inline">
                         <input type="cpyphone" name="cpyphone" required lay-verify="required"  value="${company.cpyphone}" placeholder="请输入电话号码" autocomplete="off" class="layui-input">
@@ -77,6 +83,7 @@
     </div>
     <div class="layui-col-xs9">
         <div class="grid-demo">
+                <legend>企业职位列表</legend>
             <%--占右边九份--%>
             <%-----------------------------------------------------%>
             <table class="layui-table" lay-skin="line">
@@ -117,32 +124,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<%--<div id="demo0"></div>
-<script>
-    layui.use(['laypage', 'layer'], function() {
-            var laypage = layui.laypage
-                , layer = layui.layer;
-
-            //总页数低于页码总数
-            laypage.render({
-                elem: 'demo0'
-                , count: 50 //数据总数
-            });
-        }
-    )
-</script>--%>
 </body>
 </html>
 

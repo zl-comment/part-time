@@ -75,6 +75,7 @@
             laypage.render({
                 elem: 'demo0'
                 , count: 50 //数据总数
+                ,page: true
             });
         }
     )

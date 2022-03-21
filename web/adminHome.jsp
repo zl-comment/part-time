@@ -60,26 +60,26 @@
                     <a href="javascript:" >企业用户管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="AdminServlet?method=getCompanies"   data-id="nav_demo" target="iFrm">企业列表</a></dd>
-                        <dd><a href="javascript:">选项二</a></dd>
-                        <dd><a href="javascript:">选项三</a></dd>
+                        <dd><a href="javascript:">企业审核</a></dd>
+                        <dd><a href="javascript:">职业审核</a></dd>
                     </dl>
                 </li>
                     <li class="layui-nav-item layui-nav-itemed">
                         <a href="javascript:">学生用户管理</a>
                         <dl class="layui-nav-child">
                             <dd><a href="AdminServlet?method=getStudents" data-id="nav_demo2" target="iFrm">学生列表</a></dd>
-                            <dd><a href="javascript:">选项二</a></dd>
+                            <dd><a href="javascript:">学生审核</a></dd>
                             <dd><a href="javascript:">选项三</a></dd>
                         </dl>
                     </li>
-                <li class="layui-nav-item">
+       <%--         <li class="layui-nav-item">
                     <a href="javascript:">解决方案</a>
                     <dl class="layui-nav-child">
                         <dd><a href="  ">移动模块</a></dd>
                         <dd><a href="  ">后台模版</a></dd>
                         <dd><a href="  ">电商平台</a></dd>
                     </dl>
-                </li>
+                </li>--%>
                 <li class="layui-nav-item"><a href="">云市场</a></li>
                 <li class="layui-nav-item"><a href="">社区</a></li>
             </ul>
