@@ -66,6 +66,7 @@ public class StudentServlet extends BaseServlet {
         Student student = studentDao.getStudentInfoById(Integer.parseInt(id));
 
         request.setAttribute("id",id);
+        request.setAttribute("student",student);
         request.getRequestDispatcher("update_student_info.jsp").forward(request,response);
     }
 
@@ -91,9 +92,11 @@ public class StudentServlet extends BaseServlet {
         Student student = new Student(Integer.parseInt(id),staccount,stpassword,stphone,stschool,stmajor,Integer.parseInt(stsystem),date);
         System.out.println(student);
         StudentDao studentDao = new StudentDaoImpl();
-        studentDao.updateinfoStudent(student);
+        studentDao.updateinfoStudent(student);  //更新
+        Student student1 = studentDao.getStudentInfoById(Integer.parseInt(id));  //重新传递
 
         request.setAttribute("id",id);
+        request.setAttribute("student",student1);
 
         request.getRequestDispatcher("update_student_info.jsp").forward(request,response);
     }

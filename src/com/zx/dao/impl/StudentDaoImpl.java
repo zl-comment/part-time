@@ -23,7 +23,7 @@ public class StudentDaoImpl implements StudentDao {
         try {
             connection = JDBCUtil.getConnection();
 
-            String sql = "insert into student values (null,null,?,?,?,?,?,?,?,null,0)";
+            String sql = "insert into student values (null,null,?,?,?,?,?,?,?,null,0,null)";
             //获取数据库操作对象
             PreparedStatement ps = connection.prepareStatement(sql);
 

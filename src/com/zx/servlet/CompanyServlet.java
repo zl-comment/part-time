@@ -41,6 +41,7 @@ public class CompanyServlet extends BaseServlet {
         System.out.println(cpyinfo);
         CompanyDao companyDao = new CompanyDaoImpl();
         companyDao.Register(cpyaccount, cpypassword, cpyname, cpyphone, cpyaddress, cpyinfo);
+        request.getRequestDispatcher("login.jsp").forward(request,response);
     }
 
 
