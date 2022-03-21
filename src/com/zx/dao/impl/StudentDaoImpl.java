@@ -204,8 +204,9 @@ public class StudentDaoImpl implements StudentDao {
                 Date stdate=resultSet.getDate("stdate");
                 String stresume=resultSet.getString("stresume");
                 int ststate=resultSet.getInt("ststate");
+                int stresumeid=resultSet.getInt("stresumeid");
 
-                Student student=new Student(id,stname,usercode,password,stphone,stschool,stmajor,stsystem,stdate,stresume,ststate);
+                Student student=new Student(id,stname,usercode,password,stphone,stschool,stmajor,stsystem,stdate,stresume,ststate,stresumeid);
 
 
                 return student;

@@ -2,15 +2,10 @@ package com.zx.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zx.beans.Company;
+import com.zx.beans.Resume;
 import com.zx.beans.Student;
-import com.zx.dao.AdminDao;
-import com.zx.dao.CompanyDao;
-import com.zx.dao.OccupationDao;
-import com.zx.dao.StudentDao;
-import com.zx.dao.impl.AdminDaoImpl;
-import com.zx.dao.impl.CompanyDaoImpl;
-import com.zx.dao.impl.OccupationDaoImpl;
-import com.zx.dao.impl.StudentDaoImpl;
+import com.zx.dao.*;
+import com.zx.dao.impl.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -105,7 +100,6 @@ public class AdminServlet extends BaseServlet {
 
 
 
-
         response.setCharacterEncoding("utf-8");
 
 
@@ -133,7 +127,15 @@ public class AdminServlet extends BaseServlet {
 
     }
 
+    public void AdminGetResumeByResumeId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+     String stresumeid=request.getParameter("stresumeid");
+            ResumeDao resumeDao=new ResumeDaoImpl();
+            Resume resume=resumeDao.getStudentResume(Integer.parseInt(stresumeid));
 
+            request.setAttribute("resume",resume);
+            request.getRequestDispatcher("adminStudentResume.jsp").forward(request,response);
+
+    }
 
 
 

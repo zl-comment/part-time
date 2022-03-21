@@ -59,17 +59,17 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a href="javascript:" >企业用户管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a src="AdminServlet?method=getCompanies"   data-id="nav_demo" target="iFrm">企业列表</a></dd>
-                        <dd><a src="javascript:">选项二</a></dd>
-                        <dd><a src="javascript:">选项三</a></dd>
+                        <dd><a href="AdminServlet?method=getCompanies"   data-id="nav_demo" target="iFrm">企业列表</a></dd>
+                        <dd><a href="javascript:">选项二</a></dd>
+                        <dd><a href="javascript:">选项三</a></dd>
                     </dl>
                 </li>
                     <li class="layui-nav-item layui-nav-itemed">
                         <a href="javascript:">学生用户管理</a>
                         <dl class="layui-nav-child">
-                            <dd><a src="AdminServlet?method=getStudents" data-id="nav_demo2" target="iFrm">学生列表</a></dd>
-                            <dd><a src="javascript:">选项二</a></dd>
-                            <dd><a src="javascript:">选项三</a></dd>
+                            <dd><a href="AdminServlet?method=getStudents" data-id="nav_demo2" target="iFrm">学生列表</a></dd>
+                            <dd><a href="javascript:">选项二</a></dd>
+                            <dd><a href="javascript:">选项三</a></dd>
                         </dl>
                     </li>
                 <li class="layui-nav-item">

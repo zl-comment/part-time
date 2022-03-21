@@ -82,6 +82,7 @@
         <th>入学日期</th>
         <th>简历</th>
         <th>录取状态</th>
+        <th>简历</th>
     </tr>
     </thead>
     <tbody   id="student">
@@ -122,6 +123,12 @@
                         str1+="<td>录取</td>";
                     }else{
                         str1+="<td>未录取</td>";
+                    }
+                    if(tt[i].stresumeid!=""){
+                        var a=tt[i].stresumeid;
+                        str1+="<td><a href='AdminServlet?method=AdminGetResumeByResumeId&&stresumeid="+a+"'>查看</td>"
+                    }else{
+                        str1+="<td>无</td>";
                     }
                 }
                 $("#student").append(str1);

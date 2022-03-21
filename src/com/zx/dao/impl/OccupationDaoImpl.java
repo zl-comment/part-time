@@ -201,30 +201,17 @@ public class OccupationDaoImpl implements OccupationDao {
     public Company occupationByCompanyAdmin(int companyid) {         //admin
         Connection connection=null;
         ArrayList<Occupation> occupations=new ArrayList<Occupation>();
-        Company company=new Company();
+        CompanyDao companyDao=new CompanyDaoImpl();
+        Company company=companyDao.getCompanyById(companyid);
         try {
             connection= JDBCUtil.getConnection();
-            String sql="SELECT  cpy.id cpyid , cpyname,cpyaccount,cpypassword,cpyphone,cpyaddress,cpyinfo ,oc.id ocid ,ocname,salary,requirement,workplace,worktime  from company cpy,occupation oc,cpyandoc cao where cpy.id=cao.companyid and oc.id=cao.occupationid and cpy.id=?";
+            String sql="SELECT oc.id ocid ,ocname,salary,requirement,workplace,worktime  from company cpy,occupation oc,cpyandoc cao where cpy.id=cao.companyid and oc.id=cao.occupationid and cpy.id=?";
             java.sql.PreparedStatement ps = connection.prepareStatement(sql);
 
             ps.setInt(1,companyid);
-
+            company.setId(companyid);
             ResultSet resultSet= ps.executeQuery();
             while (resultSet.next()){
-                int cpyid=resultSet.getInt("cpyid");
-                    company.setId(cpyid);
-                String  cpyname=resultSet.getString("cpyname");
-                   company.setCpyname(cpyname);
-                String  cpyaccount=resultSet.getString("cpyaccount");
-                  company.setCpyaccount(cpyaccount);
-                String  cpypassword=resultSet.getString("cpypassword");
-                 company.setCpypassword(cpypassword);
-                String  cpyphone=resultSet.getString("cpyphone");
-                 company.setCpyphone(cpyphone);
-                String  cpyaddress=resultSet.getString("cpyaddress");
-                company.setCpyaddress(cpyaddress);
-                String  cpyinfo=resultSet.getString("cpyinfo");
-               company.setCpyinfo(cpyinfo);
 
                 int ocid=resultSet.getInt("ocid");
 

@@ -49,6 +49,12 @@
                 </div>
 
                 <div class="layui-form-item">
+                    <label class="layui-form-label">企业密码</label>
+                    <div class="layui-input-inline">
+                        <input type="cpypassword" name="cpypassword" required lay-verify="required"    value="${company.cpypassword}" placeholder="请输入账户" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
                     <label class="layui-form-label">企业电话</label>
                     <div class="layui-input-inline">
                         <input type="cpyphone" name="cpyphone" required lay-verify="required"  value="${company.cpyphone}" placeholder="请输入电话号码" autocomplete="off" class="layui-input">

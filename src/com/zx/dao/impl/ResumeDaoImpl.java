@@ -37,6 +37,7 @@ public class ResumeDaoImpl implements ResumeDao {
             String selfEvaluation= resultSet.getString("selfEvaluation");
             Resume resume = new Resume(name,age,imaurl,address,phone,email,hobby,major,workExperience,selfEvaluation);
             return resume;
+
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {

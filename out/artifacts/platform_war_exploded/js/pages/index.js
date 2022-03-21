@@ -9,7 +9,7 @@ layui.use(['modules_index'],function(){
 	//监听左侧导航点击
   	element.on('nav(nav_left)', function(elem){
 	    var url=elem.attr("href");
-	  //  var url=elem.attr("src");
+	    //var url=elem.attr("src");
 
 	    console.log(url);
 	    var id=elem.attr("data-id");
