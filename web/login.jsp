@@ -19,7 +19,7 @@
     <style type="text/css">
         body {
             background-image: url(img/lg-bg.jpg);
-            background-position: 14px 14px;
+           /* background-position: 14px 14px;*/
             background-repeat: no-repeat;
             background-position: center center;
             background-attachment: fixed;
@@ -50,7 +50,7 @@
             height: 60%;
             margin: 0 auto;
             margin-top: 7%;
-            padding: 15px 28px 0px;
+            padding: 15px 28px 0;
             background: #fff;
         }
 
@@ -72,11 +72,11 @@
             color: #1d598e;
         }
 
-        input.text {
+   /*     input.text {
             text-align: center;
             padding: 10px 20px;
             width: 300px;
-        }
+        }*/
 
         #canvas {
             float: right;
