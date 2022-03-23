@@ -162,7 +162,7 @@
 
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <span class="decrib">验证：</span>
+            <span class="decrib">验证码：</span>
             <input type="text" placeholder="请输入验证码" class="input-val" autocomplete="off" required>
             <canvas id="canvas" width="100" height="43">
             </canvas>
@@ -171,7 +171,7 @@
     <br>
     <div class="layui-form-item">
         <div class="layui-btn-container">
-            <button type="submit" class="layui-btn " lay-submit style="color:#fff;line-height:45px;font-size:20px;">登 录</button>
+            <button type="submit"  id="submit" class="layui-btn " lay-submit style="color:#fff;line-height:45px;font-size:20px;">登 录</button>
             <a class="layui-btn " style="color:#fff;line-height:45px;font-size:20px;" href="StudentRegister.jsp" id="Studentregister">学 生 注 册</a>
 
             <a class="layui-btn" style="color:#fff;line-height:45px;font-size:20px;" href="CpyRegister.jsp" id="Cpyregister">企 业 注 册</a>
@@ -198,14 +198,15 @@
         $("#canvas").on('click', function() {
             draw(show_num);
         })
-        $(".btn").on('click', function() {
+        $("#submit").on('click', function() {
             var val = $(".input-val").val().toLowerCase();
+            console.log(val)
             var num = show_num.join("");
             if (val == '') {
                 alert('请输入验证码！');
             } else if (val == num) {
-                alert('提交成功！');
-                $(".input-val").val('');
+               // alert('提交成功！');
+             //   $(".input-val").val('');
                 draw(show_num);
 
             } else {
