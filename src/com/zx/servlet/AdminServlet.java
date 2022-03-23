@@ -2,6 +2,7 @@ package com.zx.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zx.beans.Company;
+import com.zx.beans.Page;
 import com.zx.beans.Resume;
 import com.zx.beans.Student;
 import com.zx.dao.*;
@@ -26,6 +27,13 @@ public class AdminServlet extends BaseServlet {
         List<Student> students= studentDao.getStudentsAdmin();
         request.setAttribute("students",students);
         request.getRequestDispatcher("/adminStudentList.jsp").forward(request,response);
+     /*   response.setCharacterEncoding("utf-8");
+        ObjectMapper objectMapper=new ObjectMapper();
+        String json=  "{\"code\":0,\"msg\":\"\",\"count\":1000,\"data\":"  + objectMapper.writeValueAsString(students)+"}";
+     //   System.out.println(json);
+        PrintWriter writer=response.getWriter();
+        writer.print(json);
+        writer.close();*/
 
     }
 
@@ -136,6 +144,49 @@ public class AdminServlet extends BaseServlet {
             request.getRequestDispatcher("adminStudentResume.jsp").forward(request,response);
 
     }
+    public void getCompanyByPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       String pageNum=request.getParameter("currectpage");
+       String pageSize=request.getParameter("limit");
+       PageDao pageDao=new PageDaoImpl();
+        Page<Company>  page=pageDao.getCompanyByPageAdmin(Integer.parseInt(pageNum),Integer.parseInt(pageSize));
+
+        ObjectMapper objectMapper=new ObjectMapper();
+        String json="{\"code\":0,\"msg\":\"\",\"count\": "+page.getDataCount()+ ",\"data\":"+ objectMapper.writeValueAsString(page)+"}";
+
+        System.out.println(json);
+
+        response.setCharacterEncoding("utf-8");
+        PrintWriter writer=response.getWriter();
+        writer.print(json);
+        writer.close();
+
+    }
+
+    public void getStudentByPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String currectpage=request.getParameter("currectpage");
+        String limit=request.getParameter("limit");
+
+        PageDao pageDao=new PageDaoImpl();
+
+        Page<Student>  page=pageDao.getStudentByPageAdmin(Integer.parseInt(currectpage),Integer.parseInt(limit));
+
+
+        ObjectMapper objectMapper=new ObjectMapper();
+      //  String json="{\"code\":0,\"msg\":\"\",\"count\":1000,\"data\":"+ objectMapper.writeValueAsString(page)+"}";
+        String json="{\"code\":0,\"msg\":\"\",\"count\": "+page.getDataCount()+ ",\"data\":"+ objectMapper.writeValueAsString(page)+"}";
+
+        System.out.println(json);
+
+        response.setCharacterEncoding("utf-8");
+        PrintWriter writer=response.getWriter();
+        writer.print(json);
+        writer.close();
+
+
+    }
+
+
+
 
 
 
