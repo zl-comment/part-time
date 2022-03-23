@@ -15,7 +15,6 @@ public class AdminDaoImpl  implements AdminDao {
     public Admin login(String usercode, String password) {
         Connection connection=null;
 
-
         try {
             connection= JDBCUtil.getConnection();
             String sql="SELECT *from admin  where adminname=? and adminpassword=?";

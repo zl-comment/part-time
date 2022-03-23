@@ -35,4 +35,5 @@ public interface CompanyDao {
     void updateCompanyById(Company company);  //Company的
 
     ArrayList<Student> getAdmissionById(int parseInt);
+    public int getCompanyCountAdmin();
 }

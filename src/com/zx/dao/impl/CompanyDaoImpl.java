@@ -110,7 +110,7 @@ public class CompanyDaoImpl   implements CompanyDao {
 
 
     @Override
-    public ArrayList<Company> getCompanysAdmin() {
+    public ArrayList<Company> getCompanysAdmin() {   //管理员查找数据库中的公司数据
         Connection connection = null;
         ArrayList<Company> companies = new ArrayList<>();
         try {
@@ -146,7 +146,7 @@ public class CompanyDaoImpl   implements CompanyDao {
 
 
     @Override
-    public boolean cpyaccountIsSame(String cpyaccount) {
+    public boolean cpyaccountIsSame(String cpyaccount) {      //注册的时候看是否与公司数据库内账号相同
         Connection connection = null;
         try {
             connection = JDBCUtil.getConnection();
@@ -216,7 +216,7 @@ public class CompanyDaoImpl   implements CompanyDao {
         }
     }
 
-    public ArrayList<Student> getAdmissionById(int companyid) {
+    public ArrayList<Student> getAdmissionById(int companyid) {   //管理员获得公司详细与公司下设职业
         Connection connection = null;
 
         ArrayList<Student>    students = new ArrayList<>();
@@ -263,6 +263,32 @@ public class CompanyDaoImpl   implements CompanyDao {
 
         return students;
     }
+
+
+
+    @Override
+    public int getCompanyCountAdmin() {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "SELECT count(id) num from company ";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                return resultSet.getInt("num");
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+        }
+        return 0;
+    }
+
+
+
+
 
 }
 

@@ -281,9 +281,23 @@ public class StudentDaoImpl implements StudentDao {
         }
     }
 
+    @Override
+    public int getStudentCountAdmin() {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "SELECT count(id) num from student ";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                return resultSet.getInt("num");
+            }
 
-
-
-
-
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+        }
+        return 0;
+    }
 }

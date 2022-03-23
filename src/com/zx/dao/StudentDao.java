@@ -23,4 +23,6 @@ public interface StudentDao {
     Student getStudentInfoById(int id);
 
     void updateinfoStudent(Student student);
+
+    int getStudentCountAdmin();
 }
