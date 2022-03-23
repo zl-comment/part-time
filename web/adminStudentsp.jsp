@@ -132,7 +132,8 @@
             dataType:"json",
             data:{studentid:studentid},
             success:function (data) {
-                var tt = eval(data);
+               // var tt = eval(data);    //不用let时就用这个eval转换
+                let tt=data;
                 //var tt = JSON.parse(data);  //错误
                 var str1 = "";   //声明str1，防止产生undefined
                 for (var i = 0; i < tt.length; i++) {   //遍历
