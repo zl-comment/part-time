@@ -33,7 +33,7 @@
         //第一个实例
         table.render({
             elem: '#student'
-            ,height: 312
+            ,height: 400
             ,url: 'AdminServlet?method=getStudentByPage' //数据接口
             ,method:'post'
             ,dataType:'json'
@@ -46,15 +46,15 @@
             ,limits:[3,10,20,30,40]
             //以上两个参数都会请求时传过去
             ,cols: [[ //表头
-                {type: 'checkbox', fixed: 'left'}
+                {type: 'checkbox', fixed: 'left' }
                 ,{field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
-                ,{field: 'stname', title: '姓名', width:80}
+                ,{field: 'stname', title: '姓名', width:120}
                 ,{field: 'staccount', title: '账号', width:80,}
                 ,{field: 'stphone', title: '联系方式', width:120}
                 ,{field: 'stschool', title: '学校', width: 177}
                 ,{field: 'stmajor', title: '主修', width: 120, }
                 ,{field: 'stsystem', title: '学制', width: 120, sort: true}
-                ,{fixed: 'right',   title: '操作',  width:210, align:'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
+                ,{fixed: 'right',   title: '操作',  width:611, align:'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
             ]]
             ,parseData: function(res){ //res 即为原始返回的数据
                 return {
