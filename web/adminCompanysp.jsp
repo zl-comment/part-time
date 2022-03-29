@@ -19,7 +19,6 @@
 
 </head>
 <body>
-<table class="layui-hide" id="demo"></table>
 <script src="layui/layui.js" charset="utf-8"></script>
 
 

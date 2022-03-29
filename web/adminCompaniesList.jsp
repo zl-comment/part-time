@@ -11,7 +11,6 @@
 
 </head>
 <body>
-<table class="layui-hide" id="demo"></table>
 <script src="layui/layui.js" charset="utf-8"></script>
 <script src="js/jquery.min.js"></script>
 
@@ -22,7 +21,7 @@
 
 
 
-<table id="company" lay-filter="student"></table>
+<table id="company" lay-filter="company"></table>
 
 
 <script>
@@ -31,7 +30,7 @@
         //第一个实例
         table.render({
             elem: '#company'
-            ,height: 312
+            ,height: 400
             ,url: 'AdminServlet?method=getCompanyByPage' //数据接口
             ,method:'post'
             ,dataType:'json'
@@ -46,12 +45,13 @@
             ,cols: [[ //表头
                 {type: 'checkbox', fixed: 'left'}
                 ,{field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
-                ,{field: 'cpyname', title: '公司名称', width:200}
+                ,{field: 'cpyname', title: '企业名称', width:200}
                 ,{field: 'cpyaccount', title: '账号', width:80,}
                 ,{field: 'cpyphone', title: '联系方式', width:120}
-                ,{field: 'cpyaddress', title: '公司地址', width: 177}
-                ,{field: 'cpyinfo', title: '公司简介', width: 120, }
-                ,{fixed: 'right',   title: '操作',  width:210, align:'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
+                ,{field: 'cpyaddress', title: '企业地址', width: 177}
+                ,{field: 'cpyinfo', title: '企业简介', width: 120,}
+                ,{field:  'state', title: '企业状态',  width: 120, templet: '#titleTpl',sort: true}
+                ,{fixed: 'right',   title: '操作',  width:531, align:'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
             ]]
             ,parseData: function(res){ //res 即为原始返回的数据
                 return {
@@ -66,7 +66,7 @@
 
         //行工具的具体操作
         //行工具条事件
-        table.on('tool(student)', function(obj){ //注：tool 是工具条事件名，student 是 table容器的属性 lay-filter="对应的值"
+        table.on('tool(company)', function(obj){ //注：tool 是工具条事件名，student 是 table容器的属性 lay-filter="对应的值"
             var data = obj.data; //获得当前行数据
             var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
             var tr = obj.tr; //获得当前行 tr 的 DOM 对象（如果有的话）
@@ -103,7 +103,7 @@
 
 
         //头工具栏事件
-        table.on('toolbar(student)', function(obj){
+        table.on('toolbar(company)', function(obj){
             var checkStatus = table.checkStatus(obj.config.id);
             switch(obj.event){
                 case 'getCheckData':
@@ -129,19 +129,23 @@
 
     });
 
-
-
-
-
-
-
+</script>
+<%--//对于后端传来的企业状态显示的数字改为字--%>
+<script type="text/html" id="titleTpl">
+    {{#  if(d.state=='0' ){ }}
+    未审核
+    {{#  } else  if(d.state=='1' )  { }}
+    审核通过
+    {{#  } else {}}
+    审核未通过
+    {{#  } }}
 </script>
 
 
 <script type="text/html" id="barDemo">     <!--行工具栏定义-->
 <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
 <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">封禁</a>
 <a class="layui-btn layui-btn-xs" lay-event="check">审核</a>
 </script>
 
