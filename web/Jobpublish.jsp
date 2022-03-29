@@ -63,9 +63,9 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         <form method="post" action="OccupationServlet?method=Jobpublish" >
 
-
                             <div>
                                 <span><input name="companyid"   type="hidden" value="${company.id}"></span>
+                                <span><input name="companystate"   type="hidden" value="${company.state}"></span>
                                 <span><label>职位名称</label></span>
                                 <span><input name="ocname" type="text" class="textbox"></span>
                             </div>
