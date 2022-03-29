@@ -11,7 +11,7 @@ public class Company {
     private String cpyphone;      //公司电话
     private String cpyaddress;   //公司地址
     private String cpyinfo;     //公司简介
-
+    private int    state;      //公司在平台的状态
 
 
     private List<Occupation>  occupations;   //公司发布的职位集合
@@ -59,6 +59,13 @@ public class Company {
         this.occupations = occupations;
     }
 
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
 
     public int getId() {
         return id;
@@ -134,6 +141,7 @@ public class Company {
                 ", cpyphone='" + cpyphone + '\'' +
                 ", cpyaddress='" + cpyaddress + '\'' +
                 ", cpyinfo='" + cpyinfo + '\'' +
+                ", state=" + state +
                 ", occupations=" + occupations +
                 '}';
     }
