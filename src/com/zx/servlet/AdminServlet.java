@@ -1,6 +1,8 @@
 package com.zx.servlet;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.zx.beans.Company;
 import com.zx.beans.Page;
 import com.zx.beans.Resume;
@@ -16,35 +18,12 @@ import java.io.IOException;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @WebServlet(name = "AdminServlet", urlPatterns = "/AdminServlet")
 public class AdminServlet extends BaseServlet {
 
-
-    public void getStudents(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        StudentDao studentDao=new StudentDaoImpl();
-        List<Student> students= studentDao.getStudentsAdmin();
-        request.setAttribute("students",students);
-        request.getRequestDispatcher("/adminStudentList.jsp").forward(request,response);
-     /*   response.setCharacterEncoding("utf-8");
-        ObjectMapper objectMapper=new ObjectMapper();
-        String json=  "{\"code\":0,\"msg\":\"\",\"count\":1000,\"data\":"  + objectMapper.writeValueAsString(students)+"}";
-     //   System.out.println(json);
-        PrintWriter writer=response.getWriter();
-        writer.print(json);
-        writer.close();*/
-
-    }
-
-    public void getCompanies(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        CompanyDao companyDao=new CompanyDaoImpl();
-        ArrayList<Company> companies=companyDao.getCompanysAdmin();
-        request.setAttribute("companies",companies);
-        request.getRequestDispatcher("/adminCompaniesList.jsp").forward(request,response);
-
-    }
     public void getCompanyByIdAndOccupation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             String companyid=request.getParameter("companyid");
             System.out.println(companyid);
@@ -55,6 +34,8 @@ public class AdminServlet extends BaseServlet {
         request.setAttribute("company",company);
         request.setAttribute("occupations",company.getOccupations());
         request.getRequestDispatcher("/adminCompanysp.jsp").forward(request,response);
+
+       // request.getRequestDispatcher("/adminCompanyPass.jsp").forward(request,response);
 
     }
 
@@ -73,7 +54,7 @@ public class AdminServlet extends BaseServlet {
 
 
 
-    public void getStudentByIdAndOccupation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void getStudentByIdAndOccupation(HttpServletRequest request, HttpServletResponse response) throws  IOException {
 
         String studentid=request.getParameter("studentid");      //可以得到
         OccupationDao occupationDao=new OccupationDaoImpl();
@@ -97,7 +78,7 @@ public class AdminServlet extends BaseServlet {
         writer.close();
     }
 
-    public void getStudentByIdAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void getStudentByIdAdmin(HttpServletRequest request, HttpServletResponse response) throws  IOException {
 
         String studentid=request.getParameter("studentid");      //可以得到
         StudentDao studentDao=new StudentDaoImpl();
@@ -121,7 +102,7 @@ public class AdminServlet extends BaseServlet {
 
 
 
-    public void usernameIsSame(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void usernameIsSame(HttpServletRequest request, HttpServletResponse response) throws  IOException {
         String username=request.getParameter("username");
         AdminDao adminDao=new AdminDaoImpl();
         System.out.println(username);
@@ -144,7 +125,7 @@ public class AdminServlet extends BaseServlet {
             request.getRequestDispatcher("adminStudentResume.jsp").forward(request,response);
 
     }
-    public void getCompanyByPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void getCompanyByPage(HttpServletRequest request, HttpServletResponse response) throws  IOException {
        String pageNum=request.getParameter("currectpage");
        String pageSize=request.getParameter("limit");
        PageDao pageDao=new PageDaoImpl();
@@ -153,7 +134,7 @@ public class AdminServlet extends BaseServlet {
         ObjectMapper objectMapper=new ObjectMapper();
         String json="{\"code\":0,\"msg\":\"\",\"count\": "+page.getDataCount()+ ",\"data\":"+ objectMapper.writeValueAsString(page)+"}";
 
-        System.out.println(json);
+        //System.out.println(json);
 
         response.setCharacterEncoding("utf-8");
         PrintWriter writer=response.getWriter();
@@ -162,7 +143,7 @@ public class AdminServlet extends BaseServlet {
 
     }
 
-    public void getStudentByPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void getStudentByPage(HttpServletRequest request, HttpServletResponse response) throws  IOException {
         String currectpage=request.getParameter("currectpage");
         String limit=request.getParameter("limit");
 
@@ -175,13 +156,66 @@ public class AdminServlet extends BaseServlet {
       //  String json="{\"code\":0,\"msg\":\"\",\"count\":1000,\"data\":"+ objectMapper.writeValueAsString(page)+"}";
         String json="{\"code\":0,\"msg\":\"\",\"count\": "+page.getDataCount()+ ",\"data\":"+ objectMapper.writeValueAsString(page)+"}";
 
-        System.out.println(json);
+    //    System.out.println(json);
 
         response.setCharacterEncoding("utf-8");
         PrintWriter writer=response.getWriter();
         writer.print(json);
         writer.close();
 
+    }
+
+    public void adminPassCompany(HttpServletRequest request, HttpServletResponse response) throws  IOException {
+                String companies=request.getParameter("companies");
+                String state=request.getParameter("state");
+        //将json字符串转为list数组
+       ObjectMapper objectMapper=new ObjectMapper();
+       List<Company> companies1=objectMapper.readValue(companies, new TypeReference<List<Company>>(){});
+       CompanyDao companyDao=new CompanyDaoImpl();
+       for(Company company:companies1){
+           companyDao.updateCompanyPass(company.getId(),Integer.parseInt(state));
+       }
+
+    }
+    
+
+
+    public void adminRejectCompany(HttpServletRequest request, HttpServletResponse response) throws  IOException {
+        String companies=request.getParameter("companies");
+        String state=request.getParameter("state");
+        //将json字符串转为list数组
+        ObjectMapper objectMapper=new ObjectMapper();
+        List<Company> companies1=objectMapper.readValue(companies, new TypeReference<List<Company>>(){});
+        CompanyDao companyDao=new CompanyDaoImpl();
+        for(Company company:companies1){
+            companyDao.updateCompanyReject(company.getId(),Integer.parseInt(state));
+        }
+
+    }
+
+    public void getCompanyByCpyNameByPage(HttpServletRequest request, HttpServletResponse response) throws  IOException {
+        String  cpyname=request.getParameter("cpyname");
+        String cpyaddress=request.getParameter("cpyaddress");
+        String currectpage=request.getParameter("currectpage");
+        String limit=request.getParameter("limit");
+        System.out.println(currectpage);
+        System.out.println(limit);
+
+        PageDao pageDao=new PageDaoImpl();
+
+        Page<Company> page=pageDao.selectCompanyByCpyNameOrCpyAddressByPage(Integer.parseInt(currectpage),Integer.parseInt(limit),cpyname,cpyaddress);
+
+
+        ObjectMapper objectMapper=new ObjectMapper();
+        //  String json="{\"code\":0,\"msg\":\"\",\"count\":1000,\"data\":"+ objectMapper.writeValueAsString(page)+"}";
+        String json="{\"code\":0,\"msg\":\"\",\"count\": "+page.getDataCount()+ ",\"data\":"+ objectMapper.writeValueAsString(page)+"}";
+
+        //    System.out.println(json);
+
+        response.setCharacterEncoding("utf-8");
+        PrintWriter writer=response.getWriter();
+        writer.print(json);
+        writer.close();
 
     }
 
