@@ -1,6 +1,5 @@
 package com.zx.dao.impl;
 
-
 import com.zx.beans.Company;
 import com.zx.beans.Occupation;
 import com.zx.beans.Student;
@@ -53,8 +52,9 @@ public class CompanyDaoImpl   implements CompanyDao {
                 String cpyphone = resultSet.getString("cpyphone");
                 String cpyaddress = resultSet.getString("cpyaddress");
                 String cpyinfo = resultSet.getString("cpyinfo");
+                int state=resultSet.getInt("state");
                 Company company = new Company(id, cpyname, usercode, password, cpyphone, cpyaddress, cpyinfo);
-
+                    company.setState(state);
                 return company;
             }
         } catch (SQLException e) {
@@ -96,7 +96,7 @@ public class CompanyDaoImpl   implements CompanyDao {
         Connection connection = null;
         try {
             connection = JDBCUtil.getConnection();
-            String sql = "insert into cpyandoc values(null,?,?)";
+            String sql = "insert into cpyandoc values(null,?,?,null)";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, companyid);
             ps.setInt(2, occupationid);
@@ -286,9 +286,71 @@ public class CompanyDaoImpl   implements CompanyDao {
         return 0;
     }
 
+    @Override
+    public void updateCompanyPass(int id, int state) {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "update  company  set state=? where id=?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1,state);
+            ps.setInt(2,id);
+
+        ps.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+        }
+
+    }
+
+    @Override
+    public void updateCompanyReject(int id, int state) {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "update  company  set state=? where id=?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1,state);
+            ps.setInt(2,id);
+
+            ps.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+        }
+    }
+
+    @Override
+    public int selectCompanyCountAdmin(String cpyname,String cpyaddress) {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            StringBuffer sql = new StringBuffer("SELECT count(id) num from company where 1=1");
+            if (!"".equals(cpyname)) {
+                sql.append(" and cpyname like '%" + cpyname + "%' ");
+            }
+            if (!"".equals(cpyaddress)) {
+                sql.append(" and cpyaddress like '%" + cpyaddress + "%' ");
+            }
 
 
+            PreparedStatement ps = connection.prepareStatement(sql.toString());
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                return resultSet.getInt("num");
+            }
 
-
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+        }
+        return 0;
+    }
 }
 
