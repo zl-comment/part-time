@@ -40,8 +40,10 @@ public class PageDaoImpl implements PageDao {
                 String cpyphone = resultSet.getString("cpyphone");
                 String cpyaddress = resultSet.getString("cpyaddress");
                 String cpyinfo = resultSet.getString("cpyinfo");
+                int    state=resultSet.getInt("state"); //增加了state企业状态
 
                 Company company = new Company(id, cpyname, cpyaccount, cpypassword, cpyphone, cpyaddress, cpyinfo);
+                company.setState(state);   //增加了state企业状态
                 companies.add(company);
 
 
@@ -116,7 +118,62 @@ public class PageDaoImpl implements PageDao {
         return null;
 
 
+    }
 
+    @Override
+    public Page<Company> selectCompanyByCpyNameOrCpyAddressByPage(int pagenum, int pagesize,String cpyname1, String cpyaddress1) {
+        Page<Company> page=new Page<>();
+        Connection connection=null;
+        ArrayList<Company> companies=new ArrayList<>();
+        try {
+
+            connection= JDBCUtil.getConnection();
+            StringBuffer sql = new StringBuffer("SELECT * from company where 1=1");
+            if (!"".equals(cpyname1)) {
+                sql.append(" and cpyname like '%" + cpyname1 + "%' ");
+            }
+            if (!"".equals(cpyaddress1)) {
+                sql.append(" and cpyaddress  like '%" + cpyaddress1+ "%' ");
+            }
+            sql.append(" limit ?,?");
+            PreparedStatement ps = connection.prepareStatement(sql.toString());
+            ps.setInt(1,(pagenum-1)*pagesize);
+            ps.setInt(2,pagesize);
+            ResultSet resultSet=ps.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String cpyname = resultSet.getString("cpyname");
+                String cpyaccount = resultSet.getString("cpyaccount");
+                String cpypassword = resultSet.getString("cpypassword");
+
+                String cpyphone = resultSet.getString("cpyphone");
+                String cpyaddress = resultSet.getString("cpyaddress");
+                String cpyinfo = resultSet.getString("cpyinfo");
+                int    state=resultSet.getInt("state"); //增加了state企业状态
+
+                Company company = new Company(id, cpyname, cpyaccount, cpypassword, cpyphone, cpyaddress, cpyinfo);
+                company.setState(state);   //增加了state企业状态
+                companies.add(company);
+
+
+            }
+            page.setDatas(companies);
+            page.setCurrentPage(pagenum);
+            page.setPageSize(pagesize);
+            CompanyDao companyDao=new CompanyDaoImpl();
+            int dataCount=companyDao.selectCompanyCountAdmin(cpyname1,cpyaddress1);
+            page.setDataCount(dataCount);
+            page.setPageCount(dataCount % pagesize == 0 ? (dataCount / pagesize) : ((dataCount / pagesize) + 1));
+
+
+            return page;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.close(connection);
+        }
+        return null;
 
     }
+
 }
