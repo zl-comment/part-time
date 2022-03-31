@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <title>公司信息查询</title>
     <!--basic_css-->
-    <link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="./static/layui/css/layui.css" />
     <meta name="viewport"
           content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
 
