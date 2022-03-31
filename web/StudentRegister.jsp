@@ -12,12 +12,12 @@
     <meta charset="UTF-8">
     <title>学生注册界面</title>
     <!--basic_css-->
-    <link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="./static/layui/css/layui.css" />
     <meta name="viewport"
           content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
     <style type="text/css">
         body {
-            background-image: url(img/lg-bg.jpg);
+            background-image: url(./static/img/lg-bg.jpg);
             background-position: 14px 14px;
             background-repeat: no-repeat;
             background-position: center center;
@@ -56,7 +56,7 @@
             height: 60%;
             margin: 0 auto;
             margin-top: 7%;
-            padding: 15px 28px 0px;
+            padding: 15px 28px ;
             background: #fff;
         }
 
@@ -133,7 +133,7 @@
     </style>
 </head>
 
-<script src="js/jquery.min.js"></script>
+<script src="./static/js/jquery.min.js"></script>
 
 
 <script>
@@ -162,7 +162,7 @@
 
 
 <body>
-<form class="layui-form" action="StudentServlet?method=Register" id="loginForm" method="post">
+<form class="layui-form"     action="StudentServlet?method=Register" id="loginForm" method="post">
     <div class="layui-form-item">
         <h1>学生用户注册</h1>
     </div>
@@ -170,7 +170,7 @@
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</span>
-            <input type="text" name="staccount"   id="staccount"    placeholder="请输入账号" autocomplete="off" class="layui-input"
+            <input type="text"   name="staccount"   id="staccount"    placeholder="请输入账号" autocomplete="off" class="layui-input"
                    autofocus required>
         </div>
         <span id="msg"></span>
@@ -186,7 +186,7 @@
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">确认密码：</span>
-            <input type="password" name="check-stpassword" placeholder="请再次输入密码" autocomplete="off" class="layui-input"
+            <input type="password" name="check-stpassword"  placeholder="请再次输入密码" autocomplete="off" class="layui-input"
                    required>
         </div>
     </div>

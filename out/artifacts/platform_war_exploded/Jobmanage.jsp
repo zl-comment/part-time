@@ -11,12 +11,12 @@
 <head>
     <meta charset="UTF-8">
     <title>招聘管理</title>
-    <script type="text/javascript" src="./js/common/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/common/echarts.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="./layui/css/layui.css">
-    <script type="text/javascript" src="./layui/layui.js"></script>
-    <script type="text/javascript" src="./js/pages/home.js"></script>
-    <link rel="stylesheet" type="text/css" href="./css/home.css">
+    <script type="text/javascript" src="./static/js/common/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/js/common/echarts.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="./static/layui/css/layui.css">
+    <script type="text/javascript" src="./static/layui/layui.js"></script>
+    <script type="text/javascript" src="./static/js/pages/home.js"></script>
+    <link rel="stylesheet" type="text/css" href="./static/css/home.css">
 </head>
 <body>
 

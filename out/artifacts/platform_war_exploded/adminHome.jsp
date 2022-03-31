@@ -6,11 +6,11 @@
 <head>
     <meta charset="UTF-8"/>
     <title>首页</title>
-    <script type="text/javascript" src="./js/common/jquery.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="./layui/css/layui.css"/>
-    <script type="text/javascript" src="./layui/layui.js"></script>
-    <link type="text/css" rel="stylesheet" href="./css/index.css"/>
-   <script type="text/javascript" src="./js/pages/index.js"></script>
+    <script type="text/javascript" src="./static/js/common/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="./static/layui/css/layui.css"/>
+    <script type="text/javascript" src="./static/layui/layui.js"></script>
+    <link type="text/css" rel="stylesheet" href="./static/css/index.css"/>
+   <script type="text/javascript" src="./static/js/pages/index.js"></script>
 </head>
 
 <body class="layui-layout-body">
@@ -35,7 +35,7 @@
         <ul class="layui-nav layui-layout-right" lay-filter="nav_header_right">
             <li class="layui-nav-item">
                 <a href="javascript:">
-                    <img src="./layui/images/face/0.gif" class="layui-nav-img">
+                    <img src="./static/layui/images/face/0.gif" class="layui-nav-img" alt="">
                     ${admin.adminname}
                 </a>
                 <dl class="layui-nav-child">
@@ -55,7 +55,7 @@
             <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="nav_left">
                 <%--为了让页面展示在内页面中，target=“与主题页面的iframe的name相同”--%>
                 <%--src与href有区别--%>
-                <li class="layui-nav-item "><a h<%--ref="allHome.jsp" data-id="nav_home"  target="iFrm"--%>>首页</a></li>
+                <li class="layui-nav-item "><a <%--ref="allHome.jsp" data-id="nav_home"  target="iFrm"--%>>首页</a></li>
 
                 <li class="layui-nav-item layui-nav-itemed">
                     <a >企业用户管理</a>

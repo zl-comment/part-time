@@ -13,13 +13,13 @@
     <title>Free Bluebox Website Template | Home </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="./css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="./static/css/style.css" rel="stylesheet" type="text/css" media="all" />
 
     <!-- jQuery -->
-    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/js/jquery.min.js"></script>
     <!-- Add fancyBox main JS and CSS files -->
-    <script src="./js/jquery.magnific-popup.js" type="text/javascript"></script>
-    <link href="./css/magnific-popup.css" rel="stylesheet" type="text/css">
+    <script src="./static/js/jquery.magnific-popup.js" type="text/javascript"></script>
+    <link href="./static/css/magnific-popup.css" rel="stylesheet" type="text/css">
     <script>
         $(document).ready(function() {
             $('.popup-with-zoom-anim').magnificPopup({
@@ -35,7 +35,7 @@
             });
         });
     </script>
-    <script src="./js/jquery.hoverdir.js"></script>
+    <script src="./static/js/jquery.hoverdir.js"></script>
     <script type="text/javascript">
         $(function() {
 
@@ -51,7 +51,7 @@
 <div class="header">
     <div class="wrap">
         <div class="logo">
-            <a href="allHome.jsp"><img src="./images/logo.png" alt=""/></a>
+            <a href="allHome.jsp"><img src="./static/images/logo.png" alt="加载中"/></a>
         </div>
         <div class="header-right">
             <div id='cssmenu'>
@@ -91,7 +91,7 @@
                     <div class="clear"></div>
                 </div>
                 <div class="banner">
-                    <img src="./images/mac.png" alt=""/>
+                    <img src="./static/images/mac.png" alt="加载中"/>
                 </div>
             </article>
             <article style="position: relative; width: 100%; opacity: 1;">
@@ -105,7 +105,7 @@
                     <div class="clear"></div>
                 </div>
                 <div class="banner">
-                    <img src="./images/mac1.png" alt=""/>
+                    <img src="./static/images/mac1.png" alt="加载中"/>
                 </div>
             </article>
             <article style="position: absolute; width: 100%; opacity: 0;">
@@ -119,7 +119,7 @@
                     <div class="clear"></div>
                 </div>
                 <div class="banner">
-                    <img src="./images/mac.png" alt=""/>
+                    <img src="./static/images/mac.png" alt="加载中"/>
                 </div>
             </article>
             <article style="position: absolute; width: 100%; opacity: 0;">
@@ -133,7 +133,7 @@
                     <div class="clear"></div>
                 </div>
                 <div class="banner">
-                    <img src="./images/mac1.png" alt=""/>
+                    <img src="./static/images/mac1.png" alt="加载中"/>
                 </div>
             </article>
             <article style="position: absolute; width: 100%; opacity: 0;">
@@ -147,12 +147,12 @@
                     <div class="clear"></div>
                 </div>
                 <div class="banner">
-                    <img src="./images/mac.png" alt=""/>
+                    <img src="./static/images/mac.png" alt="加载中"/>
                 </div>
             </article>
         </div>
     </div>
-    <script src="./js/jquery.wmuSlider.js"></script>
+    <script src="./static/js/jquery.wmuSlider.js"></script>
     <script>
         $('.example1').wmuSlider();
     </script>
@@ -162,19 +162,19 @@
         <div class="content-top">
             <div class="col_1_of_3 span_1_of_3">
                 <h3>Web Design</h3>
-                <img src="./images/icon.png" alt=""/>
+                <img src="./static/images/icon.png" alt="加载中"/>
                 <p>Lorem ipsum dolor sit amet, consectetur <br>adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
                 <div class="btn-link"><a href="#">read more</a></div>
             </div>
             <div class="col_1_of_3 span_1_of_3">
                 <h3>Social Media</h3>
-                <img src="./images/icon1.png" alt=""/>
+                <img src="./static/images/icon1.png" alt="加载中"/>
                 <p>Lorem ipsum dolor sit amet, consectetur <br>adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
                 <div class="btn-link"><a href="#">read more</a></div>
             </div>
             <div class="col_1_of_3 span_1_of_3">
                 <h3>Mobile Apps</h3>
-                <img src="./images/icon2.png" alt=""/>
+                <img src="./static/images/icon2.png" alt="加载中"/>
                 <p>Lorem ipsum dolor sit amet, consectetur <br>adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
                 <div class="btn-link"><a href="#">read more</a></div>
             </div>
@@ -188,7 +188,7 @@
                 <div class="col_1_of_4 span_1_of_4">
                     <a href="single.html" class="image" href="#">
                         <span class="rollover"></span>
-                        <img class="imgborder" alt="" src="./images/pic.jpg">
+                        <img class="imgborder" alt="" src="./static/images/pic.jpg">
                     </a>
                     <div class="text"><h4><a href="#">adipisicing</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetuer</p>
@@ -197,7 +197,7 @@
                 <div class="col_1_of_4 span_1_of_4">
                     <a href="single.html" class="image" href="#">
                         <span class="rollover"></span>
-                        <img class="imgborder" alt="" src="./images/pic1.jpg">
+                        <img class="imgborder" alt="" src="./static/images/pic1.jpg">
                     </a>
                     <div class="text"><h4><a href="#">adipisicing</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetuer</p>
@@ -206,7 +206,7 @@
                 <div class="col_1_of_4 span_1_of_4">
                     <a href="single.html" class="image" href="#">
                         <span class="rollover"></span>
-                        <img class="imgborder" alt="" src="./images/pic2.jpg">
+                        <img class="imgborder" alt="" src="./static/images/pic2.jpg">
                     </a>
                     <div class="text"><h4><a href="#">adipisicing</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetuer</p>
@@ -215,7 +215,7 @@
                 <div class="col_1_of_4 span_1_of_4">
                     <a href="single.html" class="image" href="#">
                         <span class="rollover"></span>
-                        <img class="imgborder" alt="" src="./images/pic3.jpg">
+                        <img class="imgborder" alt="" src="./static/images/pic3.jpg">
                     </a>
                     <div class="text"><h4><a href="#">adipisicing</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetuer</p>
@@ -227,7 +227,7 @@
                 <div class="col_1_of_4 span_1_of_4">
                     <a href="single.html" class="image" href="#">
                         <span class="rollover"></span>
-                        <img class="imgborder" alt="" src="./images/pic4.jpg">
+                        <img class="imgborder" alt="" src="./static/images/pic4.jpg">
                     </a>
                     <div class="text"><h4><a href="#">adipisicing</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetuer</p>
@@ -236,7 +236,7 @@
                 <div class="col_1_of_4 span_1_of_4">
                     <a href="single.html" class="image" href="#">
                         <span class="rollover"></span>
-                        <img class="imgborder" alt="" src="./images/pic5.jpg">
+                        <img class="imgborder" alt="" src="./static/images/pic5.jpg">
                     </a>
                     <div class="text"><h4><a href="#">adipisicing</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetuer</p>
@@ -245,7 +245,7 @@
                 <div class="col_1_of_4 span_1_of_4">
                     <a href="single.html" class="image" href="#">
                         <span class="rollover"></span>
-                        <img class="imgborder" alt="" src="./images/pic6.jpg">
+                        <img class="imgborder" alt="" src="./static/images/pic6.jpg">
                     </a>
                     <div class="text"><h4><a href="#">adipisicing</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetuer</p>
@@ -254,7 +254,7 @@
                 <div class="col_1_of_4 span_1_of_4">
                     <a href="single.html" class="image" href="#">
                         <span class="rollover"></span>
-                        <img class="imgborder" alt="" src="./images/pic7.jpg">
+                        <img class="imgborder" alt="" src="./static/images/pic7.jpg">
                     </a>
                     <div class="text"><h4><a href="#">adipisicing</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetuer</p>
@@ -268,10 +268,10 @@
         <div class="wrap">
             <h2 class="head">Clients</h2>
             <ul id="flexiselDemo3">
-                <li><img src="./images/c1.png" /></li>
-                <li><img src="./images/c2.png" /></li>
-                <li><img src="./images/c3.png" /></li>
-                <li><img src="./images/c4.png" /></li>
+                <li><img src="./static/images/c1.png" alt="加载中"/></li>
+                <li><img src="./static/images/c2.png" alt="加载中"/></li>
+                <li><img src="./static/images/c3.png" alt="加载中"/></li>
+                <li><img src="./static/images/c4.png" alt="加载中"/></li>
             </ul>
             <script type="text/javascript">
                 $(window).load(function() {
@@ -319,7 +319,7 @@
 
                 });
             </script>
-            <script type="text/javascript" src="./js/jquery.flexisel.js"></script>
+            <script type="text/javascript" src="./static/js/jquery.flexisel.js"></script>
         </div>
     </div>
 </div>

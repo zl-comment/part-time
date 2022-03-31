@@ -12,13 +12,13 @@
     <meta charset="UTF-8">
     <title>登录界面</title>
     <!--basic_css-->
-    <link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="./static/layui/css/layui.css" />
     <meta name="viewport"
           content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
 
     <style type="text/css">
         body {
-            background-image: url(img/lg-bg.jpg);
+            background-image: url(./static/img/lg-bg.jpg);
            /* background-position: 14px 14px;*/
             background-repeat: no-repeat;
             background-position: center center;
@@ -187,8 +187,8 @@
 <!--
 描述：验证码部分代码
 -->
-<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
-<script src="layui/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="./static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script src="./static/layui/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <!--验证码-->
 <script>
     $(function() {

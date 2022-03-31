@@ -9,13 +9,13 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="layui/css/layui.css"  media="all">
+    <link rel="stylesheet" href="./static/layui/css/layui.css"  media="all">
 
 </head>
 <body>
 <table class="layui-hide" id="demo"></table>
-<script src="layui/layui.js" charset="utf-8"></script>
-<script src="js/jquery.min.js"></script>
+<script src="./static/layui/layui.js" charset="utf-8"></script>
+<script src="./static/js/jquery.min.js"></script>
 
 
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
@@ -72,7 +72,7 @@
         table.on('tool(student)', function(obj){ //注：tool 是工具条事件名，student 是 table容器的属性 lay-filter="对应的值"
             var data = obj.data; //获得当前行数据
             var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
-            var tr = obj.tr; //获得当前行 tr 的 DOM 对象（如果有的话）
+        //    var tr = obj.tr; //获得当前行 tr 的 DOM 对象（如果有的话）
 
             if(layEvent === 'detail'){ //查看
                 layer.msg("查看");

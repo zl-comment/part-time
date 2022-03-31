@@ -11,15 +11,15 @@
 <head>
     <title>Title</title>
     <meta charset="UTF-8">
-    <script src="js/jquery.min.js"></script>
+    <script src="./static/js/jquery.min.js"></script>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="layui/css/layui.css"  media="all">
+    <link rel="stylesheet" href="./static/layui/css/layui.css"  media="all">
 </head>
 <body>
-<script src="layui/layui.js"></script>
-<script src="js/jquery.min.js"></script>
+<script src="./static/layui/layui.js"></script>
+<script src="./static/js/jquery.min.js"></script>
 <script type="text/javascript">
     $(function () {
             var studentid=$("#studentid").val();
@@ -65,7 +65,7 @@
                                 case 'update':
                                     layer.msg('编辑');
                                     break;
-                            };
+                            }
                         });
 
 

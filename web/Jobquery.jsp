@@ -21,14 +21,14 @@
     <title>招聘发布</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="./css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="./static/css/style.css" rel="stylesheet" type="text/css" media="all" />
 
 </head>
 <body>
 <div class="single-header">
     <div class="wrap">
         <div class="logo">
-            <a href="index.html"><img src="./images/logo.png" alt=""/></a>
+            <a href="index.html"><img src="./static/images/logo.png" alt="加载中"/></a>
         </div>
         <div class="header-right">
             <div id='cssmenu'>
@@ -113,7 +113,7 @@
                 <div class="col_1_of_2 span_1_of_2">
                     <ul class="list3">
                         <li>
-                            <img src="./images/location.png" alt=""/>
+                            <img src="./static/images/location.png" alt=""/>
                             <div class="company_address">
                                 <h3>Company Information :</h3>
                                 <p>500 Lorem Ipsum Dolor Sit,</p>

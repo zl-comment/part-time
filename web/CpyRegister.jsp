@@ -12,12 +12,12 @@
     <meta charset="UTF-8">
     <title>公司注册界面</title>
     <!--basic_css-->
-    <link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="./static/layui/css/layui.css" />
     <meta name="viewport"
           content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
     <style type="text/css">
         body {
-            background-image: url(img/lg-bg.jpg);
+            background-image: url(/static/img/lg-bg.jpg);
             background-position: 14px 14px;
             background-repeat: no-repeat;
             background-position: center center;
@@ -56,7 +56,7 @@
             height: 60%;
             margin: 0 auto;
             margin-top: 7%;
-            padding: 15px 28px 0px;
+            padding: 15px 28px ;
             background: #fff;
         }
 
@@ -133,7 +133,7 @@
     </style>
 </head>
 
-<script src="js/jquery.min.js"></script>
+<script src="./static/js/jquery.min.js"></script>
 
 
 <script>
