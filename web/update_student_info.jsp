@@ -82,7 +82,7 @@
                 <input name="stdate" type="date" class="dfinput" value="${student.stdate}" style="width:518px;"/>
             </div>
         </div>
-    </div>
+    </div>00
 
     <div class="layui-form-item">
         <div class="layui-input-block">

@@ -109,7 +109,7 @@
 
     <div class="layui-footer">
         <!-- 底部固定区域 -->
-        © leaf - XXX有限公司
+        © leaf - XXX有限公司   ${student.stresumeid}
     </div>
 </div>
 </body>

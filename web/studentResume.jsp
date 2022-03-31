@@ -32,6 +32,7 @@
     <thead>
     <tr>
         <th>名字</th>
+        <th>性别</th>
         <th>年龄</th>
         <th>头像</th>
         <th>地址</th>
@@ -55,6 +56,7 @@
     <tbody>
         <tr>
             <td>${resume.name}</td>
+            <td>${resume.gender}</td>
             <td>${resume.age}</td>
             <td>${resume.imaurl}</td>
             <td>${resume.address}</td>
@@ -65,7 +67,7 @@
             <td>${resume.selfEvaluation}</td>
             <td>
                 <a href="#" class="tablelink">查看</a>
-                <a class="tablelink"> 删除</a>
+                <a href="" class="tablelink"> 删除</a>
             </td>
         </tr>
     </tbody>

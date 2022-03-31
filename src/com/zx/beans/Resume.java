@@ -3,6 +3,7 @@ package com.zx.beans;
 public class Resume {
     private int id;
     private String name;
+    private String gender;
     private int age;
     private String imaurl;
     private String address;
@@ -12,6 +13,10 @@ public class Resume {
     private String major;
     private String workExperience;
     private String selfEvaluation;
+
+    public Resume(String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;
@@ -27,6 +32,14 @@ public class Resume {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public int getAge() {
@@ -101,8 +114,24 @@ public class Resume {
         this.selfEvaluation = selfEvaluation;
     }
 
-    public Resume(String name, int age, String imaurl, String address, String phone, String email, String hobby, String major, String workExperience, String selfEvaluation) {
+    public Resume(int id, String name, String gender, int age, String imaurl, String address, String phone, String email, String hobby, String major, String workExperience, String selfEvaluation) {
+        this.id = id;
         this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.imaurl = imaurl;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.hobby = hobby;
+        this.major = major;
+        this.workExperience = workExperience;
+        this.selfEvaluation = selfEvaluation;
+    }
+
+    public Resume(String name, String gender, int age, String imaurl, String address, String phone, String email, String hobby, String major, String workExperience, String selfEvaluation) {
+        this.name = name;
+        this.gender = gender;
         this.age = age;
         this.imaurl = imaurl;
         this.address = address;
@@ -122,11 +151,12 @@ public class Resume {
         return "Resume{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
                 ", age=" + age +
                 ", imaurl='" + imaurl + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
-                ", Email='" + email + '\'' +
+                ", email='" + email + '\'' +
                 ", hobby='" + hobby + '\'' +
                 ", major='" + major + '\'' +
                 ", workExperience='" + workExperience + '\'' +
