@@ -2,7 +2,6 @@ package com.zx.servlet;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.zx.beans.Company;
 import com.zx.beans.Page;
 import com.zx.beans.Resume;
@@ -17,8 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 @WebServlet(name = "AdminServlet", urlPatterns = "/AdminServlet")
@@ -101,7 +98,7 @@ public class AdminServlet extends BaseServlet {
 
 
 
-
+/*
     public void usernameIsSame(HttpServletRequest request, HttpServletResponse response) throws  IOException {
         String username=request.getParameter("username");
         AdminDao adminDao=new AdminDaoImpl();
@@ -114,7 +111,7 @@ public class AdminServlet extends BaseServlet {
         writer.print(judge);
         writer.close();
 
-    }
+    }*/
 
     public void AdminGetResumeByResumeId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
      String stresumeid=request.getParameter("stresumeid");

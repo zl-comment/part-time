@@ -33,15 +33,15 @@
                 <span style="color: red">报名职业</span>
                 <span style="color: red">职业薪水&nbsp;</span>
             </li>
-            <c:forEach items="${students}" var="st">
+            <c:forEach items="${occupations}" var="oc">
                 <li>
                     <span class="layui-badge">*</span>
-                    <span>${st.stname}</span>
-                    <span>${st.stschool}</span>
-                    <c:forEach items="${st.occupations}" var="oc">
-                        <span>${oc.ocname}</span>
-                        <span>${oc.salary}</span>
+                    <c:forEach items="${oc.students}" var="st">
+                        <span>${st.stname}</span>
+                        <span>${st.stschool}</span>
                     </c:forEach>
+                    <span>${oc.ocname}</span>
+                    <span>${oc.salary}</span>
                     <span class="con" style="color: #0A95"><a href="OccupationServlet?method=deleteoccupationById&&ocid=${oc.id}&&cpyandocid=${oc.cpyandocid}&&companyid=${companyid}">删除</a></span>
                     <span class="con" style="color: red"><a href="OccupationServlet?method=getoccupationById&&ocid=${oc.id}&&companyid=${companyid}">查看&nbsp;</a></span>
                 </li>
