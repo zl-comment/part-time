@@ -3,11 +3,14 @@ package com.zx.servlet;
 
 import com.zx.beans.Company;
 import com.zx.beans.Occupation;
+import com.zx.beans.Resume;
 import com.zx.beans.Student;
 import com.zx.dao.CompanyDao;
 import com.zx.dao.OccupationDao;
+import com.zx.dao.ResumeDao;
 import com.zx.dao.impl.CompanyDaoImpl;
 import com.zx.dao.impl.OccupationDaoImpl;
+import com.zx.dao.impl.ResumeDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -93,17 +96,43 @@ public class CompanyServlet extends BaseServlet {
     }
 
     public void getAdmissionById(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         String companyid=request.getParameter("companyid");
         CompanyDao companyDao = new CompanyDaoImpl();
-        ArrayList<Occupation> occupations = companyDao.getAdmissionById(Integer.parseInt(companyid));
+        ArrayList<Student> students = companyDao.getAdmissionById(Integer.parseInt(companyid));
 
-        System.out.println(occupations);
+        System.out.println(students);
         request.setAttribute("companyid",companyid);
-        request.setAttribute("occupations",occupations);
+        request.setAttribute("students",students);
         request.getRequestDispatcher("/Admission.jsp").forward(request, response);
     }
 
+    public void viewResume(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+        String resumeid = request.getParameter("resumeid");
+        if (resumeid == null){
+            //创造建立
+        }else {
+            ResumeDao resumeDao = new ResumeDaoImpl();
+            Resume resume= resumeDao.getStudentResume(Integer.parseInt(resumeid));
+            System.out.println(1);
+            request.setAttribute("resume",resume);
+            request.getRequestDispatcher("studentResume.jsp").forward(request, response);
+        }
+    }
 
+    public void accept(HttpServletRequest request,HttpServletResponse response){
+        String studentid = request.getParameter("studentid");
+        String ocid = request.getParameter("ocid");
+        CompanyDao companyDao = new CompanyDaoImpl();
+        companyDao.accept(Integer.parseInt(studentid),Integer.parseInt(ocid));
+    }
+
+    public void refuse(HttpServletRequest request,HttpServletResponse response){
+        String studentid = request.getParameter("studentid");
+        String ocid = request.getParameter("ocid");
+        CompanyDao companyDao = new CompanyDaoImpl();
+        companyDao.refuse(Integer.parseInt(studentid),Integer.parseInt(ocid));
+    }
 
 
 

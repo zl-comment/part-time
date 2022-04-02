@@ -216,10 +216,10 @@ public class CompanyDaoImpl   implements CompanyDao {
         }
     }
 
-    public ArrayList<Occupation> getAdmissionById(int companyid) {
+    public ArrayList<Student> getAdmissionById(int companyid) {
         Connection connection = null;
 
-        ArrayList<Occupation> occupations=new ArrayList<>();
+        ArrayList<Student>    students = new ArrayList<>();
         try {
             connection = JDBCUtil.getConnection();
             String sql = "    SELECT  b.id cpyandocid,b.occupationid ,c.ocname,c.salary,c.requirement,c.workplace,c.worktime, d.id stuandocid,d.studentid,e.stname,e.staccount,e.stpassword,e.stphone,e.stschool,e.stmajor,e.stsystem,e.stdate,e.stresume,e.ststate,e.stresumeid  FROM company a LEFT JOIN cpyandoc b on a.id=b.companyid LEFT JOIN occupation c on c.id=b.occupationid LEFT JOIN stuandoc d ON d.occupationid=c.id LEFT JOIN student e on e.id=d.studentid WHERE a.id=? and d.id!=0";
@@ -237,18 +237,19 @@ public class CompanyDaoImpl   implements CompanyDao {
                 int studentid = resultSet.getInt("studentid");
                 int cpyandocid = resultSet.getInt("cpyandocid");
                 int occupationid = resultSet.getInt("occupationid");
-                ArrayList<Student>    students = new ArrayList<>();
+                ArrayList<Occupation> occupations=new ArrayList<>();
                 Occupation occupation=new Occupation(occupationid,ocname,salary,workplace,requirement);
                 occupation.setCpyandocid(cpyandocid);
-
+                occupations.add(occupation);
                 Student student=new Student();
                 student.setStresumeid(stresumeid);
                 student.setId(studentid);
                 student.setStname(stname);
                 student.setStschool(stschool);
+                student.setOccupations(occupations);
                 students.add(student);
-                occupation.setStudents(students);
-                occupations.add(occupation);
+
+
 
             }
 
@@ -259,7 +260,7 @@ public class CompanyDaoImpl   implements CompanyDao {
             JDBCUtil.close(connection);
         }
 
-        return occupations;
+        return students;
     }
 
 
@@ -350,5 +351,49 @@ public class CompanyDaoImpl   implements CompanyDao {
         }
         return 0;
     }
+
+
+    public void accept(int studentid,int ocid){
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "update stuandoc set ststate = 1 where studentid=? and occupationid=?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setInt(1,studentid);
+            ps.setInt(2,ocid);
+
+            ps.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+        }
+    }
+
+    public void refuse(int studentid,int ocid){
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "update stuandoc set ststate = -1 where studentid=? and occupationid=?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setInt(1,studentid);
+            ps.setInt(2,ocid);
+
+            ps.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+        }
+    }
+
+
+
+
+
 }
 

@@ -15,7 +15,9 @@ public interface CompanyDao {
 
     void addOccupation(int companyid, int occupationid);
 
+    void accept(int studentid,int ocid);
 
+    void refuse(int studentid,int ocid);
 
 
 /*
@@ -27,7 +29,8 @@ public interface CompanyDao {
     Company getCompanyById(int companyid);    //Company的
     void updateCompanyById(Company company);  //Company的
 
-    ArrayList<Occupation> getAdmissionById(int parseInt);
+    ArrayList<Student> getAdmissionById(int parseInt);
+
     public int getCompanyCountAdmin();
 
     void updateCompanyPass(int id, int state);
