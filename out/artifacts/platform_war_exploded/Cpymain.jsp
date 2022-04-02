@@ -43,15 +43,15 @@
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="nav_left">
-
+                ${company.state}
+                ${company.id}
                 <li class="layui-nav-item"><a href="Jobpublish.jsp" target="ifram"  data-id="1">发布招聘</a></li>
                 <li class="layui-nav-item"><a href="OccupationServlet?method=getOccupations&&companyid=${company.id}" target="ifram" data-id="2"  >招聘管理</a></li>
-                <li class="layui-nav-item"><a href="CompanyServlet?method=getAdmissionById&&companyid=${company.id}" target="ifram">报名管理</a></li>
-                <li class="layui-nav-item"><a href="CompanyServlet?method=getCompanyById&&companyid=${company.id}" target="ifram" data-id="3">公司信息</a></li>
+                <li class="layui-nav-item"><a href="CompanyServlet?method=getAdmissionById&&companyid=${company.id}" target="ifram" data-id="3">报名管理</a></li>
+                <li class="layui-nav-item"><a href="CompanyServlet?method=getCompanyById&&companyid=${company.id}" target="ifram" data-id="4">公司信息</a></li>
             </ul>
         </div>
     </div>
-
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div style="padding: 5px;">
