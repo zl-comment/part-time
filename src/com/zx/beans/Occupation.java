@@ -137,10 +137,11 @@ public class Occupation {
         return "Occupation{" +
                 "id=" + id +
                 ", ocname='" + ocname + '\'' +
-                ", salary=" + salary +
+                ", salary='" + salary + '\'' +
                 ", requirement='" + requirement + '\'' +
                 ", workplace='" + workplace + '\'' +
                 ", worktime='" + worktime + '\'' +
+                ", students=" + students +
                 '}';
     }
 }

@@ -95,11 +95,11 @@ public class CompanyServlet extends BaseServlet {
     public void getAdmissionById(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         String companyid=request.getParameter("companyid");
         CompanyDao companyDao = new CompanyDaoImpl();
-        ArrayList<Student> students = companyDao.getAdmissionById(Integer.parseInt(companyid));
+        ArrayList<Occupation> occupations = companyDao.getAdmissionById(Integer.parseInt(companyid));
 
-        System.out.println(students);
+        System.out.println(occupations);
         request.setAttribute("companyid",companyid);
-        request.setAttribute("students",students);
+        request.setAttribute("occupations",occupations);
         request.getRequestDispatcher("/Admission.jsp").forward(request, response);
     }
 

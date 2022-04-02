@@ -1,6 +1,7 @@
 package com.zx.dao;
 
 import com.zx.beans.Company;
+import com.zx.beans.Occupation;
 import com.zx.beans.Student;
 
 import java.util.ArrayList;
@@ -17,16 +18,8 @@ public interface CompanyDao {
 
 
 
-
-
-
-
-
-
-
-
-
-    ArrayList<Company>   getCompanysAdmin();
+/*
+    ArrayList<Company>   getCompanysAdmin();*/
 
     boolean cpyaccountIsSame(String cpyaccount);
 
@@ -34,7 +27,7 @@ public interface CompanyDao {
     Company getCompanyById(int companyid);    //Company的
     void updateCompanyById(Company company);  //Company的
 
-    ArrayList<Student> getAdmissionById(int parseInt);
+    ArrayList<Occupation> getAdmissionById(int parseInt);
     public int getCompanyCountAdmin();
 
     void updateCompanyPass(int id, int state);

@@ -108,7 +108,7 @@ public class CompanyDaoImpl   implements CompanyDao {
         }
     }
 
-
+/*
     @Override
     public ArrayList<Company> getCompanysAdmin() {   //管理员查找数据库中的公司数据
         Connection connection = null;
@@ -142,7 +142,7 @@ public class CompanyDaoImpl   implements CompanyDao {
         }
 
         return companies;
-    }
+    }*/
 
 
     @Override
@@ -216,20 +216,19 @@ public class CompanyDaoImpl   implements CompanyDao {
         }
     }
 
-    public ArrayList<Student> getAdmissionById(int companyid) {   //管理员获得公司详细与公司下设职业
+    public ArrayList<Occupation> getAdmissionById(int companyid) {
         Connection connection = null;
 
-        ArrayList<Student>    students = new ArrayList<>();
+        ArrayList<Occupation> occupations=new ArrayList<>();
         try {
             connection = JDBCUtil.getConnection();
-            String sql = "SELECT ocname,stname,stschool,stresumeid,salary,workplace,requirement,st.id studentid, co.id cpyandocid,oc.id occupationid from student st,stuandoc sd,occupation oc,cpyandoc co ,company cpy where st.id=sd.studentid and oc.id=sd.occupationid and oc.id=co.occupationid and cpy.id=co.companyid and cpy.id=?";
+            String sql = "    SELECT  b.id cpyandocid,b.occupationid ,c.ocname,c.salary,c.requirement,c.workplace,c.worktime, d.id stuandocid,d.studentid,e.stname,e.staccount,e.stpassword,e.stphone,e.stschool,e.stmajor,e.stsystem,e.stdate,e.stresume,e.ststate,e.stresumeid  FROM company a LEFT JOIN cpyandoc b on a.id=b.companyid LEFT JOIN occupation c on c.id=b.occupationid LEFT JOIN stuandoc d ON d.occupationid=c.id LEFT JOIN student e on e.id=d.studentid WHERE a.id=? and d.id!=0";
             PreparedStatement ps =  connection.prepareStatement(sql);
             ps.setInt(1,companyid);
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
                 String ocname = resultSet.getString("ocname");
                 String stname = resultSet.getString("stname");
-                System.out.println(stname);
                 String stschool = resultSet.getString("stschool");
                 String salary = resultSet.getString("salary");
                 String workplace = resultSet.getString("workplace");
@@ -238,19 +237,18 @@ public class CompanyDaoImpl   implements CompanyDao {
                 int studentid = resultSet.getInt("studentid");
                 int cpyandocid = resultSet.getInt("cpyandocid");
                 int occupationid = resultSet.getInt("occupationid");
-
-                ArrayList<Occupation> occupations = new ArrayList<>();
+                ArrayList<Student>    students = new ArrayList<>();
                 Occupation occupation=new Occupation(occupationid,ocname,salary,workplace,requirement);
                 occupation.setCpyandocid(cpyandocid);
-                occupations.add(occupation);
-                Student student=new Student();
 
+                Student student=new Student();
                 student.setStresumeid(stresumeid);
                 student.setId(studentid);
                 student.setStname(stname);
                 student.setStschool(stschool);
-                student.setOccupations(occupations);
                 students.add(student);
+                occupation.setStudents(students);
+                occupations.add(occupation);
 
             }
 
@@ -261,7 +259,7 @@ public class CompanyDaoImpl   implements CompanyDao {
             JDBCUtil.close(connection);
         }
 
-        return students;
+        return occupations;
     }
 
 

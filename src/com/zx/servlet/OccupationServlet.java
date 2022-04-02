@@ -33,9 +33,7 @@ public class OccupationServlet extends BaseServlet {
         companyDao.addOccupation(Integer.parseInt(companyid),occupationid);
         try {
             getOccupations(request,response);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ServletException e) {
+        } catch (IOException | ServletException e) {
             e.printStackTrace();
         }
     }
@@ -59,12 +57,14 @@ public class OccupationServlet extends BaseServlet {
     public void getoccupationById(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         String companyid=request.getParameter("companyid");
         String ocid = request.getParameter("ocid");
+        System.out.println(ocid);
         OccupationDao occupationDao = new OccupationDaoImpl();
         Occupation occupation = occupationDao.getOccupationById(Integer.parseInt(ocid));
         request.setAttribute("companyid",companyid);
         request.setAttribute("oc",occupation);
         request.getRequestDispatcher("/Jobquery.jsp").forward(request,response);
     }
+
     public void deleteoccupationById(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
         String companyid=request.getParameter("companyid");
         String ocid = request.getParameter("ocid");
