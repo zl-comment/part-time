@@ -24,14 +24,14 @@ public class AdminDaoImpl  implements AdminDao {
             ps.setString(2,password);
 
             ResultSet resultSet= ps.executeQuery();
-            while (resultSet.next()){
+            resultSet.next();
                 int id=resultSet.getInt("id");
                 String adminphone=resultSet.getString("adminphone");
                 int state=resultSet.getInt("state");
 
                 Admin admin=new Admin(id,usercode,password,adminphone,state);
                 return admin;
-            }
+
 
 
         } catch (SQLException e) {
@@ -42,7 +42,7 @@ public class AdminDaoImpl  implements AdminDao {
         return null;
     }
 
-    @Override
+ /*   @Override
     public boolean usernameIsSame(String username) {
         Connection connection=null;
         try {
@@ -62,4 +62,6 @@ public class AdminDaoImpl  implements AdminDao {
         }
         return false;     //不存在
     }
+    */
+
 }
