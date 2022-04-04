@@ -39,7 +39,7 @@
                     ${admin.adminname}
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="https://www.baidu.com/">基本资料</a></dd>
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
@@ -61,17 +61,18 @@
                     <a >企业用户管理</a>
                     <dl class="layui-nav-child">
                        <%-- <dd><a href="AdminServlet?method=getCompanies"   data-id="nav_demo" target="iFrm">企业列表</a></dd>--%>
-                        <dd><a href="adminCompaniesList.jsp"   data-id="nav_demo" target="iFrm">企业列表</a></dd>
-                        <dd><a href="adminCompanyPass.jsp" data-id="2" target="iFrm">企业审核</a></dd>
-                        <dd><a href="javascript:">职业审核</a></dd>
+                        <dd><a id="mytab"  href="adminCompaniesList.jsp"   data-id="1" target="iFrm">企业列表</a></dd>
+                        <dd><a id="mytab"  href="adminCompanyPass.jsp"     data-id="2" target="iFrm">企业审核</a></dd>
+                        <dd><a id="mytab"  href="adminOccupationPass.jsp"  data-id="3" target="iFrm">职业审核</a></dd>
+                        <dd><a id="mytab"  href=""  data-id="4" target="iFrm">企业角色管理</a></dd>
                     </dl>
                 </li>
                     <li class="layui-nav-item layui-nav-itemed">
                         <a >学生用户管理</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="adminStudentList.jsp" data-id="nav_demo2" target="iFrm">学生列表</a></dd>
+                            <dd><a href="adminStudentList.jsp" data-id="5" target="iFrm">学生列表</a></dd>
                             <dd><a href="javascript:">学生审核</a></dd>
-                            <dd><a href="javascript:">选项三</a></dd>
+                            <dd><a href="javascript:">学生角色管理</a></dd>
                         </dl>
                     </li>
        <%--         <li class="layui-nav-item">
@@ -100,7 +101,7 @@
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
                         <%--主页登录之后开始显示的页面--%>
-                        <iframe name="iFrm" frameborder="0" src="allHome.jsp"  ></iframe>
+                        <iframe id="home"   name="iFrm" frameborder="0" src="allHome.jsp"  ></iframe>
                     </div>
                 </div>
             </div>

@@ -3,11 +3,14 @@
 **/    
 layui.define(['layer', 'form','element','tree','upload','table','jquery'], function(exports){
   var layer = layui.layer
-      ,element = layui.element
-      ,arr1=new Array();
+      ,element = layui.element;
+  var a=new Array();    //创建数组
   var myobj={
     addtab:function(url,id,titlename){    //li[lay-id=id]
-      if($("li[lay-id='"+id+"']").length<=0){
+      console.log(a);
+      if(a.length==0||a[id]==null){    //成功使得tab不重复
+        a[id]='tab';
+        console.log(a);
         element.tabAdd('main_tab', {
           title: titlename
           ,content:  '<iframe style="width: 100%;height: 100%;" onload="setframehieght(this);" data-frameid="' + id + '" scrolling="auto" frameborder="0" src="' + url+ '"></iframe>'
