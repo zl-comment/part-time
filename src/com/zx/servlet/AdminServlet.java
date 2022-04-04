@@ -2,10 +2,7 @@ package com.zx.servlet;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zx.beans.Company;
-import com.zx.beans.Page;
-import com.zx.beans.Resume;
-import com.zx.beans.Student;
+import com.zx.beans.*;
 import com.zx.dao.*;
 import com.zx.dao.impl.*;
 
@@ -162,7 +159,7 @@ public class AdminServlet extends BaseServlet {
 
     }
 
-    public void adminPassCompany(HttpServletRequest request, HttpServletResponse response) throws  IOException {
+    public void adminAuditCompany(HttpServletRequest request, HttpServletResponse response) throws  IOException {
                 String companies=request.getParameter("companies");
                 String state=request.getParameter("state");
         //将json字符串转为list数组
@@ -170,22 +167,22 @@ public class AdminServlet extends BaseServlet {
        List<Company> companies1=objectMapper.readValue(companies, new TypeReference<List<Company>>(){});
        CompanyDao companyDao=new CompanyDaoImpl();
        for(Company company:companies1){
-           companyDao.updateCompanyPass(company.getId(),Integer.parseInt(state));
+           companyDao.updateCompanyAudit(company.getId(),Integer.parseInt(state));
        }
 
     }
     
 
 
-    public void adminRejectCompany(HttpServletRequest request, HttpServletResponse response) throws  IOException {
-        String companies=request.getParameter("companies");
+    public void adminAuditOccupation(HttpServletRequest request, HttpServletResponse response) throws  IOException {
+        String occupations=request.getParameter("occupations");
         String state=request.getParameter("state");
         //将json字符串转为list数组
         ObjectMapper objectMapper=new ObjectMapper();
-        List<Company> companies1=objectMapper.readValue(companies, new TypeReference<List<Company>>(){});
-        CompanyDao companyDao=new CompanyDaoImpl();
-        for(Company company:companies1){
-            companyDao.updateCompanyReject(company.getId(),Integer.parseInt(state));
+        List<Temporary> temporaries=objectMapper.readValue(occupations, new TypeReference<List<Temporary>>(){});
+        OccupationDao occupationDao=new OccupationDaoImpl();
+        for(Temporary temporary:temporaries){
+            occupationDao.updateOccupationAudit(temporary.getId(),Integer.parseInt(state));
         }
 
     }
@@ -215,8 +212,48 @@ public class AdminServlet extends BaseServlet {
         writer.close();
 
     }
+    public void getOccupationByPage(HttpServletRequest request, HttpServletResponse response) throws  IOException {
+        String pageNum=request.getParameter("currectpage");
+        String pageSize=request.getParameter("limit");
+        PageDao pageDao=new PageDaoImpl();
+        Page<Temporary>  page=pageDao.getOccupationByPageAdmin(Integer.parseInt(pageNum),Integer.parseInt(pageSize));
+
+        ObjectMapper objectMapper=new ObjectMapper();
+        String json="{\"code\":0,\"msg\":\"\",\"count\": "+page.getDataCount()+ ",\"data\":"+ objectMapper.writeValueAsString(page)+"}";
+
+        System.out.println(json);
+
+        response.setCharacterEncoding("utf-8");
+        PrintWriter writer=response.getWriter();
+        writer.print(json);
+        writer.close();
+
+    }
+    public void getOccupationByOcNameByPage(HttpServletRequest request, HttpServletResponse response) throws  IOException {
+        String  ocname=request.getParameter("ocname");
+        String workplace=request.getParameter("workplace");
+        String currectpage=request.getParameter("currectpage");
+        String limit=request.getParameter("limit");
+        System.out.println(currectpage);
+        System.out.println(limit);
+
+        PageDao pageDao=new PageDaoImpl();
+
+        Page<Temporary> page=pageDao.selectOccupationByOcNameOrWorkplaceByPage(Integer.parseInt(currectpage),Integer.parseInt(limit),ocname,workplace);
 
 
+        ObjectMapper objectMapper=new ObjectMapper();
+        //  String json="{\"code\":0,\"msg\":\"\",\"count\":1000,\"data\":"+ objectMapper.writeValueAsString(page)+"}";
+        String json="{\"code\":0,\"msg\":\"\",\"count\": "+page.getDataCount()+ ",\"data\":"+ objectMapper.writeValueAsString(page)+"}";
+
+        //    System.out.println(json);
+
+        response.setCharacterEncoding("utf-8");
+        PrintWriter writer=response.getWriter();
+        writer.print(json);
+        writer.close();
+
+    }
 
 
 

@@ -286,7 +286,7 @@ public class CompanyDaoImpl   implements CompanyDao {
     }
 
     @Override
-    public void updateCompanyPass(int id, int state) {
+    public void updateCompanyAudit(int id, int state) {
         Connection connection = null;
         try {
             connection = JDBCUtil.getConnection();
@@ -305,7 +305,7 @@ public class CompanyDaoImpl   implements CompanyDao {
 
     }
 
-    @Override
+  /*  @Override
     public void updateCompanyReject(int id, int state) {
         Connection connection = null;
         try {
@@ -323,7 +323,7 @@ public class CompanyDaoImpl   implements CompanyDao {
             JDBCUtil.close(connection);
         }
     }
-
+*/
     @Override
     public int selectCompanyCountAdmin(String cpyname,String cpyaddress) {
         Connection connection = null;

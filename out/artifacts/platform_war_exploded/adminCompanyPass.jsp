@@ -51,19 +51,22 @@
             ,request:{
                 pageName:'currectpage'  //起始页改名字 默认1
             }
+            ,done: function () {
+                $("#company").css("width","100%");
+            }
             ,limit:3     //每页3个
             ,limits:[3,10,20,30,40]
             //以上两个参数都会请求时传过去
             ,cols: [[ //表头
-                {type: 'checkbox', fixed: 'left'}
-                ,{field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
-                ,{field: 'cpyname', title: '企业名称', width:200}
-                ,{field: 'cpyaccount', title: '账号', width:80,}
-                ,{field: 'cpyphone', title: '联系方式', width:120}
-                ,{field: 'cpyaddress', title: '企业地址', width: 177}
-                ,{field: 'cpyinfo', title: '企业简介', width: 120,}
-                ,{field:  'state', title: '企业状态',  width: 120, templet: '#titleTpl',sort: true}
-                ,{fixed: 'right',   title: '操作',  width:531, align:'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
+                {type: 'checkbox', fixed: 'left',width: '10%'}
+                ,{field: 'id', title: 'ID', width:'10%', sort: true, fixed: 'left'}
+                ,{field: 'cpyname', title: '企业名称', width:'10%'}
+                ,{field: 'cpyaccount', title: '账号', width:'10%',}
+                ,{field: 'cpyphone', title: '联系方式', width:'10%'}
+                ,{field: 'cpyaddress', title: '企业地址', width: '10%'}
+                ,{field: 'cpyinfo', title: '企业简介', width: '10%',}
+                ,{field:  'state', title: '企业状态',  width: '10%', templet: '#titleTpl',sort: true}
+                ,{fixed: 'right',   title: '操作',  width:'20%', align:'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
             ]]
             ,parseData: function(res){ //res 即为原始返回的数据
                 return {
@@ -76,14 +79,15 @@
 
         });
 
+
+        /*搜索的具体实现*/
         var $ = layui.$,
             active = {
             reload: function(){
                 var cpyname = $('#cpyname');
                 var cpyaddress = $('#cpyaddress');
 
-
-                //执行重载
+                //执行重载 搜索之后返回的数据 重载在company数据表格中
                 table.reload('company', {
                     url:'AdminServlet?method=getCompanyByCpyNameByPage'
                     ,method:'post'
@@ -105,7 +109,6 @@
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
-
 
 
         //行工具的具体操作
@@ -155,7 +158,7 @@
                     var state='1';
                    // layer.alert(JSON.stringify(data));    可以输出  JSON.stringify是将js对象转换为字符串
                    $.ajax({
-                       url:'AdminServlet?method=adminPassCompany'
+                       url:'AdminServlet?method=adminAuditCompany'
                        ,method:'post'
                        ,data:{companies:JSON.stringify(data),state:state}
                        ,success:function () {
@@ -173,7 +176,7 @@
                     var data = checkStatus.data;
                var state='-1';
                     $.ajax({
-                        url:'AdminServlet?method=adminRejectCompany'
+                        url:'AdminServlet?method=adminAuditCompany'
                         ,method:'post'
                         ,data:{companies:JSON.stringify(data),state:state}
                         ,success:function () {

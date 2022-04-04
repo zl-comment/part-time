@@ -30,4 +30,9 @@ public interface OccupationDao {
     void deleteOccupationsByIdStudent(int stuandocid);
 
 
+    int getOccupationCountAdmin();
+
+    int selectOccupationCountAdmin(String ocname1, String workplace1);
+
+    void updateOccupationAudit(int id, int state);
 }

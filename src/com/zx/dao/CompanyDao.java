@@ -33,9 +33,9 @@ public interface CompanyDao {
 
     public int getCompanyCountAdmin();
 
-    void updateCompanyPass(int id, int state);
+    void updateCompanyAudit(int id, int state);
 
-    void updateCompanyReject(int id, int state);
+ /*   void updateCompanyReject(int id, int state);*/
 
     int selectCompanyCountAdmin(String cpyname,String cpyaddress);
 }

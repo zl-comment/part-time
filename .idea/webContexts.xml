@@ -17,6 +17,7 @@
         <entry key="file://$PROJECT_DIR$/web/about.html" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/adminCompaniesList.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/adminHome.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/adminOccupationPass.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/allHome.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/blog.html" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/home.html" value="file://$PROJECT_DIR$/web" />
@@ -25,6 +26,7 @@
         <entry key="file://$PROJECT_DIR$/web/single.html" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/studentOccupations.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/studentResume.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/test.html" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/update_student_info.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/works.html" value="file://$PROJECT_DIR$/web" />
       </map>

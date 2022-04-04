@@ -42,19 +42,22 @@
             ,request:{
                 pageName:'currectpage'  //起始页改名字 默认1
             }
+            ,done: function () {
+                $("#student").css("width","100%");
+            }
             ,limit:3     //每页3个
             ,limits:[3,10,20,30,40]
             //以上两个参数都会请求时传过去
             ,cols: [[ //表头
-                {type: 'checkbox', fixed: 'left' }
-                ,{field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
-                ,{field: 'stname', title: '姓名', width:120}
-                ,{field: 'staccount', title: '账号', width:80,}
-                ,{field: 'stphone', title: '联系方式', width:120}
-                ,{field: 'stschool', title: '学校', width: 177}
-                ,{field: 'stmajor', title: '主修', width: 120, }
-                ,{field: 'stsystem', title: '学制', width: 120, sort: true}
-                ,{fixed: 'right',   title: '操作',  width:611, align:'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
+                {type: 'checkbox', fixed: 'left' ,width: '10%'}
+                ,{field: 'id', title: 'ID', width:'10%', sort: true, fixed: 'left'}
+                ,{field: 'stname', title: '姓名', width:'10%'}
+                ,{field: 'staccount', title: '账号', width:'10%'}
+                ,{field: 'stphone', title: '联系方式', width:'10%'}
+                ,{field: 'stschool', title: '学校', width: '10%'}
+                ,{field: 'stmajor', title: '主修', width: '10%' }
+                ,{field: 'stsystem', title: '学制', width: '10%', sort: true}
+                ,{fixed: 'right',   title: '操作',  width:'20%', align:'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
             ]]
             ,parseData: function(res){ //res 即为原始返回的数据
                 return {

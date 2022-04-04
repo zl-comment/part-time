@@ -1,12 +1,12 @@
 package com.zx.dao.impl;
 
-import com.zx.beans.Company;
-import com.zx.beans.Page;
-import com.zx.beans.Student;
+import com.zx.beans.*;
 import com.zx.dao.CompanyDao;
+import com.zx.dao.OccupationDao;
 import com.zx.dao.PageDao;
 import com.zx.dao.StudentDao;
 import com.zx.util.JDBCUtil;
+import jdk.internal.dynalink.linker.LinkerServices;
 
 
 import java.sql.Connection;
@@ -176,4 +176,94 @@ public class PageDaoImpl implements PageDao {
 
     }
 
+    @Override
+    public Page<Temporary> getOccupationByPageAdmin(int pagenum, int pagesize) {
+            Connection connection=null;
+        ArrayList<Temporary> temporaryList=new ArrayList<>();
+        Page<Temporary> page=new Page<>();
+        try {
+            connection=JDBCUtil.getConnection();
+            String sql="SELECT o.id id,o.ocname,o.salary,o.requirement,o.workplace,o.worktime,co.cpyname,cao.state  from occupation o LEFT JOIN cpyandoc cao on o.id=cao.occupationid  LEFT JOIN company co on cao.companyid=co.id where cao.id !=0 LIMIT ?,?";
+            PreparedStatement ps=connection.prepareStatement(sql);
+            ps.setInt(1,(pagenum-1)*pagesize);
+            ps.setInt(2,pagesize);
+            ResultSet resultSet=ps.executeQuery();
+            while (resultSet.next()){
+                int id=resultSet.getInt("id");
+                String ocname=resultSet.getString("ocname");
+                String salary=resultSet.getString("salary");
+                String requirement=resultSet.getString("requirement");
+                String workplace=resultSet.getString("workplace");
+                String worktime=resultSet.getString("worktime");
+                String cpyname=resultSet.getString("cpyname");
+                int state=resultSet.getInt("state");
+        Temporary temporary=new Temporary(id,ocname,salary,requirement,workplace,worktime,cpyname,state);
+        temporaryList.add(temporary);
+            }
+            page.setDatas(temporaryList);
+            page.setCurrentPage(pagenum);
+            page.setPageSize(pagesize);
+            OccupationDao occupationDao=new OccupationDaoImpl();
+            int dataCount=occupationDao.getOccupationCountAdmin();
+            page.setDataCount(dataCount);
+            page.setPageCount(dataCount % pagesize == 0 ? (dataCount / pagesize) : ((dataCount / pagesize) + 1));
+
+            return  page;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return null;
+    }
+
+
+    @Override
+    public Page<Temporary> selectOccupationByOcNameOrWorkplaceByPage(int pagenum, int pagesize, String ocname1, String workplace1) {
+        Connection connection=null;
+        ArrayList<Temporary> temporaryList=new ArrayList<>();
+        Page<Temporary> page=new Page<>();
+        try {
+            connection= JDBCUtil.getConnection();
+            StringBuffer sql = new StringBuffer("SELECT o.id id,o.ocname,o.salary,o.requirement,o.workplace,o.worktime,co.cpyname,cao.state  from occupation o LEFT JOIN cpyandoc cao on o.id=cao.occupationid  LEFT JOIN company co on cao.companyid=co.id where cao.id !=0  ");
+            if (!"".equals(ocname1)) {
+                sql.append(" and ocname  like '%" + ocname1 + "%' ");
+            }
+            if (!"".equals(workplace1)) {
+                sql.append(" and workplace  like '%" + workplace1+ "%' ");
+            }
+            sql.append(" limit ?,?");
+            PreparedStatement ps=connection.prepareStatement(sql.toString());
+            ps.setInt(1,(pagenum-1)*pagesize);
+            ps.setInt(2,pagesize);
+            ResultSet resultSet=ps.executeQuery();
+
+            while (resultSet.next()){
+                int id=resultSet.getInt("id");
+                String ocname=resultSet.getString("ocname");
+                String salary=resultSet.getString("salary");
+                String requirement=resultSet.getString("requirement");
+                String workplace=resultSet.getString("workplace");
+                String worktime=resultSet.getString("worktime");
+                String cpyname=resultSet.getString("cpyname");
+                int state=resultSet.getInt("state");
+                Temporary temporary=new Temporary(id,ocname,salary,requirement,workplace,worktime,cpyname,state);
+                temporaryList.add(temporary);
+            }
+            page.setDatas(temporaryList);
+            page.setCurrentPage(pagenum);
+            page.setPageSize(pagesize);
+            OccupationDao occupationDao=new OccupationDaoImpl();
+            int dataCount=occupationDao.selectOccupationCountAdmin(ocname1,workplace1);
+            page.setDataCount(dataCount);
+            page.setPageCount(dataCount % pagesize == 0 ? (dataCount / pagesize) : ((dataCount / pagesize) + 1));
+
+
+
+            return  page;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

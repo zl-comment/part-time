@@ -1,6 +1,6 @@
 package com.zx.dao.impl;
 
-import com.mysql.jdbc.PreparedStatement;
+
 import com.zx.beans.Company;
 import com.zx.beans.Occupation;
 import com.zx.dao.CompanyDao;
@@ -9,13 +9,11 @@ import com.zx.dao.OccupationDao;
 import com.zx.util.JDBCUtil;
 
 import java.sql.Connection;
-import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.SortedMap;
-import java.util.zip.ZipOutputStream;
+
 
 public class OccupationDaoImpl implements OccupationDao {
 
@@ -25,7 +23,7 @@ public class OccupationDaoImpl implements OccupationDao {
         try {
             connection = JDBCUtil.getConnection();
             String sql = "insert into occupation values (null,?,?,?,?,?)";
-            PreparedStatement ps = (PreparedStatement) connection.prepareStatement(sql);
+            PreparedStatement ps = connection.prepareStatement(sql);
 
 
             ps.setString(1,ocname);
@@ -53,7 +51,7 @@ public class OccupationDaoImpl implements OccupationDao {
         try {
             connection = JDBCUtil.getConnection();
             String sql = "SELECT ocname,salary,workplace,requirement , co.id cpyandocid ,oc.id occupationid from occupation oc,cpyandoc co ,company  cpy where oc.id=co.occupationid and cpy.id=co.companyid and cpy.id=? ";
-            PreparedStatement ps = (PreparedStatement) connection.prepareStatement(sql);
+            PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1,companyid);
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
@@ -86,7 +84,7 @@ public class OccupationDaoImpl implements OccupationDao {
         try {
             connection = JDBCUtil.getConnection();
             String sql = "select * from occupation where id = ?";
-            PreparedStatement ps = (PreparedStatement)connection.prepareStatement(sql);
+            PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1,ocid);
             ResultSet resultSet = ps.executeQuery();
             resultSet.next();
@@ -131,7 +129,7 @@ public class OccupationDaoImpl implements OccupationDao {
         try {
             connection = JDBCUtil.getConnection();
             String sql = "update occupation set ocname = ?,salary = ?,requirement = ?,workplace = ?,worktime = ?where id=?";
-            PreparedStatement ps = (PreparedStatement)connection.prepareStatement(sql);
+            PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1,occupation.getOcname());
             ps.setString(2,occupation.getSalary());
             ps.setString(3,occupation.getRequirement());
@@ -156,7 +154,7 @@ public class OccupationDaoImpl implements OccupationDao {
         try {
             connection = JDBCUtil.getConnection();
             String sql = "SELECT id from occupation  where ocname=? and workplace=? and worktime=? and salary=? and requirement=?";
-            PreparedStatement ps = (PreparedStatement) connection.prepareStatement(sql);
+            PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1,ocname);
             ps.setString(2,workplace);
             ps.setString(3,worktime);
@@ -186,7 +184,7 @@ public class OccupationDaoImpl implements OccupationDao {
         try {
             connection = JDBCUtil.getConnection();
             String sql = "delete from cpyandoc where id=?";
-            PreparedStatement ps = (PreparedStatement)connection.prepareStatement(sql);
+            PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1,cpyandocid);
             ps.execute();
 
@@ -206,7 +204,7 @@ public class OccupationDaoImpl implements OccupationDao {
         try {
             connection= JDBCUtil.getConnection();
             String sql="SELECT oc.id ocid ,ocname,salary,requirement,workplace,worktime  from company cpy,occupation oc,cpyandoc cao where cpy.id=cao.companyid and oc.id=cao.occupationid and cpy.id=?";
-            java.sql.PreparedStatement ps = connection.prepareStatement(sql);
+            PreparedStatement ps = connection.prepareStatement(sql);
 
             ps.setInt(1,companyid);
             company.setId(companyid);
@@ -248,7 +246,7 @@ public class OccupationDaoImpl implements OccupationDao {
         try {
             connection= JDBCUtil.getConnection();
             String sql="SELECT oc.id ocid ,ocname,salary,requirement,workplace,worktime  from student stu,occupation oc,stuandoc sta where stu.id=sta.studentid and oc.id=sta.occupationid and stu.id=?";
-            java.sql.PreparedStatement ps = connection.prepareStatement(sql);
+            PreparedStatement ps = connection.prepareStatement(sql);
 
             ps.setInt(1,studentid);
             ResultSet resultSet= ps.executeQuery();
@@ -291,7 +289,7 @@ public class OccupationDaoImpl implements OccupationDao {
             connection = JDBCUtil.getConnection();
             String sql = "SELECT s.id sid,staccount, stpassword,stphone,stschool,stmajor,stsystem,stdate,o.id oid,ocname,salary,workplace,worktime,a.id stuandocid from student s,stuandoc  a,occupation o where s.id=a.studentid and o.id=a.occupationid and s.id=?";
             //获取数据库操作对象
-            PreparedStatement ps = (PreparedStatement) connection.prepareStatement(sql);
+            PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1,studentid);
             //执行
             ResultSet resultSet = ps.executeQuery();
@@ -327,7 +325,7 @@ public class OccupationDaoImpl implements OccupationDao {
 
             String sql = "delete from stuandoc where id = ?";
             //获取数据库操作对象
-            java.sql.PreparedStatement ps = connection.prepareStatement(sql);
+            PreparedStatement ps = connection.prepareStatement(sql);
             //如果有？ 替换？
             ps.setInt(1,stuandocid);
             //执行
@@ -344,4 +342,71 @@ public class OccupationDaoImpl implements OccupationDao {
     }
 
 
+    @Override
+    public int getOccupationCountAdmin() {
+        Connection connection=null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "SELECT COUNT(o.id) num from occupation o LEFT JOIN cpyandoc cao on o.id=cao.occupationid  LEFT JOIN company co on cao.companyid=co.id where cao.id !=0";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet resultSet = ps.executeQuery();
+            resultSet.next();
+                return resultSet.getInt("num");
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+        }
+        return 0;
+    }
+
+    @Override
+    public int selectOccupationCountAdmin(String ocname1, String workplace1) {
+            Connection connection=null;
+
+        try {
+            connection=JDBCUtil.getConnection();
+            StringBuffer sql = new StringBuffer("SELECT  COUNT(o.id) num from occupation o LEFT JOIN cpyandoc cao on o.id=cao.occupationid  LEFT JOIN company co on cao.companyid=co.id where cao.id !=0  ");
+            if (!"".equals(ocname1)) {
+                sql.append(" and ocname  like '%" + ocname1 + "%' ");
+            }
+            if (!"".equals(workplace1)) {
+                sql.append(" and workplace  like '%" + workplace1+ "%' ");
+            }
+            PreparedStatement ps=connection.prepareStatement(sql.toString());
+
+            ResultSet resultSet=ps.executeQuery();
+            resultSet.next();
+            int num=resultSet.getInt("num");
+
+            return num;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return 0;
+    }
+
+    @Override
+    public void updateOccupationAudit(int id, int state) {
+        Connection connection = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "update  cpyandoc  set state=? where occupationid=?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1,state);
+            ps.setInt(2,id);
+
+            ps.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+        }
+    }
 }

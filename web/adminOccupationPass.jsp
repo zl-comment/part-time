@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: zhang
+  Date: 2022/4/3
+  Time: 15:06
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -16,16 +23,16 @@
 
 
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-    <legend>企业用户表格</legend>
+    <legend>发布职业表格</legend>
 </fieldset>
 <%--搜索功能--%>
 <div style="text-align: left" id='btn'>
 
     <div class="layui-inline">
-        <input class="layui-input" name="cpyname" id="cpyname" autocomplete="off" placeholder="请输入企业名称">
+        <input class="layui-input" name="ocname" id="ocname" autocomplete="off" placeholder="请输入工作名称">
     </div>
     <div class="layui-inline">
-        <input class="layui-input" name="cpyaddress" id="cpyaddress" autocomplete="off" placeholder="请输入企业地址">
+        <input class="layui-input" name="workplace" id="workplace" autocomplete="off" placeholder="请输入工作地点">
     </div>
     <button class="layui-btn" data-type="reload">搜索</button>
 </div>
@@ -33,17 +40,18 @@
 <%--分割线--%>
 
 <%--table本体--%>
-<table id="company" lay-filter="company"></table>
+<table id="occupation" lay-filter="occupation"></table>
 <%--分割线--%>
 
 <script>
     layui.use('table', function(){
         var table = layui.table;
+
         //第一个实例
         table.render({
-            elem: '#company'
+            elem: '#occupation'
             ,height: 400
-            ,url: 'AdminServlet?method=getCompanyByPage' //数据接口
+            ,url: 'AdminServlet?method=getOccupationByPage' //数据接口
             ,method:'post'
             ,dataType:'json'
             ,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
@@ -51,22 +59,23 @@
             ,request:{
                 pageName:'currectpage'  //起始页改名字 默认1
             }
-            ,done: function () {
-                $("#company").css("width","100%");
-            }
             ,limit:3     //每页3个
             ,limits:[3,10,20,30,40]
+            ,done: function () {
+                    $("#occupation").css("width","100%");
+                }
             //以上两个参数都会请求时传过去
             ,cols: [[ //表头
-                {type: 'checkbox', fixed: 'left',width: '10%'}
+                {type: 'checkbox', fixed: 'left' ,width: '10%'}
                 ,{field: 'id', title: 'ID', width:'10%', sort: true, fixed: 'left'}
-                ,{field: 'cpyname', title: '企业名称', width:'10%'}
-                ,{field: 'cpyaccount', title: '账号', width:'10%',}
-                ,{field: 'cpyphone', title: '联系方式', width:'10%'}
-                ,{field: 'cpyaddress', title: '企业地址', width: '10%'}
-                ,{field: 'cpyinfo', title: '企业简介', width: '10%',}
-                ,{field:  'state', title: '企业状态',  width: '10%', templet: '#titleTpl',sort: true}
-                ,{fixed: 'right',   title: '操作',  width:'20%', align:'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
+                ,{field: 'ocname', title: '工作名称', width:'10%'}
+                ,{field: 'salary', title: '工资', width:'10%',}
+                ,{field: 'requirement', title: '工作要求', width:'10%'}
+                ,{field: 'workplace', title: '工作地址', width: '10%'}
+                ,{field: 'worktime', title: '工作时间', width: '10%'}
+                ,{field:  'cpyname', title: '企业名称',  width: '10%'}
+                ,{field:  'state', title: '发布状态',  width: '10%', templet: '#titleTpl',sort: true}
+                ,{fixed: 'right',   title: '操作',  width:"10%", align:'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
             ]]
             ,parseData: function(res){ //res 即为原始返回的数据
                 return {
@@ -83,27 +92,27 @@
         /*搜索的具体实现*/
         var $ = layui.$,
             active = {
-            reload: function(){
-                var cpyname = $('#cpyname');
-                var cpyaddress = $('#cpyaddress');
+                reload: function(){
+                    var ocname = $('#ocname');
+                    var workplace = $('#workplace');
 
-                //执行重载 搜索之后返回的数据 重载在company数据表格中
-                table.reload('company', {
-                    url:'AdminServlet?method=getCompanyByCpyNameByPage'
-                    ,method:'post'
-                    ,request:{
-                    pageName:'currectpage'  //起始页改名字 默认1
+                    //执行重载 搜索之后返回的数据 重载在company数据表格中
+                    table.reload('occupation', {
+                        url:'AdminServlet?method=getOccupationByOcNameByPage'
+                        ,method:'post'
+                        ,request:{
+                            pageName:'currectpage'  //起始页改名字 默认1
+                        }
+                        ,page: {
+                            curr: 1 //重新从第 1 页开始
+                        }
+                        ,where: {
+                            ocname: ocname.val(),
+                            workplace:workplace.val()
+                        }
+                    });
                 }
-                    ,page: {
-                        curr: 1 //重新从第 1 页开始
-                    }
-                    ,where: {
-                        cpyname: cpyname.val(),
-                        cpyaddress:cpyaddress.val()
-                    }
-                });
-            }
-        };
+            };
 
         $('#btn .layui-btn').on('click', function(){
             var type = $(this).data('type');
@@ -111,9 +120,10 @@
         });
 
 
+
         //行工具的具体操作
         //行工具条事件
-        table.on('tool(company)', function(obj){ //注：tool 是工具条事件名，student 是 table容器的属性 lay-filter="对应的值"
+        table.on('tool(occupation)', function(obj){ //注：tool 是工具条事件名，student 是 table容器的属性 lay-filter="对应的值"
             var data = obj.data; //获得当前行数据
             var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
             var tr = obj.tr; //获得当前行 tr 的 DOM 对象（如果有的话）
@@ -123,7 +133,7 @@
                 //do somehing
                 var url='';
 
-                url+="AdminServlet?method=getCompanyByIdAndOccupation&&companyid="+data.id;
+                url+=" "+data.id;
                 window.location.href=url;
 
 
@@ -150,38 +160,38 @@
 
 
         //头工具栏事件
-        table.on('toolbar(company)', function(obj){
+        table.on('toolbar(occupation)', function(obj){
             var checkStatus = table.checkStatus(obj.config.id);
             switch(obj.event){
                 case 'pass':
                     var data = checkStatus.data;
                     var state='1';
-                   // layer.alert(JSON.stringify(data));    可以输出  JSON.stringify是将js对象转换为字符串
-                   $.ajax({
-                       url:'AdminServlet?method=adminAuditCompany'
-                       ,method:'post'
-                       ,data:{companies:JSON.stringify(data),state:state}
-                       ,success:function () {
-                           layer.alert("成功")
-                           table.reload('company',{});  //操作之后执行刷新操作
-                       },
-                       error:function () {
-                        layer.alert("失败")
-                       }
-                   })
+                    // layer.alert(JSON.stringify(data));    可以输出  JSON.stringify是将js对象转换为字符串
+                    $.ajax({
+                        url:'AdminServlet?method=adminAuditOccupation'
+                        ,method:'post'
+                        ,data:{occupations:JSON.stringify(data),state:state}
+                        ,success:function () {
+                            layer.alert("成功")
+                            table.reload('occupation',{});  //操作之后执行刷新操作
+                        },
+                        error:function () {
+                            layer.alert("失败")
+                        }
+                    })
 
-               /*     layer.alert(data);*/
+                    /*     layer.alert(data);*/
                     break;
                 case 'reject':
                     var data = checkStatus.data;
-               var state='-1';
+                    var state='-1';
                     $.ajax({
-                        url:'AdminServlet?method=adminAuditCompany'
+                        url:'AdminServlet?method=adminAuditOccupation'
                         ,method:'post'
-                        ,data:{companies:JSON.stringify(data),state:state}
+                        ,data:{occupations:JSON.stringify(data),state:state}
                         ,success:function () {
                             layer.alert("成功")
-                            table.reload('company',{});  //操作之后执行刷新操作
+                            table.reload('occupation',{});  //操作之后执行刷新操作
                         },
                         error:function () {
                             layer.alert("失败")
