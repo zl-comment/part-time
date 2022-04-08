@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zx.dao.CompanyDao">
+
+<select id="login" parameterType="java.lang.String" resultType="int">
+    SELECT  id  from company  where cpyaccount=#{usercode} and cpypassword=#{password}
+</select>
+
+<insert id="Register" parameterType="String" >
+    insert into company values (null,#{cpyaccount},#{cpypassword},#{cpyname},#{cpyphone},#{cpyaddress},#{cpyinfo},null)
+</insert>
+
+<insert id="addOccupation" parameterType="int" >
+    insert into cpyandoc values(null,#{companyid},#{occupationid},null)
+</insert>
+
+<select id="cpyaccountIsSame" parameterType="java.lang.String" resultType="boolean">
+    SELECT id   from  company  where cpyaccount=#{cpyaccount}
+</select>
+
+<select id="getCompanyById"  parameterType="int" resultType="com.zx.beans.Company">
+    select * from company where id = #{companyid}
+</select>
+
+<update id="updateCompanyById"    parameterType="com.zx.beans.Company">
+    update company set cpyname = #{cpyname},cpyaccount = #{cpyaccount},cpypassword = #{cpypassword},cpyphone = #{cpyphone},cpyaddress = #{cpyaddress},cpyinfo =#{cpyinfo}   where id=#{id}
+</update>
+
+<!--<select id="getAdmissionById"   parameterType="int"  resultMap="companyOccupation">
+    SELECT  b.id cpyandocid,b.occupationid ,c.ocname,c.salary,c.requirement,c.workplace,c.worktime, d.id stuandocid,d.studentid,e.stname,e.staccount,e.stpassword,e.stphone,e.stschool,e.stmajor,e.stsystem,e.stdate,e.stresume,e.ststate,e.stresumeid  FROM company a LEFT JOIN cpyandoc b on a.id=b.companyid LEFT JOIN occupation c on c.id=b.occupationid LEFT JOIN stuandoc d ON d.occupationid=c.id LEFT JOIN student e on e.id=d.studentid WHERE a.id=#{companyid} and d.id != 0
+</select>
+<resultMap id="companyOccupation" type="com.zx.beans.Occupation">
+    <id property="id" column="occupationid"></id>
+    <result property="ocname" column="ocname"></result>
+    <result property="salary" column="salary"></result>
+    <result property="requirement" column="requirement"></result>
+    <result property="workplace" column="workplace"></result>
+    <result property="worktime" column="worktime"></result>
+    <result property="cpyandocid" column="cpyandocid"></result>
+    <result property="stuandocid" column="stuandocid"></result>
+<collection property="students" column="occupationid" ofType="com.zx.beans.Student">
+    <id property="id" column="studentid"></id>
+    <result property="stname" column="stname"></result>
+    <result property="staccount" column="staccount"></result>
+    <result property="stpassword" column="stpassword"></result>
+    <result property="stphone" column="stphone"></result>
+    <result property="stschool" column="stschool"></result>
+    <result property="stmajor" column="stmajor"></result>
+    <result property="stsystem" column="stsystem"></result>
+    <result property="stdate" column="stdate"></result>
+    <result property="stresume" column="stresume"></result>
+    <result property="ststate" column="ststate"></result>
+    <result property="stresumeid" column="stresumeid"></result>
+</collection>
+</resultMap>-->
+
+    <select id="getAdmissionById"   parameterType="int"  resultMap="companyStudent">
+        SELECT  b.id cpyandocid,b.occupationid ,c.ocname,c.salary,c.requirement,c.workplace,c.worktime, d.id stuandocid,d.studentid,e.stname,e.staccount,e.stpassword,e.stphone,e.stschool,e.stmajor,e.stsystem,e.stdate,e.stresume,e.ststate,e.stresumeid  FROM company a LEFT JOIN cpyandoc b on a.id=b.companyid LEFT JOIN occupation c on c.id=b.occupationid LEFT JOIN stuandoc d ON d.occupationid=c.id LEFT JOIN student e on e.id=d.studentid WHERE a.id=#{companyid} and d.id != 0
+    </select>
+    <resultMap id="companyStudent" type="com.zx.beans.Student">
+        <id property="id" column="studentid"></id>
+        <result property="stname" column="stname"></result>
+        <result property="staccount" column="staccount"></result>
+        <result property="stpassword" column="stpassword"></result>
+        <result property="stphone" column="stphone"></result>
+        <result property="stschool" column="stschool"></result>
+        <result property="stmajor" column="stmajor"></result>
+        <result property="stsystem" column="stsystem"></result>
+        <result property="stdate" column="stdate"></result>
+        <result property="stresume" column="stresume"></result>
+        <result property="ststate" column="ststate"></result>
+        <result property="stresumeid" column="stresumeid"></result>
+    <collection property="occupations" column="studentid" ofType="com.zx.beans.Occupation">
+        <id property="id" column="occupationid"></id>
+        <result property="ocname" column="ocname"></result>
+        <result property="salary" column="salary"></result>
+        <result property="requirement" column="requirement"></result>
+        <result property="workplace" column="workplace"></result>
+        <result property="worktime" column="worktime"></result>
+        <result property="cpyandocid" column="cpyandocid"></result>
+        <result property="stuandocid" column="stuandocid"></result>
+    </collection>
+    </resultMap>
+
+
+
+
+
+
+
+
+
+
+<select id="getCompanyCountAdmin" resultType="int">
+    SELECT count(id) num from company
+</select>
+
+<update id="updateCompanyState"   parameterType="int">
+    update  company  set state=#{state} where id=#{id}
+</update>
+
+<select id="selectCompanyCountAdmin" resultType="int" parameterType="java.lang.String">
+    SELECT count(id) num from company where 1=1
+<if test="cpyname != null ">
+    and cpyname like #{cpyname}
+</if>
+<if test="cpyaddress != null">
+    and cpyaddress like #{cpyaddress}
+</if>
+</select>
+
+
+
+</mapper>
