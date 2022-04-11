@@ -63,6 +63,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         <form method="post" action="OccupationServlet?method=Jobpublish" >
 
+
                             <div>
                                 <span><input name="companyid"   type="hidden" value="${company.id}"></span>
                                 <span><input name="companystate"   type="hidden" value="${company.state}"></span>
@@ -96,7 +97,7 @@
                 <div class="col_1_of_2 span_1_of_2">
                     <ul class="list3">
                         <li>
-                            <img src="./static/images/location.png" alt="加载中"/>
+                            <img src="./static/images/location.png" alt=""/>
                             <div class="company_address">
                                 <h3>Company Information :</h3>
                                 <p>500 Lorem Ipsum Dolor Sit,</p>
