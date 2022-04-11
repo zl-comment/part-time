@@ -18,6 +18,11 @@ import java.util.List;
 @WebServlet(name = "AdminServlet", urlPatterns = "/AdminServlet")
 public class AdminServlet extends BaseServlet {
 
+
+
+
+
+//使用
     public void getCompanyByIdAndOccupation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             String companyid=request.getParameter("companyid");
             System.out.println(companyid);
@@ -35,8 +40,7 @@ public class AdminServlet extends BaseServlet {
 
 
 
-
-
+//使用
     public void toGoAdminStudentSp(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String studentid=request.getParameter("studentid");
 
@@ -47,7 +51,7 @@ public class AdminServlet extends BaseServlet {
     }
 
 
-
+//使用
     public void getStudentByIdAndOccupation(HttpServletRequest request, HttpServletResponse response) throws  IOException {
 
         String studentid=request.getParameter("studentid");      //可以得到
@@ -71,7 +75,7 @@ public class AdminServlet extends BaseServlet {
         writer.print(json);
         writer.close();
     }
-
+//使用
     public void getStudentByIdAdmin(HttpServletRequest request, HttpServletResponse response) throws  IOException {
 
         String studentid=request.getParameter("studentid");      //可以得到
@@ -109,7 +113,7 @@ public class AdminServlet extends BaseServlet {
         writer.close();
 
     }*/
-
+    //使用
     public void AdminGetResumeByResumeId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
      String stresumeid=request.getParameter("stresumeid");
             ResumeDao resumeDao=new ResumeDaoImpl();
@@ -119,6 +123,7 @@ public class AdminServlet extends BaseServlet {
             request.getRequestDispatcher("adminStudentResume.jsp").forward(request,response);
 
     }
+
     public void getCompanyByPage(HttpServletRequest request, HttpServletResponse response) throws  IOException {
        String pageNum=request.getParameter("currectpage");
        String pageSize=request.getParameter("limit");

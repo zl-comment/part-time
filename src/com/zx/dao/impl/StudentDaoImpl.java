@@ -118,47 +118,6 @@ public class StudentDaoImpl implements StudentDao {
         return null;
     }
 
-    @Override
-    public List<Student> getStudentsAdmin() {
-        Connection connection=null;
-        ArrayList<Student> students=new ArrayList<>();
-        try {
-            connection= JDBCUtil.getConnection();
-            String sql="SELECT *from student  ";
-            PreparedStatement ps = connection.prepareStatement(sql);
-
-
-            ResultSet resultSet= ps.executeQuery();
-            while (resultSet.next()){
-                int id=resultSet.getInt("id");
-                String stname=resultSet.getString("stname");
-                String usercode=resultSet.getString("staccount");
-             //   String password=resultSet.getString("stpassword");
-                String stphone=resultSet.getString("stphone");
-                String stschool=resultSet.getString("stschool");
-                String stmajor=resultSet.getString("stmajor");
-                int stsystem=resultSet.getInt("stsystem");
-              //  Date stdate=resultSet.getDate("stdate");
-              //  String stresume=resultSet.getString("stresume");
-              //  int ststate=resultSet.getInt("ststate");
-
-                Student student=new Student(id,stname,usercode,stphone,stschool,stmajor,stsystem);
-
-                students.add(student);
-
-
-            }
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            JDBCUtil.close(connection);
-        }
-
-        return students;
-    }
-
 
     @Override
     public boolean staccountIsSame(String staccount) {
