@@ -47,12 +47,9 @@
     <!--启动服务器时默认加载-->
     <load-on-startup>1</load-on-startup>
   </servlet>
-
   <servlet-mapping>
     <servlet-name>SpringMVC</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/</url-pattern>   <!--代表拦截所有-->
   </servlet-mapping>
-
-
 
 </web-app>
