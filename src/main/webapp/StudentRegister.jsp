@@ -162,11 +162,11 @@
 
 
 <body>
-<form class="layui-form"     action="StudentServlet?method=Register" id="loginForm" method="post">
+<form class="layui-form"     action="test9" id="loginForm" method="post">
     <div class="layui-form-item">
         <h1>学生用户注册</h1>
     </div>
-
+<%--
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</span>
@@ -218,11 +218,11 @@
             <input type="text" name="stsystem" placeholder="4/5" autocomplete="off" class="layui-input"
                    required>
         </div>
-    </div>
+    </div>--%>
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">入学日期：</span>
-            <input type="text" name="stdate" placeholder="请输入入学日期" autocomplete="off" class="layui-input"
+            <input type="date" name="stdate" placeholder="请输入入学日期" autocomplete="off" class="layui-input"
                    required>
         </div>
     </div>
