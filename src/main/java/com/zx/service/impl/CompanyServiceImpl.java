@@ -4,6 +4,7 @@ import com.zx.beans.Company;
 import com.zx.beans.Occupation;
 import com.zx.beans.Student;
 import com.zx.dao.CompanyDao;
+import com.zx.dao.OccupationDao;
 import com.zx.service.CompanyService;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     private CompanyDao companyDao;
+    private OccupationDao occupationDao;
 
 
     @Override
@@ -66,4 +68,16 @@ public class CompanyServiceImpl implements CompanyService {
 
         System.out.println("登录");
     }
+
+    @Override
+    public void test() {
+      occupationDao=sqlSessionTemplate.getMapper(OccupationDao.class);
+//  occupationDao.Jobpublish("java","java","java","12000","java");
+
+    }
+
+
+
+
+
 }

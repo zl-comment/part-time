@@ -1,5 +1,7 @@
 package com.zx.controller;
 
+
+
 import com.zx.beans.Company;
 import com.zx.service.CompanyService;
 
@@ -7,6 +9,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +20,7 @@ import java.util.Date;
 
 
 @Controller
+@SessionAttributes("name")
 public class CompanyController {
     @Resource
     private SqlSessionTemplate sqlSessionTemplate;
@@ -31,11 +35,11 @@ public class CompanyController {
         this.sqlSessionTemplate = sqlSessionTemplate;
     }
     @RequestMapping("login")
-    public String login(){
+    public String login(Model model){
 
+        model.addAttribute("name","路飞");
         companyService.login();
         return "index";
-
     }
 
 
@@ -144,6 +148,12 @@ public class CompanyController {
     }
 
 
+    @ExceptionHandler(value={Exception.class})
+    public String handlerException(Exception e){
+        System.out.println("出现异常错误");
+        e.printStackTrace();
+        return "404";
+    }
 
 
 

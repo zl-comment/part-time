@@ -24,17 +24,16 @@
   <!--  <mvc:resources mapping="static/**" location="static/img"></mvc:resources>-->
 
 
-<!--
-    &lt;!&ndash; 异常解析器&ndash;&gt;
+    <!-- 异常解析器-->
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <props>
-                <prop key="java.lang.Exception">redirect:/error.jsp</prop>
+                <prop key="java.lang.Exception">redirect:/404.html</prop>
             </props>
         </property>
     </bean>
     
-  &lt;!&ndash;  拦截器配置&ndash;&gt;
+  <!--&lt;!&ndash;  拦截器配置&ndash;&gt;
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/MyController/**"/>
@@ -50,8 +49,7 @@
         <property name="maxUploadSize" >
             <value>5242880</value>
         </property>
-    </bean>
--->
+    </bean>-->
 
 
     <!--视图解析器-->

@@ -2,6 +2,8 @@ package com.zx.test;
 
 
 import com.zx.controller.AdminController;
+import com.zx.service.CompanyService;
+import com.zx.service.impl.CompanyServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -23,7 +25,6 @@ public class MyTest {
     public void test() throws IOException {
         BeanFactory beanFactory=new ClassPathXmlApplicationContext("beans.xml");
         AdminController adminController= (AdminController) beanFactory.getBean("adminController");
-
 
 
         System.out.println("test");

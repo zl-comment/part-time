@@ -21,4 +21,6 @@ public interface CompanyService {
 
     void login();
 
+    void test();
+
 }

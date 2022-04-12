@@ -16,6 +16,11 @@ public interface CompanyDao {
 
     void addOccupation(@Param("companyid") int companyid,@Param("occupationid") int occupationid);
 
+
+    /*
+    * 少两个对职业通过的方法后面可以合二为一
+    * */
+
  /*   ArrayList<Company>   getCompanysAdmin();*/  //弃用
 
     boolean cpyaccountIsSame(String cpyaccount);

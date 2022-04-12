@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zx.dao.OccupationDao">
+
+    <!--一对多查询 原因collection 的column是依赖一方的id-->
+    <select id="occupationByCompanyAdmin" parameterType="int" resultMap="CompanyOccupation">
+        SELECT cpy.id ,cpyaccount,cpypassword,cpyname,cpyphone,cpyaddress,cpyinfo, oc.id ocid ,ocname,salary,requirement,workplace,worktime  from company cpy,occupation oc,cpyandoc cao where cpy.id=cao.companyid and oc.id=cao.occupationid and cpy.id=#{cpyid}    </select>
+
+    <resultMap id="CompanyOccupation" type="com.zx.beans.Company">
+        <id property="id" column="id"/>   <!--id是company的id与collection的column相同则为一方查多方-->
+        <result property="cpyaccount" column="cpyaccount"/>
+        <result property="cpypassword" column="cpypassword"/>
+        <result property="cpyname" column="cpyname"/>
+        <result property="cpyphone" column="cpyphone"/>
+        <result property="cpyaddress" column="cpyaddress"/>
+        <result property="cpyinfo" column="cpyinfo"/>
+        <collection property="occupations" column="id" ofType="com.zx.beans.Occupation">
+            <id property="id" column="ocid"/>
+            <result property="ocname" column="ocname"/>
+            <result property="salary" column="salary"/>
+            <result property="requirement" column="requirement"/>
+            <result property="workplace" column="workplace"/>
+            <result property="worktime" column="worktime"/>
+        </collection>
+    </resultMap>
+
+    <insert id="Jobpublish" parameterType="java.lang.String">
+        INSERT INTO occupation VALUES(null,#{ocname},#{salary},#{requirement},#{workplace},#{worktime})
+    </insert>
+
+
+    <select id="getOccupationsCompany" parameterType="int"  resultMap="CompanyOccupation2">
+        SELECT cpy.id ,cpyaccount,cpypassword,cpyname,cpyphone,cpyaddress,cpyinfo, oc.id ocid ,ocname,salary,requirement,workplace,worktime  from company cpy,occupation oc,cpyandoc cao where cpy.id=cao.companyid and oc.id=cao.occupationid and cpy.id=#{cpyid}
+    </select>
+    <resultMap id="CompanyOccupation2" type="com.zx.beans.Company">
+        <id property="id" column="id"/>
+        <collection property="occupations"  column="id" ofType="com.zx.beans.Occupation">
+            <id property="id" column="occupationid"/>
+            <result property="ocname" column="ocname"/>
+            <result property="salary" column="salary"/>
+            <result property="requirement" column="requirement"/>
+            <result property="workplace" column="workplace"/>
+            <result property="cpyandocid" column="cpyandocid"/>
+        </collection>
+    </resultMap>
+
+    <select id="getOccupationById" parameterType="int" resultType="com.zx.beans.Occupation">
+    SELECT * FROM occupation WHERE id=#{id}
+    </select>
+
+    <select id="jobIdBy" resultType="int" >
+        SELECT id FROM occupation WHERE ocname=#{ocname} AND salary=#{salary} AND requirement=#{requirement} AND workplace=#{workplace}
+    </select>
+
+    <delete id="deleteCpyandocById" parameterType="int">
+        delete from cpyandoc where id=#{id}
+    </delete>
+
+    <delete id="deleteOccupationById" parameterType="int">
+        delete from occupation where id=#{id}
+
+    </delete>
+
+    <select id="occupationByStudentAdmin" parameterType="int" resultMap="StudentOccupationsAdmin">
+        SELECT stu.id,oc.id ocid ,ocname,salary,requirement,workplace,worktime  from student stu,occupation oc,stuandoc sta where stu.id=sta.studentid and oc.id=sta.occupationid and stu.id=#{id}
+    </select>
+    <resultMap id="StudentOccupationsAdmin" type="com.zx.beans.Student">
+        <id property="id" column="id"/>
+        <collection property="occupations"  column="id" ofType="com.zx.beans.Occupation">
+            <id property="id" column="ocid"/>
+            <result property="ocname" column="ocname"/>
+            <result property="salary" column="salary"/>
+            <result property="requirement" column="requirement"/>
+            <result property="workplace" column="workplace"/>
+            <result property="worktime" column="worktime"/>
+        </collection>
+    </resultMap>
+
+    <update id="updateOccupationById" parameterType="com.zx.beans.Occupation">
+        UPDATE occupation SET ocname=#{occupation.ocname},salary=#{occupation.salary},requirement=#{occupation.requirement},workplace=#{occupation.workplace},worktime=#{occupation.worktime} WHERE id=#{occupation.id}
+            </update>
+
+    <select id="getOccupationsStudent" parameterType="int" resultMap="StudentOccupations">
+        SELECT s.id sid,staccount, stpassword,stphone,stschool,stmajor,stsystem,stdate,o.id oid,ocname,salary,workplace,worktime,a.id stuandocid from student s,stuandoc  a,occupation o where s.id=a.studentid and o.id=a.occupationid and s.id=#{id}
+    </select>
+    <resultMap id="StudentOccupations" type="com.zx.beans.Student">
+        <id property="id" column="sid"/>
+        <result property="staccount" column="staccount"/>
+        <result property="stpassword" column="stpassword"/>
+        <result property="stphone" column="stphone"/>
+        <result property="stschool" column="stschool"/>
+        <result property="stmajor" column="stmajor"/>
+        <result property="stsystem" column="stsystem"/>
+        <result property="stdate" column="stdate"/>
+        <collection property="occupations"  column="id" ofType="com.zx.beans.Occupation">
+            <id property="id" column="oid"/>
+            <result property="ocname" column="ocname"/>
+            <result property="salary" column="salary"/>
+            <result property="workplace" column="workplace"/>
+            <result property="worktime" column="worktime"/>
+            <result property="stuandocid" column="stuandocid"/>
+        </collection>
+    </resultMap>
+
+    <delete id="deleteOccupationsByIdStudent"   parameterType="int">
+        delete from stuandoc where id=#{stuandocid}
+        </delete>
+
+
+
+</mapper>

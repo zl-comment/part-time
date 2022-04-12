@@ -15,5 +15,6 @@
         <mapper resource="mapper/CompanyMapper.xml"/>
         <mapper resource="mapper/PageMapper.xml"/>
         <mapper resource="mapper/StudentMapper.xml"/>
+        <mapper resource="mapper/OccupationMapper.xml"/>
     </mappers>
 </configuration>

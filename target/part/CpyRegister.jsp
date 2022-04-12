@@ -165,7 +165,7 @@
 
 
 <body>
-<form class="layui-form" action="Register" id="loginForm" method="post">
+<form class="layui-form" action="CompanyServlet?method=Register" id="loginForm" method="post">
     <div class="layui-form-item">
         <h1>公&nbsp;司&nbsp;用&nbsp;户&nbsp;注&nbsp;册</h1>
     </div>
