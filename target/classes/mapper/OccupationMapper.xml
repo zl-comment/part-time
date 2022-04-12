@@ -105,6 +105,9 @@
         </collection>
     </resultMap>
 
+    <delete id="deleteOccupationsByIdStudent"   parameterType="int">
+        delete from stuandoc where id=#{stuandocid}
+        </delete>
 
 
 

@@ -18,7 +18,7 @@ public interface AdminService {
 
 
 
-        //事务管理的注解
+    /*    //事务管理的注解
     @Transactional(propagation = Propagation.REQUIRED)
-    void test(int q,int q2);
+    void test(int q,int q2);*/
 }

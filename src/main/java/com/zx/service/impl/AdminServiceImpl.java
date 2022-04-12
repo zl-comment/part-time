@@ -60,19 +60,4 @@ public class AdminServiceImpl  implements AdminService {
 
 
 
-
-
-    
-    @Override
-    public void test(int q, int q2) {
-        AdminDao adminDao= sqlSessionTemplate.getMapper(AdminDao.class);
-
-
-        int qian1=adminDao.qian1();
-        int qian2=adminDao.qian2();
-        adminDao.out(qian1-q);
-            //int i=10/0;
-        adminDao.in(qian2+q2);
-
-    }
 }

@@ -10,20 +10,5 @@
     </select>
 
 
-    <update id="out" parameterType="int">
-        update user1 set qian=#{q} where id=1
-    </update>
-
-    <update id="in" parameterType="int">
-        update user2 set qian=#{q} where id=1
-    </update>
-
-    <select id="qian1" resultType="int">
-        select qian from user1 where id=1;
-    </select>
-
-    <select id="qian2" resultType="int">
-        select qian from user2 where id=1;
-    </select>
 
 </mapper>
