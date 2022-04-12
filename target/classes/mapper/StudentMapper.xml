@@ -9,11 +9,38 @@
         SELECT  id   from student  where staccount=#{usercode} and stpassword=#{password}
     </select>
 
-    <insert id="Register" >
+    <insert id="Register">
         insert into student values (null,null,#{staccount},#{stpassword},#{stphone},#{stschool},#{stmajor},#{stsystem},#{stdate},null,0,null)
     </insert>
 
+    <select id="loginHome" parameterType="java.lang.String" resultType="com.zx.beans.Student">
+        SELECT *from student  where staccount = #{staccount}
+    </select>
 
+    <select id="staccountIsSame" parameterType="java.lang.String" resultType="int">
+        SELECT id   from  student  where staccount = #{staccount}
+    </select>
+
+    <select id="getStudentByIdAdmin" parameterType="int" resultType="com.zx.beans.Student">
+        SELECT * from student  where id = #{id}
+    </select>
+
+    <select id="getStudentInfoById" parameterType="int" resultType="com.zx.beans.Student">
+        select * from student where id = #{id}
+    </select>
+
+    <update id="updateinfoStudent" parameterType="com.zx.beans.Student">
+        update student set staccount = #{student.staccount},stpassword = #{student.stpassword}, stphone = #{student.stphone},stschool = #{student.stschool},stmajor = #{student.stmajor},stsystem= #{student.stsystem} ,stdate = #{date} where id = #{student.id}
+    </update>
+
+    <select id="getStudentCountAdmin"  resultType="int">
+        SELECT count(id) num from student
+    </select>
+
+    <!--<select id="getOccupationsByOcnameStudent"  resultType="int">
+        SELECT * from occupation where ocname like #{ocname}%
+    </select>
+-->
 
 
 </mapper>

@@ -12,7 +12,7 @@ public interface OccupationDao {
     void Jobpublish(@Param("ocname") String ocname,@Param("workplace") String workplace,@Param("worktime") String worktime,@Param("salary") String salary,@Param("requirement") String requirement);
 
 
-  Company getOccupationsCompany(int companyid);
+    Company getOccupationsCompany(int companyid);
 
 
     Occupation getOccupationById(int ocid);
