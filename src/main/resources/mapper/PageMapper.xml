@@ -9,7 +9,9 @@
     <select id="getCompanyByPageAdmin" parameterType="int" resultType="com.zx.beans.Company">
         select  *from company  LIMIT #{pagenum} ,#{pagesize}
     </select>
-
+    <select id="getAllCompanyAdmin"  resultType="com.zx.beans.Company">
+        select  *from company
+    </select>
 
 
 </mapper>

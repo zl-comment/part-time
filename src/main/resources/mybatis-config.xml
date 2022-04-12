@@ -8,7 +8,12 @@
         <!-- 打印查询语句 -->
         <setting name="logImpl" value="STDOUT_LOGGING" />
     </settings>
-
+    <!--配置分页插件-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor" >
+                <property name="reasonable" value="true" />
+        </plugin>
+    </plugins>
     <!--配置mybatis的映射文件-->
     <mappers>
         <mapper resource="mapper/AdminMapper.xml"/>
@@ -18,3 +23,4 @@
         <mapper resource="mapper/OccupationMapper.xml"/>
     </mappers>
 </configuration>
+

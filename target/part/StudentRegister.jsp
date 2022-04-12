@@ -146,7 +146,6 @@
                 method:"post",
                 data:{staccount:staccount},
                 success:function (data) {
-                    alert(data);
                     if(data=="false"){
                         $("#msg").html("<font color='green' >√</font>");
                     }else {

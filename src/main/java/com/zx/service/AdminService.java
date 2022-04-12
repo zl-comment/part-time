@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface AdminService {
     int adminLogin(String usercode,String password);
 
-    Page<Company> adminCompanyByPage( int pagenum,  int pagesize);
+    Page<Company> getCompanyList( int pagenum,  int pagesize);
 
 
 

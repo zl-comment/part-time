@@ -1,65 +1,47 @@
 package com.zx.beans;
 
+import com.github.pagehelper.PageInfo;
+
 import java.util.List;
 
 public class Page <T>{
-    private  int  currentPage; //当前页
-    private  int  pageSize;  //页面大小
-    private  int  dataCount;  //总条数
-    private  int  pageCount;//总页数
-    private List<T> datas;  //每页的数据
+    private final int code=0;
+    private final String msg="";
+    private int count;
+    private PageInfo<T> data;
 
-
-    public int getCurrentPage() {
-        return currentPage;
+    public int getCode() {
+        return code;
     }
 
-    public void setCurrentPage(int currentPage) {
-        this.currentPage = currentPage;
+    public String getMsg() {
+        return msg;
     }
 
-    public int getPageSize() {
-        return pageSize;
+    public int getCount() {
+        return count;
     }
 
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
+    public void setCount(int count) {
+        this.count = count;
     }
 
-    public int getDataCount() {
-        return dataCount;
+    public PageInfo<T> getData() {
+        return data;
     }
 
-    public void setDataCount(int dataCount) {
-        this.dataCount = dataCount;
-    }
-
-    public int getPageCount() {
-        return pageCount;
-    }
-
-    public void setPageCount(int pageCount) {
-        this.pageCount = pageCount;
-    }
-
-    public List<T> getDatas() {
-        return datas;
-    }
-
-    public void setDatas(List<T> datas) {
-        this.datas = datas;
+    public void setData(PageInfo<T> data) {
+        this.data = data;
     }
 
     @Override
     public String toString() {
         return "Page{" +
-                "currentPage=" + currentPage +
-                ", pageSize=" + pageSize +
-                ", dataCount=" + dataCount +
-                ", pageCount=" + pageCount +
-                ", datas=" + datas +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", count=" + count +
+                ", data=" + data +
                 '}';
     }
-
 }
 

@@ -14,6 +14,8 @@ public interface PageDao {
 */
     List<Company> getCompanyByPageAdmin(@Param("pagenum") int pagenum,@Param("pagesize") int pagesize);   //map传参
 
+    List<Company> getAllCompanyAdmin();
+
     Page<Student> getStudentByPageAdmin(int pagenum, int pagesize);
 
     Page<Company> selectCompanyByCpyNameOrCpyAddressByPage(int pagenum, int pagesize,String cpyname, String cpyaddress);
