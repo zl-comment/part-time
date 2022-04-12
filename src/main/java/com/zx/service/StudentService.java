@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 public interface StudentService {
 
-    public void test();
+
+
+    int IsSame(String staccount);
 
 }

@@ -24,34 +24,31 @@
   <!--  <mvc:resources mapping="static/**" location="static/img"></mvc:resources>-->
 
 
-<!--
-    &lt;!&ndash; 异常解析器&ndash;&gt;
-    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+    <!-- 异常解析器-->
+   <!-- <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <props>
-                <prop key="java.lang.Exception">redirect:/error.jsp</prop>
+                <prop key="java.lang.Exception">redirect:/404.html</prop>
             </props>
         </property>
-    </bean>
-    
-  &lt;!&ndash;  拦截器配置&ndash;&gt;
+    </bean>-->
+    <!--拦截器配置-->
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/MyController/**"/>
+           <!-- <mvc:mapping path="/MyController/**"/>-->
+            <mvc:mapping path="/**"/>
             <bean class="com.zx.interceptor.MyInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
-
-&lt;!&ndash;     配置文件上传解析器
-     id的值是固定的&ndash;&gt;
+<!--     配置文件上传解析器
+     id的值是固定的-->
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        &lt;!&ndash; 设置上传文件的最大尺寸为5MB &ndash;&gt;
+        <!-- 设置上传文件的最大尺寸为5MB -->
         <property name="maxUploadSize" >
             <value>5242880</value>
         </property>
     </bean>
--->
 
 
     <!--视图解析器-->

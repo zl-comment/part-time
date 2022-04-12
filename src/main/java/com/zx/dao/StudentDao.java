@@ -3,6 +3,7 @@ package com.zx.dao;
 import com.zx.beans.Occupation;
 import com.zx.beans.Student;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Date;

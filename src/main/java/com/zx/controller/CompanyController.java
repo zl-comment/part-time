@@ -19,23 +19,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-@Controller
+@Controller("companyController")
 @SessionAttributes("name")
 public class CompanyController {
-    @Resource
-    private SqlSessionTemplate sqlSessionTemplate;
+
     @Resource
     private CompanyService companyService;
-
-    public void setCompanyService(CompanyService companyService) {
-        this.companyService = companyService;
-    }
-
-    public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
-        this.sqlSessionTemplate = sqlSessionTemplate;
-    }
-
-
 
     //初始化绑定方法
     @InitBinder

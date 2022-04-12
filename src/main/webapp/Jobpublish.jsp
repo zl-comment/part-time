@@ -20,21 +20,21 @@
 <div class="single-header">
     <div class="wrap">
         <div class="logo">
-            <a href="index.html"><img src="./static/images/logo.png" alt=""/></a>
+            <a href="static/index.html"><img src="./static/images/logo.png" alt=""/></a>
         </div>
         <div class="header-right">
             <div id='cssmenu'>
                 <ul>
-                    <li><a href='about.html'><span>About</span></a></li> |
-                    <li class='active'><a href='index.html'><span>Services</span></a>
+                    <li><a href='static/about.html'><span>About</span></a></li> |
+                    <li class='active'><a href='static/index.html'><span>Services</span></a>
                         <ul>
-                            <li class='has-sub'><a href='index.html'><span>Service 1</span></a></li>
-                            <li class='has-sub'><a href='index.html'><span>Service 2</span></a></li>
+                            <li class='has-sub'><a href='static/index.html'><span>Service 1</span></a></li>
+                            <li class='has-sub'><a href='static/index.html'><span>Service 2</span></a></li>
                         </ul>
                     </li> |
-                    <li class='has-sub'><a href='works.html'><span>Works</span></a></li> |
-                    <li class='has-sub'><a href='blog.html'><span>Blog</span></a></li> |
-                    <li class='last'><a href='contact.html'><span>Contact Us</span></a></li>
+                    <li class='has-sub'><a href='static/works.html'><span>Works</span></a></li> |
+                    <li class='has-sub'><a href='static/blog.html'><span>Blog</span></a></li> |
+                    <li class='last'><a href='static/contact.html'><span>Contact Us</span></a></li>
                 </ul>
             </div>
             <div class="search_box">
@@ -119,12 +119,12 @@
     <div class="wrap">
         <div class="footer-left">
             <ul class="footer-nav">
-                <li><a href="index.html">Home</a></li> |
-                <li><a href="about.html">About</a></li> |
-                <li><a href="index.html">Services</a></li> |
-                <li><a href="works.html">Work</a></li> |
-                <li><a href="blog.html">Blog</a></li> |
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="static/index.html">Home</a></li> |
+                <li><a href="static/about.html">About</a></li> |
+                <li><a href="static/index.html">Services</a></li> |
+                <li><a href="static/works.html">Work</a></li> |
+                <li><a href="static/blog.html">Blog</a></li> |
+                <li><a href="static/contact.html">Contact</a></li>
             </ul>
             <div class="copy">
                 <p>© 2018 </p>

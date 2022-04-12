@@ -2,8 +2,10 @@ package com.zx.test;
 
 
 import com.zx.controller.AdminController;
+import com.zx.controller.StudentController;
 import com.zx.service.CompanyService;
 import com.zx.service.impl.CompanyServiceImpl;
+import com.zx.service.impl.StudentServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -24,8 +26,10 @@ public class MyTest {
     @Test
     public void test() throws IOException {
         BeanFactory beanFactory=new ClassPathXmlApplicationContext("beans.xml");
-        AdminController adminController= (AdminController) beanFactory.getBean("adminController");
+        StudentServiceImpl studentService=beanFactory.getBean(StudentServiceImpl.class);
 
+       int i= studentService.IsSame("student");
+        System.out.println(i);
 
         System.out.println("test");
     }

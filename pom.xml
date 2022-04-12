@@ -132,7 +132,7 @@
       <version>1.1.2</version>
     </dependency>
 
-
+<!--json坐标-->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
@@ -149,6 +149,7 @@
       <version>2.9.0</version>
     </dependency>
 
+    <!--上传文件的坐标-->
     <dependency>
       <groupId>commons-fileupload</groupId>
       <artifactId>commons-fileupload</artifactId>
@@ -171,6 +172,14 @@
       <version>3.2.4.RELEASE</version>
       <scope>test</scope>
     </dependency>
+    <!--mybatis分页工具-->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>5.1.2</version>
+    </dependency>
+
+
 
 
 

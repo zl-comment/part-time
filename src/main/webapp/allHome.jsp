@@ -56,15 +56,15 @@
         <div class="header-right">
             <div id='cssmenu'>
                 <ul>
-                    <li><a href='about.html'><span>About</span></a></li> |
+                    <li><a href='static/about.html'><span>About</span></a></li> |
                     <li class='active'><a href='allHome.jsp'><span>Services</span></a>
                         <ul>
                             <li class='has-sub'><a href='allHome.jsp'><span>Service 1</span></a></li>
                             <li class='has-sub'><a href='allHome.jsp'><span>Service 2</span></a></li>
                         </ul>
                     </li> |
-                    <li class='has-sub'><a href='works.html'><span>Works</span></a></li> |
-                    <li class='has-sub'><a href='blog.html'><span>Blog</span></a></li> |
+                    <li class='has-sub'><a href='static/works.html'><span>Works</span></a></li> |
+                    <li class='has-sub'><a href='static/blog.html'><span>Blog</span></a></li> |
                     <li class='last'><a href='LoginServlet?method=mainHome&&username=${username}'><span>我的信息</span></a></li>
                 </ul>
             </div>
@@ -86,7 +86,7 @@
                         <h1>We are a Creative Digital Agency</h1>
                     </div>
                     <div class="rsidebar span_1_of_3">
-                        <div class="btn"><a href="works.html">Learn More</a></div>
+                        <div class="btn"><a href="static/works.html">Learn More</a></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -100,7 +100,7 @@
                         <h1>We are a Creative Digital Agency</h1>
                     </div>
                     <div class="rsidebar span_1_of_3">
-                        <div class="btn"><a href="works.html">Learn More</a></div>
+                        <div class="btn"><a href="static/works.html">Learn More</a></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -114,7 +114,7 @@
                         <h1>We are a Creative Digital Agency</h1>
                     </div>
                     <div class="rsidebar span_1_of_3">
-                        <div class="btn"><a href="works.html">Learn More</a></div>
+                        <div class="btn"><a href="static/works.html">Learn More</a></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -128,7 +128,7 @@
                         <h1>We are a Creative Digital Agency</h1>
                     </div>
                     <div class="rsidebar span_1_of_3">
-                        <div class="btn"><a href="works.html">Learn More</a></div>
+                        <div class="btn"><a href="static/works.html">Learn More</a></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -142,7 +142,7 @@
                         <h1>We are a Creative Digital Agency</h1>
                     </div>
                     <div class="rsidebar span_1_of_3">
-                        <div class="btn"><a href="works.html">Learn More</a></div>
+                        <div class="btn"><a href="static/works.html">Learn More</a></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -186,7 +186,7 @@
             <h2 class="head">Our Works</h2>
             <div class="bottom-box">
                 <div class="col_1_of_4 span_1_of_4">
-                    <a href="single.html" class="image" href="#">
+                    <a href="static/single.html" class="image" href="#">
                         <span class="rollover"></span>
                         <img class="imgborder" alt="" src="./static/images/pic.jpg">
                     </a>
@@ -195,7 +195,7 @@
                     </div>
                 </div>
                 <div class="col_1_of_4 span_1_of_4">
-                    <a href="single.html" class="image" href="#">
+                    <a href="static/single.html" class="image" href="#">
                         <span class="rollover"></span>
                         <img class="imgborder" alt="" src="./static/images/pic1.jpg">
                     </a>
@@ -204,7 +204,7 @@
                     </div>
                 </div>
                 <div class="col_1_of_4 span_1_of_4">
-                    <a href="single.html" class="image" href="#">
+                    <a href="static/single.html" class="image" href="#">
                         <span class="rollover"></span>
                         <img class="imgborder" alt="" src="./static/images/pic2.jpg">
                     </a>
@@ -213,7 +213,7 @@
                     </div>
                 </div>
                 <div class="col_1_of_4 span_1_of_4">
-                    <a href="single.html" class="image" href="#">
+                    <a href="static/single.html" class="image" href="#">
                         <span class="rollover"></span>
                         <img class="imgborder" alt="" src="./static/images/pic3.jpg">
                     </a>
@@ -225,7 +225,7 @@
             </div>
             <div class="section bottom">
                 <div class="col_1_of_4 span_1_of_4">
-                    <a href="single.html" class="image" href="#">
+                    <a href="static/single.html" class="image" href="#">
                         <span class="rollover"></span>
                         <img class="imgborder" alt="" src="./static/images/pic4.jpg">
                     </a>
@@ -234,7 +234,7 @@
                     </div>
                 </div>
                 <div class="col_1_of_4 span_1_of_4">
-                    <a href="single.html" class="image" href="#">
+                    <a href="static/single.html" class="image" href="#">
                         <span class="rollover"></span>
                         <img class="imgborder" alt="" src="./static/images/pic5.jpg">
                     </a>
@@ -243,7 +243,7 @@
                     </div>
                 </div>
                 <div class="col_1_of_4 span_1_of_4">
-                    <a href="single.html" class="image" href="#">
+                    <a href="static/single.html" class="image" href="#">
                         <span class="rollover"></span>
                         <img class="imgborder" alt="" src="./static/images/pic6.jpg">
                     </a>
@@ -252,7 +252,7 @@
                     </div>
                 </div>
                 <div class="col_1_of_4 span_1_of_4">
-                    <a href="single.html" class="image" href="#">
+                    <a href="static/single.html" class="image" href="#">
                         <span class="rollover"></span>
                         <img class="imgborder" alt="" src="./static/images/pic7.jpg">
                     </a>
@@ -328,11 +328,11 @@
         <div class="footer-left">
             <ul class="footer-nav">
                 <li><a href="allHome.jsp">Home</a></li> |
-                <li><a href="about.html">About</a></li> |
+                <li><a href="static/about.html">About</a></li> |
                 <li><a href="allHome.jsp">Services</a></li> |
-                <li><a href="works.html">Work</a></li> |
-                <li><a href="blog.html">Blog</a></li> |
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="static/works.html">Work</a></li> |
+                <li><a href="static/blog.html">Blog</a></li> |
+                <li><a href="static/contact.html">Contact</a></li>
             </ul>
             <div class="copy">
                 <p>© 2018 </p>

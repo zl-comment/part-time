@@ -64,10 +64,50 @@
 
     </delete>
 
-    <select id="occupationByStudentAdmin" parameterType=" " resultType="">
-        SELECT oc.id ocid ,ocname,salary,requirement,workplace,worktime  from student stu,occupation oc,stuandoc sta where stu.id=sta.studentid and oc.id=sta.occupationid and stu.id=#{id}
+    <select id="occupationByStudentAdmin" parameterType="int" resultMap="StudentOccupationsAdmin">
+        SELECT stu.id,oc.id ocid ,ocname,salary,requirement,workplace,worktime  from student stu,occupation oc,stuandoc sta where stu.id=sta.studentid and oc.id=sta.occupationid and stu.id=#{id}
     </select>
+    <resultMap id="StudentOccupationsAdmin" type="com.zx.beans.Student">
+        <id property="id" column="id"/>
+        <collection property="occupations"  column="id" ofType="com.zx.beans.Occupation">
+            <id property="id" column="ocid"/>
+            <result property="ocname" column="ocname"/>
+            <result property="salary" column="salary"/>
+            <result property="requirement" column="requirement"/>
+            <result property="workplace" column="workplace"/>
+            <result property="worktime" column="worktime"/>
+        </collection>
+    </resultMap>
 
+    <update id="updateOccupationById" parameterType="com.zx.beans.Occupation">
+        UPDATE occupation SET ocname=#{occupation.ocname},salary=#{occupation.salary},requirement=#{occupation.requirement},workplace=#{occupation.workplace},worktime=#{occupation.worktime} WHERE id=#{occupation.id}
+            </update>
+
+    <select id="getOccupationsStudent" parameterType="int" resultMap="StudentOccupations">
+        SELECT s.id sid,staccount, stpassword,stphone,stschool,stmajor,stsystem,stdate,o.id oid,ocname,salary,workplace,worktime,a.id stuandocid from student s,stuandoc  a,occupation o where s.id=a.studentid and o.id=a.occupationid and s.id=#{id}
+    </select>
+    <resultMap id="StudentOccupations" type="com.zx.beans.Student">
+        <id property="id" column="sid"/>
+        <result property="staccount" column="staccount"/>
+        <result property="stpassword" column="stpassword"/>
+        <result property="stphone" column="stphone"/>
+        <result property="stschool" column="stschool"/>
+        <result property="stmajor" column="stmajor"/>
+        <result property="stsystem" column="stsystem"/>
+        <result property="stdate" column="stdate"/>
+        <collection property="occupations"  column="id" ofType="com.zx.beans.Occupation">
+            <id property="id" column="oid"/>
+            <result property="ocname" column="ocname"/>
+            <result property="salary" column="salary"/>
+            <result property="workplace" column="workplace"/>
+            <result property="worktime" column="worktime"/>
+            <result property="stuandocid" column="stuandocid"/>
+        </collection>
+    </resultMap>
+
+    <delete id="deleteOccupationsByIdStudent"   parameterType="int">
+        delete from stuandoc where id=#{stuandocid}
+        </delete>
 
 
 

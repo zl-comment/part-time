@@ -142,7 +142,7 @@
         $("#staccount").blur(function () {
             var staccount=$("#staccount").val();
             $.ajax({
-                url:"StudentServlet?method=staccountIsSame",
+                url:"staccountIsSame",
                 method:"post",
                 data:{staccount:staccount},
                 success:function (data) {
