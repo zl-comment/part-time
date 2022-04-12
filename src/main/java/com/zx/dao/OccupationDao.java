@@ -11,7 +11,7 @@ public interface OccupationDao {
     void Jobpublish(String ocname, String workplace, String worktime, String salary, String requirement);
 
 
-  Company getOccupationsCompany(int companyid);
+    Company getOccupationsCompany(int companyid);
 
 
     Occupation getOccupationById(int ocid);
