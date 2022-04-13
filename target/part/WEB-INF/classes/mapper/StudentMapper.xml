@@ -17,7 +17,7 @@
         SELECT *from student  where staccount = #{staccount}
     </select>
 
-    <select id="staccountIsSame" parameterType="java.lang.String" resultType="int">
+    <select id="staccountIsSame" parameterType="java.lang.String" resultType="java.lang.Integer">
         SELECT id   from  student  where staccount = #{staccount}
     </select>
 

@@ -1,5 +1,5 @@
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +12,49 @@
     <link type="text/css" rel="stylesheet" href="./static/css/index.css"/>
    <script type="text/javascript" src="./static/js/pages/index.js"></script>
 </head>
+
+<script>
+    //select选择器
+    $(function () {
+        $(".layui-select").change(function () {
+            var Roleid = $(".layui-select").val();
+            alert(Roleid);
+            $.ajax({
+                url:"selectPermission",
+                method: "post",
+                data: {
+                    Roleid:Roleid
+                },
+                dataType: "json",
+        //    <dd><a id="mytab"  href="adminCompaniesList.jsp"   data-id="1" target="iFrm">企业列表</a></dd>
+            success:function (data) {
+                    alert(data);
+                    var str = "";
+                    var str1="";
+                    for (var i = 0; i < data.length; i++) {
+                       if(data[i].permname.indexOf("企业")==0||data[i].permname.indexOf("职业")==0) {
+                           alert(data[i].permname.indexOf("企业"));
+                           str += "<dd><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
+                       }else{
+                           str1 += "<dd><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
+
+                       }
+                    }
+                    $("#company").html(str);
+                    $("#student").html(str1);
+                }
+
+            })
+
+        });
+    });
+
+
+
+
+</script>
+
+
 
 <body class="layui-layout-body">
 
@@ -40,6 +83,14 @@
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="https://www.baidu.com/">基本资料</a></dd>
+                    <dd>
+                        <select class="layui-select">
+                            <option value="" selected="selected">请选择角色</option>
+                            <c:forEach items="${admin.roleList}" var="role" >
+                       <option value="${role.id} " >${role.rname}</option>
+                            </c:forEach>
+                        </select>
+                    </dd>
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
@@ -59,20 +110,20 @@
 
                 <li class="layui-nav-item layui-nav-itemed">
                     <a >企业用户管理</a>
-                    <dl class="layui-nav-child">
-                       <%-- <dd><a href="AdminServlet?method=getCompanies"   data-id="nav_demo" target="iFrm">企业列表</a></dd>--%>
-                        <dd><a id="mytab"  href="adminCompaniesList.jsp"   data-id="1" target="iFrm">企业列表</a></dd>
+                    <dl class="layui-nav-child" id="company">
+
+                    <%--    <dd><a id="mytab"  href="adminCompaniesList.jsp"   data-id="1" target="iFrm">企业列表</a></dd>
                         <dd><a id="mytab"  href="adminCompanyPass.jsp"     data-id="2" target="iFrm">企业审核</a></dd>
                         <dd><a id="mytab"  href="adminOccupationPass.jsp"  data-id="3" target="iFrm">职业审核</a></dd>
-                        <dd><a id="mytab"  href=""  data-id="4" target="iFrm">企业角色管理</a></dd>
+                        <dd><a id="mytab"  href=""  data-id="4" target="iFrm">企业角色管理</a></dd>--%>
                     </dl>
                 </li>
                     <li class="layui-nav-item layui-nav-itemed">
                         <a >学生用户管理</a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="adminStudentList.jsp" data-id="5" target="iFrm">学生列表</a></dd>
+                        <dl class="layui-nav-child" id="student">
+                      <%--      <dd><a href="adminStudentList.jsp" data-id="5" target="iFrm">学生列表</a></dd>
                             <dd><a href="javascript:">学生审核</a></dd>
-                            <dd><a href="javascript:">学生角色管理</a></dd>
+                            <dd><a href="javascript:">学生角色管理</a></dd>--%>
                         </dl>
                     </li>
        <%--         <li class="layui-nav-item">

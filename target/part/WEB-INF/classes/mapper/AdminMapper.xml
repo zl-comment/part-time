@@ -5,10 +5,29 @@
 
 <mapper namespace="com.zx.dao.AdminDao">
 
-    <select id="login" parameterType="java.lang.String" resultType="int">
-        SELECT id from admin  where adminname=#{usercode} and adminpassword=#{password}
-    </select>
+    <select id="login" parameterType="java.lang.String" resultMap="adminRole">
+        SELECT a.id ,a.adminname,a.adminpassword ,a.adminphone, a.state, r.id roleid,r.rname ,p.id permid,p.permname,p.permurl from admin a  LEFT JOIN adandro aar on  a.id=aar.adminid LEFT JOIN role r on aar.roleid=r.id  LEFT JOIN permandro par on par.roleid=r.id LEFT JOIN permission p ON p.id=par.permid where a.id=(  SELECT id from admin  where adminname=#{usercode} and adminpassword=#{password})
+        </select>
+    <resultMap id="adminRole" type="com.zx.beans.Admin">
+        <id property="id" column="id"/>
+        <result property="adminname" column="adminname"/>
+        <result property="adminpassword" column="adminpassword"/>
+        <result property="adminphone" column="adminphone"/>
+        <result property="state" column="state"/>
+        <collection property="roleList" column="id"  ofType="com.zx.beans.Role">
+            <id property="id" column="roleid"/>
+            <result property="rname" column="rname"/>
+            <collection property="permissions" column="roleid"  ofType="com.zx.beans.Permission">
+                <id property="id" column="permid"/>
+                <result property="permname" column="permname"/>
+                <result property="permurl" column="permurl"/>
+            </collection>
+        </collection>
+    </resultMap>
 
+    <select id="findPermissionByRoleId" parameterType="java.lang.Integer" resultType="com.zx.beans.Permission">
+        select  p.id,p.permname,p.permurl  from permandro par,permission p where p.id=par.permid and par.roleid=#{RoleId}
+    </select>
 
 
 </mapper>
