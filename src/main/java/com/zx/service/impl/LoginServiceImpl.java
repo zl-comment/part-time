@@ -27,16 +27,9 @@ public class LoginServiceImpl implements LoginService {
     public int adminLogin(String usercode,String password) {
 
         adminDao=sqlSessionTemplate.getMapper(AdminDao.class);
-     int id=adminDao.login(usercode,password);
 
 
-        return id;
-
-
-
-
-
-
+    return 0;
 
 
     }
