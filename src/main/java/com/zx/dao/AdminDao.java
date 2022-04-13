@@ -1,13 +1,18 @@
 package com.zx.dao;
 
 
+import com.zx.beans.Admin;
+import com.zx.beans.Permission;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 
 
 public interface AdminDao   {
 
-    int login(@Param("usercode") String usercode,@Param("password") String password);
+    Admin login(@Param("usercode") String usercode, @Param("password") String password);
+   List<Permission> findPermissionByRoleId(@Param("RoleId") Integer RoleId);
+
 
 
 

@@ -1,17 +1,23 @@
 package com.zx.service;
 
+import com.zx.beans.Admin;
 import com.zx.beans.Company;
 import com.zx.beans.Page;
+import com.zx.beans.Permission;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 public interface AdminService {
-    int adminLogin(String usercode,String password);
+    Admin adminLogin(String usercode, String password);
 
     Page<Company> getCompanyList( int pagenum,  int pagesize);
+
+    List<Permission> selectPermission(int roleid);
 
 
 

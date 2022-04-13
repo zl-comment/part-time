@@ -2,8 +2,10 @@ package com.zx.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.zx.beans.Admin;
 import com.zx.beans.Company;
 import com.zx.beans.Page;
+import com.zx.beans.Permission;
 import com.zx.dao.AdminDao;
 import com.zx.dao.CompanyDao;
 import com.zx.dao.PageDao;
@@ -32,13 +34,18 @@ public class AdminServiceImpl  implements AdminService {
 
 
     @Override
-    public int adminLogin(String usercode,String password) {
+    public Admin adminLogin(String usercode,String password) {
 
         AdminDao adminDao= sqlSessionTemplate.getMapper(AdminDao.class);
 
-        int a=adminDao.login(usercode,password);
+        Admin admin=adminDao.login(usercode,password);
+        System.out.println(admin);
 
-        return a;
+        if(admin==null){
+            return null;
+        }else{
+            return admin;
+        }
 
     }
 
@@ -58,7 +65,12 @@ public class AdminServiceImpl  implements AdminService {
         return page;
     }
 
-
+    @Override
+    public List<Permission> selectPermission(int roleid) {
+        AdminDao adminDao=sqlSessionTemplate.getMapper(AdminDao.class);
+        return adminDao.findPermissionByRoleId(roleid);
+    }
 
 
 }
+

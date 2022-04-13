@@ -85,6 +85,7 @@ public class Admin {
                 ", adminpassword='" + adminpassword + '\'' +
                 ", adminphone='" + adminphone + '\'' +
                 ", state=" + state +
+                ", roleList=" + roleList +
                 '}';
     }
 }
