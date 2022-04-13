@@ -28,7 +28,7 @@ public class StudentServiceImpl implements com.zx.service.StudentService {
     }
 
     @Override
-    public int IsSame(String staccount) {
+    public Integer IsSame(String staccount) {
      StudentDao  studentDao = sqlSessionTemplate.getMapper(StudentDao.class);
         return studentDao.staccountIsSame(staccount);
 

@@ -19,7 +19,7 @@ public interface StudentDao {
 
 /*    List<Student> getStudentsAdmin();*/
 
-    int staccountIsSame(String staccount);
+    Integer staccountIsSame(String staccount);
 
     Student getStudentByIdAdmin(int studentid);
 

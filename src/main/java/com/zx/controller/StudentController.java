@@ -32,8 +32,13 @@ public class StudentController {
     public @ResponseBody String staccountIsSame(String staccount){
     //public void  staccountIsSame(String staccount, HttpServletResponse response) throws IOException {
         System.out.println(staccount);
-        int i=studentService.IsSame(staccount);
-        return false+"";
+        Integer i=studentService.IsSame(staccount);
+        if (i!=null){
+             return true+"";
+        }else {
+            return false+"";
+        }
+
        /* PrintWriter writer=response.getWriter();
         writer.println(true);
         writer.close();*/

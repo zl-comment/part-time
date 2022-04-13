@@ -6,6 +6,6 @@ public interface StudentService {
 
 
 
-    int IsSame(String staccount);
+    Integer IsSame(String staccount);
 
 }
