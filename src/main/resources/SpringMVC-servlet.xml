@@ -35,7 +35,7 @@
     <!--拦截器配置-->
     <mvc:interceptors>
         <mvc:interceptor>
-           <!-- <mvc:mapping path="/MyController/**"/>-->
+            <!--<mvc:mapping path="/controller/**"/>-->
             <mvc:mapping path="/**"/>
             <bean class="com.zx.interceptor.MyInterceptor"></bean>
         </mvc:interceptor>
