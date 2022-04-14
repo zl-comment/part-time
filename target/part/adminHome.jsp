@@ -18,7 +18,6 @@
     $(function () {
         $(".layui-select").change(function () {
             var Roleid = $(".layui-select").val();
-            alert(Roleid);
             $.ajax({
                 url:"selectPermission",
                 method: "post",
@@ -28,12 +27,12 @@
                 dataType: "json",
         //    <dd><a id="mytab"  href="adminCompaniesList.jsp"   data-id="1" target="iFrm">企业列表</a></dd>
             success:function (data) {
-                    alert(data);
+                   // alert(data);
                     var str = "";
                     var str1="";
                     for (var i = 0; i < data.length; i++) {
                        if(data[i].permname.indexOf("企业")==0||data[i].permname.indexOf("职业")==0) {
-                           alert(data[i].permname.indexOf("企业"));
+                         //  alert(data[i].permname.indexOf("企业"));
                            str += "<dd><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
                        }else{
                            str1 += "<dd><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
@@ -42,6 +41,10 @@
                     }
                     $("#company").html(str);
                     $("#student").html(str1);
+                layui.use('element', function() {
+                    var element = layui.element;
+                    element.init();
+                });
                 }
 
             })
@@ -103,7 +106,7 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="nav_left">
+            <ul class="layui-nav layui-nav-tree layui-inline"  lay-filter="nav_left">
                 <%--为了让页面展示在内页面中，target=“与主题页面的iframe的name相同”--%>
                 <%--src与href有区别--%>
                 <li class="layui-nav-item "><a <%--ref="allHome.jsp" data-id="nav_home"  target="iFrm"--%>>首页</a></li>
@@ -112,7 +115,7 @@
                     <a >企业用户管理</a>
                     <dl class="layui-nav-child" id="company">
 
-                    <%--    <dd><a id="mytab"  href="adminCompaniesList.jsp"   data-id="1" target="iFrm">企业列表</a></dd>
+                        <%--<dd><a id="mytab"  href="adminCompaniesList.jsp"   data-id="1" target="iFrm">企业列表</a></dd>
                         <dd><a id="mytab"  href="adminCompanyPass.jsp"     data-id="2" target="iFrm">企业审核</a></dd>
                         <dd><a id="mytab"  href="adminOccupationPass.jsp"  data-id="3" target="iFrm">职业审核</a></dd>
                         <dd><a id="mytab"  href=""  data-id="4" target="iFrm">企业角色管理</a></dd>--%>

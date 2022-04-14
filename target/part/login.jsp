@@ -5,7 +5,7 @@
   Time: 14:50
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -138,7 +138,7 @@
 
 
 <body>
-<form class="layui-form" action="login" id="loginForm" method="post" >
+<form class="layui-form" action="adminLogin" id="loginForm" method="post" >
     <div class="layui-form-item">
         <h1>用&nbsp;户&nbsp;登&nbsp;录</h1>
     </div>
