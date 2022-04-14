@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>无标题文档</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<style type="text/css">
+.spandwt
+{
+	display:block;
+	text-align:center;
+	line-height:25px;
+	font-size:12px;
+	color:#414141;
+	font-family:"宋体";
+}
+.divdwt
+{
+	display:block;
+	background-image:url(images/bottom-bg.gif);
+	text-align:center;
+	height:35px;
+	width:1000px;
+	color:#FFF;
+	line-height:30px;
+	font-size:12px;
+	font-family:"宋体";
+	margin:auto;
+}
+
+.adwt
+{
+	color:#FFF;
+	font-size:12px;
+	text-decoration:none;
+	font-family:"宋体";
+}
+
+.adwt:hover
+{
+	color:#FFF;
+	font-size:12px;
+	text-decoration:none;
+	font-family:"宋体";
+}
+
+.bodydwt
+{
+	text-align:center;
+}
+
+.imgdwt
+{
+	border:0px;
+}
+.headdwt
+{
+	width:960px;
+	height:65px;
+	margin:auto;/*居中*/
+	position:relative;
+	vertical-align:bottom;
+	/*border:1px solid #000;*/
+}
+
+.headerleftdwt
+{
+	/*border:1px solid #000;*/
+	float:left;
+	margin-bottom:0px;
+	height:65px;
+}
+
+.headerrightdwt
+{
+	/*border:1px solid #000;*/
+	float:right;
+	height:31px;
+	vertical-align:bottom;
+	margin-top:34px;
+}
+
+.imgheaderdwt
+{
+	border:0px;
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+<div class="bodydwt">
+<div class="headdwt">
+	<div class="headerleftdwt"><img src="../images/logo.gif" /></div>
+    <div class="headerrightdwt">
+        <a href="../login.html" name="pic"><img src="images/menu1-2.gif" class="imgheaderdwt" /></a>
+        <a href="../search.html" name="pic"><img src="images/menu2-2.gif" class="imgheaderdwt" /></a>
+        <a href="../intro.html" name="pic"><img src="images/menu3-2.gif" class="imgheaderdwt" /></a>
+    </div>
+</div>
+<!-- TemplateBeginEditable name="EditRegion3" -->EditRegion3<!-- TemplateEndEditable -->
+</div>
+<div class="divdwt">
+	网站导航&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../index.html" class="adwt">网站首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../search.html" class="adwt">职位搜索</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../login.html" class="adwt">Myjob</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../register.html" class="adwt">用户注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../login.html" class="adwt">用户登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../intro.html" class="adwt">简历管理</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../company.html" class="adwt">招聘公司</a>
+</div>
+<div>
+  <span class="spandwt">人才招聘&nbsp;Email:hr@51job.com</span>
+  <span class="spandwt">个人求职&nbsp;Email:club@51job.com&nbsp;&nbsp;或垂询:800-820-5100</span>
+  <span class="spandwt">未经本招聘网站同意，不得转载本网站之所有招聘信息及作品</span>
+  <span class="spandwt">无忧工作网版权所有&copy;1999-2007</span>
+  <span class="spandwt"><a href="../index.html"><img src="../images/bottom1.gif" class="imgdwt" /></a></span>
+</div>
+
+<!-- TemplateBeginEditable name="EditRegion4" -->js代码区<!-- TemplateEndEditable -->
+</body>
+</html>
+
