@@ -40,9 +40,11 @@
         insert into student values (null,null,#{staccount},#{stpassword},#{stphone},#{stschool},#{stmajor},#{stsystem},#{stdate},null,0,null)
     </insert>
 
+<!--
     <select id="loginHome" parameterType="java.lang.String" resultType="com.zx.beans.Student">
         SELECT *from student  where staccount = #{staccount}
     </select>
+-->
 
     <select id="staccountIsSame" parameterType="java.lang.String" resultType="java.lang.Integer">
         SELECT id   from  student  where staccount = #{staccount}

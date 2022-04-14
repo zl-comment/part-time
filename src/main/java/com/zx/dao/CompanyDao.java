@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public interface CompanyDao {
     Company login(@Param("usercode") String usercode,@Param("password") String password);
 
-    Company loginHome(String usercode);
+   /* Company loginHome(String usercode);*/
 
     void Register(@Param("cpyaccount") String cpyaccount,@Param("cpypassword") String cpypassword,@Param("cpyname")  String cpyname,@Param("cpyphone") String cpyphone,@Param("cpyaddress") String cpyaddress,@Param("cpyinfo") String cpyinfo);
 
