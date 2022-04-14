@@ -32,14 +32,14 @@ public class LoginController {
         System.out.println(usercode+" "+password);
        Object object =  loginService.Login(usercode,password);
        if(object!=null){
+           //1.获取session
+           HttpSession session = request.getSession();
+           //2.获取sessionid
+           String sessionId = session.getId();
            if (object instanceof Student) {
                Student student = (Student) object;
                System.out.println(student);
                System.out.println("学生登录成功");
-               //1.获取session
-               HttpSession session = request.getSession();
-               //2.获取sessionid
-               String sessionId = session.getId();
                //3.将sessionid作为key，用户信息user作为value，放入session中
                session.setAttribute(sessionId,usercode);
                //4.将sessionId存到cookie中,"JSESSIONID"为自定义的key值
@@ -56,10 +56,6 @@ public class LoginController {
                Company company = (Company) object;
                System.out.println(company);
                System.out.println("企业登录成功");
-               //1.获取session
-               HttpSession session = request.getSession();
-               //2.获取sessionid
-               String sessionId = session.getId();
                //3.将sessionid作为key，用户信息user作为value，放入session中
                session.setAttribute(sessionId,usercode);
                //4.将sessionId存到cookie中,"JSESSIONID"为自定义的key值
