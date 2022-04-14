@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.zx.beans.Company" %><%--
   Created by IntelliJ IDEA.
   User: zhang
   Date: 2022/3/16
@@ -62,11 +62,14 @@
                             <li class='has-sub'><a href='allHome.jsp'><span>Service 1</span></a></li>
                             <li class='has-sub'><a href='allHome.jsp'><span>Service 2</span></a></li>
                         </ul>
-                    </li> |
+                    </li>
                     <li class='has-sub'><a href='static/works.html'><span>Works</span></a></li> |
                     <li class='has-sub'><a href='static/blog.html'><span>Blog</span></a></li> |
-                    <li class='last'><a href='LoginServlet?method=mainHome&&username=${username}'><span>我的信息</span></a></li>
+                    <li class='last'><a href='myInformation?user=${user}' ><span>我的信息</span></a></li>
                 </ul>
+                <%=session.getAttribute("user")  %>
+
+
             </div>
             <div class="search_box">
                 <form>

@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.ArrayList;
 
 public interface CompanyDao {
-    int login(@Param("usercode") String usercode,@Param("password") String password);
+    Company login(@Param("usercode") String usercode,@Param("password") String password);
 
     Company loginHome(String usercode);
 

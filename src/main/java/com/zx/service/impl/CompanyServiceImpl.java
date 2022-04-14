@@ -27,14 +27,6 @@ public class CompanyServiceImpl implements CompanyService {
     private OccupationDao occupationDao;
 
 
-    @Override
-    public int companyLogin(String usercode, String password) {
-        CompanyDao companyDao=sqlSessionTemplate.getMapper(CompanyDao.class);
-
-         int     a=companyDao.login(usercode,password);
-
-        return a;
-    }
 
     @Override
     public void companyRegister(String cpyaccount, String cpypassword, String cpyname, String cpyphone, String cpyaddress, String cpyinfo) {

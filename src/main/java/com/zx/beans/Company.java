@@ -151,6 +151,7 @@ public class Company {
                 ", cpyaddress='" + cpyaddress + '\'' +
                 ", cpyinfo='" + cpyinfo + '\'' +
                 ", state=" + state +
+                ", roleList=" + roleList +
                 ", occupations=" + occupations +
                 '}';
     }

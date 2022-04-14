@@ -206,24 +206,6 @@ public class Student {
     public Student() {
     }
 
-
-   /* @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", stname='" + stname + '\'' +
-                ", staccount='" + staccount + '\'' +
-                ", stpassword='" + stpassword + '\'' +
-                ", stphone='" + stphone + '\'' +
-                ", stschool='" + stschool + '\'' +
-                ", stmajor='" + stmajor + '\'' +
-                ", stsystem=" + stsystem +
-                ", stdate=" + stdate +
-                ", stresume='" + stresume + '\'' +
-                ", ststate=" + ststate +
-                '}';
-    }*/
-
     @Override
     public String toString() {
         return "Student{" +
@@ -240,6 +222,7 @@ public class Student {
                 ", ststate=" + ststate +
                 ", stresumeid=" + stresumeid +
                 ", occupations=" + occupations +
+                ", roleList=" + roleList +
                 '}';
     }
 }

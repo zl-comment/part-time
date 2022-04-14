@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface CompanyService {
 
-    int companyLogin(String usercode,String password);
+
 
     void companyRegister( String cpyaccount,  String cpypassword,  String cpyname, String cpyphone, String cpyaddress,  String cpyinfo);
 

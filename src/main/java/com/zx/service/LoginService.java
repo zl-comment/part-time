@@ -4,8 +4,6 @@ import com.zx.beans.Admin;
 
 public interface LoginService {
 
-    int adminLogin(String usercode,String password);
 
-    void  add();
-
+    Object Login(String usercode, String password);
 }

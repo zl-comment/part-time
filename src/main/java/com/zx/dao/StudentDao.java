@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface StudentDao {
 
-    String login(@Param("usercode") String usercode, @Param("password") String password);
+    Student login(@Param("usercode") String usercode, @Param("password") String password);
 
     void Register(@Param("staccount")  String staccount,@Param("stpassword") String stpassword,@Param("stphone") String stphone,@Param("stschool") String stschool,@Param("stmajor") String stmajor,@Param("stsystem") int stsystem,@Param("stdate") Date stdate);
     

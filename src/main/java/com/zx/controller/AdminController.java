@@ -26,7 +26,7 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-    @RequestMapping("login")
+   /* @RequestMapping("login")
     public String login(String usercode, String password, HttpServletResponse response, HttpServletRequest request){
 
        Admin admin= adminService.adminLogin(usercode,password);
@@ -52,7 +52,7 @@ public class AdminController {
             return "login";
         }
 
-    }
+    }*/
     @RequestMapping("selectPermission")
     public @ResponseBody Object selectPermission(int Roleid){
         System.out.println(Roleid);

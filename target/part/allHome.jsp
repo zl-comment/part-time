@@ -1,11 +1,11 @@
-<%--
+<%@ page import="com.zx.beans.Company" %><%--
   Created by IntelliJ IDEA.
   User: zhang
   Date: 2022/3/16
   Time: 9:14
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
@@ -62,11 +62,14 @@
                             <li class='has-sub'><a href='allHome.jsp'><span>Service 1</span></a></li>
                             <li class='has-sub'><a href='allHome.jsp'><span>Service 2</span></a></li>
                         </ul>
-                    </li> |
+                    </li>
                     <li class='has-sub'><a href='static/works.html'><span>Works</span></a></li> |
                     <li class='has-sub'><a href='static/blog.html'><span>Blog</span></a></li> |
-                    <li class='last'><a href='LoginServlet?method=mainHome&&username=${username}'><span>我的信息</span></a></li>
+                    <li class='last'><a href='myInformation?user=${user}' ><span>我的信息</span></a></li>
                 </ul>
+                <%=session.getAttribute("user")  %>
+
+
             </div>
             <div class="search_box">
                 <form>
