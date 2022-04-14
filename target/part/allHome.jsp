@@ -67,7 +67,7 @@
                     <li class='has-sub'><a href='static/blog.html'><span>Blog</span></a></li> |
                     <li class='last'><a href='myInformation?user=${user}' ><span>我的信息</span></a></li>
                 </ul>
-                <%=session.getAttribute("user")  %>
+                <%--<%=session.getAttribute("user")  %>--%>
 
 
             </div>

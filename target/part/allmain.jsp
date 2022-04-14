@@ -31,7 +31,7 @@
   $(function () {
     $(".layui-select").change(function () {
       var Roleid = $(".layui-select").val();
-      alert(Roleid);
+    //  alert(Roleid);
       $.ajax({
         url:"selectPermission",
         method: "post",
@@ -41,7 +41,7 @@
         dataType: "json",
         //    <dd><a id="mytab"  href="adminCompaniesList.jsp"   data-id="1" target="iFrm">企业列表</a></dd>
         success:function (data) {
-           alert(data);
+       //    alert(data);
           var str = "";
           for (var i = 0; i < data.length; i++) {
               //  alert(data[i].permname.indexOf("企业"));
@@ -97,9 +97,9 @@
         <li class="layui-nav-item "><a <%--ref="allHome.jsp" data-id="nav_home"  target="iFrm"--%>>首页</a></li>
 
         <li class="layui-nav-item layui-nav-itemed">
-          <a >企业用户管理</a>
+          <a >用户管理</a>
           <dl class="layui-nav-child" id="user">
-            ${user}
+          <%--  ${user}--%>
 
           </dl>
         </li>
