@@ -1,0 +1,158 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0; padding:0}
+ul li{ list-style:none}
+a{ text-decoration:none}
+img{ border:0; max-height:100%; max-width:100%}
+body{ width:100%; min-width:1200px; margin:0 auto; font-size:12px; font-family:"宋体";color: #222;}
+.clear{ clear:both}
+
+/*公司信息*/
+.compHeader{ width:100%; background-color: rgba(249,94,14,0.85); position: fixed; top:0; left:0}
+.compHeader .main{width: 1100px;margin: 0px auto;color: #FFFFFF;height: 47px;}
+.compHeader .main .header_l{ float:left; margin-top:5px}
+.compHeader .main .header_l a{ float:left; display:block}
+.compHeader .main .header_l span{ height:42px; float:left; display:block; line-height:42px;font-size: 16px;font-family: "微软雅黑";}
+.compHeader .main .header_c{ float:left;width: 252px;background: url(../images/35.png) no-repeat;height: 28px;margin-left: 50px;margin-top: 10px;}
+.compHeader .main .header_c input.keyword{ float:left;color: #B9B9B9;border: none;line-height: 28px;width: 160px;height: 28px;vertical-align: middle;padding-left: 10px;background: none; outline:none}
+.compHeader .main .header_c input.btnsearch{width: 80px;height: 28px; border:0; outline:0; background:none; cursor:pointer}
+.compHeader .main .header_r{ float:right;padding-left: 19px;margin-top: 10px; background:url(../images/36.png) 0px no-repeat}
+.compHeader .main .header_r a{ color:#fff;font-weight: bold;line-height: 26px; padding:0 5px}
+
+.compMain{width: 100%;height: 225px;background-image: url(../images/compangbg.jpg);background-repeat: no-repeat;background-position: center; background-color: #e6f0f9;}
+.compMain .main{width: 1100px;margin: 0px auto;padding-top: 47px;}
+.compMain .main .CpLogo{ float:left;width: 140px;height: 140px; border: 3px solid #CBD1D7;margin-top: 15px;margin-left: 10px;}
+.compMain .main .CpDetail{float: left;width: 600px;margin-left: 20px;margin-top: 10px;max-height: 168px;}
+.compMain .main .CpDetail .CompanyName{font-size: 24px;color: #333333;padding: 10px 0px 20px 0px;font-family: "微软雅黑";}
+.compMain .main .CpDetail .CompanyName .title{vertical-align: middle;display: inline-block;line-height: 28px;}
+.compMain .main .CpDetail .CompanyName .guanzhu{ display:inline-block;font-size: 12px;width: 65px;height: 22px;color: #FFF;text-align: center;line-height: 21px;background: url(../images/37.png) no-repeat;cursor: pointer;margin-left: 3px;}
+.compMain .main .CpDetail .CompanyName img{vertical-align: middle;display: inline-block;}
+.compMain .main .CpDetail p{font-size: 14px;line-height: 28px;font-family: "微软雅黑"; color:#000}
+.compMain .main .CpDetail p a{color: #0068B7;}
+.compMain .main .CpStatus{float: right;margin-top: 40px;}
+.compMain .main .CpStatus .statuscon{width: 70px; height: 100px;float: left;margin-right: 10px;text-align: center;}
+.compMain .main .CpStatus .status1{ background:url(../images/38.png) no-repeat}
+.compMain .main .CpStatus .status2{ background:url(../images/39.png) no-repeat}
+.compMain .main .CpStatus .status3{ background:url(../images/40.png) no-repeat}
+.compMain .main .CpStatus .status4{ background:url(../images/41.png) no-repeat}
+.compMain .main .CpStatus .statuscon span{display: inline-block; width: 100%;font-size: 14px;height: 30px;line-height: 30px;font-family: "微软雅黑";}
+.compMain .main .CpStatus .statuscon span.Number{font-size: 18px;height: 67px;line-height: 68px;}
+.compMain .main .CpStatus .status1 span.Number{color: #C22B00;}
+.compMain .main .CpStatus .status2 span.Number{color: #f5b03e;}
+.compMain .main .CpStatus .status3 span.Number{color: #3D8DD9;}
+.compMain .main .CpStatus .status4 span.Number{color: #666666;}
+
+.compcontent{width: 1100px;margin: 0 auto;position:relative}
+.compcontent .brandbox{line-height: 20px;margin-top: 15px;color: #898989; position:absolute; right:0}
+.compcontent .brandbox a{color: #898989;}
+.compcontent .comcontentL{ float:left;width: 830px; }
+.compcontent .comcontentL ul#tabcompany{height: 45px; border-bottom:1px solid #E2E5E9;}
+.compcontent .comcontentL ul#tabcompany li{float: left;padding: 0 10px;line-height: 45px;font-size: 16px;font-family: "微软雅黑";cursor: pointer;text-decoration: none;color: #000;margin: 0 20px;}
+.compcontent .comcontentL ul#tabcompany li.Active{color: #F95E0E;border-bottom: 2px solid #F95E0E;font-weight: bold;}
+.compcontent .comcontentL #contentcompany{width: 830px;}
+.compcontent .comcontentL #contentcompany ul{ display:none}
+.compcontent .comcontentL #contentcompany .conts{line-height: 30px;font-size: 14px;font-family: "宋体"; padding: 20px;}
+.compcontent .comcontentL #contentcompany .conts p{text-indent: 2em;}
+
+.compcontent .comcontentL #contentcompany .zhiwei{height: 155px;}
+.compcontent .comcontentL #contentcompany .zhiwei .zhiweiL{ width:634px; float:left;padding-left:30px;border-bottom: 1px solid #E2E5E9;height:155px; margin-top:10px}
+.compcontent .comcontentL #contentcompany .zhiwei .zhiweiL .zw1{line-height: 35px;height: 35px;font-family: "微软雅黑"}
+.compcontent .comcontentL #contentcompany .zhiwei .zhiweiL .zw1 a{font-size: 18px;vertical-align: middle;color: #004694;text-decoration: none;}
+.compcontent .comcontentL #contentcompany .zhiwei .zhiweiL .zw1 span{margin: 0px 5px;vertical-align: middle;font-size: 14px;}
+.compcontent .comcontentL #contentcompany .zhiwei .zhiweiL .zw2{font-size: 14px;font-family: '微软雅黑';line-height: 35px;height: 35px;}
+.compcontent .comcontentL #contentcompany .zhiwei .zhiweiL .zw2 .red{ color:red}
+.compcontent .comcontentL #contentcompany .zhiwei .zhiweiL .zw3{overflow:hidden; white-space:nowrap;text-overflow:ellipsis;line-height: 30px;height: 30px;}
+.compcontent .comcontentL #contentcompany .zhiwei .zhiweiR{ width:166px; float:left;border-bottom: 1px solid #E2E5E9;height: 155px; text-align:center; margin-top:10px}
+.compcontent .comcontentL #contentcompany .zhiwei .zhiweiR a{ display:inline-block;background: #50BA8C;width: 100px;height: 36px;cursor: pointer;border: none;color: #fff;font-size: 14px;font-family: "微软雅黑";font-weight: bold;border-radius: 5px; line-height:36px; margin-top:43px;}
+.compcontent .comcontentL #contentcompany .zhiwei .zhiweiR span{display:inline-block; background:url(../images/42.png) no-repeat;height: 30px;line-height: 30px;text-align: left;padding-left: 25px;margin-top: 15px;color: #666666;}
+
+.compcontent .comcontentR{width: 240px;float: right;}
+.compcontent .comcontentR .sharediv{width: 100%; height: 200px; border: 1px solid #EEEEF0;text-align: center;padding: 5px 0; margin-top:45px}
+.compcontent .comcontentR .sharediv p{line-height: 30px;font-size: 14px;font-family: "微软雅黑";}
+.compcontent .comcontentR .sharediv .shareitem{ background:url(../images/43.png) center no-repeat; height:30px;}
+
+.compcontent .comcontentR .likecompanydiv{width: 100%;border: 1px solid #EEEEF0;padding: 20px 0px;margin-top: 5px;}
+.compcontent .comcontentR .likecompanydiv .Title{text-align: center;font-size: 14px;font-family: "微软雅黑";}
+.compcontent .comcontentR .likecompanydiv .OneItem{width: 160px;margin-top: 13px;background: url(../images/44.png) 0px no-repeat;padding-left:15px;height: 15px;overflow:hidden; white-space:nowrap;text-overflow:ellipsis; margin-left:20px}
+.compcontent .comcontentR .likecompanydiv .OneItem a{color: #004694;}
+
+.compcontent .comcontentR .CpTips{width: 100%;border: 1px solid #EEEEF0; padding: 10px 0px;margin-top: 5px;}
+.compcontent .comcontentR .CpTips h2{background: url(../images/45.png) 10px no-repeat;font-size: 14px;font-family: '微软雅黑';color: #fa5909;height: 22px;padding-left: 34px;}
+.compcontent .comcontentR .CpTips p{line-height: 25px;width: 222px;padding: 0px 10px;}
+.compcontent .comcontentR .CpTips span{color: #fb550c}
+.compcontent .comcontentR .CpTips a{margin-left: 5px;color: #004694;}
+
+
+.footer{padding-top: 20px;padding-bottom: 20px; clear: both; margin: 20px auto 0 auto;border-top: 1px #E2E2E2 solid;text-align: center;}
+.footer a{color: #3364cb; padding-left:5px; padding-right:5px}
+
+
+/*职位信息*/
+.jobtypeBox{ width:1100px; margin:0 auto; margin-top:47px}
+.jobtypeBox .DivLeft{width: 310px;float: left;background: #F3F5F8;}
+.jobtypeBox .DivLeft .DivCompany{padding: 15px 30px; padding-bottom:60px}
+.jobtypeBox .DivLeft .DivCompany .DivCompany_img{text-align: center;height: 180px;margin-bottom: 15px;}
+.jobtypeBox .DivLeft .DivCompany .DivCompany_img img{border: 3px solid #DADCDF;}
+.jobtypeBox .DivLeft .DivCompany h1{font-family: "微软雅黑";font-size: 20px;color: #000;font-weight: normal;line-height: 26px; padding-bottom: 10px; width: 100%;text-align: center;}
+.jobtypeBox .DivLeft .DivCompany h1 a{ color: #000; font-size: 18px;}
+.jobtypeBox .DivLeft .DivCompany h1 a:hover{ color:#004694}
+.jobtypeBox .DivLeft .DivCompany h1 img{ vertical-align:middle}
+
+.jobtypeBox .DivLeft .DivLeft_1{width: 100%;text-align: center;margin-top: 10px;font-size: 14px; font-family: "微软雅黑";}
+.jobtypeBox .DivLeft .DivLeft_1 .gz1{ float:left;width: 110px;height: 25px;line-height: 25px;background: #50BA8C;text-align: center;cursor: pointer;}
+.jobtypeBox .DivLeft .DivLeft_1 .gz1 a{color: #FFF;}
+.jobtypeBox .DivLeft .DivLeft_1 .gz2{ float:left;width: 120px;height: 25px;line-height: 25px;border: 1px solid #E7E7E7;margin-left: 5px;}
+.jobtypeBox .DivLeft .DivLeft_1 .gz2 span{color: #F96B2D;}
+
+.jobtypeBox .DivLeft .DivLeft_2{margin-top: 15px;}
+.jobtypeBox .DivLeft .DivLeft_2 p{line-height: 25px;}
+.jobtypeBox .DivLeft .DivLeft_2 p a{color: #004694;}
+
+.jobtypeBox .DivLeft .DivLeft_3{margin-top: 25px;border-top: 1px solid #E8E6E6;}
+.jobtypeBox .DivLeft .DivLeft_3 h2{font-size: 14px;font-family: "微软雅黑"; font-weight: normal;width: 85px;margin: 0 auto;margin-top: -12px;background: #F3F5F8; padding: 0px 10px;}
+.jobtypeBox .DivLeft .DivLeft_3 h2 span{ display:inline-block; background: url(../images/46.png) no-repeat;width: 25px;height: 25px;vertical-align: middle;}
+.jobtypeBox .DivLeft .DivLeft_3 p{line-height: 25px;}
+.jobtypeBox .DivLeft .DivLeft_3 p a{color: #004694;}
+
+.jobtypeBox .DivLeft .DivLeft_4{margin-top: 25px;border-top: 1px solid #E8E6E6;}
+.jobtypeBox .DivLeft .DivLeft_4 h2{font-size: 14px;font-family: "微软雅黑"; font-weight: normal;width: 98px;margin: 0 auto;margin-top: -12px;background: #F3F5F8; padding: 0px 10px;}
+.jobtypeBox .DivLeft .DivLeft_4 h2 span{ display:inline-block; background: url(../images/47.png) no-repeat;width: 25px;height: 25px;vertical-align: middle;}
+.jobtypeBox .DivLeft .DivLeft_4 p{line-height: 30px;width: 220px;height: 30px;text-align: center;border: 1px solid #E8E6E6;margin: 0 auto;margin-top: 15px;}
+.jobtypeBox .DivLeft .DivLeft_4 p a{ color:#000}
+
+.jobtypeBox .DivRight{width: 790px;float: right;background: #FFF;}
+.jobtypeBox .DivRight .DivRight_1{margin-top: 5px;float: right;line-height: 20px;color: #898989;}
+.jobtypeBox .DivRight .DivRight_1 a{color: #898989;}
+.jobtypeBox .DivRight .DivRight_2{width: 765px;margin-left: 25px;}
+.jobtypeBox .DivRight .DivRight_2 .divJob_l{ width:570px; float:left; overflow:hidden}
+.jobtypeBox .DivRight .DivRight_2 .divJob_l .tit{ margin-bottom: 15px;line-height: 35px;font-family: "微软雅黑"; }
+.jobtypeBox .DivRight .DivRight_2 .divJob_l .tit h2{ float:left;font-size: 25px;font-weight: normal;white-space: normal; color:#222}
+.jobtypeBox .DivRight .DivRight_2 .divJob_l .tit .ly{ float:left;width: 81px; height: 28px;font-size: 14px;line-height: 28px; padding-left: 35px;vertical-align: middle;color: #F95E0E;cursor: pointer; border:1px solid #ffd4b6;background:url(../images/42.png) 7px center no-repeat; border-radius:8px; margin-left:5px; margin-top:2px}
+.jobtypeBox .DivRight .DivRight_2 .divJob_l .tit .ly a{color: #F95E0E;}
+.jobtypeBox .DivRight .DivRight_2 .divJob_l .bqbox{padding: 10px 0px;line-height: 40px;}
+.jobtypeBox .DivRight .DivRight_2 .divJob_l .bqbox label{float: left;padding: 0px 10px;color: #898989;background: #edf9ff;border: 1px solid #BFE7D5;margin-right: 5px;margin-bottom: 8px;line-height: 21px;}
+.jobtypeBox .DivRight .DivRight_2 .divJob_l .jobsub{ min-width:245px; float:left; height:40px; line-height:40px;border-bottom: 1px dotted #E2E2E2; padding-left:5px;white-space: nowrap;font-size: 14px;font-family: "微软雅黑"; padding-right:30px; overflow:hidden}
+
+.jobtypeBox .DivRight .DivRight_2 .divJob_r{ float:left;width: 170px;height: 170px;text-align: center;padding: 5px 0;}
+.jobtypeBox .DivRight .DivRight_2 .divJob_r .JobShare{width: 170px;height: 170px;text-align: center;padding: 5px 0;}
+.jobtypeBox .DivRight .DivRight_2 .divJob_r .JobShare p img{width: 105px; height: 105px; margin: 10px 0px;}
+.jobtypeBox .DivRight .DivRight_2 .divJob_r .JobShare .shareitem{background:url(../images/43.png) no-repeat; height:30px;}
+
+.jobtypeBox .DivRight .DivRight_2 .divJob_2{ font-family: "微软雅黑";padding: 20px 0px;}
+.jobtypeBox .DivRight .DivRight_2 .divJob_2 .divJob_2_1{ float:left;background: #F96B2D;font-size: 16px;width: 130px;height: 40px;line-height: 40px;font-weight: bold; color:#fff;border-radius: 5px; text-align:center}
+.jobtypeBox .DivRight .DivRight_2 .divJob_2 .divJob_2_2{float:left;font-size: 14px; display: inline-block;height: 20px;line-height: 20px;background: url(../images/48.png) 2px 3px no-repeat;padding-left: 24px;width: 45px; cursor: pointer;color: #707070;margin-left: 20px; margin-top:8px;}
+.jobtypeBox .DivRight .DivRight_2 .divJob_2 .divJob_2_3{float:left;font-size: 14px; display: inline-block;height: 20px;line-height: 20px;background: url(../images/49.png) 2px 1px no-repeat;padding-left: 24px;width: 45px; cursor: pointer;color: #707070;margin-left: 20px; margin-top:8px;}
+
+.jobtypeBox .DivRight .DivRight_2 .divJob_3{line-height: 25px;width: 100%;margin-bottom: 15px; margin-top:20px}
+.jobtypeBox .DivRight .DivRight_2 .divJob_3 b{font-size: 14px;font-family: "微软雅黑";font-weight: normal;line-height: 35px;}
+.jobtypeBox .DivRight .DivRight_2 .divJob_3 .con{}
+
+.jobotherlist{width: 680px; padding-top:20px}
+.jobotherlist .title{font-size: 14px;font-family: "微软雅黑"; color: #666666;font-weight: bold;}
+.jobotherlist .jobtype{border-bottom: 1px dashed #E2E2E2; padding:10px 0}
+.jobotherlist .jobtype p{ height:30px; line-height:30px}
+.jobotherlist .jobtype .jobtypel{ width:620px; float:left}
+.jobotherlist .jobtype .jobtypel a{color: #004694;font-size: 16px;font-family: "微软雅黑";}
+.jobotherlist .jobtype .jobtyper{ width:60px; float:right}
+.jobotherlist .jobtype .jobtyper p{ padding-top:20px}
+.red{ color:red}

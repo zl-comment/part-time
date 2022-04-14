@@ -28,12 +28,12 @@
                 dataType: "json",
         //    <dd><a id="mytab"  href="adminCompaniesList.jsp"   data-id="1" target="iFrm">企业列表</a></dd>
             success:function (data) {
-                    alert(data);
+                   // alert(data);
                     var str = "";
                     var str1="";
                     for (var i = 0; i < data.length; i++) {
                        if(data[i].permname.indexOf("企业")==0||data[i].permname.indexOf("职业")==0) {
-                           alert(data[i].permname.indexOf("企业"));
+                         //  alert(data[i].permname.indexOf("企业"));
                            str += "<dd><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
                        }else{
                            str1 += "<dd><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";

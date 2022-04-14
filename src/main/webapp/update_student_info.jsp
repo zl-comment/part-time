@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<form  class="layui-form" action="StudentServlet?method=updateinfoStudent" method="post" >
+<form  class="layui-form" action="updateinfoStudent" method="post" >
     <input type="hidden" name="id" value="${id}"/>
     <div class="layui-form-item">
         <div class="layui-inline">
