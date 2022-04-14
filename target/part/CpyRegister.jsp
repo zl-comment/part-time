@@ -5,7 +5,7 @@
   Time: 15:04
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +17,7 @@
           content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
     <style type="text/css">
         body {
-            background-image: url(/static/img/lg-bg.jpg);
+            background-image: url(./static/img/lg-bg.jpg);
             background-position: 14px 14px;
             background-repeat: no-repeat;
             background-position: center center;
