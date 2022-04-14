@@ -17,7 +17,7 @@
           content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
     <style type="text/css">
         body {
-            background-image: url(/static/img/lg-bg.jpg);
+            background-image: url(./static/img/lg-bg.jpg);
             background-position: 14px 14px;
             background-repeat: no-repeat;
             background-position: center center;
