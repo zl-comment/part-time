@@ -109,6 +109,9 @@
         delete from stuandoc where id=#{stuandocid}
         </delete>
 
+    <update id="updateOccupationStateAdmin" parameterType="int">
+        update cpyandoc set cpyandoc.state=#{state} where  cpyandoc.occupationid=#{id}
+    </update>
 
 
 </mapper>
