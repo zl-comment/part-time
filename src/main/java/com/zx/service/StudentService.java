@@ -17,4 +17,9 @@ public interface StudentService {
     void updateinfoStudent(Student student, Date date);
 
     Resume createResume(Resume resume);
+
+    Student getStudentInfoById(int id);
+
+    Resume getStudentResumeById(int id);
+
 }

@@ -27,6 +27,7 @@ public class StudentController {
     @Resource
     private StudentService studentService;
 
+
     //初始化绑定方法
     @InitBinder
     public  void initBinder(WebDataBinder binder, HttpServletRequest request){
@@ -86,6 +87,25 @@ public class StudentController {
     }
 
 
+    @RequestMapping("/getStudentInfoById")
+    public String getStudentInfoById(int id){
+
+        Student student = studentService.getStudentInfoById(id);
+        return "update_student_info";
+    }
+
+    @RequestMapping("/getStudentResumeById")
+    public String getStudentResumeById(int id){
+        Resume resume = studentService.getStudentResumeById(id);
+        return "studentResume";
+    }
+
+    /*@RequestMapping("/getOccupations")
+    public String getOccupations(int id){
+
+        Student student = studentService.getStudentInfoById(id);
+        return "update_student_info";
+    }*/
 
 }
 
