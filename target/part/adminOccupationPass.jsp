@@ -5,7 +5,7 @@
   Time: 15:06
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +51,7 @@
         table.render({
             elem: '#occupation'
             ,height: 400
-            ,url: 'AdminServlet?method=getOccupationByPage' //数据接口
+            ,url: 'getOccupationByPage' //数据接口
             ,method:'post'
             ,dataType:'json'
             ,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
@@ -82,7 +82,7 @@
                     "code": res.code, //解析接口状态
                     "msg": res.msg, //解析提示文本
                     "count": res.count, //解析数据长度
-                    "data": res.data.datas //解析数据列表
+                    "data": res.data.list //解析数据列表
                 };
             }
 
@@ -168,7 +168,7 @@
                     var state='1';
                     // layer.alert(JSON.stringify(data));    可以输出  JSON.stringify是将js对象转换为字符串
                     $.ajax({
-                        url:'AdminServlet?method=adminAuditOccupation'
+                        url:'adminAuditOccupation'
                         ,method:'post'
                         ,data:{occupations:JSON.stringify(data),state:state}
                         ,success:function () {
@@ -186,7 +186,7 @@
                     var data = checkStatus.data;
                     var state='-1';
                     $.ajax({
-                        url:'AdminServlet?method=adminAuditOccupation'
+                        url:'adminAuditOccupation'
                         ,method:'post'
                         ,data:{occupations:JSON.stringify(data),state:state}
                         ,success:function () {

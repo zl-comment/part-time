@@ -1,9 +1,6 @@
 package com.zx.service;
 
-import com.zx.beans.Admin;
-import com.zx.beans.Company;
-import com.zx.beans.Page;
-import com.zx.beans.Permission;
+import com.zx.beans.*;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -18,6 +15,14 @@ public interface AdminService {
     Page<Company> getCompanyList( int pagenum,  int pagesize);
 
     List<Permission> selectPermission(int roleid);
+
+    void updateCompanyState(List<Company> companies1, int state);
+
+    Page<Company> getCompanyByCpyNameAndCpyAddress(String cpyName, String cpyAddress, int currectpage, int limit);
+
+    Page<Temporary> getOccupationByPage(int currectpage, int limit);
+
+    void updateOccupationState(List<Temporary> occupations, int state);
 
 
 

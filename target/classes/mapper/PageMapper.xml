@@ -6,12 +6,31 @@
 <mapper namespace="com.zx.dao.PageDao">
 
 
-    <select id="getCompanyByPageAdmin" parameterType="int" resultType="com.zx.beans.Company">
-        select  *from company  LIMIT #{pagenum} ,#{pagesize}
-    </select>
     <select id="getAllCompanyAdmin"  resultType="com.zx.beans.Company">
         select  *from company
     </select>
+
+    <select  id="getCompanyByCpyNameAndCpyAddress" resultType="com.zx.beans.Company" parameterType="java.lang.String"  >
+         select *from company where  1=1
+         <if test="cpyName!=null">
+        and cpyname like concat('%',#{cpyName},'%')
+         </if>
+         <if test="cpyAddress!=null">
+        and cpyaddress like concat('%',#{cpyAddress},'%')
+         </if>
+    </select>
+    <select id="getAllOccupation" resultType="com.zx.beans.Temporary">
+        SELECT o.id,ocname,salary,requirement,workplace,worktime,cao.state,cpyname from occupation o LEFT JOIN  cpyandoc cao on o.id=cao.occupationid LEFT JOIN company c on cao.companyid=c.id where cao.id!=0
+   </select>
+
+<!--    &lt;!&ndash;已发布职业信息&ndash;&gt;
+    <select id="getAllOccupation" resultMap="Occupations" >
+        SELECT o.id,ocname,salary,requirement,workplace,worktime,cao.state,companyid,cpyname,cpyaccount,cpypassword,cpyphone,cpyaddress,cpyinfo,c.state cpystate from occupation o LEFT JOIN  cpyandoc cao on o.id=cao.occupationid LEFT JOIN company c on cao.companyid=c.id where cao.id!=0
+    </select>-->
+
+
+
+
 
 
 </mapper>

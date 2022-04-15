@@ -1,10 +1,12 @@
 package com.zx.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zx.beans.*;
 import com.zx.service.AdminService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @Controller("adminController")
 @SessionAttributes("admin")
@@ -26,7 +29,7 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-   /* @RequestMapping("login")
+    @RequestMapping("adminLogin")
     public String login(String usercode, String password, HttpServletResponse response, HttpServletRequest request){
 
        Admin admin= adminService.adminLogin(usercode,password);
@@ -52,7 +55,7 @@ public class AdminController {
             return "login";
         }
 
-    }*/
+    }
     @RequestMapping("selectPermission")
     public @ResponseBody Object selectPermission(int Roleid){
         System.out.println(Roleid);
@@ -72,7 +75,42 @@ public class AdminController {
         System.out.println(json);
         return adminService.getCompanyList(currectpage,limit);
     }
+    @RequestMapping("adminAuditCompany")
+    public void adminAuditCompany(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String companies=request.getParameter("companies");
+        String state=request.getParameter("state");
+        //将json字符串转为list数组
+        ObjectMapper objectMapper=new ObjectMapper();
+        List<Company> companies1=objectMapper.readValue(companies, new TypeReference<List<Company>>(){});
+        adminService.updateCompanyState(companies1,Integer.parseInt(state));
 
+    }
+    @RequestMapping("getCompanyByCpyNameAndCpyAddress")
+    public @ResponseBody Object getCompanyByCpyNameAndCpyAddress(String cpyName, String cpyAddress, int currectpage, int limit) throws JsonProcessingException {
+
+        System.out.println(cpyName);
+        System.out.println(cpyAddress);
+        Page<Company> page = adminService.getCompanyByCpyNameAndCpyAddress(cpyName, cpyAddress, currectpage, limit);
+
+        return page;
+    }
+    @RequestMapping("getOccupationByPage")
+    public @ResponseBody Object getOccupationByPage(int currectpage, int limit) throws JsonProcessingException {
+
+        Page<Temporary> page = adminService.getOccupationByPage(currectpage, limit);
+
+        return page;
+    }
+    @RequestMapping("adminAuditOccupation")
+    public void adminAuditOccupation(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String occupations=request.getParameter("occupations");
+        String state=request.getParameter("state");
+        //将json字符串转为list数组
+        ObjectMapper objectMapper=new ObjectMapper();
+        List<Temporary> occupations1=objectMapper.readValue(occupations, new TypeReference<List<Temporary>>(){});
+        adminService.updateOccupationState(occupations1,Integer.parseInt(state));
+
+    }
 
 
 

@@ -1,9 +1,14 @@
+
+
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/my51JobDwt.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>我的招聘网</title>
+    <link rel="stylesheet" type="text/css" href="./static/layui/css/layui.css" />
 <style type="text/css">
 
 .aIndex
@@ -36,11 +41,12 @@
 {
 	font-size:12px;
 	color:#FFF;
-	height:33px;
+	height:70px;
 	text-align:center;
 	margin:auto;
 	width:1000px;
 	background-image:url(static/images1/menu-bg1.gif);
+
 }
 
 .div2Index
@@ -166,6 +172,7 @@
 	/*vertical-align:top;*/
 	vertical-align:top;
 	line-height:28px;
+    font-family:"宋体";
 }
 
 .menua
@@ -486,7 +493,18 @@
 {
 	border:0px;
 }
-
+.input-val{
+    position:relative;
+    top: -12px;
+}
+.input{
+    position:relative;
+    top: -12px;
+}
+.input-val{
+    position:relative;
+    top: -12px;
+}
 </style>
 
 
@@ -498,25 +516,32 @@
 <div class="headdwt">
 	<div class="headerleftdwt"><img src="static/images1/logo.gif" /></div>
     <div class="headerrightdwt">
-        <a href="login.jsp" name="pic"><img src="static/images1/menu1-2.gif" class="imgheaderdwt" /></a>
+        <a href="" name="pic"><img src="static/images1/menu1-2.gif" class="imgheaderdwt" /></a>
         <a href="search.html" name="pic"><img src="static/images1/menu2-2.gif" class="imgheaderdwt" /></a>
         <a href="intro.html" name="pic"><img src="static/images1/menu3-2.gif" class="imgheaderdwt" /></a>
+
     </div>
 </div>
 <!-- InstanceBeginEditable name="EditRegion3" -->
 
 <div class="div1">
-    <span class="menuspan">个人会员登录&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-    <span class="menuspan">会员名：&nbsp;&nbsp;&nbsp;&nbsp;</span><input type="text" class="menutxt" />
+    <form action="login" method="post">
+    <span class="menuspan">用户名：&nbsp;&nbsp;</span><input class="input"  type="text" name="usercode" placeholder="请输入用户名" />
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <span class="menuspan">密码：</span>&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" class="menupwd" />
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="button" class="menubtn" />
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="checkbox" />
-    &nbsp;&nbsp;
+    <span class="menuspan">密码：</span>&nbsp;&nbsp;&nbsp;&nbsp;<input  class="input" type="password" name="password" placeholder="请输入密码"  />
+
+        <span class="menuspan">验证码：</span>
+        <input type="text" placeholder="请输入验证码" class="input-val" autocomplete="off" required>
+        <canvas id="canvas" width="100" height="33"></canvas>
+    <button type="submit" class="menubtn"></button>
+    </form>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="myInformation?user=${user}"> <span class="menuspan">用户信息</span></a>
+        <a href="CpyRegister.jsp"> <span class="menuspan" >企业注册</span></a>
+        <a href="StudentRegister.jsp"> <span class="menuspan">学生注册</span></a>
+  <%--  <input type="checkbox" />
+    &nbsp;
     <span class="menuspan">自动登录</span>
-    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="menua">新会员注册</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="menua">新会员注册</a>--%>
 </div>
 <!--登录栏结束-->
 <!--第一个模块开始-->
@@ -532,12 +557,12 @@
         	<input type="text" style="margin-top:5px; margin-bottom:5px;" />
             <span class="span12Index">例如：软件工程师</span>
             <span class="span12Index">或&nbsp;项目经理&nbsp;互联网</span>
-            <input type="button" style="background-image:url(images/search.gif); width:70px; height:30px; border:0px; margin-left:40px" />
+            <input type="button" style="background-image:url(static/images1/search.gif); width:70px; height:30px; border:0px; margin-left:40px" />
         </form>
     </div>
     <div class="div13Index">
     	欢迎光临招聘网
-        <a href="company.html" id="index13"><img src="static/images1/index-7.gif" style="border:0px" /></a>
+        <a href="company.html" id="index13"><img src="static/images1/index-7.gif"  style=" border:0px" alt="加载中"/></a>
         <span style="margin-right:5px">▪</span><a href="#" class="a1Index">深圳高新技术人才专场招聘会</a>&nbsp;&nbsp;&nbsp;&nbsp;<span style="margin-right:5px">▪</span><a href="#" class="a1Index">近期预告敬请关注</a>
     </div>
     <div class="div14Index">
@@ -949,7 +974,7 @@
   <span class="spandwt">个人求职&nbsp;Email:club@51job.com&nbsp;&nbsp;或垂询:800-820-5100</span>
   <span class="spandwt">未经本招聘网站同意，不得转载本网站之所有招聘信息及作品</span>
   <span class="spandwt">无忧工作网版权所有&copy;1999-2007</span>
-  <span class="spandwt"><a href="index1.html"><img src="static/images1/bottom1.gif" class="imgdwt" /></a></span>
+  <span class="spandwt"><a href="index1.jsp"><img src="static/images1/bottom1.gif" class="imgdwt" /></a></span>
 </div>
 
 <!-- InstanceBeginEditable name="EditRegion4" -->
@@ -960,7 +985,7 @@ var indexIndex=5;
 function index1()
 {
 	
-	var imgindex=document.getElementById("index13").innerHTML="<img src='images/index-"+indexIndex+".gif' style='border:0px' />";
+	var imgindex=document.getElementById("index13").innerHTML="<img src='static/images1/index-"+indexIndex+".gif' style='border:0px' />";
 	indexIndex++;
 	if(indexIndex>7)
 	{
@@ -1146,6 +1171,95 @@ onload=startThis;
 onscroll=moveIndexStatic;
 
 </script>
+
+<!--
+描述：验证码部分代码
+-->
+<script src="./static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script src="./static/layui/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<!--验证码-->
+<script>
+    $(function() {
+        var show_num = [];
+        draw(show_num);
+
+        $("#canvas").on('click', function() {
+            draw(show_num);
+        })
+        $("#submit").on('click', function() {
+            var val = $(".input-val").val().toLowerCase();
+            console.log(val)
+            var num = show_num.join("");
+            if (val == '') {
+                alert('请输入验证码！');
+            } else if (val == num) {
+                // alert('提交成功！');
+                //   $(".input-val").val('');
+                draw(show_num);
+
+            } else {
+                alert('验证码错误！请重新输入！');
+                $(".input-val").val('');
+                draw(show_num);
+            }
+        })
+    })
+
+    function draw(show_num) {
+        var canvas_width = $('#canvas').width();
+        var canvas_height = $('#canvas').height();
+        var canvas = document.getElementById("canvas"); //获取到canvas的对象，演员
+        var context = canvas.getContext("2d"); //获取到canvas画图的环境，演员表演的舞台
+        canvas.width = canvas_width;
+        canvas.height = canvas_height;
+        var sCode = "A,B,C,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,W,X,Y,Z,1,2,3,4,5,6,7,8,9,0";
+        var aCode = sCode.split(",");
+        var aLength = aCode.length; //获取到数组的长度
+
+        for (var i = 0; i <= 3; i++) {
+            var j = Math.floor(Math.random() * aLength); //获取到随机的索引值
+            var deg = Math.random() * 30 * Math.PI / 180; //产生0~30之间的随机弧度
+            var txt = aCode[j]; //得到随机的一个内容
+            show_num[i] = txt.toLowerCase();
+            var x = 10 + i * 20; //文字在canvas上的x坐标
+            var y = 20 + Math.random() * 8; //文字在canvas上的y坐标
+            context.font = "bold 23px 微软雅黑";
+
+            context.translate(x, y);
+            context.rotate(deg);
+
+            context.fillStyle = randomColor();
+            context.fillText(txt, 0, 0);
+
+            context.rotate(-deg);
+            context.translate(-x, -y);
+        }
+        for (var i = 0; i <= 5; i++) { //验证码上显示线条
+            context.strokeStyle = randomColor();
+            context.beginPath();
+            context.moveTo(Math.random() * canvas_width, Math.random() * canvas_height);
+            context.lineTo(Math.random() * canvas_width, Math.random() * canvas_height);
+            context.stroke();
+        }
+        for (var i = 0; i <= 30; i++) { //验证码上显示小点
+            context.strokeStyle = randomColor();
+            context.beginPath();
+            var x = Math.random() * canvas_width;
+            var y = Math.random() * canvas_height;
+            context.moveTo(x, y);
+            context.lineTo(x + 1, y + 1);
+            context.stroke();
+        }
+    }
+
+    function randomColor() { //得到随机的颜色值
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return "rgb(" + r + "," + g + "," + b + ")";
+    }
+</script>
+
 <!-- InstanceEndEditable -->
 </body>
 <!-- InstanceEnd --></html>

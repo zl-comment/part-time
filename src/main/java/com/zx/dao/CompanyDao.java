@@ -35,7 +35,7 @@ public interface CompanyDao {
 
     public int getCompanyCountAdmin();
 
-    void updateCompanyState(@Param("id") int id,@Param("state") int state);   //修改了把拒绝与通过合在一起
+    void updateCompanyStateAdmin(@Param("id") int id,@Param("state") int state);   //修改了把拒绝与通过合在一起
 
     int selectCompanyCountAdmin(String cpyname,String cpyaddress);
 

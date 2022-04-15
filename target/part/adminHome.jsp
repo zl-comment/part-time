@@ -155,7 +155,7 @@
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
                         <%--主页登录之后开始显示的页面--%>
-                        <iframe id="home"   name="iFrm" frameborder="0" src="allHome.jsp"  ></iframe>
+                        <iframe id="home"   name="iFrm" frameborder="0" src="index1.jsp"  ></iframe>
                     </div>
                 </div>
             </div>

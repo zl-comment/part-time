@@ -50,7 +50,7 @@ public class LoginController {
                response.addCookie(cookie);
                session.setAttribute("user",student);
                System.out.println(session);
-               return "redirect:allHome.jsp";
+               return "redirect:index1.jsp";
 
            }else if (object instanceof Company) {
                Company company = (Company) object;
@@ -66,11 +66,11 @@ public class LoginController {
                response.addCookie(cookie);
                session.setAttribute("user",company);
                System.out.println(session);
-               return "redirect:allHome.jsp";
+               return "redirect:index1.jsp";
            }
        }else
            System.out.println("登录失败");
-           return "login";
+           return "index1";
 
     }
     @RequestMapping("myInformation")
@@ -83,7 +83,7 @@ public class LoginController {
         }
         else {
             System.out.println("没有登录");
-            return "redirect:login.jsp";
+            return "redirect:index1.jsp";
         }
     }
 

@@ -34,4 +34,5 @@ public interface OccupationDao {
     void deleteOccupationsByIdStudent(int stuandocid);
 
 
+    void updateOccupationStateAdmin(@Param("id") int id,@Param("state") int state);
 }

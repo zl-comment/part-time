@@ -89,7 +89,7 @@
 
                 //执行重载 搜索之后返回的数据 重载在company数据表格中
                 table.reload('company', {
-                    url:'AdminServlet?method=getCompanyByCpyNameByPage'
+                    url:'getCompanyByCpyNameAndCpyAddress'
                     ,method:'post'
                     ,request:{
                     pageName:'currectpage'  //起始页改名字 默认1
@@ -98,8 +98,8 @@
                         curr: 1 //重新从第 1 页开始
                     }
                     ,where: {
-                        cpyname: cpyname.val(),
-                        cpyaddress:cpyaddress.val()
+                        cpyName: cpyname.val(),
+                        cpyAddress:cpyaddress.val()
                     }
                 });
             }
