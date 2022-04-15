@@ -5,7 +5,7 @@
   Time: 10:06
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<form  class="layui-form" action="StudentServlet?method=updateinfoStudent" method="post" >
+<form  class="layui-form" action="updateinfoStudent" method="post" >
     <input type="hidden" name="id" value="${id}"/>
     <div class="layui-form-item">
         <div class="layui-inline">

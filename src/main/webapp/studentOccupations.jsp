@@ -47,7 +47,7 @@
             <td>${occupation.salary}</td>
             <td>${occupation.workplace}</td>
             <td>${occupation.worktime}</td>
-            <td><a href="StudentServlet?method=deleteOccupationsByIdStudent&stuandocid=${occupation.stuandocid}&studentid=${studentid}" class="tablelink"> 删除</a></td>
+            <td><a href="deleteOccupationsByIdStudent?+stuandocid=${occupation.stuandocid}&studentid=${studentid}" class="tablelink"> 删除</a></td>
         </tr>
     </c:forEach>
     </tbody>

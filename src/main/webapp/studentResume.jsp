@@ -55,6 +55,7 @@
     <tbody>
         <tr>
             <td>${resume.name}</td>
+
             <td>${resume.age}</td>
             <td>${resume.imaurl}</td>
             <td>${resume.address}</td>
