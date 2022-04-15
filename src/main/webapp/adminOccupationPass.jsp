@@ -34,6 +34,12 @@
     <div class="layui-inline">
         <input class="layui-input" name="workplace" id="workplace" autocomplete="off" placeholder="请输入工作地点">
     </div>
+    <div class="layui-inline">
+        <input class="layui-input" name="requirement" id="requirement" autocomplete="off" placeholder="请输入工作需求">
+    </div>
+    <div class="layui-inline">
+        <input class="layui-input" name="cpyname" id="cpyname" autocomplete="off" placeholder="请输入公司名称">
+    </div>
     <button class="layui-btn" data-type="reload">搜索</button>
 </div>
 <table class="layui-hide" id="test"></table>
@@ -95,10 +101,14 @@
                 reload: function(){
                     var ocname = $('#ocname');
                     var workplace = $('#workplace');
+                    var requirement=$("#requirement");
+                    var cpyname=$("#cpyname");
+
+
 
                     //执行重载 搜索之后返回的数据 重载在company数据表格中
                     table.reload('occupation', {
-                        url:'AdminServlet?method=getOccupationByOcNameByPage'
+                        url:'getOccupationByOcNameByPage'
                         ,method:'post'
                         ,request:{
                             pageName:'currectpage'  //起始页改名字 默认1
@@ -107,8 +117,11 @@
                             curr: 1 //重新从第 1 页开始
                         }
                         ,where: {
-                            ocname: ocname.val(),
-                            workplace:workplace.val()
+                            ocName: ocname.val(),
+                            workPlace:workplace.val(),
+                            cpyName:cpyname.val(),
+                            requirement:requirement.val()
+
                         }
                     });
                 }

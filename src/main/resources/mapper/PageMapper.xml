@@ -19,16 +19,25 @@
         and cpyaddress like concat('%',#{cpyAddress},'%')
          </if>
     </select>
-    <select id="getAllOccupation" resultType="com.zx.beans.Temporary">
+    <select id="getAllOccupation" resultType="com.zx.beans.Temporary" useCache="true" >
         SELECT o.id,ocname,salary,requirement,workplace,worktime,cao.state,cpyname from occupation o LEFT JOIN  cpyandoc cao on o.id=cao.occupationid LEFT JOIN company c on cao.companyid=c.id where cao.id!=0
    </select>
 
-<!--    &lt;!&ndash;已发布职业信息&ndash;&gt;
-    <select id="getAllOccupation" resultMap="Occupations" >
-        SELECT o.id,ocname,salary,requirement,workplace,worktime,cao.state,companyid,cpyname,cpyaccount,cpypassword,cpyphone,cpyaddress,cpyinfo,c.state cpystate from occupation o LEFT JOIN  cpyandoc cao on o.id=cao.occupationid LEFT JOIN company c on cao.companyid=c.id where cao.id!=0
-    </select>-->
-
-
+    <select id="getOccupationByOcName" resultType="com.zx.beans.Temporary" >
+        SELECT  o.id,ocname,salary,requirement,workplace,worktime,cao.state,cpyname from occupation o LEFT JOIN  cpyandoc cao on o.id=cao.occupationid LEFT JOIN company c on cao.companyid=c.id where cao.id!=0 and 1=1
+        <if test="ocName!=null">
+        and ocname like concat('%',#{ocName},'%')
+        </if>
+       <if test="cpyName!=null">
+        and cpyname like concat('%',#{cpyName},'%')
+        </if>
+       <if test="workPlace!=null">
+        and workplace like concat('%',#{workPlace},'%')
+        </if>
+       <if test="requirement!=null">
+        and requirement like concat('%',#{requirement},'%')
+        </if>
+    </select>
 
 
 

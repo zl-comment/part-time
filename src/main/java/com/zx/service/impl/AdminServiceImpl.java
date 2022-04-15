@@ -121,5 +121,15 @@ public class AdminServiceImpl  implements AdminService {
         }
 
     }
+
+    @Override
+    public Page<Temporary> getOccupationByOcName(String ocName, String workPlace, String cpyName, String requirement, int currectpage, int limit) {
+        System.out.println(ocName+" "+workPlace+" "+cpyName+" "+" "+requirement);
+        PageDao pageDao=sqlSessionTemplate.getMapper(PageDao.class);
+        Page<Temporary> page=new Page<>();
+        PageHelper.startPage(currectpage,limit);
+        List<Temporary> occupations=pageDao.getOccupationByOcName(ocName,workPlace,cpyName,requirement);
+        return getOccupationPage(page, occupations);
+    }
 }
 

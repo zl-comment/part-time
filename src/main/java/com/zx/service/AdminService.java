@@ -16,13 +16,19 @@ public interface AdminService {
 
     List<Permission> selectPermission(int roleid);
 
+    @Transactional(propagation = Propagation.REQUIRED)
     void updateCompanyState(List<Company> companies1, int state);
 
     Page<Company> getCompanyByCpyNameAndCpyAddress(String cpyName, String cpyAddress, int currectpage, int limit);
 
     Page<Temporary> getOccupationByPage(int currectpage, int limit);
 
+    @Transactional(propagation = Propagation.REQUIRED)
     void updateOccupationState(List<Temporary> occupations, int state);
+
+
+    Page<Temporary> getOccupationByOcName(String ocName, String workPlace, String cpyName,  String requirement, int currectpage, int limit);
+
 
 
 

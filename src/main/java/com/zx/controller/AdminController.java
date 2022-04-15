@@ -111,6 +111,11 @@ public class AdminController {
         adminService.updateOccupationState(occupations1,Integer.parseInt(state));
 
     }
+    @RequestMapping("getOccupationByOcNameByPage")
+    public @ResponseBody Object  getOccupationByOcNameByPage(String ocName ,String workPlace,String cpyName,String requirement,int currectpage, int limit) throws JsonProcessingException {
+        Page<Temporary> page = adminService.getOccupationByOcName(ocName,workPlace,cpyName,requirement,currectpage, limit);
+        return page;
+    }
 
 
 
