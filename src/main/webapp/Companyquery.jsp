@@ -19,7 +19,7 @@
 </head>
 
 <body>
-<form  method="post" action="CompanyServlet?method=updateCompanyById&&companyid=${company.id}">
+<form  method="post" action="updateCompanyById?companyid=${company.id}">
     <div class="layui-form-item">
         <h1>公&nbsp;司&nbsp;信&nbsp;息&nbsp;查&nbsp;看</h1>
     </div>

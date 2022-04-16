@@ -17,7 +17,7 @@
           content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
     <style type="text/css">
         body {
-            background-image: url(/static/img/lg-bg.jpg);
+            background-image: url(./static/img/lg-bg.jpg);
             background-position: 14px 14px;
             background-repeat: no-repeat;
             background-position: center center;
@@ -135,7 +135,7 @@
 
 <script src="./static/js/jquery.min.js"></script>
 
-
+<%--
 <script>
     $(function () {
 
@@ -157,7 +157,7 @@
         })
     })
 
-</script>
+</script>--%>
 
 
 
@@ -165,7 +165,7 @@
 
 
 <body>
-<form class="layui-form" action="CompanyServlet?method=Register" id="loginForm" method="post">
+<form class="layui-form" action="Register" id="loginForm" method="post">
     <div class="layui-form-item">
         <h1>公&nbsp;司&nbsp;用&nbsp;户&nbsp;注&nbsp;册</h1>
     </div>
@@ -187,13 +187,13 @@
         </div>
     </div>
 
-    <div class="layui-form-item">
+   <%-- <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">确认密码：</span>
             <input type="password" name="cpypassword1" placeholder="请再次输入密码" autocomplete="off" class="layui-input"
                    required>
         </div>
-    </div>
+    </div>--%>
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">公司名称：</span>
