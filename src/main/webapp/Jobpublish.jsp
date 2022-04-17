@@ -61,7 +61,7 @@
                 <div class="col_1_of_2 span_1_of_2">
                     <div class="contact-form">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <form method="post" action="OccupationServlet?method=Jobpublish" >
+                        <form method="post" action="Jobpublish" >
 
 
                             <div>

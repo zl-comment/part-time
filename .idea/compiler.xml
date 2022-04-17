@@ -9,6 +9,7 @@
         <module name="part-time2" />
         <module name="part-time3" />
         <module name="part" />
+        <module name="part-time" />
       </profile>
     </annotationProcessing>
   </component>

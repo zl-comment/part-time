@@ -45,7 +45,7 @@
           var str = "";
           for (var i = 0; i < data.length; i++) {
               //  alert(data[i].permname.indexOf("企业"));
-              str += "<dd><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
+              str += "<li class=\"layui-nav-item\"><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></li>";
           }
           $("#user").html(str);
         }

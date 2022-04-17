@@ -16,6 +16,7 @@
     </plugins>
     <!--配置mybatis的映射文件-->
     <mappers>
+        <mapper resource="mapper/ResumeMapper.xml"/>
         <mapper resource="mapper/AdminMapper.xml"/>
         <mapper resource="mapper/CompanyMapper.xml"/>
         <mapper resource="mapper/PageMapper.xml"/>

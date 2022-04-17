@@ -61,40 +61,39 @@
                 <div class="col_1_of_2 span_1_of_2">
                     <div class="contact-form">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <form method="post" action="OccupationServlet?method=updateoccupationById&&ocid=${oc.id}">
-                            ${companyid}
+                        <form method="post" action="updateOccupationById">
                             <div>
-                                <input  type="hidden"  name="companyid"  value="${companyid}">   <%--gongsiid--%>
+                                <input  type="hidden"  name="ocid"  value="${occupation.id}">   <%--gongsiid--%>
                             </div>
 
                             <div>
                                 <span><label>职位名称</label></span>
-                                <input   name="ocname"  value="${oc.ocname}">
+                                <input   name="ocname"  value="${occupation.ocname}">
                             </div>
                             <div>
                                 <span><label>工作地点</label></span>
 
-                                <input  name="workplace"  value="${oc.workplace}">
+                                <input  name="workplace"  value="${occupation.workplace}">
                             </div>
                             <div>
                                 <span><label>工作时间</label></span>
 
-                                <input   name="worktime" value="${oc.worktime}">
+                                <input   name="worktime" value="${occupation.worktime}">
                             </div>
 
                             <div>
                                 <span><label>工作薪水</label></span>
 
-                                <input   name="salary" value="${oc.salary}">
+                                <input   name="salary" value="${occupation.salary}">
                             </div>
 
                             <div>
                                 <span><label>招聘要求</label></span>
-                                <input   name="requirement" value="${oc.requirement}">
+                                <input   name="requirement" value="${occupation.requirement}">
                             </div>
 
-                            <div class="button" >
-                                <span><a href="OccupationServlet?method=getOccupations&&companyid=${companyid}"  >返回</a></span>
+                            <div class="button" >    <%--你的ocid只在这传，传给jobQuery 那在传一下么，那就写在页面中--%>
+                                <span><a href="getOccupationsCompany?ocid=${occupation.id}&&companyid=${companyid}"  >返回</a></span>
                             </div>
                             <div>
                                 <span><input type="submit"  value="修改"></span>

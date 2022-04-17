@@ -38,7 +38,7 @@
     <resultMap id="CompanyOccupation2" type="com.zx.beans.Company">
         <id property="id" column="id"/>
         <collection property="occupations"  column="id" ofType="com.zx.beans.Occupation">
-            <id property="id" column="occupationid"/>
+            <id property="id" column="ocid"/>
             <result property="ocname" column="ocname"/>
             <result property="salary" column="salary"/>
             <result property="requirement" column="requirement"/>
@@ -56,11 +56,11 @@
     </select>
 
     <delete id="deleteCpyandocById" parameterType="int">
-        delete from cpyandoc where id=#{id}
+        delete from cpyandoc where id=#{cpyandocid}
     </delete>
 
     <delete id="deleteOccupationById" parameterType="int">
-        delete from occupation where id=#{id}
+        delete from occupation where id=#{ocid}
 
     </delete>
 

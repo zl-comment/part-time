@@ -30,7 +30,7 @@
         </collection>
     </resultMap>
 
-<insert id="Register" parameterType="String" >
+<insert id="Register" parameterType="java.lang.String" >
     insert into company values (null,#{cpyaccount},#{cpypassword},#{cpyname},#{cpyphone},#{cpyaddress},#{cpyinfo},null)
 </insert>
 
@@ -47,7 +47,7 @@
 </select>
 
 <update id="updateCompanyById"    parameterType="com.zx.beans.Company">
-    update company set cpyname = #{cpyname},cpyaccount = #{cpyaccount},cpypassword = #{cpypassword},cpyphone = #{cpyphone},cpyaddress = #{cpyaddress},cpyinfo =#{cpyinfo}   where id=#{id}
+    update company set cpyname = #{company.cpyname},cpyaccount = #{company.cpyaccount},cpypassword = #{company.cpypassword},cpyphone = #{company.cpyphone},cpyaddress = #{company.cpyaddress},cpyinfo =#{company.cpyinfo}   where id=#{company.id}
 </update>
 
 <!--<select id="getAdmissionById"   parameterType="int"  resultMap="companyOccupation">

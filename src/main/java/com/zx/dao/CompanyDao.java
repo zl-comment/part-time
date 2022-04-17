@@ -27,13 +27,13 @@ public interface CompanyDao {
 
 
     Company getCompanyById(int companyid);    //Company的
-    void updateCompanyById(Company company);  //Company的
+    void updateCompanyById(@Param("company") Company company);  //Company的
 
 /*    ArrayList<Occupation> getAdmissionById(int  companyid);*/
     ArrayList<Student> getAdmissionById(int  companyid);
 
 
-    public int getCompanyCountAdmin();
+    int getCompanyCountAdmin();
 
     void updateCompanyStateAdmin(@Param("id") int id,@Param("state") int state);   //修改了把拒绝与通过合在一起
 
