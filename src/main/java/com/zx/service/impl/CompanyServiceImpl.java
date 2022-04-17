@@ -82,7 +82,7 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public Resume getStudentResume(int resumeid){
         resumeDao = sqlSessionTemplate.getMapper(ResumeDao.class);
-        Resume resume = resumeDao.getStudentResume(resumeid);
+        Resume resume = resumeDao.getStudentResumeById(resumeid);
         return resume;
     }
 

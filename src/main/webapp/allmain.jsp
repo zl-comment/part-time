@@ -48,6 +48,10 @@
               str += "<li class=\"layui-nav-item\"><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></li>";
           }
           $("#user").html(str);
+          layui.use('element', function() {
+            var element = layui.element;
+            element.init();
+          });
         }
 
       })
