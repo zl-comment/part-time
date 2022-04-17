@@ -88,15 +88,18 @@ public class StudentController {
 
 
     @RequestMapping("/getStudentInfoById")
-    public String getStudentInfoById(int id){
-
-        Student student = studentService.getStudentInfoById(id);
+    public String getStudentInfoById(HttpServletRequest request ){
+        Object object=request.getSession().getAttribute("user");
+        Student student = studentService.getStudentInfoById(((Student)object).getId());
+        request.setAttribute("student",student);
         return "update_student_info";
     }
 
     @RequestMapping("/getStudentResumeById")
-    public String getStudentResumeById(int id){
-        Resume resume = studentService.getStudentResumeById(id);
+    public String getStudentResumeById(HttpServletRequest request ){
+        Object object=request.getSession().getAttribute("user");
+        Resume resume = studentService.getStudentResumeById(((Student)object).getStresumeid());
+        request.setAttribute("resume",resume);
         return "studentResume";
     }
 

@@ -517,8 +517,8 @@
 	<div class="headerleftdwt"><img src="static/images1/logo.gif" /></div>
     <div class="headerrightdwt">
         <a href="" name="pic"><img src="static/images1/menu1-2.gif" class="imgheaderdwt" /></a>
-        <a href="search.html" name="pic"><img src="static/images1/menu2-2.gif" class="imgheaderdwt" /></a>
-        <a href="intro.html" name="pic"><img src="static/images1/menu3-2.gif" class="imgheaderdwt" /></a>
+        <a href="search.jsp" name="pic"><img src="static/images1/menu2-2.gif" class="imgheaderdwt" /></a>
+        <a href="intro.jsp" name="pic"><img src="static/images1/menu3-2.gif" class="imgheaderdwt" /></a>
 
     </div>
 </div>
@@ -547,9 +547,9 @@
 <!--第一个模块开始-->
 <div class="div1Index">
 	<div class="div11Index">
-    	<a href="company.html"><img src="static/images1/index-2.gif" class="img1" /></a>
-        <a href="company.html"><img src="static/images1/index-3.gif" class="img1" /></a>
-        <a href="company.html"><img src="static/images1/index-4.gif" class="img1" /></a>
+    	<a href="company.jsp"><img src="static/images1/index-2.gif" class="img1" /></a>
+        <a href="company.jsp"><img src="static/images1/index-3.gif" class="img1" /></a>
+        <a href="company.jsp"><img src="static/images1/index-4.gif" class="img1" /></a>
     </div>
     <div class="div12Index">
     	<form class="form1Index">
@@ -562,7 +562,7 @@
     </div>
     <div class="div13Index">
     	欢迎光临招聘网
-        <a href="company.html" id="index13"><img src="static/images1/index-7.gif"  style=" border:0px" alt="加载中"/></a>
+        <a href="company.jsp" id="index13"><img src="static/images1/index-7.gif" style=" border:0px" alt="加载中"/></a>
         <span style="margin-right:5px">▪</span><a href="#" class="a1Index">深圳高新技术人才专场招聘会</a>&nbsp;&nbsp;&nbsp;&nbsp;<span style="margin-right:5px">▪</span><a href="#" class="a1Index">近期预告敬请关注</a>
     </div>
     <div class="div14Index">
@@ -594,32 +594,32 @@
 <div class="div2Index">
 	<img src="static/images1/index-1.gif" />
     <marquee class="marqueeIndex" direction="left" onmouseover="this.stop()" onmouseout="this.start()">
-    	<a href="company.html" class="aMarqueeIndex">武汉红孩子信息技术有限公司</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">海南优美内衣有限公司</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">武汉第三空间建筑装饰设计工程</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">武汉鑫凌铭泰汽车销售有限公司</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">武汉晟添华广告有限公司</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">华艺墙纸布艺市场有限公司</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">深圳市爱迪星电子科技有限公司武汉</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">伊莎美尔</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">武汉美苑广告印务有限公司</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">卓著装饰</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">武汉市捷强智能门控工程有限公司</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">武汉沿极建筑技术有限公司</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">武汉东云阁酒店管理有限公司</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">武汉市中创环亚建筑景观设计工程</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">法国伊丝艾拉内衣</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">达诚医药</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">ERUNER湖北分公司</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">湖北伟业房地产有限公司</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">华闻期货武昌营业部</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">武汉华城运输有限公司</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">武汉百纳装饰工程有限公司</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">星月门业</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">四合园酒店</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">锐色力奥品牌策略机构</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">武汉凯比亚电池科技有限公司</a>&nbsp;&nbsp;
-        <a href="company.html" class="aMarqueeIndex">武汉绍兴老酒饮食有限公司</a>
+    	<a href="company.jsp" class="aMarqueeIndex">武汉红孩子信息技术有限公司</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">海南优美内衣有限公司</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">武汉第三空间建筑装饰设计工程</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">武汉鑫凌铭泰汽车销售有限公司</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">武汉晟添华广告有限公司</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">华艺墙纸布艺市场有限公司</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">深圳市爱迪星电子科技有限公司武汉</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">伊莎美尔</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">武汉美苑广告印务有限公司</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">卓著装饰</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">武汉市捷强智能门控工程有限公司</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">武汉沿极建筑技术有限公司</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">武汉东云阁酒店管理有限公司</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">武汉市中创环亚建筑景观设计工程</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">法国伊丝艾拉内衣</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">达诚医药</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">ERUNER湖北分公司</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">湖北伟业房地产有限公司</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">华闻期货武昌营业部</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">武汉华城运输有限公司</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">武汉百纳装饰工程有限公司</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">星月门业</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">四合园酒店</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">锐色力奥品牌策略机构</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">武汉凯比亚电池科技有限公司</a>&nbsp;&nbsp;
+        <a href="company.jsp" class="aMarqueeIndex">武汉绍兴老酒饮食有限公司</a>
     </marquee>
 </div>
 
@@ -628,17 +628,17 @@
 
 <!--第三个模块开始-->
 <div class="brandsIndex">
-	<div style="float:left; height:130px; width:320px"><a href="company.html"><img border="0" src="static/images1/index-ad1.gif" /></a></div>
-    <div style="float:right; height:65px; width:320px"><a href="company.html"><img border="0" src="static/images1/index-ad4.gif" /></a></div>
-    <div style="float:right; height:65px; width:320px"><a href="company.html"><img border="0" src="static/images1/index-ad2.gif" /></a></div>
-    <div style="float:right; height:65px; width:320px"><a href="company.html"><img border="0" src="static/images1/index-ad5.gif" /></a></div>
-    <div style="float:right; height:65px; width:320px"><a href="company.html"><img border="0" src="static/images1/index-ad6.gif" /></a></div>
-    <div style="float:left; height:65px; width:320px"><a href="company.html"><img border="0" src="static/images1/index-ad7.gif" /></a></div>
-    <div style="float:left; height:65px; width:320px"><a href="company.html"><img border="0" src="static/images1/index-ad9.gif" /></a></div>
-    <div style="float:left; width:320px; height:65px"><a href="company.html"><img border="0" src="static/images1/index-ad11.gif" /></a></div>
-    <div style="float:left; width:320px; height:65px"><a href="company.html"><img border="0" src="static/images1/index-ad8.gif" /></a></div>
-    <div style="float:left; width:320px; height:65px"><a href="company.html"><img border="0" src="static/images1/index-ad10.gif" /></a></div>
-    <div style="float:left; width:320px; height:65px"><a href="company.html"><img border="0" src="static/images1/index-ad12.gif" /></a></div>
+	<div style="float:left; height:130px; width:320px"><a href="company.jsp"><img border="0" src="static/images1/index-ad1.gif" /></a></div>
+    <div style="float:right; height:65px; width:320px"><a href="company.jsp"><img border="0" src="static/images1/index-ad4.gif" /></a></div>
+    <div style="float:right; height:65px; width:320px"><a href="company.jsp"><img border="0" src="static/images1/index-ad2.gif" /></a></div>
+    <div style="float:right; height:65px; width:320px"><a href="company.jsp"><img border="0" src="static/images1/index-ad5.gif" /></a></div>
+    <div style="float:right; height:65px; width:320px"><a href="company.jsp"><img border="0" src="static/images1/index-ad6.gif" /></a></div>
+    <div style="float:left; height:65px; width:320px"><a href="company.jsp"><img border="0" src="static/images1/index-ad7.gif" /></a></div>
+    <div style="float:left; height:65px; width:320px"><a href="company.jsp"><img border="0" src="static/images1/index-ad9.gif" /></a></div>
+    <div style="float:left; width:320px; height:65px"><a href="company.jsp"><img border="0" src="static/images1/index-ad11.gif" /></a></div>
+    <div style="float:left; width:320px; height:65px"><a href="company.jsp"><img border="0" src="static/images1/index-ad8.gif" /></a></div>
+    <div style="float:left; width:320px; height:65px"><a href="company.jsp"><img border="0" src="static/images1/index-ad10.gif" /></a></div>
+    <div style="float:left; width:320px; height:65px"><a href="company.jsp"><img border="0" src="static/images1/index-ad12.gif" /></a></div>
 </div>
 
 <!--第三个模块结束-->
@@ -967,7 +967,7 @@
 <!-- InstanceEndEditable -->
 </div>
 <div class="divdwt">
-	网站导航&nbsp;&nbsp;|&nbsp;&nbsp;<a href="index.html" class="adwt">网站首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="search.html" class="adwt">职位搜索</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="login.jsp" class="adwt">Myjob</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="register.jsp" class="adwt">用户注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="login.html" class="adwt">用户登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="intro.html" class="adwt">简历管理</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="company.html" class="adwt">招聘公司</a>
+	网站导航&nbsp;&nbsp;|&nbsp;&nbsp;<a href="index.html" class="adwt">网站首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="search.jsp" class="adwt">职位搜索</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="login.jsp" class="adwt">Myjob</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="register.jsp" class="adwt">用户注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="studentLogin.jsp" class="adwt">用户登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="intro.jsp" class="adwt">简历管理</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="company.jsp" class="adwt">招聘公司</a>
 </div>
 <div>
   <span class="spandwt">人才招聘&nbsp;Email:hr@51job.com</span>
