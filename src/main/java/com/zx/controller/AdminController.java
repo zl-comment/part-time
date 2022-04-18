@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zx.beans.*;
 import com.zx.service.AdminService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -117,6 +118,13 @@ public class AdminController {
         return page;
     }
 
+    @RequestMapping("getCompanyByIdAndOccupation")
+    public String getCompanyByIdAndOccupation(String companyId, Model model){
+        Company company=adminService.getCompanyByIdAndOccupation(Integer.parseInt(companyId));
+        model.addAttribute("company",company);
+        return "adminCompanysp";
+
+    }
 
 
 }

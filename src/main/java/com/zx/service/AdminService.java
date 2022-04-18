@@ -29,6 +29,8 @@ public interface AdminService {
 
     Page<Temporary> getOccupationByOcName(String ocName, String workPlace, String cpyName,  String requirement, int currectpage, int limit);
 
+    Company getCompanyByIdAndOccupation(int companyId);
+
 
 
 

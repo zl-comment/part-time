@@ -102,7 +102,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${occupations}" var="occupation">
+                <c:forEach items="${company.occupations}" var="occupation">
                     <tr>
                         <td>${occupation.ocname}</td>
                         <td>${occupation.salary}</td>

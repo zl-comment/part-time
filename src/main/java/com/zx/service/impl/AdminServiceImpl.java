@@ -131,5 +131,12 @@ public class AdminServiceImpl  implements AdminService {
         List<Temporary> occupations=pageDao.getOccupationByOcName(ocName,workPlace,cpyName,requirement);
         return getOccupationPage(page, occupations);
     }
+
+    @Override
+    public Company getCompanyByIdAndOccupation(int companyId) {
+       OccupationDao occupationDao=sqlSessionTemplate.getMapper(OccupationDao.class);
+        return occupationDao.occupationByCompanyAdmin(companyId);
+
+    }
 }
 
