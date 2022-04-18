@@ -89,7 +89,7 @@
                     <dd>
                         <select class="layui-select">
                             <option value="" selected="selected">请选择角色</option>
-                            <c:forEach items="${admin.roleList}" var="role" >
+                            <c:forEach items="${user.roleList}" var="role" >
                        <option value="${role.id} " >${role.rname}</option>
                             </c:forEach>
                         </select>

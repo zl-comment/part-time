@@ -1,39 +1,38 @@
 package com.zx.interceptor;
 
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 public class MyInterceptor implements HandlerInterceptor {
     @Override
-    public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o)  {
- /*       System.out.println("拦截器");
-        //1.定义sessionid变量
-        String sessionid = "";
-        //2.获取session对象
+    //控制器之前执行
+    public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws IOException {
+        System.out.println("preHandle");
+        String url=httpServletRequest.getRequestURI();
         HttpSession session = httpServletRequest.getSession();
-        //3.获取页面上所有的cookie
-        Cookie[] cookies = httpServletRequest.getCookies();
-        //4.循环寻找名称为"JSESSIONID"的cookie
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("JSESSIONID")) {
-                sessionid = cookie.getValue();
-            }
-        }
-        //5.根据sessionid获取用户信息
-        String usercode = (String) session.getAttribute(sessionid);
-        if (usercode.isEmpty()) {
-            //6.如果用户信息为空，则跳转到登录页面
-            //用户未登录跳转到登录页面
-            httpServletResponse.sendRedirect("login.jsp");
+        System.out.println("url:"+url);
+        if(url.contains("adminlogin")){   //url中存在login
+            // 要给控制器传送数据因此放行
+            System.out.println(1);
+            return true;
+        }if(url.contains("login")){   //url中存在login
+            // 要给控制器传送数据因此放行
+            System.out.println(2);
+            return true;
+        }if (session.getAttribute("user")!=null){
+            System.out.println(4);
             return true;
         }
-*/
-        return true;  //返回true，则放行，进入控制器 返回false，则拦截，不进入控制器
+        else {
+            System.out.println(5);
+            httpServletResponse.sendRedirect("studentLogin.jsp");
+            return false;  //返回true，则放行，进入控制器 返回false，则拦截，不进入控制器
+        }
+
     }
 
 
@@ -48,4 +47,7 @@ public class MyInterceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
         System.out.println("页面之后");
     }*/
+
+
+
 }

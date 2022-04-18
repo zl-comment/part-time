@@ -70,7 +70,7 @@ public class LoginController {
            }
        }else
            System.out.println("登录失败");
-           return "index1";
+           return "studentLogin";
 
     }
     @RequestMapping("myInformation")

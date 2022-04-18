@@ -29,7 +29,7 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-    @RequestMapping("adminLogin")
+    @RequestMapping("adminlogin")
     public String login(String usercode, String password, HttpServletResponse response, HttpServletRequest request){
 
        Admin admin= adminService.adminLogin(usercode,password);
@@ -46,7 +46,7 @@ public class AdminController {
             cookie.setPath(request.getContextPath());
             //6.将cookie返回给页面
             response.addCookie(cookie);
-            session.setAttribute("admin",admin);
+            session.setAttribute("user",admin);
             System.out.println(session);
            return "redirect:adminHome.jsp";
 
