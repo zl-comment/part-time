@@ -23,7 +23,7 @@
         <div class="logo"><a href="allHome.jsp"><img src="static/images2/log.png" /></a></div>
         <div class="welcome">欢迎注册</div>
         <div class="headerright">
-            <a href="login.jsp">个人登录</a>
+            <a href="adminlogin.jsp">个人登录</a>
             <span>|</span>
             <!--         <a href="zhuceCompany.html">企业注册 </a>-->
             <span>|</span>

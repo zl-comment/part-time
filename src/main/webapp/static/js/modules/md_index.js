@@ -27,7 +27,7 @@ layui.define(['layer', 'form','element','tree','upload','table','jquery'], funct
         btn:['确定','取消'],
         },function(){
           layer.close(layer.index);
-          window.location.href="login.jsp";
+          window.location.href="adminlogin.jsp";
         },
         function(){
           alert('已取消');

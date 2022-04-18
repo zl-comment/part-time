@@ -26,10 +26,18 @@ public class MyInterceptor implements HandlerInterceptor {
         }if (session.getAttribute("user")!=null){
             System.out.println(4);
             return true;
+        } if(url.contains("Same")){   //url中存在login
+            // 要给控制器传送数据因此放行
+            System.out.println(6);
+            return true;
+        }if(url.contains("Register")){   //url中存在login
+            // 要给控制器传送数据因此放行
+            System.out.println(7);
+            return true;
         }
         else {
             System.out.println(5);
-            httpServletResponse.sendRedirect("studentLogin.jsp");
+            httpServletResponse.sendRedirect("allLogin.jsp");
             return false;  //返回true，则放行，进入控制器 返回false，则拦截，不进入控制器
         }
 

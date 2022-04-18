@@ -7,7 +7,6 @@ import com.zx.beans.*;
 import com.zx.service.AdminService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -53,7 +52,7 @@ public class AdminController {
 
         }else{
             System.out.println("登录失败");
-            return "login";
+            return "adminlogin";
         }
 
     }

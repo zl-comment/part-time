@@ -8,15 +8,12 @@ import com.zx.beans.Resume;
 import com.zx.beans.Student;
 import com.zx.service.CompanyService;
 
-import org.apache.ibatis.annotations.Param;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -40,7 +37,7 @@ public class CompanyController {
     @RequestMapping("Register")
    public String Register(String cpyaccount,String cpypassword,String cpyname,String cpyphone,String cpyaddress,String cpyinfo){
         companyService.companyRegister(cpyaccount,cpypassword,cpyname,cpyphone,cpyaddress,cpyinfo);
-        return "login";
+        return "allLogin";
     }
 
     @RequestMapping("Jobpublish")

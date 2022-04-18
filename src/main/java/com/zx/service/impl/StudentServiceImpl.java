@@ -40,10 +40,10 @@ public class StudentServiceImpl implements com.zx.service.StudentService {
     }
 
     @Override
-    public void studentRegister(String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate) {
+    public void studentRegister(Student student) {
         StudentDao studentDao = sqlSessionTemplate.getMapper(StudentDao.class);
 //        java.sql.Date date=new java.sql.Date(stdate.getTime());
-        studentDao.Register(staccount, stpassword, stphone, stschool, stmajor, stsystem, stdate);
+        studentDao.Register(student);
     }
 
     @Override

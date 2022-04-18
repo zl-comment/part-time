@@ -7,7 +7,6 @@ import com.zx.service.LoginService;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -70,7 +69,7 @@ public class LoginController {
            }
        }else
            System.out.println("登录失败");
-           return "studentLogin";
+           return "allLogin";
 
     }
     @RequestMapping("myInformation")

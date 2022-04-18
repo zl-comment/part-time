@@ -12,7 +12,7 @@ public interface StudentService {
 
     Integer IsSame(String staccount);
 
-    void studentRegister(String staccount, String stpassword, String stphone, String stschool, String stmajor, int stsystem, Date stdate);
+    void studentRegister(Student student);
 
     void updateinfoStudent(Student student, Date date);
 

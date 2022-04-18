@@ -36,8 +36,8 @@
     </resultMap>
 
 
-    <insert id="Register">
-        insert into student values (null,null,#{staccount},#{stpassword},#{stphone},#{stschool},#{stmajor},#{stsystem},#{stdate},null,0,null)
+    <insert id="Register" parameterType="com.zx.beans.Student">
+        insert into student values (null,null,#{student.staccount},#{student.stpassword},#{student.stphone},#{student.stschool},#{student.stmajor},#{student.stsystem},#{student.stdate},null,0,null)
     </insert>
 
 <!--
