@@ -44,7 +44,7 @@
 	background-repeat:repeat-x;
 }
 
-.div12Sear
+.div12Sear  /*左边的线条*/
 {
 	display:inline-block;
 	float:left;
@@ -53,7 +53,7 @@
 	background-image:url(static/images1/register-line.gif);
 }
 
-.div13Sear
+.div13Sear   /*控制主体的高*/
 {
 	height:234px;
 	width:654px;
@@ -64,7 +64,7 @@
 	z-index:-10;
 }
 
-.div14Sear
+.div14Sear  /*右边的线条 原来高234*/
 {
 	float:right;
 	width:3px;
@@ -902,9 +902,16 @@ $(function (){
         $.ajax({
             url:'search'
             ,method:'post'
-            ,data:{data:selectList2(),ocname:selectList1(),salary:$("#salary").val()}
+            ,data:{data:selectList2(),ocname:selectList1(),salary:$("#salary").val(),requirement:$("#requirement").val()}
             ,success:function (data){
+                $(".div13Sear").css('height','900px');
+                $(".div12Sear").css('height','900px');
+                $(".div14Sear").css('height','900px');
+                    var str='';
+                    alert(data)
+                for (var i = 0; i < data.length; i++) {
 
+                }
                 alert("成功")
             }
             ,error:function (data){

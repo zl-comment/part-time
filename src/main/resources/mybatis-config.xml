@@ -23,6 +23,7 @@
         <mapper resource="mapper/StudentMapper.xml"/>
         <mapper resource="mapper/OccupationMapper.xml"/>
         <mapper resource="mapper/ResumeMapper.xml"/>
+        <mapper resource="mapper/SearchMapper.xml"/>
 
     </mappers>
 </configuration>
