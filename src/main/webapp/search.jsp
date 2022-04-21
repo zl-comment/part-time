@@ -794,7 +794,11 @@ select
                 </tr>
             </table>
        <%-- </div>--%>
-        
+        <div >
+            <table id="occupation"   cellpadding="0" cellspacing="1" style="height:0px; width:520px;">
+
+        </table>
+        </div>
     </div>
     <div class="div14Sear" id="id3"></div>
     <div class="div15Sear"></div>
@@ -904,14 +908,31 @@ $(function (){
             ,method:'post'
             ,data:{data:selectList2(),ocname:selectList1(),salary:$("#salary").val(),requirement:$("#requirement").val()}
             ,success:function (data){
-                $(".div13Sear").css('height','900px');
-                $(".div12Sear").css('height','900px');
-                $(".div14Sear").css('height','900px');
+                $(".div13Sear").css('height','900px');  //左边的
+                $(".div12Sear").css('height','900px');  //下方的
+                $(".div14Sear").css('height','900px');  //右边的
+                $(".div1Sear").css('height','940px');   //中间的主体
                     var str='';
                     alert(data)
-                for (var i = 0; i < data.length; i++) {
-
+                for (var i = 0; i < data.data.list.length; i++) {
+                    str+="<tr><th style='width:20px; height:25px'></th>"+
+                        "<th style='width:150px''>职位名称</th>"+"<th style='width:150px''>职位要求 </th>"+"<th style='width:50px''>工资 </th>"+"<th style='width:60px''>工作地点 </th>"+"<th style='width:60px''>工时 </th>"+
+                        "</tr>";
+                    str+="<tr><th style='width:20px; height:25px'></th>"+
+                        "<th style='width:150px''>"+
+                    data.data.list[i].ocname+
+                    "</th>"+"<th style='width:150px''>"+
+                        data.data.list[i].requirement+
+                        "</th>"+"<th style='width:50px''>"+
+                        data.data.list[i].salary+
+                        "</th>"+"<th style='width:60px''>"+
+                        data.data.list[i].workplace+
+                        "</th>"+"<th style='width:60px''>"+
+                        data.data.list[i].worktime+
+                        "</th>"+
+                        "</tr>";
                 }
+                $("#occupation").html(str);
                 alert("成功")
             }
             ,error:function (data){

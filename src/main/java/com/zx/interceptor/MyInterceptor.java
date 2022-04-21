@@ -34,6 +34,9 @@ public class MyInterceptor implements HandlerInterceptor {
             // 要给控制器传送数据因此放行
             System.out.println(7);
             return true;
+        }if(url.contains("search")){
+            System.out.println(8);
+            return true;
         }
         else {
             System.out.println(5);
