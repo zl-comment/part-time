@@ -2,6 +2,7 @@ package com.zx.controller;
 
 import com.zx.beans.Resume;
 import com.zx.beans.Student;
+import com.zx.beans.Temporary;
 import com.zx.service.StudentService;
 import com.zx.service.impl.StudentServiceImpl;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -104,6 +105,19 @@ public class StudentController {
         Student student = studentService.getStudentInfoById(id);
         return "update_student_info";
     }*/
+
+    @RequestMapping("SignUp")
+    public String SignUp(int  ocid, HttpServletRequest request){
+        Object object=request.getSession().getAttribute("user");
+        System.out.println(ocid);
+        System.out.println(object);
+
+        return "index1";
+    }
+
+
+
+
 
 }
 

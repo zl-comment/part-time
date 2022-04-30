@@ -5,8 +5,8 @@
 
 <mapper namespace="com.zx.dao.SearchDao">
 
-   <select id="searchOccupation" resultType="com.zx.beans.Occupation" >
-      SELECT * FROM occupation   where 1=1
+   <select id="searchOccupation" resultType="com.zx.beans.Temporary" >
+       SELECT o.id,ocname,salary,requirement,workplace,worktime,cpyname from occupation o LEFT JOIN  cpyandoc cao on o.id=cao.occupationid LEFT JOIN company c on cao.companyid=c.id where cao.state=1
     <if test="data!=null">
       and workplace LIKE concat('%',#{data},'%')
     </if>

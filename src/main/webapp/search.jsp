@@ -913,11 +913,10 @@ $(function (){
                 $(".div14Sear").css('height','900px');  //右边的
                 $(".div1Sear").css('height','940px');   //中间的主体
                     var str='';
-                    alert(data)
+                str+="<tr><th style='width:20px; height:25px'></th>"+
+                    "<th style='width:150px''>职位名称</th>"+"<th style='width:150px''>职位要求 </th>"+"<th style='width:50px''>工资 </th>"+"<th style='width:60px''>工作地点 </th>"+"<th style='width:60px''>工时 </th>"+"<th style='width:60px''>公司名称 </th>"+"<th style='width:60px''>选择 </th>"+
+                    "</tr>";
                 for (var i = 0; i < data.data.list.length; i++) {
-                    str+="<tr><th style='width:20px; height:25px'></th>"+
-                        "<th style='width:150px''>职位名称</th>"+"<th style='width:150px''>职位要求 </th>"+"<th style='width:50px''>工资 </th>"+"<th style='width:60px''>工作地点 </th>"+"<th style='width:60px''>工时 </th>"+
-                        "</tr>";
                     str+="<tr><th style='width:20px; height:25px'></th>"+
                         "<th style='width:150px''>"+
                     data.data.list[i].ocname+
@@ -929,7 +928,10 @@ $(function (){
                         data.data.list[i].workplace+
                         "</th>"+"<th style='width:60px''>"+
                         data.data.list[i].worktime+
-                        "</th>"+
+                        "</th>"+"<th style='width:60px''>"+
+                        data.data.list[i].cpyname+
+                        "</th>"+"<th style='width:60px''><a href='SignUp?ocid="+data.data.list[i].id+"'>"+
+                        "报名"+"</a></th>"+
                         "</tr>";
                 }
                 $("#occupation").html(str);
