@@ -39,7 +39,9 @@
         </if>
     </select>
 
-
+    <select id="getAllStudent" resultType="com.zx.beans.Student" useCache="true" >
+            select *from student
+    </select>
 
 
 </mapper>

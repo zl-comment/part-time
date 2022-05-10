@@ -34,7 +34,7 @@
         table.render({
             elem: '#student'
             ,height: 400
-            ,url: 'AdminServlet?method=getStudentByPage' //数据接口
+            ,url: 'getStudentByPage' //数据接口
             ,method:'post'
             ,dataType:'json'
             ,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
@@ -64,7 +64,7 @@
                     "code": res.code, //解析接口状态
                     "msg": res.msg, //解析提示文本
                     "count": res.count, //解析数据长度
-                    "data": res.data.datas //解析数据列表
+                    "data": res.data.list //解析数据列表
                 };
             }
 

@@ -138,5 +138,25 @@ public class AdminServiceImpl  implements AdminService {
         return occupationDao.occupationByCompanyAdmin(companyId);
 
     }
+
+    @Override
+    public Page<Student> getStudent(int currectpage, int limit) {
+        PageDao pageDao=sqlSessionTemplate.getMapper(PageDao.class);
+        Page<Student> page=new Page<>();
+        PageHelper.startPage(currectpage,limit);
+        List<Student> students=pageDao.getAllStudent();
+        return getStudentPage(page, students);
+    }
+
+    private Page<Student> getStudentPage(Page<Student> page, List<Student> students) {
+        PageInfo<Student> pageInfo=new PageInfo<>(students);   //这两步不可分开，否则数据丢失
+        page.setCount((int)pageInfo.getTotal());      //获得数据总数
+        List<Student> list=new ArrayList<>(students);   //获得查询数据真正集合
+        pageInfo.setList(list);    //将集合真正放入pageInfo
+        page.setData(pageInfo);    //将pageInfo放入page
+        System.out.println(page);
+        return page;
+    }
+
 }
 

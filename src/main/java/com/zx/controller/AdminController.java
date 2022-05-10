@@ -64,8 +64,6 @@ public class AdminController {
     }
 
 
-
-
     @RequestMapping("getCompanyList")
     public @ResponseBody
     Object  getCompanyList(int currectpage, int limit) throws JsonProcessingException {
@@ -124,6 +122,12 @@ public class AdminController {
         return "adminCompanysp";
 
     }
+    @RequestMapping("getStudentByPage")
+    public @ResponseBody Object getStudentByPage(int currectpage, int limit) throws JsonProcessingException {
 
+        Page<Student> page = adminService.getStudent(currectpage, limit);
+
+        return page;
+    }
 
 }

@@ -31,6 +31,8 @@ public interface AdminService {
 
     Company getCompanyByIdAndOccupation(int companyId);
 
+    Page<Student> getStudent(int currectpage, int limit);
+
 
 
 

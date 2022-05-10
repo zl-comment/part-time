@@ -16,4 +16,5 @@ public interface PageDao {
 
     List<Temporary> getOccupationByOcName(@Param("ocName") String ocName,@Param("workPlace") String workPlace,@Param("cpyName") String cpyName,@Param("requirement") String requirement);
 
+    List<Student> getAllStudent();
 }
