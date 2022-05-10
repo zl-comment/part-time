@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!--开启注解 Spring框架的注解-->
+    <context:annotation-config/>
+    <!--组件扫描  告诉Spring,注解出现的位置在哪里 -->
+    <context:component-scan base-package="com.zx"></context:component-scan>
+
+    <!--开启切面注解-->
+    <aop:aspectj-autoproxy/>
+
+    <!--配置数据源  阿里版数据连接池配置  Spring整合JDBC-->
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/part-time_p"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="root"></property>
+    </bean>
+
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+    </bean>
+
+    <!--Mybatis核心sqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="druidDataSource"></property>
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>   <!--可以用注解的方法-->
+     <!--   <property name="mapperLocations" value="classpath:mapper/*.xml"></property> -->  <!--可以用注解的方法-->
+    </bean>
+
+
+
+
+
+
+
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="druidDataSource"></property>
+    </bean>
+
+    <!--开启事务注解-->
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+
+  <!--  &lt;!&ndash;配置事务XML中哪些方法需要开启事务&ndash;&gt;
+    <tx:advice id="txadvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+-->
+
+
+<!--
+    配置需要做的切面  xml版本
+    &lt;!&ndash;控制反转&ndash;&gt;
+    <bean id="MyAspect" class="com.zx.aop.MyAspect"></bean>
+    <aop:config>
+        <aop:aspect id="aspect" ref="MyAspect">
+            &lt;!&ndash;里边写pointcut 即对谁进行&ndash;&gt;
+            &lt;!&ndash;<aop:pointcut id="pointcut" expression="execution(public * com.zx.service..*.*(..))"/>&ndash;&gt;
+            <aop:pointcut id="pointcut" expression="execution(public void com.zx.service.impl.LoginServiceImpl.login())"/>
+            &lt;!&ndash;写通知&ndash;&gt;
+            <aop:before method="test01"  pointcut-ref="pointcut"></aop:before>
+            <aop:after-returning method="test02"  pointcut-ref="pointcut"></aop:after-returning>
+            <aop:after method="test03"  pointcut-ref="pointcut"></aop:after>
+            <aop:after-throwing method="test04"  pointcut-ref="pointcut"></aop:after-throwing>
+        </aop:aspect>
+
+&lt;!&ndash;
+        <aop:advisor advice-ref="txadvice" pointcut-ref="pointcut"></aop:advisor>
+&ndash;&gt;
+    </aop:config>
+-->
+
+<!--
+
+    &lt;!&ndash;声明式事务相应的切面设计&ndash;&gt;
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(public * com.zx.service..*.*(..))"/> &lt;!&ndash;切面表达式&ndash;&gt;
+        <aop:advisor advice-ref="txadvice" pointcut-ref="pointcut"/>
+    </aop:config>
+
+-->
+
+
+
+
+</beans>

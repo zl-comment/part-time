@@ -22,4 +22,5 @@ public interface StudentService {
 
     Resume getStudentResumeById(int id);
 
+    void insertStuandoc(int stuid, int ocid,int resumeid);
 }

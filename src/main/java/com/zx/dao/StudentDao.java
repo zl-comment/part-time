@@ -34,5 +34,5 @@ public interface StudentDao {
     void enlists(@Param("studentid") int c,@Param("occupationid") int occupationid,@Param("resumeid") int resumeid);
 
 
-
+    void insertStuandoc(@Param("stuid") int stuid,@Param("ocid") int ocid,@Param("resumeid") int resumeid);
 }

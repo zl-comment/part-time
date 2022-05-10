@@ -109,10 +109,16 @@ public class StudentController {
     @RequestMapping("SignUp")
     public String SignUp(int  ocid, HttpServletRequest request){
         Object object=request.getSession().getAttribute("user");
-        System.out.println(ocid);
-        System.out.println(object);
-
-        return "index1";
+        if (object instanceof Student){
+            Student student = (Student) object;
+            System.out.println(ocid);
+            System.out.println(student);
+            studentService.insertStuandoc(student.getId(),ocid,student.getStresumeid());
+            return "success";
+        }else {
+            System.out.println("无法报名");
+            return "error";
+        }
     }
 
 

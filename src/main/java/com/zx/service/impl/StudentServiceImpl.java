@@ -73,4 +73,10 @@ public class StudentServiceImpl implements com.zx.service.StudentService {
         Resume resume = resumeDao.getStudentResumeById(id);
         return resume;
     }
+
+    @Override
+    public void insertStuandoc(int stuid, int ocid,int resumeid) {
+        StudentDao studentDao = sqlSessionTemplate.getMapper(StudentDao.class);
+        studentDao.insertStuandoc(stuid,ocid,resumeid);
+    }
 }
