@@ -41,8 +41,9 @@ public class CompanyController {
     }
 
     @RequestMapping("Jobpublish")
-    public String Jobpublish(String ocname,String workplace,String worktime,String salary,String requirement){
-        companyService.jobPublish(ocname,workplace,worktime,salary,requirement);
+    public String Jobpublish(String ocname,String workplace,String worktime,String salary,String requirement,HttpServletRequest request){
+        Company company = (Company)request.getSession().getAttribute("user");
+        companyService.jobPublish(ocname,workplace,worktime,salary,requirement,company.getId());
         return "redirect:Jobpublish.jsp";
     }
 

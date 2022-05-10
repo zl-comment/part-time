@@ -9,7 +9,8 @@ import org.apache.ibatis.annotations.Param;
 public interface OccupationDao {
     Company occupationByCompanyAdmin(int companyid);
 
-    void Jobpublish(@Param("ocname") String ocname,@Param("workplace") String workplace,@Param("worktime") String worktime,@Param("salary") String salary,@Param("requirement") String requirement);
+    void Jobpublish(@Param("occupation") Occupation occupation);
+    void Jobpublish2(@Param("companyid") int companyid,@Param("occupationid") int occupationid);
 
 
     Company getOccupationsCompany(int companyid);

@@ -17,7 +17,7 @@ public interface CompanyService {
 
     void companyRegister( String cpyaccount,  String cpypassword,  String cpyname, String cpyphone, String cpyaddress,  String cpyinfo);
 
-    void jobPublish(String ocname,String workplace,String worktime,String salary,String requirement);
+    void jobPublish(String ocname,String workplace,String worktime,String salary,String requirement,int companyid);
 
     Company getOccupationsCompany(int companyid);
 

@@ -42,9 +42,18 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public void jobPublish(String ocname, String workplace, String worktime, String salary, String requirement) {
+    public void jobPublish(String ocname, String workplace, String worktime, String salary, String requirement,int companyid) {
         occupationDao = sqlSessionTemplate.getMapper(OccupationDao.class);
-        occupationDao.Jobpublish(ocname,workplace,worktime,salary,requirement);
+        Occupation occupation = new Occupation();
+        occupation.setOcname(ocname);
+        occupation.setWorkplace(workplace);
+        occupation.setWorktime(worktime);
+        occupation.setSalary(salary);
+        occupation.setRequirement(requirement);
+        occupationDao.Jobpublish(occupation);
+        System.out.println(companyid);
+        System.out.println("发布成功"+occupation.getId());
+        occupationDao.Jobpublish2(companyid,occupation.getId());
     }
 
     @Override

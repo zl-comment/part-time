@@ -27,8 +27,12 @@
         </collection>
     </resultMap>
 
-    <insert id="Jobpublish" parameterType="java.lang.String">
-        INSERT INTO occupation VALUES(null,#{ocname},#{salary},#{requirement},#{workplace},#{worktime})
+    <insert id="Jobpublish" parameterType="com.zx.beans.Occupation" useGeneratedKeys="true" keyProperty="occupation.id">
+        INSERT INTO occupation VALUES(null,#{occupation.ocname},#{occupation.salary},#{occupation.requirement},#{occupation.workplace},#{occupation.worktime})
+    </insert>
+
+    <insert id="Jobpublish2">
+        INSERT INTO cpyandoc VALUES(null,#{companyid},#{occupationid},null)
     </insert>
 
 
