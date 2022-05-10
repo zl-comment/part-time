@@ -82,7 +82,7 @@
                 //do somehing
                 var url='';
 
-                url+="AdminServlet?method=toGoAdminStudentSp&&studentid="+data.id;
+                url+="toGoAdminStudentSp?studentId="+data.id;
                 window.location.href=url;
 
 

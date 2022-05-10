@@ -68,20 +68,9 @@
 
     </delete>
 
-    <select id="occupationByStudentAdmin" parameterType="int" resultMap="StudentOccupationsAdmin">
-        SELECT stu.id,oc.id ocid ,ocname,salary,requirement,workplace,worktime  from student stu,occupation oc,stuandoc sta where stu.id=sta.studentid and oc.id=sta.occupationid and stu.id=#{id}
+    <select id="occupationByStudentAdmin" parameterType="int" resultType="com.zx.beans.Occupation">
+        SELECT oc.id id ,ocname,salary,requirement,workplace,worktime  from student stu,occupation oc,stuandoc sta where stu.id=sta.studentid and oc.id=sta.occupationid and stu.id=#{id}
     </select>
-    <resultMap id="StudentOccupationsAdmin" type="com.zx.beans.Student">
-        <id property="id" column="id"/>
-        <collection property="occupations"  column="id" ofType="com.zx.beans.Occupation">
-            <id property="id" column="ocid"/>
-            <result property="ocname" column="ocname"/>
-            <result property="salary" column="salary"/>
-            <result property="requirement" column="requirement"/>
-            <result property="workplace" column="workplace"/>
-            <result property="worktime" column="worktime"/>
-        </collection>
-    </resultMap>
 
     <update id="updateOccupationById" parameterType="com.zx.beans.Occupation">
         UPDATE occupation SET ocname=#{occupation.ocname},salary=#{occupation.salary},requirement=#{occupation.requirement},workplace=#{occupation.workplace},worktime=#{occupation.worktime} WHERE id=#{occupation.id}

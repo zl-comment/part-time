@@ -29,5 +29,9 @@
         select  p.id,p.permname,p.permurl  from permandro par,permission p where p.id=par.permid and par.roleid=#{RoleId}
     </select>
 
+    <select id="getStudentByIdAdmin" resultType="com.zx.beans.Student">
+        select *from student where id=#{id}
+    </select>
+
 
 </mapper>

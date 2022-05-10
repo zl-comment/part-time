@@ -158,5 +158,16 @@ public class AdminServiceImpl  implements AdminService {
         return page;
     }
 
+    @Override
+    public List<Occupation> getStudentByIdAndOccupation(int parseInt) {
+        OccupationDao occupationDao=sqlSessionTemplate.getMapper(OccupationDao.class);
+        return occupationDao.occupationByStudentAdmin(parseInt);
+    }
+
+    @Override
+    public Student getStudentByIdAdmin(int parseInt) {
+       AdminDao adminDao=sqlSessionTemplate.getMapper(AdminDao.class);
+        return adminDao.getStudentByIdAdmin(parseInt);
+    }
 }
 

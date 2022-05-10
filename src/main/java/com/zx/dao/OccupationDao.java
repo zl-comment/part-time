@@ -5,6 +5,8 @@ import com.zx.beans.Occupation;
 import com.zx.beans.Student;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 
 public interface OccupationDao {
     Company occupationByCompanyAdmin(int companyid);
@@ -25,7 +27,7 @@ public interface OccupationDao {
 
     void deleteOccupationById(int ocid);
 
-    Student occupationByStudentAdmin(int studentid);
+    List<Occupation> occupationByStudentAdmin(int studentid);
 
     void updateOccupationById(@Param("occupation") Occupation occupation);
 

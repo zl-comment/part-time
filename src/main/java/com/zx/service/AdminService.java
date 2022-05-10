@@ -33,6 +33,16 @@ public interface AdminService {
 
     Page<Student> getStudent(int currectpage, int limit);
 
+    List<Occupation> getStudentByIdAndOccupation(int parseInt);
+
+    Student getStudentByIdAdmin(int parseInt);
+
+
+
+
+
+
+
 
 
 

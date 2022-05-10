@@ -1,5 +1,6 @@
 package com.zx.controller;
 
+import com.alibaba.druid.sql.dialect.oracle.ast.expr.OracleCursorExpr;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -128,6 +129,24 @@ public class AdminController {
         Page<Student> page = adminService.getStudent(currectpage, limit);
 
         return page;
+    }
+    @RequestMapping("toGoAdminStudentSp")
+    public String toGoAdminStudentSp(String studentId, Model model){
+        System.out.println(studentId);
+        model.addAttribute("studentid",studentId);
+        return "adminStudentsp";
+    }
+    @RequestMapping("getStudentByIdAndOccupation")
+    public @ResponseBody Object getStudentByIdAndOccupation(String studentId){
+        List<Occupation> occupations=adminService.getStudentByIdAndOccupation(Integer.parseInt(studentId));
+        System.out.println(occupations);
+        return occupations;
+    }
+    @RequestMapping("getStudentByIdAdmin")
+    public @ResponseBody Object getStudentByIdAdmin(String studentId){
+        Student student=adminService.getStudentByIdAdmin(Integer.parseInt(studentId));
+        System.out.println(student);
+        return student;
     }
 
 }

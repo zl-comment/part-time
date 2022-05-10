@@ -24,15 +24,14 @@
     $(function () {
             var studentid=$("#studentid").val();
             $.ajax({
-                url:"AdminServlet?method=getStudentByIdAndOccupation",
+                url:"getStudentByIdAndOccupation",
                 method:"post",
                 dataType:"json",
-                data:{studentid:studentid},
+                data:{studentId:studentid},
                 success:function (data) {
-
+                    alert(data);
                     layui.use('table', function(){
                         var table = layui.table;
-
                         //第一个实例
                         table.render({
                             elem: '#demo'
@@ -127,37 +126,38 @@
     $(function () {
         var studentid=$("#studentid").val();
         $.ajax({
-            url:"AdminServlet?method=getStudentByIdAdmin",
+            url:"getStudentByIdAdmin",
             method:"post",
             dataType:"json",
-            data:{studentid:studentid},
+            data:{studentId:studentid},
             success:function (data) {
                // var tt = eval(data);    //不用let时就用这个eval转换
+                alert(data);
                 let tt=data;
                 //var tt = JSON.parse(data);  //错误
                 var str1 = "";   //声明str1，防止产生undefined
-                for (var i = 0; i < tt.length; i++) {   //遍历
-                    str1 += "<td>" + tt[i].stname+ "</td>" +
-                        "<td>" + tt[i].staccount+ "</td>" +
-                        "<td>" + tt[i].stpassword+"</td>"+
-                        "<td>" + tt[i].stphone+"</td>"+
-                        "<td>" + tt[i].stschool+"</td>"+
-                        "<td>" + tt[i].stmajor+"</td>"+
-                        "<td>" + tt[i].stsystem+"</td>"+
-                        "<td>" + tt[i].stdate+"</td>"+
-                        "<td>" + tt[i].stresume+"</td>";
-                    if(tt[i].ststate=="1"){
+                  //遍历
+                    str1 += "<td>" + tt.stname+ "</td>" +
+                        "<td>" + tt.staccount+ "</td>" +
+                        "<td>" + tt.stpassword+"</td>"+
+                        "<td>" + tt.stphone+"</td>"+
+                        "<td>" + tt.stschool+"</td>"+
+                        "<td>" + tt.stmajor+"</td>"+
+                        "<td>" + tt.stsystem+"</td>"+
+                        "<td>" + tt.stdate+"</td>"+
+                        "<td>" + tt.stresume+"</td>";
+                    if(tt.ststate=="1"){
                         str1+="<td>录取</td>";
                     }else{
                         str1+="<td>未录取</td>";
                     }
-                    if(tt[i].stresumeid!=""){
-                        var a=tt[i].stresumeid;
+                    if(tt.stresumeid!=""){
+                        var a=tt.stresumeid;
                         str1+="<td><a href='AdminServlet?method=AdminGetResumeByResumeId&&stresumeid="+a+"'>查看</td>"
                     }else{
                         str1+="<td>无</td>";
                     }
-                }
+
                 $("#student").append(str1);
             },
             error : function (arg1) {
