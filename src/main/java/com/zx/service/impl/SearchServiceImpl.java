@@ -40,6 +40,19 @@ public class SearchServiceImpl implements SearchService {
         return page;
     }
 
+    @Override
+    public Page<Temporary> detailedSearch(String ocname, String workplace,int currectpage) {
+        searchDao= sqlSessionTemplate.getMapper(SearchDao.class);
+        Page<Temporary> page = new Page<>();
+        PageHelper.startPage(currectpage,5);
+        List<Temporary> occupations = searchDao.detailedSearch(ocname,workplace);
+        PageInfo<Temporary> pageInfo=new PageInfo<>(occupations);   //这两步不可分开，否则数据丢失
+        page.setCount((int)pageInfo.getTotal());      //获得数据总数
+        List<Temporary> list=new ArrayList<>(occupations);   //获得查询数据真正集合
+        pageInfo.setList(list);    //将集合真正放入pageInfo
+        page.setData(pageInfo);    //将pageInfo放入page
+        System.out.println(page);
+        return page;
 
-
+    }
 }

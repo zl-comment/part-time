@@ -489,6 +489,21 @@ select
 {
 	border:0px;
 }
+/*换页的css*/
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
 
 </style>
 
@@ -523,7 +538,7 @@ select
     <div class="div13Sear" id="id2">
     	<span class="span1Sear"><img class="img1Sear" src="static/images1/register-arrow.gif" />关键字搜索</span>
         <div class="div131Sear">
-        	<input type="text" style="width:380px; border:1px solid #999; height:18px; background-image:url(static/images1/key_search.gif); background-repeat:no-repeat; padding-left:20px" />
+        	<input type="text" id="text" style="width:380px; border:1px solid #999; height:18px; background-image:url(static/images1/key_search.gif); background-repeat:no-repeat; padding-left:20px" />
             <input class="btn1Sear" id="btn" type="button" onclick="showchangeContent()" value="工作地点" />
         </div>
         <span class="span1Sear"><img class="img1Sear" src="static/images1/register-arrow.gif" />更多搜索条件</span>
@@ -798,6 +813,7 @@ select
             <table id="occupation"   cellpadding="0" cellspacing="1" style="height:0px; width:520px;">
 
         </table>
+            <ul id="page"  class="pagination"></ul>
         </div>
     </div>
     <div class="div14Sear" id="id3"></div>
@@ -913,6 +929,7 @@ $(function (){
                 $(".div14Sear").css('height','900px');  //右边的
                 $(".div1Sear").css('height','940px');   //中间的主体
                     var str='';
+                    var Page='';
                 str+="<tr><th style='width:20px; height:25px'></th>"+
                     "<th style='width:150px''>职位名称</th>"+"<th style='width:150px''>职位要求 </th>"+"<th style='width:50px''>工资 </th>"+"<th style='width:60px''>工作地点 </th>"+"<th style='width:60px''>工时 </th>"+"<th style='width:60px''>公司名称 </th>"+"<th style='width:60px''>选择 </th>"+
                     "</tr>";
@@ -934,7 +951,15 @@ $(function (){
                         "报名"+"</a></th>"+
                         "</tr>";
                 }
+
+                //换页
+                for(var i=1;i<=data.data.pages; i++){
+                    Page+="<li><a id='currectpage' onclick=''>«</a></li>";
+                    Page+="<li><a id='currectpage' value='+i+'>"+i+"</a></li>";
+                    Page+="<li><a id='currectpage' onclick=''>»</a></li>";
+                }
                 $("#occupation").html(str);
+                $("#page").html(Page);
                 alert("成功")
             }
             ,error:function (data){
@@ -1110,8 +1135,6 @@ if(navigator.userAgent.indexOf("MSIE")==-1)
 
 function changeContent(index)
 {
-	
-	
 	if(index==0)
 	{
 		province.style.display="none";
@@ -1120,10 +1143,83 @@ function changeContent(index)
 	{
 		document.getElementById("btn").value=index;
         alert(index);
+        alert($("#text").val());
+        $.ajax({
+            url:'detailedSearch'
+            ,method:'post'
+            ,data:{ocname:$("#text").val(),workplace:index}
+            ,success:function (data){
+                $(".div13Sear").css('height','900px');  //左边的
+                $(".div12Sear").css('height','900px');  //下方的
+                $(".div14Sear").css('height','900px');  //右边的
+                $(".div1Sear").css('height','940px');   //中间的主体
+                var str='';
+                var Page='';
+                str+="<tr><th style='width:20px; height:25px'></th>"+
+                    "<th style='width:150px''>职位名称</th>"+"<th style='width:150px''>职位要求 </th>"+"<th style='width:50px''>工资 </th>"+"<th style='width:60px''>工作地点 </th>"+"<th style='width:60px''>工时 </th>"+"<th style='width:60px''>公司名称 </th>"+"<th style='width:60px''>选择 </th>"+
+                    "</tr>";
+                for (var i = 0; i < data.data.list.length; i++) {
+                    str+="<tr><th style='width:20px; height:25px'></th>"+
+                        "<th style='width:150px''>"+
+                        data.data.list[i].ocname+
+                        "</th>"+"<th style='width:150px''>"+
+                        data.data.list[i].requirement+
+                        "</th>"+"<th style='width:50px''>"+
+                        data.data.list[i].salary+
+                        "</th>"+"<th style='width:60px''>"+
+                        data.data.list[i].workplace+
+                        "</th>"+"<th style='width:60px''>"+
+                        data.data.list[i].worktime+
+                        "</th>"+"<th style='width:60px''>"+
+                        data.data.list[i].cpyname+
+                        "</th>"+"<th style='width:60px''><a href='SignUp?ocid="+data.data.list[i].id+"'>"+
+                        "报名"+"</a></th>"+
+                        "</tr>";
+                }
+                //换页
+                for(var i=1;i<=data.data.pages; i++){
+                    Page+="<li><a id='currectpage' onclick=''>«</a></li>";
+                    Page+="<li><a id='currectpage' value='+i+'>"+i+"</a></li>";
+                    Page+="<li><a id='currectpage' onclick=''>»</a></li>";
+                }
+
+                $("#occupation").html(str);
+                $("#page").html(Page);
+                alert("成功")
+            }
+            ,error:function (data){
+                alert("失败")
+            }
+        })
+
 		province.style.display="none";
 	}
 	
 }
+/*function formfeedreduce(index){
+    if(index==1){
+        document.getElementById("currectpage").value=index;
+    }else {
+        document.getElementById("currectpage").value=index-1;
+    }
+}
+
+
+function formfeed(index){
+    document.getElementById("currectpage").value=index;
+    alert(index);
+}
+function formfeedadd(index){
+    if(index==data.data.pages){
+        document.getElementById("currectpage").value=index;
+    }else {
+        document.getElementById("currectpage").value=index+1;
+    }
+
+}*/
+
+
+
 
 function showchangeContent()
 {

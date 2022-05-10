@@ -10,4 +10,5 @@ public interface SearchDao {
     List<Temporary> searchOccupation(@Param("data") String data, @Param("ocname") String ocname, @Param("salary") String salary, @Param("requirement") String requirement) ;
 
 
+    List<Temporary> detailedSearch(@Param("ocname") String ocname,@Param("workplace") String workplace);
 }

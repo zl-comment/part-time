@@ -9,4 +9,6 @@ import java.util.List;
 public interface SearchService {
 
     Page<Temporary> search(String data, String ocname, String salary, String requirement, int currectpage);
+
+    Page<Temporary> detailedSearch(String ocname, String workplace,int currectpage);
 }

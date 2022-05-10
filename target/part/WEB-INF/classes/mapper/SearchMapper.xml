@@ -21,4 +21,15 @@
       </if>
    </select>
 
+    <select id="detailedSearch" resultType="com.zx.beans.Temporary" >
+        SELECT o.id,ocname,salary,requirement,workplace,worktime,cpyname from occupation o LEFT JOIN  cpyandoc cao on o.id=cao.occupationid LEFT JOIN company c on cao.companyid=c.id where cao.state=1
+        <if test="workplace!=null">
+            and workplace LIKE concat('%',#{workplace},'%')
+        </if>
+        <if test="ocname!=null">
+            and ocname like concat('%',#{ocname},'%')
+        </if>
+    </select>
+
+
 </mapper>

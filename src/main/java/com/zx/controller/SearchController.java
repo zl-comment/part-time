@@ -44,4 +44,18 @@ public class SearchController {
        return searchService.search(data, ocname, salary, requirement,1);
     }
 
+
+    @RequestMapping("detailedSearch")
+            public @ResponseBody Object
+    detailedSearch(String ocname, String workplace){
+        System.out.println("搜索"+ocname);
+        System.out.println("搜索"+workplace);
+        if(ocname.equals("")){
+            ocname=null;
+        }if (workplace.equals("工作地点")){
+            workplace=null;
+        }
+        return searchService.detailedSearch(ocname,workplace,1);
+    }
+
 }
