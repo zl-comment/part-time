@@ -315,6 +315,7 @@
                     $(".input-val").val('');
                     draw(show_num);
                 }
+
             })
         })
 
@@ -372,6 +373,45 @@
             return "rgb(" + r + "," + g + "," + b + ")";
         }
     </script>
+<script >
+    $(function() {
+      $("#psw").blur(function() {
+        var psw = $("#psw").val();
+        var reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;
+     /*     if(psw.length<6){
+              alert("输入的密码必须大于六位");
+              return;}else{
+              var count =0
+              for (var i=0;i<psw.length;i++) {
+                  if((psw[i]>='a' && psw[i]<='z')||(psw[i]>='A' && psw[i]<='Z')){
+                      count++;
+                  }
+              }
+              if(count>=2){
+                  alert("输入合法");
+                  $("#psw_info").html("输入合法");
+                  $("#psw_info").css("color", "red");
+              }else{
+                  alert("输入的密码必须包含数字和字母");
+                  $("#psw_info").html("输入的密码必须包含数字和字母");
+                  $("#psw_info").css("color", "red");
+              }
+          }*/
+        if (psw == "") {
+          $("#psw_info").html("密码不能为空");
+          $("#psw_info").css("color", "red");
+        } else if (!reg.test(psw)) {
+          $("#psw_info").html("密码格式不正确，至少1个大写字母，1个小写字母和1个数字");
+          $("#psw_info").css("color", "red");
+        } else {
+          $("#psw_info").html("密码正确");
+        }
+      });
+    })
+
+</script>
+
+
 
 
 </head>
@@ -409,7 +449,8 @@
         <div class="div113Login">
             <form action="login" method="post">
         	<span class="span1Login">用户名：<input class="txtLogin"  type="text" name="usercode"  placeholder="请输入用户名"  /></span>
-            <span class="span2Login"><span style="margin-right:12px">密</span>码：<input class="pwdLogin"  name="password" type="password"  placeholder="请输入密码" /></span>
+            <span class="span2Login"><span style="margin-right:12px">密</span>码：<input class="pwdLogin"  name="password" id="psw" type="password"  placeholder="请输入密码8~16位" /></span>
+                <span class="span2Login"><span id="psw_info"></span></span>
             <span class="span2Login">验证码：
             <input type="text" placeholder="请输入验证码" class="input-val" autocomplete="off" required/>
             </span>
@@ -462,7 +503,7 @@
 <!-- InstanceEndEditable -->
 </div>
 <div class="divdwt">
-	网站导航&nbsp;&nbsp;|&nbsp;&nbsp;<a href="index1.jsp" class="adwt">网站首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="search.jsp" class="adwt">职位搜索</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="allLogin.jsp" class="adwt">Myjob</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="register.html" class="adwt">用户注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="allLogin.jsp" class="adwt">用户登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="intro.jsp" class="adwt">简历管理</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="company.jsp" class="adwt">招聘公司</a>
+	网站导航&nbsp;&nbsp;|&nbsp;&nbsp;<a href="index1.jsp" class="adwt">网站首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="search.jsp" class="adwt">职位搜索</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="allLogin.jsp" class="adwt">Myjob</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="allLogin.jsp" class="adwt">用户登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="intro.jsp" class="adwt">简历管理</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="company.jsp" class="adwt">招聘公司</a>
 </div>
 <div>
   <span class="spandwt">人才招聘&nbsp;Email:hr@51job.com</span>

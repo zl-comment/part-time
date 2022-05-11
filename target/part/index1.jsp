@@ -525,7 +525,7 @@
 <!-- InstanceBeginEditable name="EditRegion3" -->
 
 <div class="div1">
-    <form action="login" method="post">
+<%--    <form action="login" method="post">
     <span class="menuspan">用户名：&nbsp;&nbsp;</span><input class="input"  type="text" name="usercode" placeholder="请输入用户名" />
     &nbsp;&nbsp;&nbsp;&nbsp;
     <span class="menuspan">密码：</span>&nbsp;&nbsp;&nbsp;&nbsp;<input  class="input" type="password" name="password" placeholder="请输入密码"  />
@@ -534,7 +534,7 @@
         <input type="text" placeholder="请输入验证码" class="input-val" autocomplete="off" required>
         <canvas id="canvas" width="100" height="33"></canvas>
     <button type="submit" class="menubtn"></button>
-    </form>
+    </form>--%>
     &nbsp;&nbsp;&nbsp;&nbsp;<a href="myInformation?user=${user}"> <span class="menuspan">用户信息</span></a>
         <a href="CpyRegister.jsp"> <span class="menuspan" >企业注册</span></a>
         <a href="StudentRegister.jsp"> <span class="menuspan">学生注册</span></a>
@@ -967,7 +967,7 @@
 <!-- InstanceEndEditable -->
 </div>
 <div class="divdwt">
-	网站导航&nbsp;&nbsp;|&nbsp;&nbsp;<a href="index.html" class="adwt">网站首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="search.jsp" class="adwt">职位搜索</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="adminlogin.jsp" class="adwt">Myjob</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="register.jsp" class="adwt">用户注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="allLogin.jsp" class="adwt">用户登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="intro.jsp" class="adwt">简历管理</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="company.jsp" class="adwt">招聘公司</a>
+	网站导航&nbsp;&nbsp;|&nbsp;&nbsp;<a href="index.html" class="adwt">网站首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="search.jsp" class="adwt">职位搜索</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="adminlogin.jsp" class="adwt">Myjob</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="allLogin.jsp" class="adwt">用户登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="intro.jsp" class="adwt">简历管理</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="company.jsp" class="adwt">招聘公司</a>
 </div>
 <div>
   <span class="spandwt">人才招聘&nbsp;Email:hr@51job.com</span>
