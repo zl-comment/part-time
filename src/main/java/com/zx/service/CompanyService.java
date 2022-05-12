@@ -44,4 +44,7 @@ public interface CompanyService {
     void test();
 
 
+    void accept(int ocid, int studentid);
+
+    void refuse(int ocid, int studentid);
 }

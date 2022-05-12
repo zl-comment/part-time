@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -68,11 +69,21 @@ public class StudentController {
 
 
     @RequestMapping("/updateinfoStudent")
-    public String updateinfoStudent(Student student,Date date){
-
+    public String updateinfoStudent(Student student,HttpServletRequest request){
+       String stdate=request.getParameter("stdate");
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = null;
+        try {
+            date = sf.parse(stdate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         studentService.updateinfoStudent(student,date);
+        Object object=request.getSession().getAttribute("user");
+        Student student2= studentService.getStudentInfoById(((Student)object).getId());
+        request.setAttribute("student",student2);
+        System.out.println(student2.getStdate());
         return "update_student_info";
-
     }
 
     @RequestMapping("/createResume")

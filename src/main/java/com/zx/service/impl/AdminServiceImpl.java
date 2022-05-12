@@ -67,6 +67,8 @@ public class AdminServiceImpl  implements AdminService {
     public void updateCompanyState(List<Company> companies1, int state) {
         CompanyDao companyDao=sqlSessionTemplate.getMapper(CompanyDao.class);
         for (Company company:companies1) {
+            System.out.println(company.getId());
+            System.out.println(state);
             companyDao.updateCompanyStateAdmin(company.getId(),state);
         }
     }
@@ -117,6 +119,8 @@ public class AdminServiceImpl  implements AdminService {
     public void updateOccupationState(List<Temporary> occupations, int state) {
         OccupationDao occupationDao=sqlSessionTemplate.getMapper(OccupationDao.class);
         for (Temporary occupation:occupations) {
+            System.out.println(occupation.getId());
+            System.out.println(state);
             occupationDao.updateOccupationStateAdmin(occupation.getId(),state);
         }
 

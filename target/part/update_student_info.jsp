@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +22,7 @@
 <body>
 
 <form  class="layui-form" action="updateinfoStudent" method="post" >
-    <input type="hidden" name="id" value="${id}"/>
+    <input type="hidden" name="id" value="${student.id}"/>
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">账户名称</label>
@@ -79,7 +80,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">入学日期</label>
             <div class="layui-input-block">
-                <input name="stdate" type="date" class="dfinput" value="${student.stdate}" style="width:518px;"/>
+                <input name="stdate" type="date" class="dfinput" value='<fmt:formatDate value="${student.stdate}" pattern="yyyy-MM-dd" />' style="width:518px;"/>
             </div>
         </div>
     </div>

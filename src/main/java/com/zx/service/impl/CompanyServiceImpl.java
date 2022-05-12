@@ -139,8 +139,15 @@ public class CompanyServiceImpl implements CompanyService {
 
     }
 
+    @Override
+    public void accept(int ocid, int studentid) {
+        companyDao=sqlSessionTemplate.getMapper(CompanyDao.class);
+        companyDao.accept(ocid,studentid);
+    }
 
-
-
-
+    @Override
+    public void refuse(int ocid, int studentid) {
+        companyDao=sqlSessionTemplate.getMapper(CompanyDao.class);
+        companyDao.refuse(ocid,studentid);
+    }
 }

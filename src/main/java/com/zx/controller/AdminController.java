@@ -81,6 +81,7 @@ public class AdminController {
         //将json字符串转为list数组
         ObjectMapper objectMapper=new ObjectMapper();
         List<Company> companies1=objectMapper.readValue(companies, new TypeReference<List<Company>>(){});
+        System.out.println(companies1);
         adminService.updateCompanyState(companies1,Integer.parseInt(state));
 
     }

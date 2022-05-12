@@ -127,6 +127,14 @@ public class CompanyController {
         return "Companyquery";
 
     }
+    @RequestMapping("accept")
+    public void accept(int ocid,int studentid,Model model){
+        companyService.accept(ocid,studentid);
+    }
+    @RequestMapping("refuse")
+    public void refuse(int ocid,int studentid,Model model){
+        companyService.refuse(ocid,studentid);
+    }
 
 
 

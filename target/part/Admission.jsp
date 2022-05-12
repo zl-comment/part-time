@@ -41,8 +41,8 @@
                     <c:forEach items="${st.occupations}" var="oc">
                         <span>${oc.ocname}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         <span>${oc.salary}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        <span class="con" style="color: #0A95"><a href="CompanyServlet?method=refuse&&ocid=${oc.id}&&cpyandocid=${oc.cpyandocid}&&companyid=${companyid}&&studentid=${st.id}">拒绝</a></span>
-                        <span class="con" style="color: #0A95"><a href="CompanyServlet?method=accept&&ocid=${oc.id}&&cpyandocid=${oc.cpyandocid}&&companyid=${companyid}&&studentid=${st.id}">通过&nbsp;</a></span>
+                        <span class="con" style="color: #0A95"><a href="refuse?ocid=${oc.id}&&cpyandocid=${oc.cpyandocid}&&companyid=${companyid}&&studentid=${st.id}">拒绝</a></span>
+                        <span class="con" style="color: #0A95"><a href="accept?ocid=${oc.id}&&cpyandocid=${oc.cpyandocid}&&companyid=${companyid}&&studentid=${st.id}">通过&nbsp;</a></span>
                         <span class="con" style="color: red"><a href="getStudentResume?ocid=${oc.id}&&companyid=${companyid}&&resumeid=${st.stresumeid}">查看简历&nbsp;</a></span>
                     </c:forEach>
 

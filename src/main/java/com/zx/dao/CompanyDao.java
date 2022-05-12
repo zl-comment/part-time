@@ -40,5 +40,7 @@ public interface CompanyDao {
     int selectCompanyCountAdmin(String cpyname,String cpyaddress);
 
 
+    void accept(@Param("ocid") int ocid,@Param("studentid") int studentid);
+    void refuse(@Param("ocid") int ocid,@Param("studentid") int studentid);
 
 }

@@ -119,7 +119,7 @@
     SELECT count(id) num from company
 </select>
 
-<update id="updateCompanyState"   parameterType="int">
+<update id="updateCompanyStateAdmin"   parameterType="int">
     update  company  set state=#{state} where id=#{id}
 </update>
 
@@ -134,5 +134,11 @@
 </select>
 
 
+    <update id="accept">
+        update stuandoc set ststate = 1 where studentid=#{studentid} and occupationid=#{ocid}
+    </update>
 
+    <update id="refuse">
+        update stuandoc set ststate = -1 where studentid=#{studentid} and occupationid=#{ocid}
+    </update>
 </mapper>
