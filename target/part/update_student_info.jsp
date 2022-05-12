@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./static/layui/css/layui.css"  media="all">
 </head>
 <body>
-
+${student}
 <form  class="layui-form" action="updateinfoStudent" method="post" >
     <input type="hidden" name="id" value="${student.id}"/>
     <div class="layui-form-item">
@@ -80,7 +80,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">入学日期</label>
             <div class="layui-input-block">
-                <input name="stdate" type="date" class="dfinput" value='<fmt:formatDate value="${student.stdate}" pattern="yyyy-MM-dd" />' style="width:518px;"/>
+                <input name="stdate" type="date"  value='<fmt:formatDate value="${student.stdate}" pattern="yyyy-MM-dd" />' style="width:518px;"/>
             </div>
         </div>
     </div>

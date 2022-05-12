@@ -49,9 +49,7 @@ public class StudentServiceImpl implements com.zx.service.StudentService {
     @Override
     public void updateinfoStudent(Student student, Date date) {
         StudentDao studentDao = sqlSessionTemplate.getMapper(StudentDao.class);
-        System.out.println(date);
         java.sql.Date date1=new java.sql.Date(date.getTime());
-        System.out.println(date1);
         studentDao.updateinfoStudent(student,date1);
     }
 
@@ -66,9 +64,7 @@ public class StudentServiceImpl implements com.zx.service.StudentService {
     public Student getStudentInfoById(int id) {
         StudentDao studentDao = sqlSessionTemplate.getMapper(StudentDao.class);
         Student student = studentDao.getStudentInfoById(id);
-        System.out.println(student.getStdate());
-        student.setStdate(new Date(student.getStdate().getTime()));
-        System.out.println(student.getStdate());
+       // student.setStdate(new Date(student.getStdate().getTime()));
         return student;
     }
 
