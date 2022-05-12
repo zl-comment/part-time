@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="part-time1" />
-        <module name="part" />
-        <module name="part-time2" />
         <module name="part-time3" />
+        <module name="part-time1" />
         <module name="part-time" />
+        <module name="part-time2" />
+        <module name="part" />
       </profile>
     </annotationProcessing>
   </component>
