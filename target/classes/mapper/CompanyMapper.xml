@@ -47,7 +47,7 @@
 </select>
 
 <update id="updateCompanyById"    parameterType="com.zx.beans.Company">
-    update company set cpyname = #{company.cpyname},cpyaccount = #{company.cpyaccount},cpypassword = #{company.cpypassword},cpyphone = #{company.cpyphone},cpyaddress = #{company.cpyaddress},cpyinfo =#{company.cpyinfo}   where id=#{company.id}
+    update company set cpyname = #{company.cpyname},cpypassword = #{company.cpypassword},cpyphone = #{company.cpyphone},cpyaddress = #{company.cpyaddress},cpyinfo =#{company.cpyinfo}   where id=#{company.id}
 </update>
 
 <!--<select id="getAdmissionById"   parameterType="int"  resultMap="companyOccupation">

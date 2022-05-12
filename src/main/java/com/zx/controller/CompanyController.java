@@ -16,6 +16,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.jws.soap.SOAPBinding;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -121,8 +122,6 @@ public class CompanyController {
     public String updateCompanyById(String companyid,String cpyaccount,String cpypassword,String cpyname,String cpyphone,String cpyaddress,String cpyinfo,Model model){
         Company company = new Company(Integer.parseInt(companyid),cpyname,cpyaccount,cpypassword,cpyphone,cpyaddress,cpyinfo);
         companyService.updateCompanyById(company);
-        System.out.println(company);
-        System.out.println(11111);
         model.addAttribute("company",company);
         return "Companyquery";
 

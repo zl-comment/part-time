@@ -140,6 +140,15 @@ public class Company {
         this.occupations = occupations;
     }
 
+    public Company(int id, String cpyname, String cpypassword, String cpyphone, String cpyaddress, String cpyinfo) {
+        this.id = id;
+        this.cpyname = cpyname;
+        this.cpypassword = cpypassword;
+        this.cpyphone = cpyphone;
+        this.cpyaddress = cpyaddress;
+        this.cpyinfo = cpyinfo;
+    }
+
     @Override
     public String toString() {
         return "Company{" +

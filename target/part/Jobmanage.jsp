@@ -9,51 +9,62 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>招聘管理</title>
-    <script type="text/javascript" src="./static/js/common/jquery.min.js"></script>
-    <script type="text/javascript" src="./static/js/common/echarts.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="./static/layui/css/layui.css">
-    <script type="text/javascript" src="./static/layui/layui.js"></script>
-    <script type="text/javascript" src="./static/js/pages/home.js"></script>
-    <link rel="stylesheet" type="text/css" href="./static/css/home.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./static/layui/css/layui.css" media="all">
 </head>
 <body>
-
-<div class="layui-row">
-
-    <form class="layui-form"  >
+<table class="layui-table" lay-skin="line">
+<colgroup>-
 
 
-        <ul class="range-left">
-            <li>
-                <span class="layui-badge">*</span>
-                <span style="color: red">招聘职位&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <span style="color: red">招聘薪水&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <span style="color: red">工作地点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <span style="color: red">工作要求&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            </li>
-            <c:forEach items="${occupations}" var="oc">
-                <li>
-                    <span class="layui-badge">*</span>
-                    <span>${oc.ocname}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <span>${oc.salary}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <span>${oc.workplace}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <span>${oc.requirement}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <span class="con" style="color: red"><a href="jobQuery?ocid=${oc.id}&&companyid=${companyid}">查看&nbsp;</a></span>
-                </li>
+</colgroup>
+<thead>
+            <tr>
+                <th ></th>
+                <th>招聘职位</th>
+                <th>招聘薪水</th>
+                <th>工作地点</th>
+                <th>工作要求</th>
+                <th>操作</th>
+            </tr>
+</thead>
+<%--   <colgroup>
+        <col width="100px">
+        <col width="250px">
+        <col width="150px">
+        <col width="150px">
+        <col width="150px">
+        <col width="150px">
+        <col>
+    </colgroup>--%>
+<tbody>
 
-
-            </c:forEach>
-
-
-        </ul>
-
-
-    </form>
+    <c:forEach items="${occupations}" var="oc">
+<tr>
 
 
 
-</div>
+    <td> <span class="layui-badge">*</span></td>
+    <td>  <span>${oc.ocname}</span></td>
+                  <td><span>${oc.salary}</span></td>
+                   <td><span>${oc.workplace}</span></td>
+                  <td><span>${oc.requirement}</span></td>
+                  <td ><span class="con" style="color: red"><a href="jobQuery?ocid=${oc.id}&&companyid=${companyid}">查看&nbsp;</a></span>
+    </td>
+
+
+
+
+</tr>
+        </c:forEach>
+
+
+</tbody>
+</table>
+<script src="./static/layui/layui.js" charset="utf-8"></script>
 </body>
 </html>

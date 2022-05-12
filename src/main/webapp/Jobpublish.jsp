@@ -1,4 +1,4 @@
-<%--
+ <%--
   Created by IntelliJ IDEA.
   User: 王川川
   Date: 2022/3/15
@@ -81,7 +81,19 @@
 
                             <div>
                                 <span><label>工作薪水</label></span>
-                                <span><input name="salary" type="text" class="textbox"></span>
+                                <span>
+                                    <select name ="salary">
+                                        <option selected="selected">--请选择--</option>
+                                        <option >面议</option>
+                                        <option >1500以下</option>
+                                        <option >1500-1999</option>
+                                        <option >2000-2999</option>
+                                        <option >3000-5000</option>
+                                        <option >5001-8999</option>
+                                        <option >9000-12000</option>
+                                        <option >12000以上</option>
+                                    </select>
+                                </span>
                             </div>
 
                             <div>

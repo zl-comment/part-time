@@ -83,8 +83,19 @@
 
                             <div>
                                 <span><label>工作薪水</label></span>
-
-                                <input   name="salary" value="${occupation.salary}">
+                                <span>
+                                    <select name ="salary">
+                                        <option selected="selected">--请选择--</option>
+                                        <option >面议</option>
+                                        <option >1500以下</option>
+                                        <option >1500-1999</option>
+                                        <option >2000-2999</option>
+                                        <option >3000-5000</option>
+                                        <option >5001-8999</option>
+                                        <option >9000-12000</option>
+                                        <option >12000以上</option>
+                                    </select>
+                                </span>
                             </div>
 
                             <div>

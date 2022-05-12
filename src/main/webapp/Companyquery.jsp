@@ -18,6 +18,9 @@
 
 </head>
 
+
+
+
 <body>
 <form  method="post" action="updateCompanyById?companyid=${company.id}">
     <div class="layui-form-item">
@@ -26,7 +29,8 @@
 
     <div>
             <span class="decrib">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</span>
-            <input  name="cpyaccount" value="${company.cpyaccount}">
+            <input id="input" style="border: 0 none" name="cpyaccount" value="${company.cpyaccount}" readonly = "ture" >
+
     </div>
 
     <div>
