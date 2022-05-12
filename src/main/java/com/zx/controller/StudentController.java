@@ -2,7 +2,7 @@ package com.zx.controller;
 
 import com.zx.beans.Resume;
 import com.zx.beans.Student;
-import com.zx.beans.Temporary;
+import org.springframework.ui.Model;
 import com.zx.service.StudentService;
 import com.zx.service.impl.StudentServiceImpl;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -68,8 +68,8 @@ public class StudentController {
     }
 
 
-    @RequestMapping("/updateinfoStudent")
-    public String updateinfoStudent(Student student,HttpServletRequest request){
+    @RequestMapping("updateinfoStudent")
+    public String updateinfoStudent(Student student,HttpServletRequest request,Model model){
        String stdate=request.getParameter("stdate");
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = null;
@@ -78,11 +78,11 @@ public class StudentController {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        Student student1=(Student) request.getSession().getAttribute("user");
         studentService.updateinfoStudent(student,date);
-        Object object=request.getSession().getAttribute("user");
-        Student student2= studentService.getStudentInfoById(((Student)object).getId());
-        request.setAttribute("student",student2);
-        System.out.println(student2.getStdate());
+        student1.setStdate(date);   //更新session中的时间
+        model.addAttribute("student",student1);
+        System.out.println(student1);
         return "update_student_info";
     }
 

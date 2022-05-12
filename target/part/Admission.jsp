@@ -19,46 +19,47 @@
     <link rel="stylesheet" type="text/css" href="./static/css/home.css">
 </head>
 <body>
-
-<div class="layui-row">
-
-    <form class="layui-form"  >
+<table class="layui-table" lay-skin="line">
+    <colgroup>-
 
 
-        <ul class="range-left">
-            <li>
-                <span class="layui-badge">*</span>
-                <span style="color: red">学生姓名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <span style="color: red">学生学校&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <span style="color: red">报名职业&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <span style="color: red">职业薪水&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            </li>
+    </colgroup>
+    <thead>
+    <tr>
+        <th ><span class="layui-badge">*</span></th>
+                <th><span style="color: red">学生姓名</span></th>
+                <th><span style="color: red">学生学校</span></th>
+                <th><span style="color: red">报名职业</span></th>
+                <th><span style="color: red">职业薪水</span></th>
+                <th><span style="color: red">操作</span></th>
+
+    </tr>
+    </thead>
+<tbody>
             <c:forEach items="${students}" var="st">
-                <li>
-                    <span class="layui-badge">*</span>
-                    <span>${st.stname}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <span>${st.stschool}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <tr>
+
+
+                    <td><span class="layui-badge">*</span></td>
+                    <td><span>${st.stname}</span></td>
+                    <td><span>${st.stschool}</span></td>
                     <c:forEach items="${st.occupations}" var="oc">
-                        <span>${oc.ocname}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        <span>${oc.salary}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        <span class="con" style="color: #0A95"><a href="refuse?ocid=${oc.id}&&cpyandocid=${oc.cpyandocid}&&companyid=${companyid}&&studentid=${st.id}">拒绝</a></span>
-                        <span class="con" style="color: #0A95"><a href="accept?ocid=${oc.id}&&cpyandocid=${oc.cpyandocid}&&companyid=${companyid}&&studentid=${st.id}">通过&nbsp;</a></span>
-                        <span class="con" style="color: red"><a href="getStudentResume?ocid=${oc.id}&&companyid=${companyid}&&resumeid=${st.stresumeid}">查看简历&nbsp;</a></span>
-                    </c:forEach>
 
-                </li>
+                            <td><span>${oc.ocname}</span></td>
+                            <td><span>${oc.salary}</span></td>
+                            <td><span  style="color: #0A95"><a href="refuse?ocid=${oc.id}&&cpyandocid=${oc.cpyandocid}&&companyid=${companyid}&&studentid=${st.id}">拒绝</a></span>
+                            <span  style="color: #0A95"><a href="accept?ocid=${oc.id}&&cpyandocid=${oc.cpyandocid}&&companyid=${companyid}&&studentid=${st.id}">通过&nbsp;</a></span>
+                            <span  style="color: red"><a href="getStudentResume?ocid=${oc.id}&&companyid=${companyid}&&resumeid=${st.stresumeid}">查看简历&nbsp;</a></span></td>
+
+                        </c:forEach>
 
 
+                </tr>
             </c:forEach>
 
 
-        </ul>
-
-
-    </form>
 
 
 
-</div>
 </body>
 </html>
