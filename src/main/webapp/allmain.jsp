@@ -98,7 +98,7 @@
     <div class="layui-side-scroll">
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
       <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="nav_left">
-        <li class="layui-nav-item "><a  href="index1.jsp"  <%--ref="allHome.jsp" data-id="nav_home"  target="iFrm"--%>>首页</a></li>
+        <li class="layui-nav-item "><a href="index1.jsp">首页</a></li>
 
         <li class="layui-nav-item layui-nav-itemed">
           <a >用户管理</a>

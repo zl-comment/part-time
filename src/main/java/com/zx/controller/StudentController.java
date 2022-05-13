@@ -77,12 +77,13 @@ public class StudentController {
             date = sf.parse(stdate);
         } catch (ParseException e) {
             e.printStackTrace();
+
+
         }
-        Student student1=(Student) request.getSession().getAttribute("user");
         studentService.updateinfoStudent(student,date);
-        student1.setStdate(date);   //更新session中的时间
-        model.addAttribute("student",student1);
-        System.out.println(student1);
+        student.setStdate(date);   //更新session中的时间
+        model.addAttribute("student",student);
+        //System.out.println(student1);
         return "update_student_info";
     }
 
