@@ -313,6 +313,40 @@
                     $(".input-val").val('');
                     draw(show_num);
                 }
+                var psw = $("#psw").val();
+                var reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;
+
+                if (psw == "") {
+                    $("#psw_info").html("密码不能为空");
+                    $("#psw_info").css("color", "red");
+                    return false;
+                } else if (!reg.test(psw)) {
+                    $("#psw_info").html("密码格式不正确，至少1个大写字母，1个小写字母和1个数字");
+                    $("#psw_info").css("color", "red");
+                    return false;
+                } else {
+                    $("#psw_info").html("");
+                }
+
+                var usercode=$("#usercode").val();
+                var reg1=/^[a-zA-z]\w{3,15}$/;
+
+                if (usercode == "") {
+                    $("#usercode_info").html("账号不能为空");
+                    $("#usercode_info").css("color", "red");
+                    return false;
+                } else if (!reg1.test(usercode)) {
+                    $("#usercode_info").html("账号格式不正确，字母开头 4~16位");
+                    $("#usercode_info").css("color", "red");
+                    return false;
+                } else {
+                    $("#psw_info").html("");
+                }
+
+
+
+
+
             })
         })
 
@@ -370,25 +404,6 @@
             return "rgb(" + r + "," + g + "," + b + ")";
         }
     </script>
-<script >
-    $(function() {
-      $("#psw").blur(function() {
-        var psw = $("#psw").val();
-        var reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;
-
-        if (psw == "") {
-          $("#psw_info").html("密码不能为空");
-          $("#psw_info").css("color", "red");
-        } else if (!reg.test(psw)) {
-          $("#psw_info").html("密码格式不正确，至少1个大写字母，1个小写字母和1个数字");
-          $("#psw_info").css("color", "red");
-        } else {
-          $("#psw_info").html("");
-        }
-      });
-    })
-
-</script>
 
 
 
@@ -428,7 +443,8 @@
 <%--学生登录--%>
         <div class="div113Login">
             <form action="login" method="post" >
-        	<span class="span1Login">用户名：<input class="txtLogin"  type="text" name="usercode"   placeholder="请输入用户名"  required/></span>
+        	<span class="span1Login">用户名：<input class="txtLogin"  type="text" name="usercode"  id="usercode"  placeholder="请输入用户名"  required/></span>
+                <span class="span2Login"><span id="usercode_info"></span></span>
             <span class="span2Login"><span style="margin-right:12px">密</span>码：
                 <input class="pwdLogin"  name="password" id="psw" type="password"  placeholder="请输入密码8~16位" required/>
             </span>
