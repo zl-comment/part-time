@@ -173,5 +173,11 @@ public class AdminServiceImpl  implements AdminService {
        AdminDao adminDao=sqlSessionTemplate.getMapper(AdminDao.class);
         return adminDao.getStudentByIdAdmin(parseInt);
     }
+
+    @Override
+    public Resume getResumeByResumeId(int parseInt) {
+        AdminDao adminDao=sqlSessionTemplate.getMapper(AdminDao.class);
+        return adminDao.getResumeByResumeId(parseInt);
+    }
 }
 

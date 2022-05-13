@@ -29,7 +29,6 @@
                 dataType:"json",
                 data:{studentId:studentid},
                 success:function (data) {
-                    alert(data);
                     layui.use('table', function(){
                         var table = layui.table;
                         //第一个实例
@@ -132,7 +131,6 @@
             data:{studentId:studentid},
             success:function (data) {
                // var tt = eval(data);    //不用let时就用这个eval转换
-                alert(data);
                 let tt=data;
                 //var tt = JSON.parse(data);  //错误
                 var str1 = "";   //声明str1，防止产生undefined
@@ -153,7 +151,7 @@
                     }
                     if(tt.stresumeid!=""){
                         var a=tt.stresumeid;
-                        str1+="<td><a href='AdminServlet?method=AdminGetResumeByResumeId&&stresumeid="+a+"'>查看</td>"
+                        str1+="<td><a href='AdminGetResumeByResumeId?resumeId="+a+"'>查看</td>"
                     }else{
                         str1+="<td>无</td>";
                     }
