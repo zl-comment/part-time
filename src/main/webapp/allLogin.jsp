@@ -145,7 +145,7 @@
 	font-size:12px;
 }
 
-.btn1Login
+.layui-btn   /*登录按钮*/
 {
 	display:block;
 	margin:auto;
@@ -157,7 +157,7 @@
 	border:0px;
 }
 
-.btn1Login:hover
+.layui-btn:hover  /*登录按钮:鼠标经过*/
 {
 	display:block;
 	margin:auto;
@@ -169,8 +169,7 @@
 	border:0px;
 }
 
-/*
-.btn2Login
+/*.btn2Login
 {
 	margin:auto;
 	margin-top:10px;
@@ -178,8 +177,7 @@
 	width:158px;
 	height:26px;
 	border:0px;
-}
-*/
+}*/
 
 .txtLogin
 {
@@ -315,7 +313,6 @@
                     $(".input-val").val('');
                     draw(show_num);
                 }
-
             })
         })
 
@@ -378,25 +375,7 @@
       $("#psw").blur(function() {
         var psw = $("#psw").val();
         var reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;
-     /*     if(psw.length<6){
-              alert("输入的密码必须大于六位");
-              return;}else{
-              var count =0
-              for (var i=0;i<psw.length;i++) {
-                  if((psw[i]>='a' && psw[i]<='z')||(psw[i]>='A' && psw[i]<='Z')){
-                      count++;
-                  }
-              }
-              if(count>=2){
-                  alert("输入合法");
-                  $("#psw_info").html("输入合法");
-                  $("#psw_info").css("color", "red");
-              }else{
-                  alert("输入的密码必须包含数字和字母");
-                  $("#psw_info").html("输入的密码必须包含数字和字母");
-                  $("#psw_info").css("color", "red");
-              }
-          }*/
+
         if (psw == "") {
           $("#psw_info").html("密码不能为空");
           $("#psw_info").css("color", "red");
@@ -404,7 +383,7 @@
           $("#psw_info").html("密码格式不正确，至少1个大写字母，1个小写字母和1个数字");
           $("#psw_info").css("color", "red");
         } else {
-          $("#psw_info").html("密码正确");
+          $("#psw_info").html("");
         }
       });
     })
@@ -420,9 +399,10 @@
 
 <div class="bodydwt">
 <div class="headdwt">
-	<div class="headerleftdwt"><img src="static/images1/logo.gif" /></div>
+    <div class="headerleftdwt"><img src="static/images1/4444.png" /></div>
     <div class="headerrightdwt">
-        <a href="allLogin.jsp" name="pic"><img src="static/images1/menu1-2.gif" class="imgheaderdwt" /></a>
+        <a href="allLogin.jsp" name="pic"><img src="static/images1/5555.png" class="imgheaderdwt" /></a>
+        <a <a href="myInformation?user=${user}" name="pic"><img src="static/images1/3333.png" class="imgheaderdwt" /></a>
         <a href="search.jsp" name="pic"><img src="static/images1/menu2-2.gif" class="imgheaderdwt" /></a>
         <a href="intro.jsp" name="pic"><img src="static/images1/menu3-2.gif" class="imgheaderdwt" /></a>
     </div>
@@ -447,15 +427,23 @@
 
 <%--学生登录--%>
         <div class="div113Login">
-            <form action="login" method="post">
-        	<span class="span1Login">用户名：<input class="txtLogin"  type="text" name="usercode"  placeholder="请输入用户名"  /></span>
-            <span class="span2Login"><span style="margin-right:12px">密</span>码：<input class="pwdLogin"  name="password" id="psw" type="password"  placeholder="请输入密码8~16位" /></span>
-                <span class="span2Login"><span id="psw_info"></span></span>
-            <span class="span2Login">验证码：
-            <input type="text" placeholder="请输入验证码" class="input-val" autocomplete="off" required/>
+            <form action="login" method="post" >
+        	<span class="span1Login">用户名：<input class="txtLogin"  type="text" name="usercode"   placeholder="请输入用户名"  required/></span>
+            <span class="span2Login"><span style="margin-right:12px">密</span>码：
+                <input class="pwdLogin"  name="password" id="psw" type="password"  placeholder="请输入密码8~16位" required/>
             </span>
-            <canvas id="canvas" width="100" height="33"></canvas>
-            <input type="submit" value="登录" class="btn1Login" />
+                <span class="span2Login"><span id="psw_info"></span></span>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                <span class="span2Login">验证码：
+            <input type="text" placeholder="请输入验证码" class="input-val" autocomplete="off" required/>
+                </span>
+            <canvas id="canvas" width="100" height="43"></canvas>
+                    </div>
+                </div>
+
+            <input type="submit" value="登录" <%--class="btn1Login"--%> class="layui-btn"   lay-submit  id="submit" />
             </form>
      <%--       <input type="button" class="btn2Login" />--%>
         </div>
@@ -517,7 +505,7 @@
 
 <script type="text/javascript">
 var pics=document.getElementsByName("pic");
-pics[0].innerHTML="<img src='static/images1/menu1-1.gif' class='imgheaderdwt' />";
+pics[0].innerHTML="<img src='static/images1/6666.png' class='imgheaderdwt' />";
 
 
 </script>

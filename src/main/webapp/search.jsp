@@ -517,11 +517,17 @@ ul.pagination li a {
 
 <div class="bodydwt">
 <div class="headdwt">
-	<div class="headerleftdwt"><img src="static/images1/logo.gif" /></div>
+    <div class="headerleftdwt"><img src="static/images1/4444.png" /></div>
     <div class="headerrightdwt">
-        <a href="allLogin.jsp" name="pic"><img src="static/images1/menu1-2.gif" class="imgheaderdwt" /></a>
+      <%--  <a href="allLogin.jsp" name="pic"><img src="static/images1/menu1-2.gif" class="imgheaderdwt" /></a>
+        <a href="search.jsp" name="pic"><img src="static/images1/menu2-2.gif" class="imgheaderdwt" /></a>
+        <a href="intro.jsp" name="pic"><img src="static/images1/menu3-2.gif" class="imgheaderdwt" /></a>--%>
+        <a href="allLogin.jsp" name="pic"><img src="static/images1/5555.png" class="imgheaderdwt" /></a>
+        <a <a href="myInformation?user=${user}" name="pic"><img src="static/images1/3333.png" class="imgheaderdwt" /></a>
         <a href="search.jsp" name="pic"><img src="static/images1/menu2-2.gif" class="imgheaderdwt" /></a>
         <a href="intro.jsp" name="pic"><img src="static/images1/menu3-2.gif" class="imgheaderdwt" /></a>
+
+
     </div>
 </div>
 <!-- InstanceBeginEditable name="EditRegion3" -->
@@ -1229,7 +1235,7 @@ function showchangeContent()
 
 var pics=document.getElementsByName("pic");
 
-pics[1].innerHTML="<img src='static/images1/menu2-1.gif' class='imgheaderdwt' />";
+pics[2].innerHTML="<img src='static/images1/menu2-1.gif' class='imgheaderdwt' />";
 
 
 </script>
