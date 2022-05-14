@@ -76,6 +76,13 @@
     </insert>
 
 
+    <select id="getOccupationByOcid" resultType="com.zx.beans.Occupation">
+        select * from occupation where id = #{ocid}
+    </select>
+
+    <insert id="addOccupationHistory" >
+        insert into history values (#{occupation.id},#{occupation.ocname},#{occupation.salary},#{occupation.requirement},#{occupation.workplace},#{occupation.worktime},#{studentid})
+    </insert>
 
 
 </mapper>

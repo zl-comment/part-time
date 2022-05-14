@@ -1,5 +1,6 @@
 package com.zx.controller;
 
+import com.zx.beans.Occupation;
 import com.zx.beans.Resume;
 import com.zx.beans.Student;
 import org.springframework.ui.Model;
@@ -126,6 +127,7 @@ public class StudentController {
             System.out.println(ocid);
             System.out.println(student);
             studentService.insertStuandoc(student.getId(),ocid,student.getStresumeid());
+            request.setAttribute("ocid",ocid);
             return "success";
         }else {
             System.out.println("无法报名");
@@ -134,7 +136,12 @@ public class StudentController {
     }
 
 
-
+    @RequestMapping("/getOccupationByOcid")
+    public @ResponseBody Object getOccupationByOcid(int ocid,HttpServletRequest request){
+        Student student=(Student)request.getSession().getAttribute("user");
+        Occupation occupation = studentService.getOccupationByOcid(ocid,student.getId());
+        return occupation;
+    }
 
 
 }

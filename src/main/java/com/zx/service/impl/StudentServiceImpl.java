@@ -2,9 +2,11 @@ package com.zx.service.impl;
 
 
 
+import com.zx.beans.Occupation;
 import com.zx.beans.Resume;
 import com.zx.beans.Student;
 import com.zx.dao.AdminDao;
+import com.zx.dao.OccupationDao;
 import com.zx.dao.ResumeDao;
 import com.zx.dao.StudentDao;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -79,5 +81,13 @@ public class StudentServiceImpl implements com.zx.service.StudentService {
     public void insertStuandoc(int stuid, int ocid,int resumeid) {
         StudentDao studentDao = sqlSessionTemplate.getMapper(StudentDao.class);
         studentDao.insertStuandoc(stuid,ocid,resumeid);
+    }
+
+    @Override
+    public Occupation getOccupationByOcid(int ocid,int studentid){
+        StudentDao studentDao = sqlSessionTemplate.getMapper(StudentDao.class);
+        Occupation occupation = studentDao.getOccupationByOcid(ocid);
+        studentDao.addOccupationHistory(occupation, studentid);
+        return occupation;
     }
 }
