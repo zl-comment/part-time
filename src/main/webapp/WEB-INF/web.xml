@@ -21,11 +21,27 @@
       <param-name>encoding</param-name>
       <param-value>utf-8</param-value>
     </init-param>
+
   </filter>
+
+  <!--使用SessionFilter 实现登陆控制-->
+  <filter>
+    <filter-name>SessionFilter</filter-name>
+    <filter-class>com.zx.filter.LoginFilter</filter-class>
+  </filter>
+
   <filter-mapping>
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
+
+
+
 
   <!--配置监听器：创建spring容器对象-->
   <listener>
