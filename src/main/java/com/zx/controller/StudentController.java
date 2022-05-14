@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller("studentController")
 public class StudentController {
@@ -143,6 +144,13 @@ public class StudentController {
         return occupation;
     }
 
+    @RequestMapping("/getHistory")
+    public String getHistory(Model model,HttpServletRequest request){
+        Student student=(Student)request.getSession().getAttribute("user");
+        List<Occupation> occupations=studentService.getHistory(student.getId());
+        model.addAttribute("occupations",occupations);
+        return  "history";
+    }
 
 }
 

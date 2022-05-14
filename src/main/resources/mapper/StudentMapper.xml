@@ -84,5 +84,8 @@
         insert into history values (#{occupation.id},#{occupation.ocname},#{occupation.salary},#{occupation.requirement},#{occupation.workplace},#{occupation.worktime},#{studentid})
     </insert>
 
+    <select id="getHistory" resultType="com.zx.beans.Occupation">
+        select * from history where studentid = #{studentid}
+    </select>
 
 </mapper>

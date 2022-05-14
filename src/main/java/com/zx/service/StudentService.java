@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 public interface StudentService {
 
@@ -30,4 +31,5 @@ public interface StudentService {
     @Transactional(propagation = Propagation.REQUIRED )
     Occupation getOccupationByOcid(int ocid ,int studentid);
 
+    List<Occupation> getHistory(int studentid);
 }

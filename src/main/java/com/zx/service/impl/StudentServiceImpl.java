@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 
 @Service
@@ -89,5 +90,12 @@ public class StudentServiceImpl implements com.zx.service.StudentService {
         Occupation occupation = studentDao.getOccupationByOcid(ocid);
         studentDao.addOccupationHistory(occupation, studentid);
         return occupation;
+    }
+
+    @Override
+    public List<Occupation> getHistory(int studentid) {
+        StudentDao studentDao = sqlSessionTemplate.getMapper(StudentDao.class);
+      return   studentDao.getHistory(studentid);
+
     }
 }
