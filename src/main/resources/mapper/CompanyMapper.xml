@@ -79,7 +79,7 @@
 </resultMap>-->
 
     <select id="getAdmissionById"   parameterType="int"  resultMap="companyStudent">
-        SELECT  b.id cpyandocid,b.occupationid ,c.ocname,c.salary,c.requirement,c.workplace,c.worktime, d.id stuandocid,d.studentid,e.stname,e.staccount,e.stpassword,e.stphone,e.stschool,e.stmajor,e.stsystem,e.stdate,e.stresume,e.ststate,e.stresumeid  FROM company a LEFT JOIN cpyandoc b on a.id=b.companyid LEFT JOIN occupation c on c.id=b.occupationid LEFT JOIN stuandoc d ON d.occupationid=c.id LEFT JOIN student e on e.id=d.studentid WHERE a.id=#{companyid} and d.id != 0
+        SELECT  b.id cpyandocid,b.occupationid ,c.ocname,c.salary,c.requirement,c.workplace,c.worktime, d.id stuandocid,d.studentid,e.stname,e.staccount,e.stpassword,e.stphone,e.stschool,e.stmajor,e.stsystem,e.stdate,e.stresume,d.ststate,e.stresumeid  FROM company a LEFT JOIN cpyandoc b on a.id=b.companyid LEFT JOIN occupation c on c.id=b.occupationid LEFT JOIN stuandoc d ON d.occupationid=c.id LEFT JOIN student e on e.id=d.studentid WHERE a.id=#{companyid} and d.id != 0
     </select>
     <resultMap id="companyStudent" type="com.zx.beans.Student">
         <id property="id" column="studentid"></id>

@@ -3,6 +3,7 @@ package com.zx.dao;
 
 import com.zx.beans.Admin;
 import com.zx.beans.Permission;
+import com.zx.beans.Resume;
 import com.zx.beans.Student;
 import org.apache.ibatis.annotations.Param;
 
@@ -25,4 +26,6 @@ public interface AdminDao   {
     int qian2();
 
     Student getStudentByIdAdmin(int parseInt);
+
+    Resume getResumeByResumeId(int parseInt);
 }

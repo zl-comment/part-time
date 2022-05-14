@@ -37,6 +37,8 @@ public interface AdminService {
 
     Student getStudentByIdAdmin(int parseInt);
 
+    Resume getResumeByResumeId(int parseInt);
+
 
 
 

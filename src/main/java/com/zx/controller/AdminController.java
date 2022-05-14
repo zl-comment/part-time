@@ -150,4 +150,15 @@ public class AdminController {
         return student;
     }
 
+    @RequestMapping("AdminGetResumeByResumeId")
+    public  String AdminGetResumeByResumeId(String resumeId,Model model){
+        Resume resume=adminService.getResumeByResumeId(Integer.parseInt(resumeId));
+        System.out.println(resume);
+        model.addAttribute("resume",resume);
+        return "adminStudentResume";
+    }
+
+
+
+
 }

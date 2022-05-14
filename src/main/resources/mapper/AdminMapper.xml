@@ -33,5 +33,9 @@
         select *from student where id=#{id}
     </select>
 
+    <select id="getResumeByResumeId" resultType="com.zx.beans.Resume">
+        select *from resume where id=#{id}
+    </select>
+
 
 </mapper>

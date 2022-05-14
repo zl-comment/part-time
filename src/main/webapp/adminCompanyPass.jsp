@@ -123,7 +123,7 @@
                 //do somehing
                 var url='';
 
-                url+="AdminServlet?method=getCompanyByIdAndOccupation&&companyid="+data.id;
+                url+="getCompanyByIdAndOccupation?companyId="+data.id;
                 window.location.href=url;
 
 

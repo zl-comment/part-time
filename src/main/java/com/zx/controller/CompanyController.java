@@ -127,14 +127,21 @@ public class CompanyController {
 
     }
     @RequestMapping("accept")
-    public void accept(int ocid,int studentid,Model model){
+    public String accept(int ocid,int studentid,HttpServletRequest request,Model model){
         companyService.accept(ocid,studentid);
+        Company company = (Company)request.getSession().getAttribute("user");//这里有company所有值
+        ArrayList<Student> students = companyService.getAdmissionById(company.getId());
+        model.addAttribute("students",students);
+        return "Admission";
     }
     @RequestMapping("refuse")
-    public void refuse(int ocid,int studentid,Model model){
+    public String refuse(int ocid,int studentid,HttpServletRequest request,Model model){
         companyService.refuse(ocid,studentid);
+        Company company = (Company)request.getSession().getAttribute("user");//这里有company所有值
+        ArrayList<Student> students = companyService.getAdmissionById(company.getId());
+        model.addAttribute("students",students);
+        return "Admission";
     }
-
 
 
     //初始化绑定方法
