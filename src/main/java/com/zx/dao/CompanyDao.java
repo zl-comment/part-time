@@ -43,4 +43,10 @@ public interface CompanyDao {
     void accept(@Param("ocid") int ocid,@Param("studentid") int studentid);
     void refuse(@Param("ocid") int ocid,@Param("studentid") int studentid);
 
+    Object selectCpyandroByAdmin(int id);
+
+    void updateCpyandroByAdmin(@Param("id") int id,@Param("i") int i);
+
+
+    void insertCpyandroByAdmin(@Param("id")int id,@Param("i") int i);
 }

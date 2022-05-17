@@ -141,4 +141,19 @@
     <update id="refuse">
         update stuandoc set ststate = -1 where studentid=#{studentid} and occupationid=#{ocid}
     </update>
+
+    <select id="selectCpyandroByAdmin" resultType="int">
+        SELECT id FROM cpyandro where cpyandro.companyid=#{companyid}
+    </select>
+
+    <update id="updateCpyandroByAdmin" >
+        update cpyandro set roleid=#{i} where companyid=#{id}
+    </update>
+
+    <insert id="insertCpyandroByAdmin">
+        insert  into  cpyandro  values(null,#{id},#{i})
+    </insert>
+
+
+
 </mapper>

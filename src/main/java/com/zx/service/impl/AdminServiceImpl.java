@@ -70,6 +70,17 @@ public class AdminServiceImpl  implements AdminService {
             System.out.println(company.getId());
             System.out.println(state);
             companyDao.updateCompanyStateAdmin(company.getId(),state);
+            if(state==1){   //若企业审核通过
+                if(companyDao.selectCpyandroByAdmin(company.getId())!=null){  //如果已经存在表中
+                    companyDao.updateCpyandroByAdmin(company.getId(),3); //则更新表中的角色属性
+                }else
+                companyDao.insertCpyandroByAdmin(company.getId(),3);   //如果没在表中就添加
+            }else   if(state==-1){   //若企业审核没通过
+                if(companyDao.selectCpyandroByAdmin(company.getId())!=null){  //如果已经存在表中
+                    companyDao.updateCpyandroByAdmin(company.getId(),5); //则更新表中的角色属性
+                }else
+                companyDao.insertCpyandroByAdmin(company.getId(),5);   //如果没在表中就添加
+            }
         }
     }
 
