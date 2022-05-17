@@ -11,16 +11,28 @@ layui.use(['modules_index'],function(){
   	element.on('nav(nav_left)', function(elem){
 	    var url=elem.attr("href");
 	    //var url=elem.attr("src");
-	    console.log(url);
+	   // console.log(url);
 	    var id=elem.attr("data-id");
-	    console.log(id)
+	  //  console.log(id)
 	    var titlename=elem.text();
-	    console.log(titlename)
+	   // console.log(titlename)
 	    if(url){
 	    	modules_index.addtab(url,id,titlename);
 
 		}
   	});
+	element.on("tab(main_tab)",function (data){
+		var id=	$(this).attr("lay-id");
+		//console.log(id);
+	    $('i').click(function (){
+		modules_index.deletetab(id);
+		//console.log(222);
+	});
+		//console.log(1111);
+
+	})
+
+
   	//监听头部右侧导航点击
   	element.on('nav(nav_header_right)',function(elem){
   		if(elem.attr("data-id")==="logout"){

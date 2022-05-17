@@ -34,12 +34,12 @@
                     for (var i = 0; i < data.length; i++) {
                        if(data[i].permname.indexOf("企业")==0||data[i].permname.indexOf("职业")==0) {
                          //  alert(data[i].permname.indexOf("企业"));
-                           str += "<dd><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
+                           str += "<dd><a id='mytab"+i+"'  lay-filter='table'    href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
                        }else if(data[i].permname.indexOf("角色")==0){
-                           str2 += "<dd><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
+                           str2 += "<dd><a id='mytab"+i+"' lay-filter='table'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
                        }
                        else{
-                           str1 += "<dd><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
+                           str1 += "<dd><a id='mytab"+i+"'  lay-filter='table' href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
                        }
                     }
                     $("#company").html(str);
@@ -86,7 +86,7 @@
             <li class="layui-nav-item">
                 <a href="javascript:">
                     <img src="./static/layui/images/face/0.gif" class="layui-nav-img" alt="">
-                    ${admin.adminname}
+                    ${user.adminname}
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="https://www.baidu.com/">基本资料</a></dd>
@@ -138,7 +138,7 @@
     </div>
 
 
-    //
+
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div style="padding: 5px;">
