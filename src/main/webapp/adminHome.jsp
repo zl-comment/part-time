@@ -30,17 +30,21 @@
                    // alert(data);
                     var str = "";
                     var str1="";
+                    var str2="";
                     for (var i = 0; i < data.length; i++) {
                        if(data[i].permname.indexOf("企业")==0||data[i].permname.indexOf("职业")==0) {
                          //  alert(data[i].permname.indexOf("企业"));
                            str += "<dd><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
-                       }else{
+                       }else if(data[i].permname.indexOf("角色")==0){
+                           str2 += "<dd><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
+                       }
+                       else{
                            str1 += "<dd><a id='mytab'  href='"+data[i].permurl+"'   data-id='"+data[i].id+"' target='iFrm'>"+data[i].permname+"</a></dd>";
-
                        }
                     }
                     $("#company").html(str);
                     $("#student").html(str1);
+                    $("#role").html(str2);
                 layui.use('element', function() {
                     var element = layui.element;
                     element.init();
@@ -115,28 +119,18 @@
                     <a >企业用户管理</a>
                     <dl class="layui-nav-child" id="company">
 
-                        <%--<dd><a id="mytab"  href="adminCompaniesList.jsp"   data-id="1" target="iFrm">企业列表</a></dd>
-                        <dd><a id="mytab"  href="adminCompanyPass.jsp"     data-id="2" target="iFrm">企业审核</a></dd>
-                        <dd><a id="mytab"  href="adminOccupationPass.jsp"  data-id="3" target="iFrm">职业审核</a></dd>
-                        <dd><a id="mytab"  href=""  data-id="4" target="iFrm">企业角色管理</a></dd>--%>
                     </dl>
                 </li>
                     <li class="layui-nav-item layui-nav-itemed">
                         <a >学生用户管理</a>
                         <dl class="layui-nav-child" id="student">
-                      <%--      <dd><a href="adminStudentList.jsp" data-id="5" target="iFrm">学生列表</a></dd>
-                            <dd><a href="javascript:">学生审核</a></dd>
-                            <dd><a href="javascript:">学生角色管理</a></dd>--%>
                         </dl>
                     </li>
-       <%--         <li class="layui-nav-item">
-                    <a href="javascript:">解决方案</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="  ">移动模块</a></dd>
-                        <dd><a href="  ">后台模版</a></dd>
-                        <dd><a href="  ">电商平台</a></dd>
-                    </dl>
-                </li>--%>
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a >角色管理</a>
+                        <dl class="layui-nav-child" id="role">
+                        </dl>
+                    </li>
                 <li class="layui-nav-item"><a href="">云市场</a></li>
                 <li class="layui-nav-item"><a href="">社区</a></li>
             </ul>
