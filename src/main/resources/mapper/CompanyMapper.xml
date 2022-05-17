@@ -31,7 +31,7 @@
     </resultMap>
 
 <insert id="Register" parameterType="java.lang.String" >
-    insert into company values (null,#{cpyaccount},#{cpypassword},#{cpyname},#{cpyphone},#{cpyaddress},#{cpyinfo},null)
+    insert into company values (null,#{cpyname},#{cpyaccount},#{cpypassword},#{cpyphone},#{cpyaddress},#{cpyinfo},null)
 </insert>
 
 <insert id="addOccupation" parameterType="int" >
