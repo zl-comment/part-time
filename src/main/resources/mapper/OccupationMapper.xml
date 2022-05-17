@@ -69,8 +69,7 @@
     </delete>
 
     <select id="occupationByStudentAdmin" parameterType="int" resultType="com.zx.beans.Occupation">
-        SELECT oc.id id ,ocname,salary,requirement,workplace,worktime  from student stu,occupation oc,stuandoc sta where stu.id=sta.studentid and oc.id=sta.occupationid and stu.id=#{id}
-    </select>
+        SELECT h.id id,ocname,salary,requirement,workplace,worktime  from student stu,history h where stu.id=h.studentid and stu.id=#{studentid}    </select>
 
     <update id="updateOccupationById" parameterType="com.zx.beans.Occupation">
         UPDATE occupation SET ocname=#{occupation.ocname},salary=#{occupation.salary},requirement=#{occupation.requirement},workplace=#{occupation.workplace},worktime=#{occupation.worktime} WHERE id=#{occupation.id}

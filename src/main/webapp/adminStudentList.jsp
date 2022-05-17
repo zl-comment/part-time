@@ -83,7 +83,14 @@
                 var url='';
 
                 url+="toGoAdminStudentSp?studentId="+data.id;
-                window.location.href=url;
+                //window.location.href=url;
+                layer.open({       //小窗口
+                    type:2,
+                    title:'详细信息',
+                    area: ['60%', '60%'],
+                    offset: '50px',
+                    content:url,
+                })
 
 
             } else if(layEvent === 'del'){ //删除
