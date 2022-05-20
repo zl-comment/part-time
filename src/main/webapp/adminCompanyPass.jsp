@@ -196,8 +196,22 @@
                     })
 
                     break;
-                case 'isAll':
-                    layer.msg(checkStatus.isAll ? '全选': '未全选');
+                case 'Banned':
+                  //  layer.msg(checkStatus.isAll ? '全选': '未全选');
+                    var data = checkStatus.data;
+                    var state='-2';
+                    $.ajax({
+                        url:'adminAuditCompany'
+                        ,method:'post'
+                        ,data:{companies:JSON.stringify(data),state:state}
+                        ,success:function () {
+                            layer.alert("成功")
+                            table.reload('company',{});  //操作之后执行刷新操作
+                        },
+                        error:function () {
+                            layer.alert("失败")
+                        }
+                    })
                     break;
 
                 //自定义头工具栏右侧图标 - 提示
@@ -217,6 +231,8 @@
     未审核
     {{#  } else  if(d.state=='1' )  { }}
     审核通过
+    {{#  } else  if(d.state=='-2' )  { }}
+    封禁
     {{#  } else {}}
     审核未通过
     {{#  } }}
@@ -234,7 +250,7 @@
 <div class="layui-btn-container">
     <button class="layui-btn layui-btn-sm" lay-event="pass">通过</button>
     <button class="layui-btn layui-btn-sm" lay-event="reject">拒绝</button>
-    <button class="layui-btn layui-btn-sm" lay-event="isAll">封禁</button>
+    <button class="layui-btn layui-btn-sm" lay-event="Banned">封禁</button>
 </div>
 </script>
 

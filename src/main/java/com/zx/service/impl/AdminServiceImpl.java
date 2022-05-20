@@ -80,6 +80,11 @@ public class AdminServiceImpl  implements AdminService {
                     companyDao.updateCpyandroByAdmin(company.getId(),4); //则更新表中的角色属性
                 }else
                 companyDao.insertCpyandroByAdmin(company.getId(),4);   //如果没在表中就添加
+            }else   if(state==-2){   //若企业审核被封
+                if(companyDao.selectCpyandroByAdmin(company.getId())!=null){  //如果已经存在表中
+                    companyDao.updateCpyandroByAdmin(company.getId(),5); //则更新表中的角色属性
+                }else
+                    companyDao.insertCpyandroByAdmin(company.getId(),5);   //如果没在表中就添加
             }
         }
     }
