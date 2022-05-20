@@ -139,7 +139,7 @@
 <script>
     $(function () {
 
-        $("#staccount").blur(function () {
+    /*    $("#staccount").blur(function () {
             var staccount=$("#staccount").val();
             $.ajax({
                 url:"staccountIsSame",
@@ -150,11 +150,79 @@
                         $("#msg").html("<font color='green' >√</font>");
                     }else {
                         $("#msg").html("<font color='red' >用户名已经存在</font>");
-
                     }
+
                 }
             })
+        })*/
+
+        $("#submit").on('click', function() {
+
+            var staccount=$("#staccount").val();
+            var reg1=/^[a-zA-z]\w{3,15}$/;
+            if (staccount == "") {
+                $("#staccount_info").html("账号不能为空");
+                $("#staccount_info").css("color", "red");
+                return false;
+            } else if (!reg1.test(staccount)) {
+                $("#staccount_info").html("账号格式不正确，字母开头 4~16位");
+                $("#staccount_info").css("color", "red");
+                return false;
+            } else {
+                $("#staccount_info").html("");
+            }
+
+
+            var psw = $("#stpassword").val();
+            var reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;
+
+            if (psw == "") {
+                $("#psw_info").html("密码不能为空");
+                $("#psw_info").css("color", "red");
+                return false;
+            } else if (!reg.test(psw)) {
+                $("#psw_info").html("密码格式不正确，至少1个大写字母，1个小写字母和1个数字");
+                $("#psw_info").css("color", "red");
+                return false;
+            } else {
+                $("#psw_info").html("");
+            }
+
+            var stphone=$("#stphone").val();
+            var streg=/^1[3-9]\d{9}$/;
+
+            if (stphone == "") {
+                $("#stphone_info").html("手机号");
+                $("#stphone_info").css("color", "red");
+                return false;
+            } else if (!streg.test(stphone)) {
+                $("#stphone_info").html("手机格式不正确");
+                $("#stphone_info").css("color", "red");
+                return false;
+            } else {
+                $("#stphone_info").html("");
+            }
+
+            var stsystem=$("#stsystem").val();
+
+            if (stsystem== 4||stsystem== 5) {
+                $("#stsystem_info").html("");
+            }  else {
+
+                $("#stsystem_info").html("格式不正确");
+                $("#stsystem_info").css("color", "red");
+                return false;
+            }
+
+
+
+
+
+
         })
+
+
+
     })
 
 </script>
@@ -174,28 +242,24 @@
                    autofocus required>
         </div>
         <span id="msg"></span>
+        <span id="staccount_info"></span>
     </div>
 
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
-            <input type="password" name="stpassword" placeholder="请输入密码" autocomplete="off" class="layui-input"
+            <input type="password" name="stpassword"  id="stpassword"   placeholder="请输入密码" autocomplete="off" class="layui-input"
                    required>
         </div>
-    </div>
-    <div class="layui-form-item">
-        <div class="layui-input-block">
-            <span class="decrib">确认密码：</span>
-            <input type="password" name="check-stpassword"  placeholder="请再次输入密码" autocomplete="off" class="layui-input"
-                   required>
-        </div>
+        <span id="psw_info"></span>
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：</span>
-            <input type="text" name="stphone" placeholder="请输入您的电话" autocomplete="off" class="layui-input"
+            <input type="text" name="stphone" id="stphone"  placeholder="请输入您的电话" autocomplete="off" class="layui-input"
                    required>
         </div>
+        <span id="stphone_info"></span>
     </div>
 
     <div class="layui-form-item">
@@ -215,9 +279,10 @@
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;制：</span>
-            <input type="text" name="stsystem" placeholder="4/5" autocomplete="off" class="layui-input"
+            <input type="text" name="stsystem"  id="stsystem"   placeholder="4/5" autocomplete="off" class="layui-input"
                    required>
         </div>
+        <span id="stsystem_info"></span>
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">

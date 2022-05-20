@@ -135,30 +135,78 @@
 
 <script src="./static/js/jquery.min.js"></script>
 
-<%--
 <script>
     $(function () {
 
-        $("#cpyaccount").blur(function () {
-            var cpyaccount=$("#cpyaccount").val();
-            $.ajax({
-                url:"CompanyServlet?method=cpyaccountIsSame",
-                method:"post",
-                data:{cpyaccount:cpyaccount},
-                success:function (data) {
-                    if(data=="false"){
-                        $("#msg").html("<font color='green' >√</font>");
-                    }else {
-                        $("#msg").html("<font color='red' >用户名已经存在</font>");
+        /*    $("#staccount").blur(function () {
+                var staccount=$("#staccount").val();
+                $.ajax({
+                    url:"staccountIsSame",
+                    method:"post",
+                    data:{staccount:staccount},
+                    success:function (data) {
+                        if(data=="false"){
+                            $("#msg").html("<font color='green' >√</font>");
+                        }else {
+                            $("#msg").html("<font color='red' >用户名已经存在</font>");
+                        }
 
                     }
-                }
-            })
+                })
+            })*/
+
+        $("#submit").on('click', function() {
+
+            var cpyaccount=$("#cpyaccount").val();
+            var reg1=/^[a-zA-z]\w{3,15}$/;
+            if (cpyaccount == "") {
+                $("#cpyaccount_info").html("账号不能为空");
+                $("#cpyaccount_info").css("color", "red");
+                return false;
+            } else if (!reg1.test(cpyaccount)) {
+                $("#cpyaccount_info").html("账号格式不正确，字母开头 4~16位");
+                $("#cpyaccount_info").css("color", "red");
+                return false;
+            } else {
+                $("#cpyaccount_info").html("");
+            }
+
+
+            var psw = $("#cpypassword").val();
+            var reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;
+
+            if (psw == "") {
+                $("#cpypassword_info").html("密码不能为空");
+                $("#cpypassword_info").css("color", "red");
+                return false;
+            } else if (!reg.test(psw)) {
+                $("#cpypassword_info").html("密码格式不正确，至少1个大写字母，1个小写字母和1个数字");
+                $("#cpypassword_info").css("color", "red");
+                return false;
+            } else {
+                $("#cpypassword_info").html("");
+            }
+
+            var cpyphone=$("#cpyphone").val();
+            var streg=/^1[3-9]\d{9}$/;
+
+            if (cpyphone == "") {
+                $("#cpyphone_info").html("手机号");
+                $("#cpyphone_info").css("color", "red");
+                return false;
+            } else if (!streg.test(cpyphone)) {
+                $("#cpyphone_info").html("手机格式不正确");
+                $("#cpyphone_info").css("color", "red");
+                return false;
+            } else {
+                $("#cpyphone_info").html("");
+            }
+
         })
+
+
     })
-
-</script>--%>
-
+</script>
 
 
 
@@ -176,24 +224,18 @@
             <input type="text" name="cpyaccount"   id="cpyaccount"  placeholder="请输入账号" autocomplete="off" class="layui-input"
                    autofocus required>
         </div>
-        <span id="msg"></span>
+        <span id="cpyaccount_info"></span>
     </div>
 
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
-            <input type="password" name="cpypassword" placeholder="请输入密码" autocomplete="off" class="layui-input"
+            <input type="password" name="cpypassword"   id="cpypassword"  placeholder="请输入密码" autocomplete="off" class="layui-input"
                    required>
         </div>
+        <span id="cpypassword_info"></span>
     </div>
 
-   <%-- <div class="layui-form-item">
-        <div class="layui-input-block">
-            <span class="decrib">确认密码：</span>
-            <input type="password" name="cpypassword1" placeholder="请再次输入密码" autocomplete="off" class="layui-input"
-                   required>
-        </div>
-    </div>--%>
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">公司名称：</span>
@@ -204,9 +246,10 @@
     <div class="layui-form-item">
         <div class="layui-input-block">
             <span class="decrib">公司电话：</span>
-            <input type="text" name="cpyphone" placeholder="请输入公司电话" autocomplete="off" class="layui-input"
+            <input type="text" name="cpyphone"  id="cpyphone" placeholder="请输入公司电话" autocomplete="off" class="layui-input"
                    autofocus required>
         </div>
+        <span id="cpyphone_info"></span>
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
