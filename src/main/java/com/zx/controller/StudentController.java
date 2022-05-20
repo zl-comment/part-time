@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -90,10 +91,14 @@ public class StudentController {
     }
 
     @RequestMapping("/createResume")
-    public String createResume(Resume resume){
-
-        studentService.createResume(resume);
-        return "StudentResume";
+    public String createResume(HttpServletRequest request,Resume resume){
+        Object object=request.getSession().getAttribute("user");
+       Resume resume1= studentService.createResume(((Student)object).getId(),resume);
+        HttpSession session = request.getSession();
+        ((Student) object).setStresumeid(resume1.getId());
+        session.setAttribute("user",object);
+        request.setAttribute("resume",resume1);
+        return "studentResume";
     }
 
 

@@ -57,10 +57,12 @@ public class StudentServiceImpl implements com.zx.service.StudentService {
     }
 
     @Override
-    public Resume createResume(Resume resume) {
+    public Resume createResume(int studentid,Resume resume) {
         ResumeDao resumeDao = sqlSessionTemplate.getMapper(ResumeDao.class);
-        resumeDao.createResume(resume.getName(),resume.getAge(),resume.getImaurl(),resume.getAddress(),resume.getPhone(),resume.getHobby(),resume.getWorkExperience(),resume.getMajor(),resume.getSelfEvaluation(),resume.getEmail());
-        return resume;
+         resumeDao.createResume(resume);
+        resumeDao.insertResumeIntoStudent(resume.getId(),studentid);
+      return  resumeDao.getStudentResumeById(resume.getId());
+
     }
 
     @Override

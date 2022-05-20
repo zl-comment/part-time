@@ -9,9 +9,12 @@
         select * from resume where id = #{id}
     </select>
 
-    <insert id="createResume" >
-        insert into resume values (null,#{name},#{age},#{imaurl},#{address},#{phone},#{email},#{hobby},#{major},#{workExperience},#{selfEvaluation})
+    <insert id="createResume"  parameterType="com.zx.beans.Resume"  useGeneratedKeys="true" keyProperty="resume.id">
+        insert into resume values (null,#{resume.name},#{resume.age},#{resume.imaurl},#{resume.address},#{resume.phone},#{resume.email},#{resume.hobby},#{resume.major},#{resume.workExperience},#{resume.selfEvaluation})
     </insert>
 
+    <update id="insertResumeIntoStudent" >
+        update   student set stresumeid=#{resumid} where id=#{studentid}
+    </update>
 
 </mapper>

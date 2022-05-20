@@ -20,7 +20,7 @@ public interface StudentService {
 
     void updateinfoStudent(Student student, Date date);
 
-    Resume createResume(Resume resume);
+    Resume createResume(int studentid,Resume resume);
 
     Student getStudentInfoById(int id);
 
