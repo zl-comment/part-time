@@ -20,14 +20,8 @@
 
 <div class="header">
     <div class="mainwarp">
-        <div class="logo"><a href="allHome.jsp"><img src="static/images2/log.png" /></a></div>
-        <div class="welcome">欢迎注册</div>
-        <div class="headerright">
-            <a href="adminlogin.jsp">个人登录</a>
-            <span>|</span>
-            <!--         <a href="zhuceCompany.html">企业注册 </a>-->
-            <span>|</span>
-            <a href="allHome.jsp">返回首页</a>
+        <div class="logo"><a href="allHome.jsp"></a></div>
+
         </div>
     </div>
 </div>
@@ -51,12 +45,12 @@
                 <span id="1"></span>
             </div>
 
-            <div class="jlbox2">
+            <%--<div class="jlbox2">
                 <span class="tit"  id="gender1">性别</span>
                 <input name="gender" type="radio" value="男" >男
                 <input name="gender" type="radio" value="女" >女
                 <span id="13"></span>
-            </div><br>
+            </div><br>--%>
 
 
            <%-- <div class="jlbox2">

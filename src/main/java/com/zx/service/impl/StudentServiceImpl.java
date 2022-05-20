@@ -59,7 +59,7 @@ public class StudentServiceImpl implements com.zx.service.StudentService {
     @Override
     public Resume createResume(Resume resume) {
         ResumeDao resumeDao = sqlSessionTemplate.getMapper(ResumeDao.class);
-        resumeDao.createResume(resume.getName(),resume.getGender(),resume.getAge(),resume.getImaurl(),resume.getAddress(),resume.getPhone(),resume.getHobby(),resume.getWorkExperience(),resume.getMajor(),resume.getSelfEvaluation(),resume.getEmail());
+        resumeDao.createResume(resume.getName(),resume.getAge(),resume.getImaurl(),resume.getAddress(),resume.getPhone(),resume.getHobby(),resume.getWorkExperience(),resume.getMajor(),resume.getSelfEvaluation(),resume.getEmail());
         return resume;
     }
 
@@ -75,6 +75,7 @@ public class StudentServiceImpl implements com.zx.service.StudentService {
     public Resume getStudentResumeById(int id) {
         ResumeDao resumeDao = sqlSessionTemplate.getMapper(ResumeDao.class);
         Resume resume = resumeDao.getStudentResumeById(id);
+
         return resume;
     }
 

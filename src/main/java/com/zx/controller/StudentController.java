@@ -108,9 +108,15 @@ public class StudentController {
     @RequestMapping("/getStudentResumeById")
     public String getStudentResumeById(HttpServletRequest request ){
         Object object=request.getSession().getAttribute("user");
-        Resume resume = studentService.getStudentResumeById(((Student)object).getStresumeid());
-        request.setAttribute("resume",resume);
-        return "studentResume";
+        System.out.println(((Student) object).getStresumeid());
+        if(((Student) object).getStresumeid()==0){
+            return "jianli";
+        }else {
+            Resume resume = studentService.getStudentResumeById(((Student)object).getStresumeid());
+            request.setAttribute("resume",resume);
+            return "studentResume";
+        }
+
     }
 
     /*@RequestMapping("/getOccupations")

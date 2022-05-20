@@ -9,8 +9,8 @@
         select * from resume where id = #{id}
     </select>
 
-    <insert id="createResume">
-        insert into resume values (null,#{name},#{gender},#{age},#{imaurl},#{address},#{phone},#{email},#{hobby},#{major},#{workExperience},#{selfEvaluation})
+    <insert id="createResume" >
+        insert into resume values (null,#{name},#{age},#{imaurl},#{address},#{phone},#{email},#{hobby},#{major},#{workExperience},#{selfEvaluation})
     </insert>
 
 
