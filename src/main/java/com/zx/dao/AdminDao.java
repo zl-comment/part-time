@@ -28,4 +28,16 @@ public interface AdminDao   {
     Student getStudentByIdAdmin(int parseInt);
 
     Resume getResumeByResumeId(int parseInt);
+
+    List<Admin> getAdminList();
+
+    void updateAdminInfo(@Param("id") int id,@Param("adminname") String adminname,@Param("adminpassword") String adminpassword,@Param("adminphone") String adminphone);
+
+    void updateAdminState(@Param("id") int id,@Param("parseInt") int parseInt);
+
+ void addAdmin(@Param("admin") Admin admin);
+
+ void updateAdandro(@Param("id") int id,@Param("i") int i);
+
+ void insertAdandro(int id);
 }

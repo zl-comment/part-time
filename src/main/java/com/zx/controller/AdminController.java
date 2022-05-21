@@ -157,7 +157,29 @@ public class AdminController {
         return "adminStudentResume";
     }
 
+    @RequestMapping("getAdminList")
+ public @ResponseBody Object getAdminList(int currectpage, int limit) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        Page<Admin> page = adminService.getAdminList(currectpage, limit);
+        String json=  mapper.writeValueAsString(page);
+        System.out.println(json);
+        return adminService.getAdminList(currectpage, limit);
+    }
+    @RequestMapping("updateAdminInfo")
+    public @ResponseBody Object updateAdminInfo(String field,String value,int id){
+               System.out.println(field+" "+value);
+        adminService.updateAdminInfo(field,value,id);
+        return "success";
+    }
 
+    @RequestMapping("addAdmin")
+    public @ResponseBody Object addAdmin(HttpServletRequest request) throws IOException {
+        String admin=request.getParameter("admin");
+        ObjectMapper objectMapper=new ObjectMapper();
+        Admin admin1=objectMapper.readValue(admin, Admin.class);
+        adminService.addAdmin(admin1);
+        return "success";
+    }
 
 
 }

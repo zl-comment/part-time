@@ -39,6 +39,13 @@ public interface AdminService {
 
     Resume getResumeByResumeId(int parseInt);
 
+    Page<Admin> getAdminList(int currectpage, int limit);
+
+    void updateAdminInfo(String field, String value,int id);
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    void addAdmin(Admin admin);
+
 
 
 

@@ -37,5 +37,42 @@
         select *from resume where id=#{id}
     </select>
 
+    <select id="getAdminList" resultType="com.zx.beans.Admin">
+        select *from admin
+    </select>
+
+    <update id="updateAdminInfo" >
+        UPDATE     admin
+        <trim prefix="set" suffixOverrides=",">
+            <if test="adminname!=null">
+                adminname= #{adminname},
+            </if>
+
+            <if test="adminpassword!=null">
+                adminpassword = #{adminpassword},
+        </if>
+
+            <if test="adminphone!=null">
+                adminphone = #{adminphone},
+            </if>
+    </trim>
+    where id = #{id}
+    </update>
+
+    <update id="updateAdminState" >
+        update admin set state=#{parseInt} where id=#{id}
+    </update>
+
+    <insert id="addAdmin" parameterType="com.zx.beans.Admin" useGeneratedKeys="true" keyProperty="admin.id">
+        insert into admin values(null,#{admin.adminname},#{admin.adminpassword},#{admin.adminphone},null)
+    </insert>
+
+    <update id="updateAdandro">
+        update adandro set roleid=#{i} where adminid=#{id}
+    </update>
+
+    <insert id="insertAdandro">
+        insert into adandro values(null,#{id},null)
+    </insert>
 
 </mapper>

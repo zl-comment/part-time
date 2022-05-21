@@ -195,5 +195,60 @@ public class AdminServiceImpl  implements AdminService {
         AdminDao adminDao=sqlSessionTemplate.getMapper(AdminDao.class);
         return adminDao.getResumeByResumeId(parseInt);
     }
+
+    @Override
+    public Page<Admin> getAdminList(int currectpage, int limit) {
+        AdminDao adminDao=sqlSessionTemplate.getMapper(AdminDao.class);
+        Page<Admin> page=new Page<>();
+        PageHelper.startPage(currectpage,limit);
+        List<Admin> admins=adminDao.getAdminList();
+        return getAdminPage(page, admins);
+
+    }
+
+    private Page<Admin> getAdminPage(Page<Admin> page, List<Admin> admins) {
+        PageInfo<Admin> pageInfo=new PageInfo<>(admins);   //这两步不可分开，否则数据丢失
+        page.setCount((int)pageInfo.getTotal());      //获得数据总数
+        List<Admin> list=new ArrayList<>(admins);   //获得查询数据真正集合
+        pageInfo.setList(list);    //将集合真正放入pageInfo
+        page.setData(pageInfo);    //将pageInfo放入page
+        System.out.println(page);
+        return page;
+    }
+
+    @Override
+    public void updateAdminInfo(String field, String value,int id) {
+        AdminDao adminDao=sqlSessionTemplate.getMapper(AdminDao.class);
+        if(field.equals("state")){
+          adminDao.updateAdminState( id,Integer.parseInt(value));
+          if(value.equals("1")){
+              adminDao.updateAdandro(id,1);
+          }else  if(value.equals("2")){
+              adminDao.updateAdandro(id,2);
+          }else {
+              adminDao.updateAdandro(id,0);
+          }
+        }else {
+            if(field.equals("adminpassword")){
+                String adminpassword=value;
+                adminDao.updateAdminInfo(id,null,adminpassword,null);
+            }else if (field.equals("adminname")){
+                String adminname=value;
+                adminDao.updateAdminInfo(id,adminname,null,null);
+            }else if (field.equals("adminphone")){
+                String adminphone=value;
+                adminDao.updateAdminInfo(id,null,null,adminphone);
+            }
+        }
+
+    }
+
+    @Override
+    public void addAdmin(Admin admin) {
+        AdminDao adminDao=sqlSessionTemplate.getMapper(AdminDao.class);
+        adminDao.addAdmin(admin);
+       adminDao.insertAdandro(admin.getId());
+
+    }
 }
 
