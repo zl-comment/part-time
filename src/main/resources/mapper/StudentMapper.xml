@@ -36,7 +36,7 @@
     </resultMap>
 
 
-    <insert id="Register" parameterType="com.zx.beans.Student">
+    <insert id="Register" parameterType="com.zx.beans.Student" useGeneratedKeys="true" keyProperty="student.id">
         insert into student values (null,null,#{student.staccount},#{student.stpassword},#{student.stphone},#{student.stschool},#{student.stmajor},#{student.stsystem},#{student.stdate},null,0,null)
     </insert>
 
@@ -87,5 +87,9 @@
     <select id="getHistory" resultType="com.zx.beans.Occupation">
         select * from history where studentid = #{studentid}
     </select>
+
+    <insert id="insertStuandro" >
+        insert into stuandro values (null,#{id},#{i})
+    </insert>
 
 </mapper>

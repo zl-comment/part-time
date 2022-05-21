@@ -44,4 +44,7 @@ public interface StudentDao {
     void addOccupationHistory(@Param("occupation") Occupation occupation,@Param("studentid") int studentid);
 
     List<Occupation> getHistory(int studentid);
+
+    void insertStuandro(@Param("id") int id,@Param("i") int i);
+
 }

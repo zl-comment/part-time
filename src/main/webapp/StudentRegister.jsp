@@ -139,7 +139,7 @@
 <script>
     $(function () {
 
-    /*    $("#staccount").blur(function () {
+        $("#staccount").blur(function () {
             var staccount=$("#staccount").val();
             $.ajax({
                 url:"staccountIsSame",
@@ -154,7 +154,7 @@
 
                 }
             })
-        })*/
+        })
 
         $("#submit").on('click', function() {
 

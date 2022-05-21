@@ -47,6 +47,7 @@ public class StudentServiceImpl implements com.zx.service.StudentService {
         StudentDao studentDao = sqlSessionTemplate.getMapper(StudentDao.class);
 //        java.sql.Date date=new java.sql.Date(stdate.getTime());
         studentDao.Register(student);
+        studentDao.insertStuandro(student.getId(),6);
     }
 
     @Override
