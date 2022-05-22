@@ -26,7 +26,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">账户名称</label>
             <div class="layui-input-block">
-                <input type="text" name="staccount" lay-verify="title" autocomplete="off" placeholder="请输入您的账户名" value="${student.staccount}" class="layui-input">
+                <input type="text" name="staccount"  readonly = "ture"  lay-verify="title" autocomplete="off" placeholder="请输入您的账户名" value="${student.staccount}" class="layui-input">
             </div>
         </div>
     </div>
