@@ -510,11 +510,11 @@
 	网站导航&nbsp;&nbsp;|&nbsp;&nbsp;<a href="index1.jsp" class="adwt">网站首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="search.jsp" class="adwt">职位搜索</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="allLogin.jsp" class="adwt">Myjob</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="allLogin.jsp" class="adwt">用户登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="intro.jsp" class="adwt">简历管理</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="company.jsp" class="adwt">招聘公司</a>
 </div>
 <div>
-  <span class="spandwt">人才招聘&nbsp;Email:hr@51job.com</span>
-  <span class="spandwt">个人求职&nbsp;Email:club@51job.com&nbsp;&nbsp;或垂询:800-820-5100</span>
-  <span class="spandwt">未经本招聘网站同意，不得转载本网站之所有招聘信息及作品</span>
-  <span class="spandwt">无忧工作网版权所有&copy;1999-2007</span>
-  <span class="spandwt"><a href="index1.jsp"><img src="static/images1/bottom1.gif" class="imgdwt" /></a></span>
+    <span class="spandwt">人才招聘&nbsp;Email:hr@51job.com</span>
+    <span class="spandwt">个人求职&nbsp;Email:club@51job.com&nbsp;&nbsp;或垂询:800-820-5100</span>
+    <span class="spandwt">未经本招聘网站同意，不得转载本网站之所有招聘信息及作品</span>
+    <span class="spandwt">山西聘学兼优版权所有&copy;1999-2007</span>
+    <span class="spandwt"><a href="index1.jsp"><img src="static/images1/bottom1.gif" class="imgdwt" /></a></span>
 </div>
 
 <!-- InstanceBeginEditable name="EditRegion4" -->

@@ -571,17 +571,17 @@
         </div>
         <div class="div142Index">
             <marquee class="marquee2Index" scrollamount="2" direction="up" onmouseover="this.stop()" onmouseout="this.start()">
-                	<span style="margin-right:5px">▪</span>2007年9月无忧指数IT图解<br />
+                	<span style="margin-right:5px">▪</span>2022年9月指数IT图解<br />
                     <span style="margin-right:5px">▪</span>3G售前技术支持工程师<br />
                     <span style="margin-right:5px">▪</span>3G测试工程师<br />
                     <span style="margin-right:5px">▪</span>3G软件工程师<br />
                     <span style="margin-right:5px">▪</span>3G系统工程师<br />
-                    <span style="margin-right:5px">▪</span>2007年9月无忧指数IT图解<br />
+                    <span style="margin-right:5px">▪</span>2022年9月指数IT图解<br />
                     <span style="margin-right:5px">▪</span>3G售前技术支持工程师<br />
                     <span style="margin-right:5px">▪</span>3G测试工程师<br />
                     <span style="margin-right:5px">▪</span>3G软件工程师<br />
                     <span style="margin-right:5px">▪</span>3G系统工程师<br />
-                    <span style="margin-right:5px">▪</span>2007年9月无忧指数IT图解
+                    <span style="margin-right:5px">▪</span>2022年9月指数IT图解
             </marquee>
         </div>
     </div>
@@ -973,7 +973,7 @@
   <span class="spandwt">人才招聘&nbsp;Email:hr@51job.com</span>
   <span class="spandwt">个人求职&nbsp;Email:club@51job.com&nbsp;&nbsp;或垂询:800-820-5100</span>
   <span class="spandwt">未经本招聘网站同意，不得转载本网站之所有招聘信息及作品</span>
-  <span class="spandwt">无忧工作网版权所有&copy;1999-2007</span>
+  <span class="spandwt">山西聘学兼优版权所有&copy;1999-2007</span>
   <span class="spandwt"><a href="index1.jsp"><img src="static/images1/bottom1.gif" class="imgdwt" /></a></span>
 </div>
 
